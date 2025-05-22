@@ -1,0 +1,162 @@
+:root {
+  --main-bg: #000000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #ffffff;
+  --hover-color: #9e9e9e;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Estilos del navbar */
+.navbar {
+  background-color: var(--secondary-bg);
+  height: 60px;
+  z-index: 1030;
+}
+
+.logo-placeholder {
+  color: var(--text-color);
+  font-weight: bold;
+  max-width: 45px;
+  margin-top: 5px;
+  transition: filter 0.5s ease;
+}
+
+/*Con esto se logra el efecto de neón*/
+.logo-placeholder:hover {
+  filter: drop-shadow(0 0 5px #00f) 
+          drop-shadow(0 0 10px #00f)
+          drop-shadow(0 0 15px #00f);
+}
+
+.button-placeholder {
+  color: var(--text-color);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+}
+
+/* Estilos del sidebar */
+.sidebar {
+  background-color: var(--secondary-bg);
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  z-index: 1020;
+  transition: width 0.3s ease;
+}
+
+.sidebar-collapsed {
+  width: 70px;
+}
+
+.sidebar-content {
+  padding-top: 20px;
+}
+
+.sidebar .nav-link {
+  color: var(--text-color);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--hover-color);
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.sidebar-collapsed .sidebar-text {
+  display: none;
+}
+
+.sidebar-collapsed .sidebar-icon {
+  margin-right: 0;
+}
+
+/* Estilos del main */
+.main-content {
+  margin-left: 240px;
+  padding-top: 80px;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content-expanded {
+  margin-left: 70px;
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--secondary-bg) !important;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Ajustes de responsive */
+@media (max-width: 768px) {
+  .logo-placeholder {
+    max-width: 30px;
+  }
+
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar .sidebar-text {
+    display: none;
+  }
+
+  .sidebar .sidebar-icon {
+    margin-right: 0;
+  }
+
+  .main-content {
+    margin-left: 70px;
+  }
+
+  .outlet-layout {
+    margin-left: 100px !important;
+  }
+}
+
+/* Bootstrap overrides */
+.bg-secondary {
+  background-color: var(--secondary-bg) !important;
+}
+
+.btn-dark {
+  background-color: var(--secondary-bg);
+  border-color: var(--secondary-bg);
+}
+
+.btn-dark:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+.outlet-layout {
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+/**/
