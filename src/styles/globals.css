@@ -3,19 +3,30 @@
   --secondary-bg: #1a1a1a;
   --text-color: #ffffff;
   --hover-color: #9e9e9e;
+  --body-bg: #121212; /*333131*/
 }
 
 body {
-  background-color: var(--main-bg);
+  background-color: var(--body-bg) !important; /*ANTES TENIA MAIN-BG*/
+  /*background-color: aqua;*/
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /*overflow-x: hidden; - ASI ESTABA ANTES*/
+}
+
+h1{
+  color: var(--text-color) !important;
+  transition: color 1s ease;
+}
+
+h1:hover{
+  color: #7355ce !important;
 }
 
 /* Estilos del navbar */
 .navbar {
-  background-color: var(--secondary-bg);
+  background-color: var(--main-bg); /*ANTES ERA SECONDRY-BG*/
   height: 60px;
   z-index: 1030;
 }
@@ -30,9 +41,9 @@ body {
 
 /*Con esto se logra el efecto de neón*/
 .logo-placeholder:hover {
-  filter: drop-shadow(0 0 5px #00f) 
-          drop-shadow(0 0 10px #00f)
-          drop-shadow(0 0 15px #00f);
+  filter: drop-shadow(0 0 5px #5335ae) 
+          drop-shadow(0 0 10px #5335ae)
+          drop-shadow(0 0 15px #5335ae);
 }
 
 .button-placeholder {
@@ -43,11 +54,17 @@ body {
   width: 20px;
   height: 20px;
   color: var(--text-color);
+  transition: color 0.7s ease;
 }
+
+.icon:hover {
+  color: #8365ee;
+}
+
 
 /* Estilos del sidebar */
 .sidebar {
-  background-color: var(--secondary-bg);
+  background-color: var(--main-bg); /*ANTES ERA SECONDRY-BG*/
   width: 240px;
   height: 100vh;
   position: fixed;
@@ -75,7 +92,8 @@ body {
 
 .sidebar .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  color: var(--hover-color);
+  /*color: var(--hover-color);*/
+  color: #8365ee;
 }
 
 .sidebar-icon {
@@ -92,12 +110,27 @@ body {
   margin-right: 0;
 }
 
+.sidebar .nav-link.active {
+  background-color: var(--body-bg);
+  /*color: var(--hover-color);*/
+  color: #7355ce;
+}
+
 /* Estilos del main */
 .main-content {
-  margin-left: 240px;
-  padding-top: 80px;
-  min-height: 100vh;
+  margin-left: 250px;
+  margin-top: 80px;
+  min-height: 85vh;
+  /*min-height: 100vh; - ASI ESTABA ANTES*/
   transition: margin-left 0.3s ease;
+  transition: background-color 0.3s ease;
+  /*background-color: brown;*/
+  margin-right: 30px;
+  border-radius: 10px;
+}
+
+.main-content:hover {
+  background-color: #1d1d1d;
 }
 
 .main-content-expanded {
@@ -159,4 +192,35 @@ body {
   margin-left: 300px;
 }
 
+
+
 /**/
+
+
+
+
+
+
+.animated-underline {
+  display: inline-block;
+  position: relative;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* distancia entre el texto y la línea */
+  width: 100%;
+  height: 2px;
+  background-color: var(--hover-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+}
