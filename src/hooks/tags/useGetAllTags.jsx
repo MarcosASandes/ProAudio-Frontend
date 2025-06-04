@@ -11,7 +11,7 @@ const useGetAllTags = () => {
       dispatch(fetchTagsStart());
       try {
         const data = await getAllTags();
-        dispatch(fetchTagsSuccess(data));
+        dispatch(fetchTagsSuccess(data.tags));
       } catch (error) {
         dispatch(fetchTagsFailure(error.message || "Error al cargar las etiquetas"));
       }
