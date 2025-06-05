@@ -3,15 +3,15 @@ import TagsTree from "./../components/TagsTree";
 import "../styles/tags.css";
 import useGetAllTags from "../hooks/tags/useGetAllTags";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   selectTags,
   flattenTags,
   selectTagsLoading,
-  selectTagsError
+  selectTagsError,
 } from "../features/tags/TagSelector";
 
 const TagsPage = () => {
-
   const etiquetasAnidadasMock = {
     tags: [
       {
@@ -233,6 +233,11 @@ const TagsPage = () => {
     ],
   };
 
+  const navigate = useNavigate();
+
+  const handleGoToCreate = () => {
+    navigate("/tag/create");
+  };
 
   useGetAllTags();
 
@@ -258,10 +263,10 @@ const TagsPage = () => {
   );*/
 
   return (
-    <div className="tags-page">
+    /*<div className="tags-page">
       <h1 className="animated-underline">Etiquetas</h1>
       <div className="mb-4">
-        <button className="btn btn-success">Crear etiqueta</button>
+        <button className="btn btn-success" onClick={handleGoToCreate}>Crear etiqueta</button>
       </div>
 
       {loading && <p>Cargando etiquetas...</p>}
@@ -270,7 +275,27 @@ const TagsPage = () => {
       {!loading && !error && (
         <div className="tags-tree-wrapper">
           <div className="tags-tree-space">
-            <TagsTree tags={nestedTags} />
+            <TagsTree />
+          </div>
+        </div>
+      )}
+    </div>*/
+
+    <div className="tags-page">
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-column flex-md-row gap-3">
+        <h1 className="animated-underline m-0">Etiquetas</h1>
+        <button className="btn btn-green-style" onClick={handleGoToCreate}>
+          + Crear etiqueta
+        </button>
+      </div>
+
+      {loading && <p className="text-light">Cargando etiquetas...</p>}
+      {error && <p className="text-danger">Error: {error}</p>}
+
+      {!loading && !error && (
+        <div className="tags-tree-wrapper">
+          <div className="tags-tree-space">
+            <TagsTree /* tags={nestedTags} */ />
           </div>
         </div>
       )}

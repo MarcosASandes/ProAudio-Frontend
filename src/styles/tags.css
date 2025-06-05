@@ -1,4 +1,14 @@
-
+:root {
+  --main-bg: #000000; /* Color del layout main (Navbar y Sidebar) */
+  --secondary-bg: #1a1a1a; /* Color segundario */
+  --text-color: #ffffff; /* Color de texto */
+  --body-bg: #121212; /* Color de fondo del main / outlet */
+  --purple-main: #7355ce; /* Púrpura principal*/
+  --purple-secondary: #8365ee; /* Púrpura segundario */
+  --purple-extra: #5335ae; /* Púrpura extra */
+  --green-success: #059b50;
+  --green-dark-success: #03552c;
+}
 
 /* Contenedor principal con contenido centrado verticalmente */
 .tags-page {
@@ -201,3 +211,155 @@
 
 
 
+/* Creación de etiquetas */
+.custom-modal-width {
+  height: 80%;
+  width: 70%;
+}
+
+.modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+
+
+.overflow-controlled{
+  overflow: auto;
+}
+
+
+/* tag.css - modo oscuro */
+
+.tag-form-dark {
+  background-color: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  box-shadow: 0 0 5px var(--purple-extra);
+  width: 100%;
+}
+
+.tag-form-dark h1 {
+  padding-bottom: 0.5rem;
+  color: var(--purple-main) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-color);
+}
+
+.form-control:focus {
+  border-color: var(--purple-extra) !important;
+  box-shadow: 0 0 0 1px var(--purple-main) !important;
+}
+
+.invalid-feedback {
+  color: #ff6b6b;
+}
+
+.btn-purple-style{
+  border-color: var(--purple-extra) !important;
+  background-color: var(--purple-secondary) !important;
+  color: var(--body-bg) !important;
+  transition: background-color 0.7s ease,
+              color 0.7s ease !important;
+}
+
+.btn-purple-style:hover{
+  border-color: var(--purple-extra) !important;
+  background-color: var(--purple-extra) !important;
+  color: var(--text-color) !important;
+}
+
+
+.btn-green-style{
+  border-color: var(--green-dark-success) !important;
+  background-color: var(--green-dark-success) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.7s ease,
+              color 0.7s ease !important;
+}
+
+.btn-green-style:hover{
+  border-color: var(--green-success) !important;
+  background-color: var(--green-success) !important;
+  color: var(--main-bg) !important;
+}
+
+.btn-back-arrow {
+  background: transparent;
+  border: none;
+  color: var(--purple-main);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.btn-back-arrow:hover {
+  color: var(--purple-extra);
+  cursor: pointer;
+}
+
+
+
+
+/*-------------------------*/
+
+.tags-page {
+  padding: 2rem;
+  color: var(--text-color, #e0e0e0);
+}
+
+.animated-underline {
+  color: var(--purple-main);
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--purple-extra);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.tags-tree-wrapper {
+  background-color: #121212; /* Fondo más oscuro */
+  border: 1px solid #2c2c2c;
+  box-shadow: 0 0 6px rgba(115, 85, 206, 0.25);
+  border-radius: 12px;
+  padding: 1rem;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.tags-tree-space {
+  min-height: auto;
+}
+
+.btn-green-style {
+  border-color: var(--green-dark-success) !important;
+  background-color: var(--green-dark-success) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.7s ease, color 0.7s ease !important;
+}
+
+.btn-green-style:hover {
+  border-color: var(--green-success) !important;
+  background-color: var(--green-success) !important;
+  color: var(--main-bg) !important;
+}

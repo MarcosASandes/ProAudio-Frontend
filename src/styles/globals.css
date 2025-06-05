@@ -1,18 +1,19 @@
 :root {
-  --main-bg: #000000;
-  --secondary-bg: #1a1a1a;
-  --text-color: #ffffff;
-  --hover-color: #9e9e9e;
-  --body-bg: #121212; /*333131*/
+  --main-bg: #000000; /* Color del layout main (Navbar y Sidebar) */
+  --secondary-bg: #1a1a1a; /* Color segundario */
+  --text-color: #ffffff; /* Color de texto */
+  --body-bg: #121212; /* Color de fondo del main / outlet */
+  --purple-main: #7355ce; /* Púrpura principal*/
+  --purple-secondary: #8365ee; /* Púrpura segundario */
+  --purple-extra: #5335ae; /* Púrpura extra */
 }
 
 body {
-  background-color: var(--body-bg) !important; /*ANTES TENIA MAIN-BG*/
-  /*background-color: aqua;*/
+  background-color: var(--body-bg) !important;
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  /*overflow-x: hidden; - ASI ESTABA ANTES*/
+  overflow-x: hidden;
 }
 
 h1{
@@ -21,12 +22,12 @@ h1{
 }
 
 h1:hover{
-  color: #7355ce !important;
+  color: var(--purple-main) !important;
 }
 
 /* Estilos del navbar */
 .navbar {
-  background-color: var(--main-bg); /*ANTES ERA SECONDRY-BG*/
+  background-color: var(--main-bg);
   height: 60px;
   z-index: 1030;
 }
@@ -41,9 +42,9 @@ h1:hover{
 
 /*Con esto se logra el efecto de neón*/
 .logo-placeholder:hover {
-  filter: drop-shadow(0 0 5px #5335ae) 
-          drop-shadow(0 0 10px #5335ae)
-          drop-shadow(0 0 15px #5335ae);
+  filter: drop-shadow(0 0 5px var(--purple-extra)) 
+          drop-shadow(0 0 10px var(--purple-extra))
+          drop-shadow(0 0 15px var(--purple-extra));
 }
 
 .button-placeholder {
@@ -58,7 +59,7 @@ h1:hover{
 }
 
 .icon:hover {
-  color: #8365ee;
+  color: var(--purple-secondary);
 }
 
 
@@ -92,8 +93,7 @@ h1:hover{
 
 .sidebar .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  /*color: var(--hover-color);*/
-  color: #8365ee;
+  color: var(--purple-secondary);
 }
 
 .sidebar-icon {
@@ -112,8 +112,7 @@ h1:hover{
 
 .sidebar .nav-link.active {
   background-color: var(--body-bg);
-  /*color: var(--hover-color);*/
-  color: #7355ce;
+  color: var(--purple-main);
 }
 
 /* Estilos del main */
@@ -129,9 +128,9 @@ h1:hover{
   border-radius: 10px;
 }
 
-.main-content:hover {
+/*.main-content:hover {
   background-color: #1d1d1d;
-}
+}*/
 
 .main-content-expanded {
   margin-left: 70px;
