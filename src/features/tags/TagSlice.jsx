@@ -42,6 +42,12 @@ const TagSlice = createSlice({
         tags: [...state.tags, action.payload], // ✅ sin mutar el array original
       };
     },
+    deleteTagStore: (state, action) => {
+      return {
+        ...state,
+        tags: state.tags.filter((tag) => tag.tag_id !== action.payload), // ✅ sin mutar
+      };
+    },
   },
 });
 
@@ -53,6 +59,7 @@ export const {
   clearSelectedTag,
   updateTagInStore,
   addTag,
+  deleteTagStore,
 } = TagSlice.actions;
 
 export default TagSlice.reducer;

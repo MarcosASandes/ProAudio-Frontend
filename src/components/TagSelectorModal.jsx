@@ -79,6 +79,13 @@ export default function TagSelectorModal({ tags, onSelect }) {
     onSelect(selectedTag); // Envío al componente padre
   };
 
+  const handleConfirmFatherNull = () => {
+    setSelectedTag(null);
+    const modal = bootstrap.Modal.getInstance(modalRef.current);
+    modal.hide();
+    onSelect(selectedTag);
+  }
+
   return (
     <div
       className="modal fade"
@@ -114,6 +121,12 @@ export default function TagSelectorModal({ tags, onSelect }) {
               onClick={handleConfirmSelection}
             >
               Seleccionar
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={handleConfirmFatherNull}
+            >
+              Convertir en etiqueta base
             </button>
           </div>
         </div>

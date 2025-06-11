@@ -22,7 +22,7 @@ export function useUpdateTag() {
       dispatch(updateTagInStore(updated));
     } catch (error) {
       console.error("Error al actualizar etiqueta:", error);
-      toast.error("Error al actualizar la etiqueta ❌");
+      toast.error("Error: " + error.response.data.message);
     }
   }, []);
 
