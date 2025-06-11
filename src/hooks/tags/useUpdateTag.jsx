@@ -12,7 +12,7 @@ export function useUpdateTag() {
       father_id: formData.father_id ?? null,
       description: formData.description,
       status: formData.status
-    };
+    }; 
 
     try {
       const updated = await updateTag(tagId, updatedTag);
