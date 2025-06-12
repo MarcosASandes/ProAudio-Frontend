@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { deleteTagById } from "../../services/tagApiService";
-import { updateTagInStore } from "../../features/tags/tagSlice";
+import { updateTagInStore } from "../../features/tags/TagSlice";
 import { useDispatch } from "react-redux";
-import { deleteTagStore } from "../../features/tags/tagSlice";
+import { deleteTagStore } from "../../features/tags/TagSlice";
 
 const useDeleteTag = () => {
   const dispatch = useDispatch();

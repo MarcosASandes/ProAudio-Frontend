@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getTagById } from "../../services/tagApiService";
-import { setSelectedTag } from "../../features/tags/tagSlice";
+import { setSelectedTag } from "../../features/tags/TagSlice";
 
 const useGetTagById = (id) => {
   const dispatch = useDispatch();

@@ -32,7 +32,7 @@ export default useGetAllTags;*/
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTags } from "../../services/tagApiService";
-import { fetchTagsStart, fetchTagsSuccess, fetchTagsFailure } from "../../features/tags/tagSlice";
+import { fetchTagsStart, fetchTagsSuccess, fetchTagsFailure } from "../../features/tags/TagSlice";
 import { selectTags } from "../../features/tags/TagSelector";
 
 const useGetAllTags = () => {

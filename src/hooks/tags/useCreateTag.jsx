@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { createTag } from "../../services/tagApiService";
 import { toast } from "react-toastify";
-import { addTag } from "../../features/tags/tagSlice";
+import { addTag } from "../../features/tags/TagSlice";
 import { useDispatch } from "react-redux";
 
 export function useCreateTag() {
