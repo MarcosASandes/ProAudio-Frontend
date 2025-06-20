@@ -2,6 +2,7 @@ export const selectTags = (state) => state.tags.tags;
 export const selectTagsLoading = (state) => state.tags.loading;
 export const selectTagsError = (state) => state.tags.error;
 export const selectSelectedTag = (state) => state.tags.selectedTag;
+export const selectTagsTypes = (state) => state.tags.tagsTypes;
 
 /*export const flattenTags = (state) => {
   const result = [];

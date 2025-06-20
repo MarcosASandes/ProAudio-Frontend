@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   tags: [],
+  tagsTypes: [],
   loading: false,
   error: null,
   selectedTag: null,
@@ -48,6 +49,9 @@ const TagSlice = createSlice({
         tags: state.tags.filter((tag) => tag.tag_id !== action.payload), // ✅ sin mutar
       };
     },
+    setTagsTypeInStore: (state, action) => {
+      state.tagsTypes = action.payload;
+    },
   },
 });
 
@@ -60,6 +64,7 @@ export const {
   updateTagInStore,
   addTag,
   deleteTagStore,
+  setTagsTypeInStore,
 } = TagSlice.actions;
 
 export default TagSlice.reducer;

@@ -134,6 +134,8 @@ const TagsTree = ({ onSelectTag = null }) => {
   const confirmDeleteRef = useRef();
   const navigate = useNavigate();
 
+  console.log(tags);
+
   const deleteTag = useDeleteTag();
 
   const getSubNodes = (padreId) =>

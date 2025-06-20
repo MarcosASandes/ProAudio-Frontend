@@ -506,58 +506,7 @@ export default function CreateTagForm() {
   };
 
   return (
-    /*<>
-      <form onSubmit={handleSubmit(onSubmit)} className="p-4 border rounded">
-        <div className="mb-3">
-          <label className="form-label">Nombre</label>
-          <input
-            type="text"
-            className={`form-control ${errors.name ? "is-invalid" : ""}`}
-            {...register("name")}
-          />
-          {errors.name && (
-            <div className="invalid-feedback">{errors.name.message}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Descripción</label>
-          <textarea
-            className={`form-control ${errors.description ? "is-invalid" : ""}`}
-            rows="3"
-            {...register("description")}
-          />
-          {errors.description && (
-            <div className="invalid-feedback">{errors.description.message}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Etiqueta padre</label>
-          <div className="d-flex align-items-center gap-3">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={showModal}
-            >
-              Seleccionar etiqueta base
-            </button>
-            {fatherTag && <span>Seleccionada: {fatherTag.name}</span>}
-          </div>
-          {errors.father_id && (
-            <div className="text-danger mt-1">{errors.father_id.message}</div>
-          )}
-        </div>
-
-        <button type="submit" className="btn btn-primary">
-          Crear etiqueta
-        </button>
-      </form>
-
-      <TagSelectorModal tags={tags} onSelect={setFatherTag} />
-
-      <ToastContainer position="top-right" autoClose={3000} />
-    </>*/
+   
 
     <>
       <div className="mb-3">
@@ -597,7 +546,7 @@ export default function CreateTagForm() {
             Descripción
           </label>
           <textarea
-            className={`form-control bg-dark text-light border-secondary ${
+            className={`form-control bg-dark text-light border-secondary textarea-overflow ${
               errors.description ? "is-invalid" : ""
             }`}
             rows="3"

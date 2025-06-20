@@ -263,23 +263,6 @@ const TagsPage = () => {
   );*/
 
   return (
-    /*<div className="tags-page">
-      <h1 className="animated-underline">Etiquetas</h1>
-      <div className="mb-4">
-        <button className="btn btn-success" onClick={handleGoToCreate}>Crear etiqueta</button>
-      </div>
-
-      {loading && <p>Cargando etiquetas...</p>}
-      {error && <p className="text-danger">Error: {error}</p>}
-
-      {!loading && !error && (
-        <div className="tags-tree-wrapper">
-          <div className="tags-tree-space">
-            <TagsTree />
-          </div>
-        </div>
-      )}
-    </div>*/
 
     <div className="tags-page">
       <div className="d-flex justify-content-between align-items-center mb-4 flex-column flex-md-row gap-3">

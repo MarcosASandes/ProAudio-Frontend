@@ -7,6 +7,11 @@ export const getAllTags = async () => {
   return response.data; // Asegúrate de que esto sea lo que necesitas
 };
 
+export const getTagsTypes = async () => {
+  const response = await axios.get(BASE_URL + '/types');
+  return response.data; // Asegúrate de que esto sea lo que necesitas
+};
+
 export const getTagById = async (id) => {
   const response = await axios.get(BASE_URL + '/' + id);
   return response.data;
@@ -29,3 +34,4 @@ export const updateTag = async (tagId, tagData) => {
   
   return response.data;
 };
+
