@@ -2,38 +2,6 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:8080/product"; // Reemplaza con la URL real
 
-/*export const createProduct = async (productData) => {
-  const response = await axios.post(BASE_URL, productData);
-  return response.data;
-};*/
-
-/*export const createProduct = async ({ productRequestDto, file, name }) => {
-  const formData = new FormData();
-
-  // El archivo
-  formData.append("file", file);
-
-  // productId y name como string
-  formData.append("name", name);
-
-  // productRequestDto como blob JSON stringificado
-  formData.append(
-    "productRequestDto",
-    new Blob([JSON.stringify(productRequestDto)], { type: "application/json" }),
-    "productRequestDto.json" // este nombre es opcional pero ayuda al depurar
-  );
-
-  console.log("Lo que estoy mandando: ");
-  console.log(formData.get("productRequestDto").text().then(console.log));
-
-  const response = await axios.post("http://localhost:8080/product", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
-  return response.data;
-};*/
-
 export const createProduct = async (formData) => {
   console.log("Form data: ");
   console.log(formData);
@@ -120,22 +88,6 @@ export const createProductTag = async (productPriceData) => {
   return response.data;
 };
 
-
-
-
-
-/*
-export const getAllProducts = async (page = 1, size = 10) => {
-  const response = await axios.get(`${BASE_URL}/all`, {
-    params: {
-      page,
-      size,
-    },
-  });
-  return response.data; // { products, pageable }
-};*/
-
-/*----------- */
 
 /**
  * Obtiene productos paginados con filtros opcionales.

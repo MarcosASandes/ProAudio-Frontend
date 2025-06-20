@@ -37,26 +37,6 @@ const AddProductPricesForm = ({ productId }) => {
     name: "prices",
   });
 
-  /*const onSubmit = async (data) => {
-    try {
-      if (data.prices.length === 0) {
-        toast.warn("Agrega al menos un precio antes de enviar.");
-        return;
-      }
-
-      // Llamar API para agregar precios nuevos
-      await addProductPrice(productId, data.prices);
-
-      toast.success("Precios agregados correctamente.");
-
-      // Limpiar campos locales
-      reset({ prices: [] });
-    } catch (error) {
-      console.error("Error agregando precios:", error);
-      toast.error("Error agregando precios.");
-    }
-  };*/
-
   const onSubmit = async (data) => {
     try {
       if (data.prices.length === 0) {

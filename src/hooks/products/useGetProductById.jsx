@@ -1,24 +1,3 @@
-/*import { useDispatch } from 'react-redux';
-import { setSelectedProduct } from '../../features/products/ProductSlice';
-import { getProductById } from '../../services/productApiService';
-
-export const useGetProductById = () => {
-  const dispatch = useDispatch();
-
-  const fetchProductById = async (id) => {
-    try {
-      const response = await getProductById(id);
-      dispatch(setSelectedProduct(response.data));
-    } catch (error) {
-      console.error('Error al obtener el producto:', error);
-    }
-  };
-
-  return { fetchProductById };
-};*/
-
-/*-------------------- */
-
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setSelectedProduct } from '../../features/products/ProductSlice';

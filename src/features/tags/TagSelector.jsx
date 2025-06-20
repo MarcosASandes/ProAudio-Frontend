@@ -4,22 +4,6 @@ export const selectTagsError = (state) => state.tags.error;
 export const selectSelectedTag = (state) => state.tags.selectedTag;
 export const selectTagsTypes = (state) => state.tags.tagsTypes;
 
-/*export const flattenTags = (state) => {
-  const result = [];
-  tags = state.tags.tags;
-  const flatten = (tagList) => {
-    tagList.forEach(tag => {
-      result.push(tag);
-      if (tag.children?.length > 0) {
-        flatten(tag.children);
-      }
-    });
-  };
-
-  flatten(tags);
-  return result;
-};*/
-
 export const flattenTags = (tagList) => {
   const result = [];
 

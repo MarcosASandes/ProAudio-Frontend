@@ -244,23 +244,6 @@ const TagsPage = () => {
   const nestedTags = useSelector(selectTags);
   const loading = useSelector(selectTagsLoading);
   const error = useSelector(selectTagsError);
-  /*const etiquetas = flattenTags(nestedTags);*/
-
-  /*const etiquetasMock = fselectFlattenedTags(etiquetasAnidadasMock.tags);*/
-
-  /*return (
-      <div className="tags-page">
-        <h1>Etiquetas</h1>
-        <div className="mb-4">
-          <button className="btn btn-success">Crear etiqueta</button>
-        </div>
-        <div className="tags-tree-wrapper">
-          <div className="tags-tree-space">
-            <TagsTree tags={etiquetasMock} />
-          </div>
-        </div>
-      </div>
-  );*/
 
   return (
 
