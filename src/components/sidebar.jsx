@@ -1,5 +1,5 @@
 import { BarChart3, FileText, Folder, ShoppingCart, Users, Tags } from "lucide-react"
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Sidebar({ collapsed }) {
   return (
@@ -7,37 +7,38 @@ export default function Sidebar({ collapsed }) {
       <div className="sidebar-content">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <Link className="nav-link" to="/">
+            <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <Folder className="sidebar-icon" />
               <span className="sidebar-text">Proyectos</span>
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/products">
+            <NavLink to="/products" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <ShoppingCart className="sidebar-icon" />
               <span className="sidebar-text">Productos</span>
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/clients">
+            <NavLink to="/clients" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <Users className="sidebar-icon" />
               <span className="sidebar-text">Clientes</span>
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/tags">
+            <NavLink to="/tags" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <Tags className="sidebar-icon" />
               <span className="sidebar-text">Etiquetas</span>
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/analytics">
+            <NavLink to="/analytics" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <BarChart3 className="sidebar-icon" />
               <span className="sidebar-text">Analíticas</span>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
     </aside>
   )
 }
+

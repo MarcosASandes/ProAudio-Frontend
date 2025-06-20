@@ -1,12 +1,14 @@
-import React from 'react';
 
-export default function ProductPage() {
+
+import React from "react";
+import ProductView from "../components/ProductView";
+
+const ProductPage = () => {
   return (
-    <main>
-      <h1>Productos</h1>
-      <p>
-        En esta página se mostrarán los productos.
-      </p>
-    </main>
+    <div className="product-page">
+      <ProductView />
+    </div>
   );
-}
+};
+
+export default ProductPage;
