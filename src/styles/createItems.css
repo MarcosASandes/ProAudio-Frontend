@@ -1,0 +1,135 @@
+/*Base para que sea scrolleable solo el contenido*/
+/*.create-items-main-section {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: flex-start;
+  padding: 2rem;
+  border-radius: 10px;
+}*/
+
+/*--------------------Nuevas cosas-------------------*/
+
+:root {
+  --main-bg: #000000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #ffffff;
+  --body-bg: #121212;
+  --purple-main: #7355ce;
+  --purple-secondary: #8365ee;
+  --purple-extra: #5335ae;
+  --red-main: #b40808;
+  --red-secondary: #da1010;
+}
+
+.create-items-main-section {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto; /* solo scroll vertical */
+  overflow-x: hidden; /* NO scroll horizontal */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--purple-main);
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+}
+
+.create-items-card {
+  border: 1px solid var(--purple-main);
+  border-radius: 8px;
+  background-color: var(--body-bg);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(115, 85, 206, 0.3);
+  color: var(--text-color);
+}
+
+.btn-back-arrow {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--purple-main);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-back-arrow:hover {
+  color: var(--purple-secondary);
+}
+
+.create-items-card input,
+.create-items-card label {
+  color: var(--text-color);
+}
+
+.create-items-card input {
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--purple-secondary);
+  color: var(--text-color);
+}
+
+.create-items-card input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(115, 85, 206, 0.25);
+}
+
+h2 {
+  color: var(--text-color);
+}
+
+form p.text-danger {
+  margin: 0;
+}
+
+.btn-purple {
+  background-color: var(--purple-main);
+  border: none;
+  color: #fff;
+}
+
+.btn-purple:hover {
+  background-color: var(--purple-secondary);
+  color: #fff;
+}
+
+.btn-red {
+  background-color: var(--red-main);
+  border: none;
+  color: #fff;
+}
+
+.btn-red:hover {
+  background-color: var(--red-secondary);
+  color: #fff;
+}
+
+h2 span{
+    color: #ffffff;
+    transition: color 0.9s ease;
+}
+
+h2 span:hover{
+    color: var(--purple-extra);
+}
+
+
+/*Para la vista de descargar los QR*/
+
+.table thead th {
+  background-color: var(--purple-main);
+  color: var(--text-color);
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}

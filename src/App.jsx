@@ -14,6 +14,8 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import AddPhotosProductPage from './pages/AddPhotosProductPage';
 import AddProductPricesPage from './pages/AddProductPricesPage';
 import AddProductTagsPage from './pages/AddProductTagsPage';
+import CreateItemsPage from './pages/items/CreateItemsPage';
+import ItemsCreatedPage from './pages/items/ItemsCreatedPage';
 import "./styles/products.css";
 
 function App() {
@@ -36,6 +38,9 @@ function App() {
         <Route path="/product/:id/photos/create" element={<AddPhotosProductPage />} />
         <Route path="/product/:id/prices/create" element={<AddProductPricesPage />} />
         <Route path="/product/:id/tag/add" element={<AddProductTagsPage />} />
+
+        <Route path="/products/:productId/items/create" element={<CreateItemsPage />} />
+        <Route path="/products/:productId/items/created" element={<ItemsCreatedPage />} />
       </Route>
     </Routes>
   );

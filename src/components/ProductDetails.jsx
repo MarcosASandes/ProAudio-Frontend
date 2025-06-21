@@ -86,7 +86,12 @@ const ProductDetails = ({ id, product }) => {
 
       <div className="d-flex justify-content-center mb-4 flex-wrap gap-2">
         <button className="btn btn-primary">Ver artículos</button>
-        <button className="btn btn-success">Crear artículos</button>
+        <button
+          className="btn btn-success"
+          onClick={() => navigate(`/products/${id}/items/create`)}
+        >
+          Crear artículos
+        </button>
         <button
           className="btn btn-warning"
           onClick={() => navigate("/product/edit/" + id)}
