@@ -1,0 +1,198 @@
+/*:root {
+  --main-bg: #000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #fff;
+  --purple-main: #7355ce;
+  --purple-secondary: #8365ee;
+}
+
+.scan-item-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 85vh;
+  overflow: hidden;
+}
+
+.scan-left {
+  background: var(--main-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.scanner-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.btn-scan {
+  background: var(--purple-main);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.camera-error {
+  text-align: center;
+  color: var(--text-color);
+}
+
+.btn-retry {
+  background: var(--purple-secondary);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.scan-right {
+  background: var(--secondary-bg);
+  color: var(--text-color);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.item-details {
+  border: 1px solid var(--purple-main);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.action-buttons {
+  margin-top: 1rem;
+}
+
+.btn-action {
+  background: var(--purple-main);
+  color: #fff;
+  border: none;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.no-item {
+  color: var(--text-color);
+  opacity: 0.7;
+}*/
+
+/*--------------------------*/
+
+:root {
+  --main-bg: #000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #fff;
+  --purple-main: #7355ce;
+  --purple-secondary: #8365ee;
+}
+
+.scan-item-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* izquierda más grande */
+  height: 85vh;
+  overflow: hidden;
+}
+
+/* LADO IZQUIERDO */
+.scan-left {
+  background: var(--main-bg);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scanner-area {
+  width: 100%;
+  height: 100%;
+}
+
+/* Botón Escanear */
+.btn-scan {
+  background: var(--purple-main);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  position: absolute;  /* CENTRADO */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mensaje de error centrado */
+.camera-error {
+  position: absolute;  /* CENTRADO */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text-color);
+}
+
+.btn-scan,
+.camera-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Botón Reintentar */
+.btn-retry {
+  background: var(--purple-secondary);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* LADO DERECHO */
+.scan-right {
+  background: var(--secondary-bg);
+  color: var(--text-color);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.item-details {
+  border: 1px solid var(--purple-main);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.action-buttons {
+  margin-top: 1rem;
+}
+
+.btn-action {
+  background: var(--purple-main);
+  color: #fff;
+  border: none;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.no-item {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+
+
+
