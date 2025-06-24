@@ -18,6 +18,8 @@ import CreateItemsPage from './pages/items/CreateItemsPage';
 import ItemsCreatedPage from './pages/items/ItemsCreatedPage';
 import UpdateItemPage from './pages/items/UpdateItemPage';
 import ScanItemPage from './pages/items/ScanItemPage';
+import ItemPage from './pages/items/ItemPage';
+import ItemDetailsPage from './pages/items/ItemDetailsPage';
 import "./styles/products.css";
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
         <Route path="/products/:productId/items/created" element={<ItemsCreatedPage />} />
         <Route path="/items/:id/edit" element={<UpdateItemPage />} />
         <Route path="/scan-item" element={<ScanItemPage />} />
+        <Route path="/product/:id/items" element={<ItemPage />} />
+        <Route path="/item/:id/details" element={<ItemDetailsPage />} />
       </Route>
     </Routes>
   );
