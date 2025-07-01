@@ -1,0 +1,23 @@
+.tagsTree {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 100%;
+}
+
+.overflowControlled {
+  max-height: 170px;
+  resize: none !important;
+  overflow: auto;
+}

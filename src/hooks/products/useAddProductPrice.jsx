@@ -10,7 +10,6 @@ export function useAddProductPrice() {
   const handleAddProductPrice = useCallback(
     async (productId, price) => {
       try {
-        // 👉 Mapeo: camelCase a snake_case
         const payload = {
           value: price.value,
           description: price.description,
@@ -19,7 +18,6 @@ export function useAddProductPrice() {
 
         const createdPrice = await createProductPrice(payload);
 
-        // Mapeo de respuesta a store
         const priceToStore = {
           rent_price_id: createdPrice.rent_price_id,
           value: createdPrice.value,

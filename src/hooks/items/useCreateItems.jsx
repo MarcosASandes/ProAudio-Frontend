@@ -17,7 +17,7 @@ const useCreateItems = () => {
       const response = await createItems(payload);
       dispatch(createItemsSuccess(response));
       toast.success("Items creados correctamente");
-      return response; // Para usar en el componente si quieres redirigir o mostrar mensaje
+      return response;
     } catch (error) {
       dispatch(createItemsFailure(error.message));
       toast.error("Error al crear items");

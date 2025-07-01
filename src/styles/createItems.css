@@ -1,19 +1,3 @@
-/*Base para que sea scrolleable solo el contenido*/
-/*.create-items-main-section {
-  height: 85vh;
-  width: 83vw;
-  overflow-y: auto;
-  overflow-x: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
-  justify-content: flex-start;
-  padding: 2rem;
-  border-radius: 10px;
-}*/
-
-/*--------------------Nuevas cosas-------------------*/
-
 :root {
   --main-bg: #000000;
   --secondary-bg: #1a1a1a;

@@ -1,4 +1,3 @@
-// hooks/items/useDeleteItem.js
 import { useDispatch } from "react-redux";
 import { deleteItemById } from "../../services/itemApiService";
 import { removeItem } from "../../features/items/ItemSlice";
@@ -15,7 +14,7 @@ const useDeleteItem = () => {
       await deleteItemById(itemId);
       dispatch(removeItem(itemId));
       toast.success("Artículo eliminado correctamente.");
-      navigate("/products"); // o redirige a donde prefieras
+      navigate("/products");
     } catch (error) {
       toast.error("Error al eliminar el artículo.");
     }

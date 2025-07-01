@@ -9,7 +9,9 @@ import useGetStatuses from "../../hooks/items/useGetStatuses";
 import useUpdateItem from "../../hooks/items/useUpdateItem";
 import { selectSelectedItem } from "../../features/items/ItemSelector";
 import { selectStatuses } from "../../features/items/ItemSelector";
-import updateItemSchema from "../../validators/itemUpdateValidator";
+import updateItemSchema from "../../validators/items/itemUpdateValidator";
+import stylesBackButtom from "../../styles/generic/backButton.module.css";
+import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
 
 const UpdateItemForm = () => {
   const { id } = useParams();
@@ -18,7 +20,6 @@ const UpdateItemForm = () => {
 
   const { updateItem } = useUpdateItem();
 
-  // Obtener datos
   useGetItemById(id);
   useGetStatuses();
 
@@ -36,7 +37,6 @@ const UpdateItemForm = () => {
     resolver: yupResolver(updateItemSchema),
   });
 
-  // Cuando cambie el item en store → poner valores iniciales
   useEffect(() => {
     if (item) {
       reset({
@@ -63,10 +63,10 @@ const UpdateItemForm = () => {
   }
 
   return (
-    <div className="text-light">
+    <div className={`text-light ${stylesSectionContainer.sectionContainerDark}`}>
       <button
-        className="btn-back-arrow mb-3"
-        onClick={() => navigate(-1)}
+        className={`pb-2 ${stylesBackButtom.btnBackArrow}`}
+        onClick={() => navigate("/item/" + id + "/details")}
       >
         <ArrowLeft size={24} />
         <span className="ms-2">Volver</span>

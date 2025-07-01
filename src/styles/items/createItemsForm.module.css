@@ -1,0 +1,31 @@
+.card {
+  border: 1px solid var(--purple-main);
+  border-radius: 8px;
+  background-color: var(--body-bg);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(115, 85, 206, 0.3);
+  color: var(--text-color);
+}
+
+.btnPurple {
+  background-color: var(--purple-main);
+  border: none;
+  color: #fff;
+}
+
+.btnPurple:hover {
+  background-color: var(--purple-secondary);
+  color: #fff;
+}
+
+.btnRed {
+  background-color: var(--red-main);
+  border: none;
+  color: #fff;
+}
+
+.btnRed:hover {
+  background-color: var(--red-secondary);
+  color: #fff;
+}

@@ -22,7 +22,6 @@ const useGetStatuses = () => {
 
     fetchStatuses();
 
-    // Limpieza opcional
     return () => dispatch(clearStatuses());
   }, [dispatch]);
 };

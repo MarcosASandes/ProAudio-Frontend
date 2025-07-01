@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ItemFilter from "./ItemFilter";
 import ItemTable from "./ItemTable";
-import Pagination from "../Pagination";
 import useGetItemsByProduct from "../../hooks/items/useGetItemsByProduct";
 import {
   selectItems,
@@ -24,11 +23,10 @@ const ItemView = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
   const { id } = useParams();
-  useGetStatuses(); // carga a la store los estados
+  useGetStatuses();
 
   const statuses = useSelector(selectStatuses);
 
-  // Hook que obtiene items filtrados y paginados
   useGetItemsByProduct(id, currentPage - 1, pageSize, selectedStatus, sortBy, direction);
 
   const items = useSelector(selectItems);

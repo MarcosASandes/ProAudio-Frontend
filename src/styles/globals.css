@@ -26,7 +26,7 @@ h1:hover{
 }
 
 /* Estilos del navbar */
-.navbar {
+/*.navbar {
   background-color: var(--main-bg);
   height: 60px;
   z-index: 1030;
@@ -40,7 +40,7 @@ h1:hover{
   transition: filter 0.5s ease;
 }
 
-/*Con esto se logra el efecto de neón*/
+
 .logo-placeholder:hover {
   filter: drop-shadow(0 0 5px var(--purple-extra)) 
           drop-shadow(0 0 10px var(--purple-extra))
@@ -60,12 +60,12 @@ h1:hover{
 
 .icon:hover {
   color: var(--purple-secondary);
-}
+}*/
 
 
 /* Estilos del sidebar */
-.sidebar {
-  background-color: var(--main-bg); /*ANTES ERA SECONDRY-BG*/
+/*.sidebar {
+  background-color: var(--main-bg); 
   width: 240px;
   height: 100vh;
   position: fixed;
@@ -113,28 +113,23 @@ h1:hover{
 .sidebar .nav-link.active {
   background-color: var(--body-bg);
   color: var(--purple-main);
-}
+}*/
 
 /* Estilos del main */
-.main-content {
+/*.main-content {
   margin-left: 250px;
   margin-top: 80px;
   min-height: 85vh;
-  /*min-height: 100vh; - ASI ESTABA ANTES*/
   transition: margin-left 0.3s ease;
   transition: background-color 0.3s ease;
-  /*background-color: brown;*/
   margin-right: 30px;
   border-radius: 10px;
 }
 
-/*.main-content:hover {
-  background-color: #1d1d1d;
-}*/
 
 .main-content-expanded {
   margin-left: 70px;
-}
+}*/
 
 /* Card Styles */
 .card {
@@ -145,7 +140,7 @@ h1:hover{
 }
 
 /* Ajustes de responsive */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   .logo-placeholder {
     max-width: 30px;
   }
@@ -169,7 +164,7 @@ h1:hover{
   .outlet-layout {
     margin-left: 100px !important;
   }
-}
+}*/
 
 /* Bootstrap overrides */
 .bg-secondary {

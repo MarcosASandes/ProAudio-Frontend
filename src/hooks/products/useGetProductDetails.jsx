@@ -16,7 +16,6 @@ const useGetProductDetails = (id) => {
         dispatch(setSelectedProductDetails(data));
       } catch (error) {
         console.error("Error al obtener el producto:", error);
-        // En este caso no se despacha ningún error al store.
       }
     };
 
@@ -25,6 +24,3 @@ const useGetProductDetails = (id) => {
 };
 
 export default useGetProductDetails;
-
-
-

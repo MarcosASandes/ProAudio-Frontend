@@ -52,7 +52,6 @@ const productSlice = createSlice({
       state.error = action.payload;
     },
 
-    // ✅ NUEVO REDUCER
     setSelectedProduct: (state, action) => {
       state.selectedProduct = action.payload;
     },
@@ -95,7 +94,6 @@ const productSlice = createSlice({
       };
     },
 
-    //Para los tags descriptivos
     addDescriptionTagInStore: (state, action) => {
       return {
         ...state,
@@ -121,7 +119,6 @@ const productSlice = createSlice({
       };
     },
 
-    // Para los tags de relación
     addRelationTagInStore: (state, action) => {
       return {
         ...state,
@@ -199,7 +196,6 @@ const productSlice = createSlice({
   },
 });
 
-// ✅ Exporta acciones
 export const {
   addProduct,
   updateProductInStore,

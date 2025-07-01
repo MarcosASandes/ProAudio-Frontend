@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/product"; // Reemplaza con la URL real
+const BASE_URL = "http://localhost:8080/product"; 
 
 export const createProduct = async (formData) => {
   console.log("Form data: ");
@@ -15,7 +15,7 @@ export const createProduct = async (formData) => {
 
 export const getProductStatus = async () => {
   const response = await axios.get(BASE_URL + '/status');
-  return response.data; // Asegúrate de que esto sea lo que necesitas
+  return response.data;
 };
 
 export const addProductPhotos = async (formData, productId) => {
@@ -116,5 +116,5 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
   console.log(`${BASE_URL}/all`, { params });
 
   const response = await axios.get(`${BASE_URL}/all`, { params });
-  return response.data; // { products, pageable }
+  return response.data;
 };

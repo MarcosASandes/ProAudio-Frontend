@@ -1,0 +1,222 @@
+/*.containerWithOverflow {
+  height: 90vh;
+  width: 90vw;
+  overflow:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+.formDark {
+  background-color: #1e1e2f;
+  color: #f8f9fa;
+  width: 80%;
+  max-width: 80%;
+  box-sizing: border-box;
+}
+
+.textareaOverflow {
+  resize: vertical;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.collapseButton {
+  background-color: #1a1a1a;
+  color: #0dcaf0;
+  border: 1px solid #0dcaf0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+.collapseButton:hover {
+  background-color: #0dcaf0;
+  color: #1a1a1a;
+}
+
+.collapseBody {
+  background-color: rgba(108, 117, 125, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.purpleButton {
+  background-color: #7355ce;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.purpleButton:hover {
+  background-color: #8365ee;
+}
+
+.greenButton {
+  background-color: #20c997;
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+
+.greenButton:hover {
+  background-color: #198754;
+}*/
+
+/*------------------*/
+
+:root {
+  --main-bg: #000000; /* Color del layout main (Navbar y Sidebar) */
+  --secondary-bg: #1a1a1a; /* Color segundario */
+  --text-color: #ffffff; /* Color de texto */
+  --body-bg: #121212; /* Color de fondo del main / outlet */
+  --purple-main: #7355ce; /* Púrpura principal*/
+  --purple-secondary: #8365ee; /* Púrpura segundario */
+  --purple-extra: #5335ae; /* Púrpura extra */
+}
+
+.containerWithOverflow {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem 2rem 2rem 2rem;
+  background-color: #121212;
+  box-sizing: border-box;
+}
+
+.btnBackArrow {
+  background: transparent;
+  border: none;
+  color: var(--purple-main);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.btnBackArrow:hover {
+  color: var(--purple-extra);
+  cursor: pointer;
+}
+
+/* Estética del formulario */
+.formDark {
+  background-color: #1e1e2f;
+  color: #f0f0f0;
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(115, 85, 206, 0.15);
+  box-sizing: border-box;
+}
+
+/* Textarea con scroll vertical controlado por padre */
+.textareaOverflow {
+  resize: vertical;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Botones colapsables */
+.collapseButton {
+  background-color: transparent;
+  color: #b9aaff;
+  border: 1px solid #7355ce;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.collapseButton:hover {
+  background-color: #7355ce;
+  color: #f9f9f9;
+}
+
+/* Contenido colapsado */
+.collapseBody {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(115, 85, 206, 0.2);
+}
+
+/* Botón púrpura */
+.purpleButton {
+  background-color: #7355ce;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.purpleButton:hover {
+  background-color: #8365ee;
+}
+
+/* Botón de envío */
+.greenButton {
+  background-color: #5335ae;
+  border: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.greenButton:hover {
+  background-color: #7355ce;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .formDark {
+    padding: 1.5rem;
+  }
+
+  .purpleButton,
+  .greenButton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .collapseButton {
+    font-size: 0.9rem;
+  }
+}
+
+/*No expandir el textarea*/
+.textareaOverflow {
+  resize: none;
+  max-height: 200px;
+}

@@ -1,0 +1,41 @@
+/* ESTILOS DEL COMPONENTE NAVBAR */
+
+.navbar {
+  background-color: var(--main-bg);
+  height: 60px;
+  z-index: 1030;
+}
+
+.logoPlaceholder {
+  color: var(--text-color);
+  font-weight: bold;
+  max-width: 45px;
+  margin-top: 5px;
+  transition: filter 0.5s ease;
+}
+
+/* Efecto neón */
+.logoPlaceholder:hover {
+  filter: drop-shadow(0 0 5px var(--purple-extra)) 
+          drop-shadow(0 0 10px var(--purple-extra))
+          drop-shadow(0 0 15px var(--purple-extra));
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+  transition: color 0.7s ease;
+}
+
+.icon:hover {
+  color: var(--purple-secondary);
+}
+
+
+/* Ajustes de responsive */
+@media (max-width: 768px) {
+  .logo-logoPlaceholder {
+    max-width: 30px;
+  }
+}

@@ -1,0 +1,55 @@
+.btnBackArrow {
+  background: transparent;
+  border: none;
+  color: var(--purple-main);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.btnBackArrow:hover {
+  color: var(--purple-extra);
+  cursor: pointer;
+}
+
+.tagFormDark {
+  background-color: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  box-shadow: 0 0 5px var(--purple-extra);
+  width: 100%;
+}
+
+.textareaOverflow {
+  max-height: 170px;
+  resize: none !important;
+  overflow: auto;
+}
+
+.btnPurpleStyle {
+  border-color: var(--purple-extra) !important;
+  background-color: var(--purple-secondary) !important;
+  color: var(--body-bg) !important;
+  transition: background-color 0.7s ease, color 0.7s ease !important;
+}
+
+.btnPurpleStyle:hover {
+  border-color: var(--purple-extra) !important;
+  background-color: var(--purple-extra) !important;
+  color: var(--text-color) !important;
+}
+
+.btnGreenStyle {
+  border-color: var(--green-dark-success) !important;
+  background-color: var(--green-dark-success) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.7s ease, color 0.7s ease !important;
+}
+
+.btnGreenStyle:hover {
+  border-color: var(--green-success) !important;
+  background-color: var(--green-success) !important;
+  color: var(--main-bg) !important;
+}

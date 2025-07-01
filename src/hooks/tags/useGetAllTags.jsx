@@ -9,7 +9,7 @@ const useGetAllTags = () => {
   const tags = useSelector(selectTags);
 
   useEffect(() => {
-    if (tags.length > 0) return; // Ya los tengo, no vuelvo a pedir
+    if (tags.length > 0) return;
 
     const fetchTags = async () => {
       dispatch(fetchTagsStart());

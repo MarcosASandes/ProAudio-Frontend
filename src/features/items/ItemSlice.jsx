@@ -23,14 +23,14 @@ const itemSlice = createSlice({
     },
     createItemsSuccess(state, action) {
       state.loading = false;
-      state.createdItems = action.payload; // Guarda el array de items creados
+      state.createdItems = action.payload; 
     },
     createItemsFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
     },
     setSelectedItem: (state, action) => {
-      console.log("Guardando en store:", action.payload); // 👈 verifique aquí!
+      console.log("Guardando en store:", action.payload);
       state.selectedItem = action.payload;
     },
     clearSelectedItem: (state) => {

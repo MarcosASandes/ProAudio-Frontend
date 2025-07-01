@@ -1,6 +1,6 @@
 import React from "react";
 import ItemDetails from "../../components/items/ItemDetails";
-import "../../styles/itemDetails.css";
+//import "../../styles/itemDetails.css";
 
 const ItemDetailsPage = () => {
   return (

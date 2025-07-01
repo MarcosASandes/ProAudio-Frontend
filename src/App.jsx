@@ -1,26 +1,25 @@
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
-import ProjectPage from './pages/ProjectPage';
-import ProductPage from './pages/ProductPage';
-import TagsPage from './pages/TagsPage';
-import ClientPage from './pages/ClientPage';
-import ArticlePage from './pages/ArticlePage';
-import AnalyticsPage from './pages/AnalyticsPage';
-import CreateTagFormPage from './pages/CreateTagFormPage';
-import UpdateTagPage from './pages/UpdateTagPage';
-import CreateProductPage from './pages/CreateProductPage';
-import UpdateProductPage from './pages/UpdateProductPage';
-import ProductDetailsPage from './pages/ProductDetailsPage';
-import AddPhotosProductPage from './pages/AddPhotosProductPage';
-import AddProductPricesPage from './pages/AddProductPricesPage';
-import AddProductTagsPage from './pages/AddProductTagsPage';
+import ProjectPage from './pages/projects/ProjectPage';
+import ProductPage from './pages/products/ProductPage';
+import TagsPage from './pages/tags/TagsPage';
+import ClientPage from './pages/clients/ClientPage';
+import AnalyticsPage from './pages/analytics/AnalyticsPage';
+import CreateTagFormPage from './pages/tags/CreateTagFormPage';
+import UpdateTagPage from './pages/tags/UpdateTagPage';
+import CreateProductPage from './pages/products/CreateProductPage';
+import UpdateProductPage from './pages/products/UpdateProductPage';
+import ProductDetailsPage from './pages/products/ProductDetailsPage';
+import AddPhotosProductPage from './pages/products/AddPhotosProductPage';
+import AddProductPricesPage from './pages/products/AddProductPricesPage';
+import AddProductTagsPage from './pages/products/AddProductTagsPage';
 import CreateItemsPage from './pages/items/CreateItemsPage';
 import ItemsCreatedPage from './pages/items/ItemsCreatedPage';
 import UpdateItemPage from './pages/items/UpdateItemPage';
 import ScanItemPage from './pages/items/ScanItemPage';
 import ItemPage from './pages/items/ItemPage';
 import ItemDetailsPage from './pages/items/ItemDetailsPage';
-import "./styles/products.css";
+//import "./styles/products.css";
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
         <Route path='/tags' element={<TagsPage />} />
         <Route path='/products' element={<ProductPage />} />
         <Route path='/clients' element={<ClientPage />} />
-        <Route path='/articles' element={<ArticlePage />} />
         <Route path='/analytics' element={<AnalyticsPage />} />
 
         <Route path='/tag/create' element={<CreateTagFormPage />} />

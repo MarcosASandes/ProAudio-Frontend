@@ -1,0 +1,13 @@
+.mainSection {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto; /* solo scroll vertical */
+  overflow-x: hidden; /* NO scroll horizontal */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  border-radius: 10px;
+  border-width: 2px;
+}

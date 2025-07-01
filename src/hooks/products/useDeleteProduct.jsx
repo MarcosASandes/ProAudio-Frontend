@@ -1,4 +1,3 @@
-// src/hooks/products/useDeleteProduct.js
 import { useDispatch } from "react-redux";
 import { deleteProduct } from "../../services/productApiService";
 import { toast } from "react-toastify";
@@ -9,13 +8,10 @@ const useDeleteProduct = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      // ⚡️ Llama al servicio: obtiene el objeto eliminado
       const deletedProduct = await deleteProduct(productId);
 
-      // ⚡️ Extrae ID desde la respuesta
-      const id = deletedProduct.product_id; // Asegúrate: snake_case!
+      const id = deletedProduct.product_id;
 
-      // ⚡️ Elimina del store usando ID
       dispatch(removeProductInStore(id));
 
       toast.success("Producto eliminado correctamente.");

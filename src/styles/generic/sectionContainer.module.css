@@ -1,0 +1,18 @@
+.sectionContainerDark {
+  background-color: #1d1d35;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(125, 93, 223, 0.3);
+  box-shadow: 0 0 10px rgba(127, 98, 212, 0.1);
+  margin-top: 10px;
+}
+
+.sectionContainerSoft {
+  background-color: #2f2f5a;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(93, 63, 182, 0.3);
+  box-shadow: 0 0 10px rgba(147, 121, 226, 0.1);
+  margin-top: 10px;
+  color: #fff;
+}
