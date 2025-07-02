@@ -132,6 +132,7 @@ const AddProductPricesForm = ({ productId }) => {
                   type="number"
                   step="0.01"
                   className="form-control"
+                  onWheel={(e) => e.target.blur()}
                   {...register(`prices.${index}.value`, { required: true })}
                 />
                 {errors.prices?.[index]?.value && (

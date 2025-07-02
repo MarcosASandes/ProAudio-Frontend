@@ -19,6 +19,7 @@ import UpdateItemPage from './pages/items/UpdateItemPage';
 import ScanItemPage from './pages/items/ScanItemPage';
 import ItemPage from './pages/items/ItemPage';
 import ItemDetailsPage from './pages/items/ItemDetailsPage';
+import CreateEventPage from './pages/events/CreateEventPage';
 //import "./styles/products.css";
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         <Route path="/scan-item" element={<ScanItemPage />} />
         <Route path="/product/:id/items" element={<ItemPage />} />
         <Route path="/item/:id/details" element={<ItemDetailsPage />} />
+
+        <Route path="/event/create" element={<CreateEventPage />} />
+
       </Route>
     </Routes>
   );

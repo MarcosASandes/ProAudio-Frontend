@@ -116,6 +116,7 @@ const CreateItemsForm = () => {
                         type="number"
                         step="0.01"
                         className="form-control"
+                        onWheel={(e) => e.target.blur()}
                         {...register(`items.${index}.purchase_price`)}
                       />
                       <p className="text-danger">
@@ -140,6 +141,7 @@ const CreateItemsForm = () => {
                       <input
                         type="number"
                         className="form-control"
+                        onWheel={(e) => e.target.blur()}
                         {...register(`items.${index}.quantity`)}
                       />
                       <p className="text-danger">

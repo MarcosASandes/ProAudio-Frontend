@@ -203,6 +203,7 @@ export default function CreateProductForm() {
           <input
             type="number"
             step="0.01"
+            onWheel={(e) => e.target.blur()}
             className={`form-control bg-dark text-light border-secondary ${
               errors.replacement_value ? "is-invalid" : ""
             }`}
@@ -247,6 +248,7 @@ export default function CreateProductForm() {
                           type="number"
                           step="0.01"
                           className="form-control"
+                          onWheel={(e) => e.target.blur()}
                           {...register(`prices.${index}.value`)}
                         />
                       </div>

@@ -122,6 +122,7 @@ export default function UpdateProductForm({ productId }) {
           <input
             type="number"
             step="0.01"
+            onWheel={(e) => e.target.blur()}
             className={`form-control ${
               errors.replacement_value ? "is-invalid" : ""
             }`}
