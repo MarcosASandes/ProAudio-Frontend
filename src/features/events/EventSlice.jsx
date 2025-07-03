@@ -25,11 +25,11 @@ const eventSlice = createSlice({
     },
     fetchEventsSuccess: (state, action) => {
       state.loading = false;
-      state.items = action.payload.events;
+      state.events = action.payload.events;
       state.pageable = action.payload.pageable;
       state.error = null;
     },
-    fetchItemsFailure: (state, action) => {
+    fetchEventsFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
@@ -69,7 +69,7 @@ export const {
   clearSelectedEvent,
   fetchEventsStart,
   fetchEventsSuccess,
-  fetchItemsFailure,
+  fetchEventsFailure,
   setSelectedEventDetails,
   removeEvent,
   addEvent,

@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { createEvent } from "../../services/eventApiService";
-import { fetchEventsStart, fetchItemsFailure, fetchEventsSuccess, addEvent } from "../../features/events/EventSlice";
+import { fetchEventsStart, fetchEventsFailure, fetchEventsSuccess, addEvent } from "../../features/events/EventSlice";
 
 const useCreateEvent = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const useCreateEvent = () => {
         toast.success("Evento creado correctamente");
         return response;
       } catch (error) {
-        dispatch(fetchItemsFailure(error.message));
+        dispatch(fetchEventsFailure(error.message));
         toast.error("Error al crear el evento");
       }
     },
