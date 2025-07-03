@@ -9,8 +9,8 @@ const useDeleteEvent = () => {
 
   const handleDeleteEvent = async (id) => {
     try {
-      const response = await deleteEvent(id);
-      dispatch(removeEvent(itemId));
+      await deleteEvent(id);
+      dispatch(removeEvent(id));
       toast.success("Evento eliminado correctamente.");
     } catch (error) {
       toast.error("Error al eliminar el evento: " + error.message);

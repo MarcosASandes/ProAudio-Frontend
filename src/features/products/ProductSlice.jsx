@@ -60,18 +60,13 @@ const productSlice = createSlice({
     },
     deleteProductPhotoInStore: (state, action) => {
       const { photo_id } = action.payload;
-
-      console.log("Before:", state.selectProductDetails?.photos);
-
-      // Si no existe la lista de fotos, evita el error
+      
       if (state.selectProductDetails?.photos) {
         state.selectProductDetails.photos =
           state.selectProductDetails.photos.filter(
             (photo) => photo.photo_id !== photo_id
           );
       }
-
-      console.log("After:", state.selectProductDetails?.photos);
     },
     addProductPriceInStore: (state, action) => {
       return {
