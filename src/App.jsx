@@ -20,6 +20,7 @@ import ScanItemPage from './pages/items/ScanItemPage';
 import ItemPage from './pages/items/ItemPage';
 import ItemDetailsPage from './pages/items/ItemDetailsPage';
 import CreateEventPage from './pages/events/CreateEventPage';
+import UpdateEventPage from './pages/events/UpdateEventPage';
 //import "./styles/products.css";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path="/item/:id/details" element={<ItemDetailsPage />} />
 
         <Route path="/event/create" element={<CreateEventPage />} />
+        <Route path="/event/:id/edit" element={<UpdateEventPage />} />
 
       </Route>
     </Routes>
