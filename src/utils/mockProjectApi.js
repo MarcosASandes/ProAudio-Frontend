@@ -2,6 +2,27 @@
 
 let nextId = 16
 
+let projects_false = [
+  {
+    "project_id": 1,
+    "name": "Proyecto1",
+    "description": "Descripcion P1",
+    "start_date": "02/02/2025",
+    "end_date": "03/03/2025",
+    "event": {
+      "name": "Evento1",
+      "address": "Direccion evento1",
+      "distance": 1,
+      "description": "Descripcion evento1",
+    },
+    "client": "Marcos1",
+    "status": "PLANNED",
+    "payment_status": "NO_BILL",
+    "project_type": "service",
+    "cost_addition": 1
+  }
+]
+
 let mockProjects = Array.from({ length: 15 }, (_, i) => ({
   id: i + 1,
   name: `Project ${i + 1}`,

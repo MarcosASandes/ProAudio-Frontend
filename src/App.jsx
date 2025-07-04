@@ -21,6 +21,8 @@ import ItemPage from './pages/items/ItemPage';
 import ItemDetailsPage from './pages/items/ItemDetailsPage';
 import CreateEventPage from './pages/events/CreateEventPage';
 import UpdateEventPage from './pages/events/UpdateEventPage';
+import CreateProjectPage from './pages/projects/CreateProjectPage';
+import CreateEmbeddedEventForm from './components/events/CreateEmbeddedEventForm'; //CAMBIARLO LUEGO, TIENE QUE SER PAGE NO COMPONENT
 //import "./styles/products.css";
 
 function App() {
@@ -52,6 +54,9 @@ function App() {
 
         <Route path="/event/create" element={<CreateEventPage />} />
         <Route path="/event/:id/edit" element={<UpdateEventPage />} />
+        <Route path="/events/create/embedded" element={<CreateEmbeddedEventForm />} />
+
+        <Route path="/project/create" element={<CreateProjectPage />} />
 
       </Route>
     </Routes>

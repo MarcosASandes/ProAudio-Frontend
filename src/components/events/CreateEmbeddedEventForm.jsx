@@ -1,0 +1,101 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { yupResolver } from "@hookform/resolvers/yup";
+import createEventValidator from "../../validators/events/createEventValidator";
+import styles from "../../styles/events/createEventForm.module.css";
+import stylesBackButton from "../../styles/generic/backButton.module.css";
+import { ArrowLeft } from "lucide-react";
+
+const CreateEmbeddedEventForm = () => {
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(createEventValidator),
+  });
+
+  const onSubmit = (data) => {
+    const newEventObject = {
+      name: data.name,
+      address: data.address,
+      distance: data.distance,
+      description: data.description,
+    };
+
+    // Guardamos el evento temporal en localStorage
+    localStorage.setItem("temporaryProjectEvent", JSON.stringify(newEventObject));
+
+    toast.success("Evento creado temporalmente ✅");
+
+    reset();
+    setTimeout(() => {
+      navigate("/project/create"); // ⚠️ ajustar si usás otro path
+    }, 1000);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <button
+        type="button"
+        className={`mb-3 ${stylesBackButton.btnBackArrow}`}
+        onClick={() => navigate("/project/create")}
+      >
+        <ArrowLeft size={24} />
+        <span className="ms-2">Volver</span>
+      </button>
+
+      <h2 className={styles.title}>Crear Evento para Proyecto</h2>
+
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Nombre del evento</label>
+        <input type="text" className={styles.input} {...register("name")} />
+        {errors.name && <p className={styles.error}>{errors.name.message}</p>}
+      </div>
+
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Dirección</label>
+        <input type="text" className={styles.input} {...register("address")} />
+        {errors.address && (
+          <p className={styles.error}>{errors.address.message}</p>
+        )}
+      </div>
+
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Distancia (km)</label>
+        <input
+          type="number"
+          className={styles.input}
+          onWheel={(e) => e.target.blur()}
+          {...register("distance")}
+        />
+        {errors.distance && (
+          <p className={styles.error}>{errors.distance.message}</p>
+        )}
+      </div>
+
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Descripción</label>
+        <textarea
+          rows="3"
+          className={styles.textarea}
+          {...register("description")}
+        ></textarea>
+        {errors.description && (
+          <p className={styles.error}>{errors.description.message}</p>
+        )}
+      </div>
+
+      <button type="submit" className={styles.submitBtn}>
+        Usar este evento
+      </button>
+    </form>
+  );
+};
+
+export default CreateEmbeddedEventForm;
