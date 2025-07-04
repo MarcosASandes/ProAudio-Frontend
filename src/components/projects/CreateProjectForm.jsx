@@ -127,7 +127,7 @@ const CreateProjectForm = () => {
       <div className={styles.formGroup}>
         <label>Fecha inicio</label>
         <input
-          type="datetime-local"
+          type="date"
           className="form-control"
           {...register("start_date")}
         />
@@ -139,7 +139,7 @@ const CreateProjectForm = () => {
       <div className={styles.formGroup}>
         <label>Fecha fin</label>
         <input
-          type="datetime-local"
+          type="date"
           className="form-control"
           {...register("end_date")}
         />
