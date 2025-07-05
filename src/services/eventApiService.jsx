@@ -2,9 +2,10 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:8080/event'; 
 
-//No está implementado aún
-export const getAllEvents = async () => {
-  const response = await axios.get(BASE_URL + '/all');
+export const getAllEvents = async (page, size) => {
+  const response = await axios.get(`${BASE_URL}`, {
+    params: { page, size },
+  });
   return response.data;
 };
 
