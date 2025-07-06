@@ -13,7 +13,7 @@ const useCreateProject = () => {
       try {
         const response = await createProject(payload);
         dispatch(addProject(response));
-        toast.success("Proyecto creado correctamente");
+        //toast.success("Proyecto creado correctamente");
         return response;
       } catch (error) {
         dispatch(fetchProjectsFailure(error.message));

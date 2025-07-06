@@ -1,11 +1,16 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BASE_URL = 'http://localhost:8080/project';
 
 
 export const createProject = async (data) => {
-  const response = await axios.post(BASE_URL, data);
-  return response.data;
+  /*const response = await axios.post(BASE_URL, data);
+  return response.data;*/
+
+  toast("Se ha creado correctamente el proyecto. En la consola están los datos");
+  console.log(data);
+  return data;
 };
 
 export const updateProject = async (id, data) => {
