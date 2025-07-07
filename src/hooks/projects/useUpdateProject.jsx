@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+/*import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateProjectInStore } from "../../features/projects/ProjectSlice";
@@ -33,4 +33,33 @@ export function useUpdateProject() {
   }, [dispatch]);
 
   return handleUpdateProject;
-}
+}*/
+
+/*------------------------ */
+
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { updateProject as updateProjectAPI } from "../../services/projectApiService";
+import { updateProjectInList, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";
+import { toast } from "react-toastify";
+
+const useUpdateProject = () => {
+  const dispatch = useDispatch();
+
+  const updateProject = useCallback(async (id, payload) => {
+    dispatch(fetchProjectsStart());
+    try {
+      const updated = await updateProjectAPI(id, payload);
+      dispatch(updateProjectInList(updated));
+      toast.success("Proyecto actualizado correctamente");
+      return updated;
+    } catch (error) {
+      dispatch(fetchProjectsFailure(error.message));
+      toast.error("Error al actualizar el proyecto: " + error.message);
+    }
+  }, [dispatch]);
+
+  return { updateProject };
+};
+
+export default useUpdateProject;
