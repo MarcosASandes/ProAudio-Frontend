@@ -10,11 +10,12 @@ import {
   selectSelectedProject,
   selectProjectsLoading,
   selectProjectsError,
-} from "../../features/projects/ProjectSlice";
+} from "../../features/projects/ProjectSelector";
 import styles from "../../styles/projects/createProjectForm.module.css";
 import { toast } from "react-toastify";
 import { ArrowLeft } from "lucide-react";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
+import EventSelectorModal from "../events/EventSelectorModal";
 
 const getAllErrorMessages = (errors) => {
   const messages = [];
@@ -24,16 +25,19 @@ const getAllErrorMessages = (errors) => {
   if (errors.start_date) messages.push(errors.start_date.message);
   if (errors.end_date) messages.push(errors.end_date.message);
   if (errors.cost_addition) messages.push(errors.cost_addition.message);
-  if (errors.products?.message) messages.push(errors.products.message);
-  if (errors.expenses?.message) messages.push(errors.expenses.message);
+  if (errors.payment_status) messages.push(errors.payment_status);
+  if (errors.status) messages.push(errors.status);
 
   return messages;
 };
 
 const UpdateProjectForm = () => {
   const { id } = useParams();
+  const savedUpdateDraft = JSON.parse(
+    localStorage.getItem("projectDraftUpdate")
+  );
   const navigate = useNavigate();
-  const { getProjectById } = useGetProjectById();
+  const { fetchProjectById } = useGetProjectById();
   const { updateProject } = useUpdateProject();
 
   const project = useSelector(selectSelectedProject);
@@ -46,7 +50,7 @@ const UpdateProjectForm = () => {
   const [showClientModal, setShowClientModal] = useState(false);
 
   useEffect(() => {
-    getProjectById(id);
+    fetchProjectById(id);
   }, [id]);
 
   const {
@@ -60,23 +64,66 @@ const UpdateProjectForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(updateProjectValidator),
-    defaultValues: {},
+    defaultValues: savedUpdateDraft || {},
   });
 
   const errorMessages = getAllErrorMessages(errors);
 
+  
+
   useEffect(() => {
     if (project) {
-      reset({
-        ...project,
-        products: project.products || [],
-        expenses: project.expenses || [],
-        event_id: project.event_id || null,
-        event: project.event || null,
-      });
-      setSelectedEvent(project.event || null);
+      const savedUpdateDraft = JSON.parse(
+        localStorage.getItem("projectDraftUpdate")
+      );
+      if (!savedUpdateDraft) {
+        Object.entries(project).forEach(([key, value]) => {
+          setValue(key, value);
+        });
+
+        setSelectedEvent(project.event || null);
+      }
     }
-  }, [project, reset]);
+  }, [project, setValue]);
+
+  useEffect(() => {
+    const subscription = watch((value) => {
+      localStorage.setItem("projectDraftUpdate", JSON.stringify(value));
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
+
+  const handleGoBack = () => {
+    localStorage.removeItem("projectDraftUpdate");
+    navigate("/");
+  };
+
+  useEffect(() => {
+    const newEvent = JSON.parse(localStorage.getItem("temporaryProjectEvent"));
+    if (newEvent) {
+      setSelectedEvent(newEvent);
+      setValue("event", newEvent);
+      setValue("event_id", null);
+      localStorage.removeItem("temporaryProjectEvent");
+    }
+  }, []);
+
+  const handleGoToCreateEvent = () => {
+    const currentData = getValues();
+    try {
+      const cleaned = JSON.parse(JSON.stringify(currentData));
+      localStorage.setItem("projectDraftUpdate", JSON.stringify(cleaned));
+
+      navigate("/events/create/embedded", {
+        state: {
+          from: "update-project",
+          projectId: id,
+        },
+      });
+    } catch (err) {
+      console.error("No se pudo guardar el draft:", err.message);
+    }
+  };
 
   const onSubmit = async (data) => {
     const payload = {
@@ -86,7 +133,10 @@ const UpdateProjectForm = () => {
     };
 
     await updateProject(id, payload);
-    navigate("/projects"); // O la ruta correspondiente
+    navigate("/");
+
+    localStorage.removeItem("temporaryProjectEvent");
+    localStorage.removeItem("projectDraftUpdate");
   };
 
   if (loading) return <p>Cargando proyecto...</p>;
@@ -188,6 +238,37 @@ const UpdateProjectForm = () => {
           </div>
         </div>
 
+        <div className="col-md">
+          <div className={styles.formGroup}>
+            <label htmlFor="slcStatus">Estado del proyecto</label>
+            <select
+              id="slcStatus"
+              className="form-control"
+              {...register("status")}
+            >
+              <option value="PLANNED">Planificado</option>
+              <option value="IN_PROGRESS">En progreso</option>
+              <option value="FINISHED">Finalizado</option>
+              <option value="CANCELLED">Cancelado</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="col-md">
+          <div className={styles.formGroup}>
+            <label htmlFor="slcPaymentStatus">Estado de pago</label>
+            <select
+              id="slcPaymentStatus"
+              className="form-control"
+              {...register("payment_status")}
+            >
+              <option value="NO_BILL">Sin facturar</option>
+              <option value="BILLED">Facturado</option>
+              <option value="PAID">Pagado</option>
+            </select>
+          </div>
+        </div>
+
         <div className="row mt-1">
           <div className="col-md">
             <div className={styles.formGroup}>
@@ -258,9 +339,41 @@ const UpdateProjectForm = () => {
           </div>
         )}
 
-        <button type="submit" className="btn btn-success mt-4 w-100">
-          Actualizar proyecto
-        </button>
+        <div className="row mt-4">
+          <div className="col-md-6">
+            <button
+              type="button"
+              className="btn btn-danger w-100"
+              onClick={() => {
+                localStorage.removeItem("projectDraftUpdate");
+                if (project) {
+                  reset({
+                    name: project.name || "",
+                    description: project.description || "",
+                    start_date: project.start_date || "",
+                    end_date: project.end_date || "",
+                    project_type: project.project_type || "SERVICE",
+                    cost_addition: project.cost_addition || 0,
+                    event_id: project.event_id || null,
+                    event: project.event || null,
+                    status: project.status || "PLANNED",
+                    payment_status: project.payment_status || "NO_BILL",
+                    client: project.client || null,
+                  });
+                  setSelectedEvent(project.event || null);
+                }
+                toast.info("Formulario reestablecido");
+              }}
+            >
+              Reestablecer formulario
+            </button>
+          </div>
+          <div className="col-md-6">
+            <button type="submit" className="btn btn-success w-100">
+              Actualizar proyecto
+            </button>
+          </div>
+        </div>
       </form>
 
       {showEventModal && (

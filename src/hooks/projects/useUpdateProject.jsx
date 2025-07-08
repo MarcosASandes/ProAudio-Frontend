@@ -40,7 +40,7 @@ export function useUpdateProject() {
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { updateProject as updateProjectAPI } from "../../services/projectApiService";
-import { updateProjectInList, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";
+import { updateProjectInStore, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";
 import { toast } from "react-toastify";
 
 const useUpdateProject = () => {
@@ -50,8 +50,8 @@ const useUpdateProject = () => {
     dispatch(fetchProjectsStart());
     try {
       const updated = await updateProjectAPI(id, payload);
-      dispatch(updateProjectInList(updated));
-      toast.success("Proyecto actualizado correctamente");
+      dispatch(updateProjectInStore(updated));
+      //toast.success("Proyecto actualizado correctamente");
       return updated;
     } catch (error) {
       dispatch(fetchProjectsFailure(error.message));

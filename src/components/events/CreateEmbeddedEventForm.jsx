@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import createEventValidator from "../../validators/events/createEventValidator";
@@ -10,6 +10,7 @@ import { ArrowLeft } from "lucide-react";
 
 const CreateEmbeddedEventForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     register,
@@ -32,10 +33,19 @@ const CreateEmbeddedEventForm = () => {
     localStorage.setItem("temporaryProjectEvent", JSON.stringify(newEventObject));
 
     toast.success("Evento creado temporalmente ✅");
+    const from = location.state?.from;
+    const projectId = location.state?.projectId;
 
     reset();
     setTimeout(() => {
-      navigate("/project/create"); // ⚠️ ajustar si usás otro path
+      if (from === "create-project"){
+        navigate("/project/create");
+      } else if (from === "update-project" && projectId){
+        navigate("/project/" + projectId + "/edit");
+      } else{
+        navigate("/");
+      }
+      
     }, 1000);
   };
 

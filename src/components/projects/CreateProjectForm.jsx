@@ -1414,7 +1414,9 @@ const CreateProjectForm = () => {
     try {
       const cleaned = JSON.parse(JSON.stringify(currentData));
       localStorage.setItem("projectDraft", JSON.stringify(cleaned));
-      navigate("/events/create/embedded");
+      navigate("/events/create/embedded", {
+        state: { from: "create-project" },
+      });
     } catch (err) {
       console.error("No se pudo guardar el draft:", err.message);
     }
@@ -1434,7 +1436,6 @@ const CreateProjectForm = () => {
   };*/
 
   const onSubmit = async (data) => {
-
     const cleanedProducts = data.products.map(
       ({ product_id, price_id, amount }) => ({
         product_id,
@@ -1466,7 +1467,7 @@ const CreateProjectForm = () => {
         event: null,
       });
       setSelectedEvent(null);
-      //navigate("/projects");
+      navigate("/");
     }
   };
 
