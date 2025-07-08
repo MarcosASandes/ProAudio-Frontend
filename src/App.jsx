@@ -24,6 +24,7 @@ import UpdateEventPage from './pages/events/UpdateEventPage';
 import CreateProjectPage from './pages/projects/CreateProjectPage';
 import CreateEmbeddedEventPage from './pages/events/CreateEmbeddedEventPage';
 import UpdateProjectPage from './pages/projects/UpdateProjectPage';
+import ProjectDetailsPage from './pages/projects/ProjectDetailsPage';
 //import "./styles/products.css";
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
 
         <Route path="/project/create" element={<CreateProjectPage />} />
         <Route path="/project/:id/edit" element={<UpdateProjectPage />} />
+        <Route path="/project/:id" element={<ProjectDetailsPage />} />
 
       </Route>
     </Routes>

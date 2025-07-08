@@ -1,0 +1,90 @@
+/* Contenedor general */
+.generalContainer {
+  background-color: #1e1e2f;
+  box-shadow: 0 0 20px rgba(115, 85, 206, 0.15);
+  border-radius: 10px;
+  padding: 2rem;
+  color: #f0f0f0;
+}
+
+/* Título */
+.title {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Subtítulo */
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+
+/* Sección */
+.sectionContainer {
+  background-color: #1d1d35;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(125, 93, 223, 0.3);
+  box-shadow: 0 0 10px rgba(127, 98, 212, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.sectionContainer:hover {
+  box-shadow: 0 0 20px rgba(115, 85, 206, 0.4);
+}
+
+/* Título de sección con subrayado animado */
+.animatedUnderline {
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.animatedUnderline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #7f62d4, #4c3bb8);
+  border-radius: 2px;
+}
+
+/* Lista de productos y gastos */
+.listItem {
+  background-color: rgba(115, 85, 206, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  color: #e6e6e6;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Fila de dos columnas */
+.rowGap {
+  row-gap: 1.5rem;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .sectionContainer {
+    padding: 1rem;
+  }
+
+  .listItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

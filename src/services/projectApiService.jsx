@@ -50,18 +50,21 @@ const projectByDetails = {
       product_id: 20,
       model: "EXTENSE XD",
       status: "UNUSED",
+      price_value: 120,
       amount: 3,
     },
     {
       product_id: 23,
       model: "EXTENSE MEGA XD",
       status: "ACTIVE",
+      price_value: 200,
       amount: 2,
     },
     {
       product_id: 12,
       model: "MEGA IN-EAR XDDD",
       status: "ACTIVE",
+      price_value: 50,
       amount: 12,
     }
   ],
