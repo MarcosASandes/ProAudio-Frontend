@@ -1,12 +1,12 @@
 import React from 'react';
+import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
+import stylesContainerSpace from "../../styles/generic/containerSpace.module.css";
+import ProjectView from '../../components/projects/ProjectView';
 
 export default function ProjectPage() {
   return (
-    <main>
-      <h1 className="animated-underline">Proyectos</h1>
-      <p>
-        En esta página se mostrarán los proyectos.
-      </p>
-    </main>
+    <div className={`${stylesSectionContainer.sectionContainerDark} ${stylesContainerSpace.mainSection}`}>
+      <ProjectView />
+    </div>
   );
 }
