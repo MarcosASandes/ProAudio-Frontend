@@ -33,6 +33,7 @@ const projectByDetails = {
   description: "This project is for testing purposes Details",
   start_date: "2025-04-12",
   end_date: "2025-05-12",
+  total: 1567,
   event: {
     event_id: 1,
     name: "event 1",

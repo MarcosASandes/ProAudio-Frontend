@@ -7,6 +7,7 @@ import styles from "../../styles/projects/projectDetails.module.css";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import { ArrowLeft } from "lucide-react";
 import { formatDateToDDMMYY } from "../../utils/formatDate";
+import stylesUnderline from "../../styles/generic/animatedUnderline.module.css";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -20,11 +21,19 @@ const ProjectDetails = () => {
     if (id) fetchProjectDetails(id);
   }, [id]);
 
+  const expenseTypeLabels = {
+    PERSONNEL: "Personal",
+    EXTRA_COST: "Otros",
+  };
+
+  const handleGoToUpdateProject = () => {
+    navigate("/project/" + id + "/edit");
+  };
+
   if (!project) return <p className="text-center mt-4">Cargando proyecto...</p>;
 
   return (
     <div className={`container py-4 ${styles.generalContainer}`}>
-      {/* 🔙 Botón volver */}
       <div className="mb-3">
         <button
           type="button"
@@ -36,7 +45,6 @@ const ProjectDetails = () => {
         </button>
       </div>
 
-      {/* 🧾 Título */}
       <div className="text-center mb-4">
         <h1 className="fw-bold">{project.name}</h1>
         <h5 className={styles.subtitle}>
@@ -44,18 +52,29 @@ const ProjectDetails = () => {
         </h5>
       </div>
 
-      {/* 📋 Info general */}
-      <div className="row mt-4">
-        {/* Columna izquierda */}
-        <div className="col-md-6 mb-4">
-          {/* Datos generales */}
-          <div className={`${styles.sectionContainer} mb-4`}>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="fw-semibold">Datos generales</h5>
-              <button className="btn btn-outline-primary btn-sm">
-                Modificar
-              </button>
-            </div>
+      <div className={`${styles.sectionContainer} mb-4`}>
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
+            Información del proyecto
+          </h5>
+          <div>
+            <button
+              className="btn btn-outline-primary btn-sm m-1"
+              onClick={handleGoToUpdateProject}
+            >
+              Modificar
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
+            >
+              Eliminar
+            </button>
+          </div>
+        </div>
+
+        <div className="row">
+          {/* 🟦 Izquierda: Datos generales */}
+          <div className="col-md-6">
             <p>
               <strong>Descripción:</strong> {project.description}
             </p>
@@ -74,66 +93,70 @@ const ProjectDetails = () => {
             <p>
               <strong>Fin:</strong> {formatDateToDDMMYY(project.end_date)}
             </p>
-          </div>
-        </div>
-
-        {/* Columna derecha */}
-        <div className="col-md-6 mb-4">
-          {/* Evento */}
-          <div className={`${styles.sectionContainer} mb-4`}>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="fw-semibold">Evento</h5>
-              <button className="btn btn-outline-primary btn-sm">
-                Modificar
-              </button>
-            </div>
-            {project.event ? (
-              <>
-                <p>
-                  <strong>{project.event.name}</strong>
-                </p>
-                <p>Dirección: {project.event.address}</p>
-                <p>Distancia: {project.event.distance} km</p>
-                <p>{project.event.description}</p>
-              </>
-            ) : (
-              <p>No hay evento asignado.</p>
-            )}
+            <p>
+              <strong>Facturación total:</strong> ${project.total}
+            </p>
           </div>
 
-          {/* Cliente */}
-          <div className={`${styles.sectionContainer} mb-4`}>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="fw-semibold">Cliente</h5>
-              <button className="btn btn-outline-primary btn-sm">
-                Modificar
-              </button>
+          {/* 🟩 Derecha: Evento + Cliente */}
+          <div className="col-md-6">
+            <div className="mb-3">
+              <h5
+                className={`fw-semibold ${stylesUnderline.animatedUnderline}`}
+              >
+                Evento
+              </h5>
+              {project.event ? (
+                <>
+                  <p>
+                    <strong>{project.event.name}</strong>
+                  </p>
+                  <p>Dirección: {project.event.address}</p>
+                  <p>Distancia: {project.event.distance} km</p>
+                  <p>{project.event.description}</p>
+                </>
+              ) : (
+                <p>No hay evento asignado.</p>
+              )}
             </div>
-            <p>{project.client ? project.client.name : "No asignado"}</p>
+
+            <div>
+              <h5
+                className={`fw-semibold ${stylesUnderline.animatedUnderline}`}
+              >
+                Cliente
+              </h5>
+              <p>{project.client ? project.client.name : "No asignado"}</p>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Productos */}
       <div className={`${styles.sectionContainer} mb-4`}>
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <h5 className="fw-semibold">Productos</h5>
-          <button className="btn btn-outline-primary btn-sm">Modificar</button>
+          <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
+            Productos
+          </h5>
+          <button className="btn btn-outline-primary btn-sm">
+            Agregar productos
+          </button>
         </div>
         {project.products?.length > 0 ? (
           project.products.map((prod, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
-                <strong>Modelo:</strong> {prod.model}
-              </span>
-              <span>
-                <strong>Cantidad:</strong> {prod.amount}
-              </span>
-              <span>
-                <strong>Estado:</strong> {prod.status}
-              </span>
-              <span>
-                <strong>Precio:</strong> ${prod.price_value}
+                {prod.amount}x -{" "}
+                <span
+                  onClick={() => navigate(`/product/${prod.product_id}`)}
+                  style={{
+                    color: "#8cb4ff",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                  }}
+                >
+                  {prod.model}
+                </span>{" "}
+                - ${prod.price_value} (C/U)
               </span>
             </div>
           ))
@@ -142,23 +165,21 @@ const ProjectDetails = () => {
         )}
       </div>
 
-      {/* Gastos */}
       <div className={`${styles.sectionContainer}`}>
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <h5 className="fw-semibold">Gastos</h5>
-          <button className="btn btn-outline-primary btn-sm">Modificar</button>
+          <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
+            Gastos
+          </h5>
+          <button className="btn btn-outline-primary btn-sm">
+            Agregar gastos
+          </button>
         </div>
         {project.expenses?.length > 0 ? (
           project.expenses.map((exp, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
-                <strong>Tipo:</strong> {exp.type}
-              </span>
-              <span>
-                <strong>Valor:</strong> ${exp.value}
-              </span>
-              <span>
-                <strong>Descripción:</strong> {exp.description}
+                ${exp.value} - {expenseTypeLabels[exp.type] || exp.type} -{" "}
+                {exp.description}
               </span>
             </div>
           ))
