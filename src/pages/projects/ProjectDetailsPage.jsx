@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
 import stylesContainerSpace from "../../styles/generic/containerSpace.module.css";
-import ProjectView from '../../components/projects/ProjectView';
+import ProjectDetails from "../../components/projects/ProjectDetails";
 
-export default function ProjectPage() {
+const ProjectDetailsPage = () => {
   return (
     <div className={`${stylesSectionContainer.sectionContainerDark} ${stylesContainerSpace.mainSection}`}>
-      <ProjectView />
+      <ProjectDetails />
     </div>
   );
-}
+};
+
+export default ProjectDetailsPage;
+
+

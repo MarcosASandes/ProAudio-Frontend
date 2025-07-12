@@ -1,0 +1,74 @@
+/* Botón púrpura principal */
+.btnPurple {
+  background-color: #7355ce;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btnPurple:hover {
+  background-color: #8365ee;
+}
+
+/* Estilo para la tabla */
+.customTable {
+  background-color: #1d1d35;
+  color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Cabecera de la tabla */
+.tableHeader {
+  background-color: #282847;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Cuerpo de la tabla */
+.tableBody tr {
+  transition: background-color 0.2s ease;
+}
+
+.tableBody tr:hover {
+  background-color: #2a2a4d;
+}
+
+/* Badge de filtro de etiqueta */
+.filterBadge {
+  display: inline-block;
+  background-color: #7355ce;
+  color: white;
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin-right: 0.5rem;
+}
+
+/* Cierre pequeño para badge */
+.closeBtnSmall {
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* Texto del subtítulo */
+.subtitle {
+  color: #ccc;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btnPurple {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .filterBadge {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+}

@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
+import CreateEmbeddedEventForm from "../../components/events/CreateEmbeddedEventForm";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
 import stylesContainerSpace from "../../styles/generic/containerSpace.module.css";
-import ProjectView from '../../components/projects/ProjectView';
 
-export default function ProjectPage() {
+
+
+const CreateEmbeddedEventPage = () => {
   return (
     <div className={`${stylesSectionContainer.sectionContainerDark} ${stylesContainerSpace.mainSection}`}>
-      <ProjectView />
+      <CreateEmbeddedEventForm />
     </div>
   );
-}
+};
+
+export default CreateEmbeddedEventPage;

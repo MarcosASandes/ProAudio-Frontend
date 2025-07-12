@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
+import UpdateProjectForm from "../../components/projects/UpdateProjectForm";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
 import stylesContainerSpace from "../../styles/generic/containerSpace.module.css";
-import ProjectView from '../../components/projects/ProjectView';
 
-export default function ProjectPage() {
+const UpdateProjectPage = () => {
   return (
     <div className={`${stylesSectionContainer.sectionContainerDark} ${stylesContainerSpace.mainSection}`}>
-      <ProjectView />
+      <UpdateProjectForm />
     </div>
   );
-}
+};
+
+export default UpdateProjectPage;

@@ -4,6 +4,8 @@ import productReducer from '../features/products/ProductSlice'
 import itemReducer from "../features/items/ItemSlice";
 import eventReducer from "../features/events/EventSlice";
 import expenseReducer from "../features/expenses/ExpenseSlice";
+import parameterReducer from "../features/parameters/ParameterSlice";
+import projectReducer from "../features/projects/ProjectSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +14,8 @@ const store = configureStore({
     items: itemReducer,
     events: eventReducer,
     expenses: expenseReducer,
+    parameters: parameterReducer,
+    projects: projectReducer,
   }
 });
 
