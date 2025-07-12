@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080/tag'; // Reemplaza con la URL real
+const BASE_URL = 'http://localhost:8080/tag'; 
 
 export const getAllTags = async () => {
   const response = await axios.get(BASE_URL + '/all');
-  return response.data; // Asegúrate de que esto sea lo que necesitas
+  return response.data;
 };
 
 export const getTagsTypes = async () => {
   const response = await axios.get(BASE_URL + '/types');
-  return response.data; // Asegúrate de que esto sea lo que necesitas
+  return response.data;
 };
 
 export const getTagById = async (id) => {

@@ -10,7 +10,6 @@ export function useAddProductTag() {
   const handleAddProductTag = useCallback(
     async (productId, tagId, type) => {
       try {
-        // 👉 1) Construir DTO como backend espera:
         const payload = {
           product_id: productId,
           tag_id: tagId,
@@ -20,10 +19,10 @@ export function useAddProductTag() {
         console.log("Este es el payload: ");
         console.log(payload);
 
-        // 👉 2) Llamar servicio API
         const createdTag = await createProductTag(payload);
+        console.log("Este es el createdTag: ");
+        console.log(createdTag);
 
-        // 👉 3) Agregar a la store según type
         if (type === "DESCRIPTIVE") {
           dispatch(addDescriptionTagInStore(createdTag));
         } else if (type === "RELATION") {

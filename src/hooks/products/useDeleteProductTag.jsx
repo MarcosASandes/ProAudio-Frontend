@@ -10,10 +10,8 @@ export function useDeleteProductTag() {
   const handleDeleteProductTag = useCallback(
     async (productId, tagId, type) => {
       try {
-        // 👉 1) Llamar servicio API pasando productId y tagId
         const deletedTag = await deleteProductTag(productId, tagId);
 
-        // 👉 2) Remover de la store según type
         if (type === "DESCRIPTIVE") {
           dispatch(removeDescriptionTagInStore(deletedTag));
         } else if (type === "RELATION") {

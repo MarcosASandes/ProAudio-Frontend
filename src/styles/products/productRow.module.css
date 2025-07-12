@@ -1,0 +1,11 @@
+.btnPurple{
+    background-color: #5335ae;
+    color: #fff;
+    border-color: #5335ae;
+}
+
+.btnPurple:hover{
+    background-color: #6d52bb;
+    color: #fff;
+    border-color: #6047ac;
+}

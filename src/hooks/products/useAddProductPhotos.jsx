@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 export function useAddProductPhotos() {
   const handleAddProductPhotos = useCallback(async (formData, productId, onSuccess) => {
     try {
-      // 👉 Llamar servicio pasando formData + ID
       await addProductPhotos(formData, productId);
       if (onSuccess) onSuccess();
     } catch (error) {

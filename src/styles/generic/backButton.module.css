@@ -1,0 +1,17 @@
+/* Botón de volver */
+.btnBackArrow {
+  background: transparent;
+  border: none;
+  color: var(--purple-main);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.btnBackArrow:hover {
+  color: var(--purple-extra);
+  cursor: pointer;
+}

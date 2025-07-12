@@ -1,0 +1,28 @@
+.sectionContainer {
+  background-color: #1d1d35;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(125, 93, 223, 0.3);
+  box-shadow: 0 0 10px rgba(127, 98, 212, 0.1);
+  margin-top: 10px;
+}
+
+.btnPurple{
+    background-color: #5335ae;
+    color: #fff;
+    border-color: #5335ae;
+}
+
+.btnPurple:hover{
+    background-color: #6d52bb;
+    color: #fff;
+    border-color: #6047ac;
+}
+
+.priceSection{
+    background-color: transparent;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #7157c0;
+    margin: 5px;
+}

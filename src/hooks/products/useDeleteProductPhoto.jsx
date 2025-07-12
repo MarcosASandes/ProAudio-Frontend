@@ -1,4 +1,3 @@
-// ✅ Hook correcto para control manual
 import { useDispatch } from "react-redux";
 import { deleteProductPhoto } from "../../services/productApiService";
 import { deleteProductPhotoInStore } from "../../features/products/ProductSlice";
@@ -8,12 +7,10 @@ import useGetProductDetails from "./useGetProductDetails";
 const useDeleteProductPhoto = () => {
   const dispatch = useDispatch();
 
-  // Devuelve una FUNCIÓN, no ejecuta nada solo
   const handleDeleteProductPhoto = async (photoId, productId) => {
     try {
-      const data = await deleteProductPhoto(photoId); // llama al service
-      dispatch(deleteProductPhotoInStore(data)); // actualiza store
-      //useGetProductDetails(productId);
+      const data = await deleteProductPhoto(photoId);
+      dispatch(deleteProductPhotoInStore(data));
       toast("Se eliminó correctamente la foto.");
     } catch (error) {
       console.error("Error al eliminar la foto:", error);

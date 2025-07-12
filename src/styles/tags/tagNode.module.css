@@ -1,0 +1,35 @@
+.tagNode {
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tagRed {
+  background-color: #dc3545; /* Bootstrap danger */
+}
+
+.tagBlue {
+  background-color: #0d6efd; /* Bootstrap primary */
+}
+
+.tagGreen {
+  background-color: #198754; /* Bootstrap success */
+}
+
+.tagYellow {
+  background-color: #ffc107; /* Bootstrap warning */
+  color: black;
+}
+
+
+@media (max-width: 768px) {
+  .tagNode {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
