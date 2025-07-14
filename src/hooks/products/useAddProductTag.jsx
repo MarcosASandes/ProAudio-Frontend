@@ -34,7 +34,7 @@ export function useAddProductTag() {
         toast.success("Etiqueta agregada correctamente ✅");
       } catch (error) {
         console.error("Error al agregar etiqueta:", error);
-        toast.error("Error al agregar etiqueta ❌");
+        toast.error("Error al agregar etiqueta: " + error.response?.data?.message);
       }
     },
     [dispatch]

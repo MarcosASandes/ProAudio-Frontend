@@ -10,7 +10,7 @@ export function useDeleteProductTag() {
   const handleDeleteProductTag = useCallback(
     async (productId, tagId, type) => {
       try {
-        const deletedTag = await deleteProductTag(productId, tagId);
+        const deletedTag = await deleteProductTag(productId, tagId, type);
 
         if (type === "DESCRIPTIVE") {
           dispatch(removeDescriptionTagInStore(deletedTag));

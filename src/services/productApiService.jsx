@@ -74,8 +74,8 @@ export const createProductPrice = async (productPriceData) => {
   return response.data;
 };
 
-export const deleteProductTag = async (productId, tagId) => {
-  const response = await axios.delete(`${BASE_URL}/${productId}/tag/${tagId}`);
+export const deleteProductTag = async (productId, tagId, type) => {
+  const response = await axios.delete(`${BASE_URL}/${productId}/tag/${tagId}/type/${type}`);
   return response.data;
 };
 
