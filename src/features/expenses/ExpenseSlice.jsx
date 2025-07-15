@@ -57,7 +57,7 @@ const expenseSlice = createSlice({
       };
     },
     setExpenseTypesInStore: (state, action) => {
-      state.types = action.payload;
+      state.types = action.payload.types;
     },
   },
 });
