@@ -55,6 +55,11 @@ export const getProductDetails = async (id) => {
   return response.data;
 };
 
+export const getProductPrices = async (id) => {
+  const response = await axios.get("http://localhost:8080/price/product/" + id);
+  return response.data;
+};
+
 export const deleteProductPhoto = async (id) => {
   const response = await axios.delete(BASE_URL + '/photo/' + id);
   return response.data;
