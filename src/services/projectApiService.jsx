@@ -128,14 +128,14 @@ const projectList = {
 /*Fin de listado de proyectos de prueba */
 
 export const createProject = async (data) => {
-  /*const response = await axios.post(BASE_URL, data);
-  return response.data;*/
+  const response = await axios.post(BASE_URL, data);
+  return response.data;
 
-  toast(
+  /*toast(
     "Se ha creado correctamente el proyecto. En la consola están los datos"
   );
   console.log(data);
-  return data;
+  return data;*/
 };
 
 export const updateProject = async (id, data) => {
@@ -193,4 +193,21 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
 
 export const getAllProjects = async () => {
   return projectList;
+};
+
+
+export const getProjectTypes = async () => {
+  const response = await axios.get(BASE_URL + "/types");
+  console.log("Llegó al projectTypes API")
+  return response.data;
+};
+
+export const getProjectStatusByProjectId = async (id) => {
+  const response = await axios.get(BASE_URL + "/possible/status/" + id);
+  return response.data;
+};
+
+export const getStartingProjectStatus = async () => {
+  const response = await axios.get(BASE_URL + "/possible/status");
+  return response.data;
 };

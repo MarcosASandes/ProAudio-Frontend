@@ -4,6 +4,8 @@ const initialState = {
   projects: [],
   paymentStatus: [],
   projectStatus: [],
+  startingProjectStatus: [],
+  projectTypes: [],
   pageable: null,
   selectedProject: null,
   loading: false,
@@ -72,6 +74,13 @@ const projectSlice = createSlice({
     setProjectStatusInStore: (state, action) => {
       state.projectStatus = action.payload;
     },
+    setProjectTypesInStore: (state, action) => {
+      state.projectTypes = action.payload.types;
+      console.log("Se guardaron los types: ", action.payload);
+    },
+    setStartingProjectStatusInStore: (state, action) => {
+      state.startingProjectStatus = action.payload;
+    },
   },
 });
 
@@ -87,6 +96,9 @@ export const {
     removeProject,
     updateProjectInStore,
     setPaymentStatusInStore,
+    setProjectTypesInStore,
+    setStartingProjectStatusInStore,
+    setProjectStatusInStore,
 } = projectSlice.actions;
 
 export default projectSlice.reducer;

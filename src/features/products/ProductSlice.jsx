@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   productStatus: [],
+  selectedPrices: {},
   pageable: null,
   selectedProduct: null,
   selectProductDetails: null,
@@ -60,7 +61,7 @@ const productSlice = createSlice({
     },
     deleteProductPhotoInStore: (state, action) => {
       const { photo_id } = action.payload;
-      
+
       if (state.selectProductDetails?.photos) {
         state.selectProductDetails.photos =
           state.selectProductDetails.photos.filter(
@@ -188,6 +189,15 @@ const productSlice = createSlice({
     setProductStatusInStore: (state, action) => {
       state.productStatus = action.payload;
     },
+
+    /*setProductSelectedPricesInStore: (state, action) => {
+      state.priceSelected = action.payload.prices;
+    },*/
+
+    setProductSelectedPricesInStore: (state, action) => {
+      const { productId, prices } = action.payload;
+      state.selectedPrices[productId] = prices;
+    },
   },
 });
 
@@ -213,6 +223,7 @@ export const {
   removeDependencyTagInStore,
   removeProductInStore,
   setProductStatusInStore,
+  setProductSelectedPricesInStore,
 } = productSlice.actions;
 
 export default productSlice.reducer;
