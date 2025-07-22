@@ -12,6 +12,12 @@ export const getStatusLabel = (status) => {
       return "Expirado";
     case "DISCARDED":
       return "Descartado";
+    case "BUDGETED":
+      return "Presupuestado";
+    case "BILL_CREATED":
+      return "Factura creada";
+    case "PARCIALLY_PAID":
+      return "Parcialmente pagado";
     default:
       return status;
   }

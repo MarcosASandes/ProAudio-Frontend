@@ -139,14 +139,14 @@ export const createProject = async (data) => {
 };
 
 export const updateProject = async (id, data) => {
-  /*const response = await axios.put(BASE_URL + "/" + id, data);
-  return response.data;*/
+  const response = await axios.put(BASE_URL + "/" + id, data);
+  return response.data;
 
-  toast(
+  /*toast(
     "Se ha modificado correctamente el proyecto. En la consola están los datos"
   );
   console.log(data);
-  return data;
+  return data;*/
 };
 
 export const deleteProject = async (id) => {
@@ -155,10 +155,10 @@ export const deleteProject = async (id) => {
 };
 
 export const getProjectById = async (id) => {
-  /*const response = await axios.get(BASE_URL + "/" + id);
-  return response.data;*/
+  const response = await axios.get(BASE_URL + "/" + id);
+  return response.data;
 
-  return projectById; //Testing
+  //return projectById; //Testing
 };
 
 export const getProjectDetails = async (id) => {
@@ -209,5 +209,11 @@ export const getProjectStatusByProjectId = async (id) => {
 
 export const getStartingProjectStatus = async () => {
   const response = await axios.get(BASE_URL + "/possible/status");
+  return response.data;
+};
+
+export const getPossiblePaymentStatusByProjectId = async (id) => {
+  console.log("coso pum");
+  const response = await axios.get(BASE_URL + "/possible/payment/status/" + id);
   return response.data;
 };

@@ -97,7 +97,7 @@ const CreateProjectForm = () => {
           end_date: "",
           event: null,
           status: "PLANNED",
-          payment_status: "PAID",
+          payment_status: "BUDGETED",
           project_type: "SERVICE",
           cost_addition: 0,
           products: [],
@@ -210,7 +210,7 @@ const CreateProjectForm = () => {
         start_date: "",
         end_date: "",
         status: "PLANNED",
-        payment_status: "NO_BILL",
+        payment_status: "BUDGETED",
         project_type: "SERVICE",
         cost_addition: 0,
         products: [],
@@ -343,7 +343,7 @@ const CreateProjectForm = () => {
             </div>
           </div>
 
-          <div className="col-md">
+          {/*<div className="col-md">
             <div className={styles.formGroup}>
               <label htmlFor="payment_status" className="form-label">
                 Estado de pago
@@ -359,7 +359,7 @@ const CreateProjectForm = () => {
                 <option value="PAID">Pagado</option>
               </select>
             </div>
-          </div>
+          </div>*/}
         </div>
 
         <div className="row mt-1">

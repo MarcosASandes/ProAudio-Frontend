@@ -84,18 +84,18 @@ const ProjectDetails = () => {
             <p>
               <strong>Estado de pago:</strong> {project.payment_status}
             </p>
-            <p>
+            {/*<p>
               <strong>Adición de costo (%):</strong> {project.cost_addition}
-            </p>
+            </p>*/}
             <p>
               <strong>Inicio:</strong> {formatDateToDDMMYY(project.start_date)}
             </p>
             <p>
               <strong>Fin:</strong> {formatDateToDDMMYY(project.end_date)}
             </p>
-            <p>
+            {/*<p>
               <strong>Facturación total:</strong> ${project.total}
-            </p>
+            </p>*/}
           </div>
 
           {/* 🟩 Derecha: Evento + Cliente */}

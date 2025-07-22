@@ -51,7 +51,7 @@ const useUpdateProject = () => {
     try {
       const updated = await updateProjectAPI(id, payload);
       dispatch(updateProjectInStore(updated));
-      //toast.success("Proyecto actualizado correctamente");
+      toast.success("Proyecto actualizado correctamente");
       return updated;
     } catch (error) {
       dispatch(fetchProjectsFailure(error.message));

@@ -69,10 +69,11 @@ const projectSlice = createSlice({
       };
     },
     setPaymentStatusInStore: (state, action) => {
-      state.paymentStatus = action.payload;
+      state.paymentStatus = action.payload.payment_statuses;
+      console.log("Se guardo el payment status: ", action.payload);
     },
     setProjectStatusInStore: (state, action) => {
-      state.projectStatus = action.payload;
+      state.projectStatus = action.payload.statuses;
     },
     setProjectTypesInStore: (state, action) => {
       state.projectTypes = action.payload.types;
