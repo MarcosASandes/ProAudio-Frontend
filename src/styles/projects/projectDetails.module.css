@@ -77,6 +77,28 @@
 }
 
 
+.collapseButton {
+  background-color: #2d1f45;
+  color: #d6b3ff;
+  padding: 0.75rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.collapseButton:hover {
+  background-color: #3a2b5c;
+}
+
+.collapseBody {
+  background-color: #1f1f2f;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+
+
 /* Responsivo */
 @media (max-width: 768px) {
   .sectionContainer {

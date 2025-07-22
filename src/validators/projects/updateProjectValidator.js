@@ -37,7 +37,7 @@ const updateProjectValidator = yup.object().shape({
 
   payment_status: yup
     .string()
-    .oneOf(["NO_BILL", "BILLED", "PAID", "BUDGETED"], "Estado de pago inválido")
+    .oneOf(["NO_BILL", "BILLED", "PAID", "BUDGETED", "PAGADO"], "Estado de pago inválido")
     .required("El estado de pago es obligatorio"),
 
   event_id: yup

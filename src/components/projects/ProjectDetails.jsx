@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useGetProjectDetails from "../../hooks/projects/useGetProjectDetails";
@@ -14,6 +14,7 @@ const ProjectDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { fetchProjectDetails } = useGetProjectDetails();
+  const [articlesOpen, setArticlesOpen] = useState(false);
 
   const project = useSelector(selectSelectedProjectDetails);
 
@@ -64,9 +65,7 @@ const ProjectDetails = () => {
             >
               Modificar
             </button>
-            <button
-              className="btn btn-outline-danger btn-sm m-1"
-            >
+            <button className="btn btn-outline-danger btn-sm m-1">
               Eliminar
             </button>
           </div>
@@ -141,8 +140,8 @@ const ProjectDetails = () => {
             Agregar productos
           </button>
         </div>
-        {project.products?.length > 0 ? (
-          project.products.map((prod, idx) => (
+        {project.products.products?.length > 0 ? (
+          project.products.products.map((prod, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
                 {prod.amount}x -{" "}
@@ -156,13 +155,36 @@ const ProjectDetails = () => {
                 >
                   {prod.model}
                 </span>{" "}
-                - ${prod.price_value} (C/U)
+                - ${prod.rentPrice} (C/U)
               </span>
             </div>
           ))
         ) : (
           <p>No hay productos asignados.</p>
         )}
+
+        {/* Botón colapsable para Artículos */}
+        <button
+          className={`btn w-100 text-start mt-4 ${styles.collapseButton}`}
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseArticles"
+          aria-expanded="false"
+          aria-controls="collapseArticles"
+        >
+          Artículos
+        </button>
+
+        {/* Contenedor colapsable de Artículos */}
+        <div
+          className={`collapse mt-2 ${styles.collapseBody}`}
+          id="collapseArticles"
+        >
+          {/* Aquí en el futuro irán los datos de artículos */}
+          <p className="text-light">
+            Aquí se mostrarán los artículos del proyecto.
+          </p>
+        </div>
       </div>
 
       <div className={`${styles.sectionContainer}`}>

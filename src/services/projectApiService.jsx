@@ -139,6 +139,7 @@ export const createProject = async (data) => {
 };
 
 export const updateProject = async (id, data) => {
+  console.log("Estos son los datos enviados del update: ", data);
   const response = await axios.put(BASE_URL + "/" + id, data);
   return response.data;
 
@@ -162,10 +163,10 @@ export const getProjectById = async (id) => {
 };
 
 export const getProjectDetails = async (id) => {
-  /*const response = await axios.get(BASE_URL + "/" + id + "/details");
-  return response.data;*/
+  const response = await axios.get(BASE_URL + "/details/" + id);
+  return response.data;
 
-  return projectByDetails; //Testing
+  //return projectByDetails; //Testing
 };
 
 //Tener en cuenta que el getAll de proyectos será algo así, NO HACER AÚN
