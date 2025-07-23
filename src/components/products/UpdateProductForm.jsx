@@ -74,7 +74,7 @@ export default function UpdateProductForm({ productId }) {
   }
 
   return (
-    <>
+    <div className={`${styles.productFormDark} p-4 rounded`}>
       <div className="mb-3">
         <button
           type="button"
@@ -160,6 +160,6 @@ export default function UpdateProductForm({ productId }) {
       </form>
 
       <ToastContainer position="top-right" autoClose={3000} theme="dark" />
-    </>
+    </div>
   );
 }

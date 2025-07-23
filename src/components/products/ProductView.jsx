@@ -112,13 +112,10 @@ const ProductView = () => {
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
                   >
-                    <option value="">Seleccionar...</option>
+                    <option value="">Seleccionar</option>
                     <option value="id">ID</option>
-                    <option value="brand">Brand</option>
-                    <option value="model">Model</option>
-                    <option value="items">Items</option>
-                    <option value="available">Available</option>
-                    <option value="comments">Comments</option>
+                    <option value="brand">Marca</option>
+                    <option value="model">Modelo</option>
                   </select>
                 </div>
 
@@ -132,8 +129,8 @@ const ProductView = () => {
                     value={direction}
                     onChange={(e) => setDirection(e.target.value)}
                   >
-                    <option value="asc">ASC</option>
-                    <option value="desc">DESC</option>
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
                   </select>
                 </div>
               </div>

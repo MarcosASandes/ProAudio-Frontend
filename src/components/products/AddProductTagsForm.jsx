@@ -114,7 +114,7 @@ const AddProductTagsForm = ({ productId }) => {
   if (!product) return <p>Cargando producto...</p>;
 
   return (
-    <>
+    <div className={styles.sectionContainer}>
       <div className="mb-3">
         <button
           type="button"
@@ -288,7 +288,7 @@ const AddProductTagsForm = ({ productId }) => {
 
         <TagSelectorModal tags={allTags} onSelect={setSelectedTag} />
       </form>
-    </>
+    </div>
   );
 };
 

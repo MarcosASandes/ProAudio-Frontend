@@ -145,7 +145,8 @@ export default function CreateProductForm() {
   };
 
   return (
-    <div className={styles.containerWithOverflow}>
+    
+    <div className={`${styles.formDark} ${styles.containerWithOverflow} p-4 rounded`}>
       <div className="mb-3">
         <button
           type="button"

@@ -32,7 +32,7 @@ const ItemDetails = () => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <button
         type="button"
         className={`pb-2 ${stylesBackButtom.btnBackArrow}`}
@@ -153,7 +153,7 @@ const ItemDetails = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

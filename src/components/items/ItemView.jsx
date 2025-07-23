@@ -14,6 +14,9 @@ import { selectStatuses } from "../../features/items/ItemSelector";
 import { useParams } from "react-router-dom";
 import ItemPagination from "./ItemPagination";
 import * as bootstrap from "bootstrap";
+import { ArrowLeft } from "lucide-react";
+import stylesBackButton from "../../styles/generic/backButton.module.css"
+import { useNavigate } from "react-router-dom";
 
 const ItemView = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,6 +27,7 @@ const ItemView = () => {
   const pageSize = 10;
   const { id } = useParams();
   useGetStatuses();
+  const navigate = useNavigate();
 
   const statuses = useSelector(selectStatuses);
 
@@ -46,6 +50,17 @@ const ItemView = () => {
 
   return (
     <div className="container my-4">
+      <div className="mb-3">
+        <button
+          type="button"
+          className={stylesBackButton.btnBackArrow}
+          onClick={() => navigate("/product/" + id)}
+        >
+          <ArrowLeft size={24} />
+          <span className="ms-2">Volver</span>
+        </button>
+      </div>
+
       <h1>Artículos</h1>
       <ItemFilter
         searchTerm={searchTerm}

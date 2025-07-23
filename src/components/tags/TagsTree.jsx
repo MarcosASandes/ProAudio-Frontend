@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { selectTags } from "../../features/tags/TagSelector";
 import useGetAllTags from "../../hooks/tags/useGetAllTags";
 import styles from "../../styles/tags/tagsTree.module.css";
+import stylesButtons from "../../styles/generic/buttonsStyles.module.css";
 
 const TagsTree = ({ onSelectTag = null }) => {
   useGetAllTags();
@@ -115,7 +116,8 @@ const TagsTree = ({ onSelectTag = null }) => {
       {!onSelectTag && (
         <>
           <button
-            className="btn btn-primary"
+            /*className="btn btn-primary"*/
+            className={`btn ${stylesButtons.btnPurple}`}
             disabled={!selectedTag}
             onClick={showModal}
           >

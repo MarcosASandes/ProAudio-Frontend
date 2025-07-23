@@ -76,7 +76,7 @@ const AddProductPricesForm = ({ productId }) => {
   }
 
   return (
-    <>
+    <div className={`p-4 rounded text-light ${styles.sectionContainer}`}>
       <button
         type="button"
         className={stylesBackButton.btnBackArrow}
@@ -182,7 +182,7 @@ const AddProductPricesForm = ({ productId }) => {
           Guardar nuevos precios
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

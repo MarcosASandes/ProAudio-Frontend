@@ -35,7 +35,7 @@ const AddPhotoProductForm = ({ productId }) => {
   };
 
   return (
-    <>
+    <div className={`p-4 rounded text-light ${styles.sectionContainer}`}>
       <button
         type="button"
         className={stylesBackButtom.btnBackArrow}
@@ -63,7 +63,7 @@ const AddPhotoProductForm = ({ productId }) => {
           Agregar Fotos
         </button>
       </form>
-    </>
+    </div>
   );
 };
 
