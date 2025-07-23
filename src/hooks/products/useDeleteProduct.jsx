@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { deleteProduct } from "../../services/productApiService";
 import { toast } from "react-toastify";
 import { removeProductInStore } from "../../features/products/ProductSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteProduct = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,12 @@ const useDeleteProduct = () => {
 
       dispatch(removeProductInStore(id));
 
-      toast.success("Producto eliminado correctamente.");
+      showToast("Producto eliminado correctamente.");
       return true;
     } catch (error) {
       console.error("Error eliminando producto:", error);
-      toast.error("No se pudo eliminar el producto.");
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
       return false;
     }
   };

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { removeDescriptionTagInStore, removeRelationTagInStore, removeDependencyTagInStore } from "../../features/products/ProductSlice";
 import { deleteProductTag } from "../../services/productApiService";
 import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useDeleteProductTag() {
   const dispatch = useDispatch();
@@ -20,10 +21,11 @@ export function useDeleteProductTag() {
           dispatch(removeDependencyTagInStore(deletedTag));
         }
 
-        toast.success("Etiqueta eliminada correctamente ✅");
+        showToast("Etiqueta eliminada correctamente ✅");
       } catch (error) {
         console.error("Error al eliminar etiqueta:", error);
-        toast.error("Error al eliminar etiqueta ❌");
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

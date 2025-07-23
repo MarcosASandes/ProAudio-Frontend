@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { createEvent } from "../../services/eventApiService";
 import { fetchEventsStart, fetchEventsFailure, fetchEventsSuccess, addEvent } from "../../features/events/EventSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useCreateEvent = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,12 @@ const useCreateEvent = () => {
       try {
         const response = await createEvent(payload);
         dispatch(addEvent(response));
-        toast.success("Evento creado correctamente");
+        showToast("Evento creado correctamente");
         return response;
       } catch (error) {
         dispatch(fetchEventsFailure(error.message));
-        toast.error("Error al crear el evento");
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

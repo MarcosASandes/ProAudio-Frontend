@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { getStartingProjectStatus } from "../../services/projectApiService";
 import { setStartingProjectStatusInStore } from "../../features/projects/ProjectSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useGetStartingProjectStatus = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,8 @@ const useGetStartingProjectStatus = () => {
         const data = await getStartingProjectStatus();
         dispatch(setStartingProjectStatusInStore(data.statuses));
       } catch (error) {
-        toast(`Hubo un error cargando los estados de un proyecto inicial: ${error.message}`);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     };
 

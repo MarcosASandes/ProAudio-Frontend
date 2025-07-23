@@ -51,7 +51,6 @@ export default function CreateTagForm() {
     console.log(dataToSend);
     createTag(dataToSend, () => {
       reset();
-      toast.success("Etiqueta creada con éxito 🎉");
       setTimeout(() => {
         navigate("/tags");
       }, 3000);

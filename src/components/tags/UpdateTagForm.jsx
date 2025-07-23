@@ -72,7 +72,6 @@ export default function UpdateTagForm({ tagId }) {
 
     updateTag(tagId, updatedData, () => {
       reset();
-      toast.success("Etiqueta modificada con éxito 🎉");
       setTimeout(() => {
         navigate("/tags");
       }, 3000);

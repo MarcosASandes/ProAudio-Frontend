@@ -272,6 +272,7 @@ import styles from "../../styles/items/createItemsForm.module.css";
 import stylesBackButton from "../../styles/generic/backButton.module.css";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
 import SerialNumbersForm from "./SerialNumbersForm";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const CreateItemsForm = () => {
   const {
@@ -352,7 +353,7 @@ const CreateItemsForm = () => {
     if (errors.items) {
       errors.items.forEach((itemError, index) => {
         if (itemError?.serialNumbers?.message) {
-          toast.error(`Lote ${index + 1}: ${itemError.serialNumbers.message}`);
+          showToastError(`Lote ${index + 1}: ${itemError.serialNumbers.message}`);
         }
       });
     }

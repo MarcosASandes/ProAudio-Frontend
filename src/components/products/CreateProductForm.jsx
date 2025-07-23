@@ -138,7 +138,6 @@ export default function CreateProductForm() {
     createProduct(formData, () => {
       reset();
       setSelectedFiles([]);
-      toast.success("Producto creado con éxito 🎉");
       setTimeout(() => {
         navigate("/products");
       }, 3000);

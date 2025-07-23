@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { deleteEvent } from "../../services/eventApiService";
 import { removeEvent } from "../../features/events/EventSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteEvent = () => {
   const dispatch = useDispatch();
@@ -11,9 +12,10 @@ const useDeleteEvent = () => {
     try {
       await deleteEvent(id);
       dispatch(removeEvent(id));
-      toast.success("Evento eliminado correctamente.");
+      showToast("Evento eliminado correctamente.");
     } catch (error) {
-      toast.error("Error al eliminar el evento: " + error.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   };
 

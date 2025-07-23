@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { updateEvent } from "../../services/eventApiService";
 import { updateEventInStore } from "../../features/events/EventSlice";
 import { useDispatch } from "react-redux";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useUpdateEvent = () => {
   const dispatch = useDispatch();
@@ -11,12 +12,13 @@ const useUpdateEvent = () => {
       try {
         const response = await updateEvent(id, payload);
         dispatch(updateEventInStore(response));
-        toast.success("Evento actualizado correctamente");
+        showToast("Evento actualizado correctamente");
         if (onSuccess) onSuccess(); // 👈 ejecutamos callback si existe
         return true;
       } catch (error) {
         console.error(error);
-        toast.error("Error al actualizar el evento: " + error.message);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
         return false;
       }
     },

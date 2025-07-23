@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { createExpense } from "../../services/expenseApiService";
 import { fetchExpensesStart, fetchExpensesFailure, addExpense } from "../../features/expenses/ExpenseSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useCreateExpense = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,12 @@ const useCreateExpense = () => {
       try {
         const response = await createExpense(payload);
         dispatch(addExpense(response));
-        toast.success("Gasto creado correctamente");
+        showToast("Gasto creado correctamente");
         return response;
       } catch (error) {
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
         dispatch(fetchExpensesFailure(error.message));
-        toast.error("Error al crear el gasto");
+        showToastError(msj);
       }
     },
     [dispatch]

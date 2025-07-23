@@ -51,6 +51,7 @@ export default SerialNumbersForm;*/
 import { useFieldArray, useWatch } from "react-hook-form";
 import { Toast } from "bootstrap";
 import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const SerialNumbersForm = ({ nestIndex, control, register, errors }) => {
   const { fields, append, remove } = useFieldArray({
@@ -67,12 +68,12 @@ const SerialNumbersForm = ({ nestIndex, control, register, errors }) => {
     const parsedQuantity = parseInt(quantity, 10);
 
     if (!parsedQuantity || isNaN(parsedQuantity)) {
-        toast("Primero debe ingresar una cantidad comprada válida.");
+      showToastError("Primero debe ingresar una cantidad comprada válida.");
       return;
     }
 
     if (fields.length >= parsedQuantity) {
-        toast("Ya se han agregado todos los números de serie según la cantidad indicada.");
+      showToastError("Ya se han agregado todos los números de serie según la cantidad indicada.");
       return;
     }
 

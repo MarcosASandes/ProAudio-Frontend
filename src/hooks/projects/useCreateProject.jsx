@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { createProject } from "../../services/projectApiService";
 import { addProject, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useCreateProject = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,12 @@ const useCreateProject = () => {
       try {
         const response = await createProject(payload);
         dispatch(addProject(response));
-        toast.success("Proyecto creado correctamente");
+        showToast("Proyecto creado correctamente");
         return response;
       } catch (error) {
         dispatch(fetchProjectsFailure(error.message));
-        toast.error("Error al crear el proyecto: " + error.response?.data?.message);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

@@ -7,6 +7,7 @@ import {
 } from "../../features/items/ItemSlice";
 import { toast } from "react-toastify";
 import { createItems } from "../../services/itemApiService";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useCreateItems = () => {
   const dispatch = useDispatch();
@@ -16,12 +17,12 @@ const useCreateItems = () => {
     try {
       const response = await createItems(payload);
       dispatch(createItemsSuccess(response));
-      toast.success("Items creados correctamente");
+      showToast("Items creados correctamente");
       return response;
     } catch (error) {
       const msj = error.response?.data?.message || "Ocurrió un error inesperado";
       dispatch(createItemsFailure(error.message));
-      toast.error("Error al crear items: " + msj);
+      showToastError(msj);
     }
   }, [dispatch]);
 

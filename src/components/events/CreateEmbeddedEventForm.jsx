@@ -7,6 +7,7 @@ import createEventValidator from "../../validators/events/createEventValidator";
 import styles from "../../styles/events/createEventForm.module.css";
 import stylesBackButton from "../../styles/generic/backButton.module.css";
 import { ArrowLeft } from "lucide-react";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const CreateEmbeddedEventForm = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const CreateEmbeddedEventForm = () => {
     // Guardamos el evento temporal en localStorage
     localStorage.setItem("temporaryProjectEvent", JSON.stringify(newEventObject));
 
-    toast.success("Evento creado temporalmente ✅");
+    showToast("Evento creado temporalmente.");
     const from = location.state?.from;
     const projectId = location.state?.projectId;
 

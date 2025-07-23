@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
 import updateEventValidator from "../../validators/events/updateEventValidator";
 import useUpdateEvent from "../../hooks/events/useUpdateEvent";
-import { selectSelectedEvent } from "../../features/events/EventSelector";
+import { selectSelectedEvent } from "../../features/events/eventSelector";
 import { useParams } from "react-router-dom";
 import styles from "../../styles/events/updateEventForm.module.css";
 import useGetEventById from "../../hooks/events/useGetEventById";

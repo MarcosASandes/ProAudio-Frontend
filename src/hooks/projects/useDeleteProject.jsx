@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { deleteProject } from "../../services/projectApiService";
 import { removeProject } from "../../features/projects/ProjectSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteProject = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,12 @@ const useDeleteProject = () => {
       const deletedProject = await deleteProject(projectId);
       const id = deletedProject.project_id;
       dispatch(removeProject(id));
-      toast.success("Proyecto eliminado correctamente.");
+      showToast("Proyecto eliminado correctamente.");
       return true;
     } catch (error) {
       console.error("Error eliminando el proyecto:", error.message);
-      toast.error("No se pudo eliminar el producto." + error.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
       return false;
     }
   };

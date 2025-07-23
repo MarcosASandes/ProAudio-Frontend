@@ -3,6 +3,7 @@ import { deleteProductPhoto } from "../../services/productApiService";
 import { deleteProductPhotoInStore } from "../../features/products/ProductSlice";
 import { toast } from "react-toastify";
 import useGetProductDetails from "./useGetProductDetails";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteProductPhoto = () => {
   const dispatch = useDispatch();
@@ -11,10 +12,11 @@ const useDeleteProductPhoto = () => {
     try {
       const data = await deleteProductPhoto(photoId);
       dispatch(deleteProductPhotoInStore(data));
-      toast("Se eliminó correctamente la foto.");
+      showToast("Se eliminó correctamente la foto.");
     } catch (error) {
       console.error("Error al eliminar la foto:", error);
-      toast("No se eliminó la foto.");
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   };
 

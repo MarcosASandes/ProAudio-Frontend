@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getItemById } from "../../services/itemApiService";
 import { setSelectedItem, clearSelectedItem } from "../../features/items/ItemSlice";
 import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useItemScanner = () => {
   const scannerRef = useRef(null);
@@ -28,10 +29,10 @@ const useItemScanner = () => {
           try {
             const response = await getItemById(decodedText);
             dispatch(setSelectedItem(response));
-            toast.success("Artículo escaneado correctamente");
+            showToast("Artículo escaneado correctamente");
           } catch {
             dispatch(clearSelectedItem());
-            toast.error("No se pudo obtener el artículo");
+            showToastError("No se pudo obtener el artículo");
           }
         }
       );

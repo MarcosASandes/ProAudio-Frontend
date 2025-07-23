@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateExpense } from "../../services/expenseApiService";
 import { updateExpenseInStore } from "../../features/expenses/ExpenseSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useUpdateExpense = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,12 @@ const useUpdateExpense = () => {
       try {
         const response = await updateExpense(id, payload);
         dispatch(updateExpenseInStore(response));
-        toast.success("Gasto actualizado correctamente");
+        showToast("Gasto actualizado correctamente");
         if (onSuccess) onSuccess();
         return true;
       } catch (error) {
-        toast.error("Error al actualizar el evento: " + error.message);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
         return false;
       }
     },

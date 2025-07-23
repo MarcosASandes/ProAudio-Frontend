@@ -30,7 +30,8 @@ export function useAddProductPrice() {
         showToast("Precio creado correctamente.");
       } catch (error) {
         console.error("Error al agregar precio:", error);
-        toast.error("Error al agregar precio.");
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

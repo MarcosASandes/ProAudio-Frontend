@@ -14,6 +14,7 @@ import { selectTagsTypes } from "../../features/tags/TagSelector";
 import useGetTagsTypes from "../../hooks/tags/useGetTagsTypes";
 import styles from "../../styles/products/addProductTagsForm.module.css";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const AddProductTagsForm = ({ productId }) => {
   const product = useSelector(selectSelectedProductDetails);
@@ -68,7 +69,7 @@ const AddProductTagsForm = ({ productId }) => {
   // Agregar etiqueta seleccionada + tipo al FieldArray local
   const handleAddLocalTag = () => {
     if (!selectedTag) {
-      toast.warn("Selecciona una etiqueta primero.");
+      showToastError("Selecciona una etiqueta primero.");
       return;
     }
 
@@ -78,7 +79,7 @@ const AddProductTagsForm = ({ productId }) => {
     });
 
     setSelectedTag(null);
-    toast.success("Etiqueta agregada a lista local.");
+    showToast("Etiqueta agregada a lista local.")
   };
 
 
@@ -86,7 +87,7 @@ const AddProductTagsForm = ({ productId }) => {
   const onSubmit = async (data) => {
     try {
       if (data.tags.length === 0) {
-        toast.warn("Agrega al menos una etiqueta.");
+        showToastError("Agrega al menos una etiqueta.");
         return;
       }
 
@@ -95,10 +96,9 @@ const AddProductTagsForm = ({ productId }) => {
       }
 
       reset({ tags: [] });
-      toast.success("Relaciones de etiquetas agregadas correctamente.");
     } catch (error) {
       console.error(error);
-      toast.error("Error agregando etiquetas.");
+      //toast.error("Error agregando etiquetas.");
     }
   };
 

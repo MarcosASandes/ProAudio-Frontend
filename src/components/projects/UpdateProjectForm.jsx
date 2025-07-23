@@ -514,6 +514,7 @@ import { selectProjectStatus } from "../../features/projects/ProjectSelector";
 import { getStatusLabel } from "../../utils/startingProjectStatusLabel";
 import useGetPossiblePaymentStatusByProjectId from "../../hooks/projects/useGetPossiblePaymentStatusByProjectId";
 import { selectPaymentStatus } from "../../features/projects/ProjectSelector";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const getAllErrorMessages = (errors) => {
   const messages = [];
@@ -901,7 +902,7 @@ const UpdateProjectForm = () => {
                   });
                   setSelectedEvent(project.event || null);
                 }
-                toast.info("Formulario reestablecido");
+                showToast("Formulario reestablecido");
               }}
             >
               Reestablecer formulario

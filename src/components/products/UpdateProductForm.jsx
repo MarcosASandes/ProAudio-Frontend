@@ -63,7 +63,6 @@ export default function UpdateProductForm({ productId }) {
 
   const onSubmit = (data) => {
     updateProduct(productId, data, () => {
-      toast.success("Producto actualizado con éxito 🎉");
       setTimeout(() => {
         navigate("/product/" + productId);
       }, 2000);

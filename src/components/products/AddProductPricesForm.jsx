@@ -9,6 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import stylesBackButton from "../../styles/generic/backButton.module.css";
 import styles from "../../styles/products/addProductPricesForm.module.css";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const AddProductPricesForm = ({ productId }) => {
   const product = useSelector(selectSelectedProductDetails);
@@ -41,7 +42,7 @@ const AddProductPricesForm = ({ productId }) => {
   const onSubmit = async (data) => {
     try {
       if (data.prices.length === 0) {
-        toast.warn("Agrega al menos un precio antes de enviar.");
+        showToastError("Agrega al menos un precio antes de enviar.");
         return;
       }
 
@@ -56,17 +57,17 @@ const AddProductPricesForm = ({ productId }) => {
       reset({ prices: [] });
     } catch (error) {
       console.error("Error agregando precios:", error);
-      toast.error("Error agregando precios.");
+      showToastError("Error agregando precios:", error);
     }
   };
 
   const handleDeleteExistingPrice = async (priceId) => {
     try {
       await deleteProductPrice(priceId);
-      toast.success("Precio eliminado correctamente.");
+      //toast.success("Precio eliminado correctamente.");
     } catch (error) {
       console.error("Error eliminando precio:", error);
-      toast.error("Error eliminando precio.");
+      //toast.error("Error eliminando precio.");
     }
   };
 

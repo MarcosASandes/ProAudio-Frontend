@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { deleteParameter } from "../../services/parametersApiService";
 import { removeParameter } from "../../features/parameters/ParameterSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteParameter = () => {
   const dispatch = useDispatch();
@@ -10,9 +11,10 @@ const useDeleteParameter = () => {
     try {
       await deleteParameter(id);
       dispatch(removeParameter(id));
-      toast.success("Parámetro eliminado correctamente.");
+      showToast("Parámetro eliminado correctamente.");
     } catch (error) {
-      toast.error("Error al eliminar el parámetro: " + error.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   };
 

@@ -42,6 +42,7 @@ import { useDispatch } from "react-redux";
 import { updateProject as updateProjectAPI } from "../../services/projectApiService";
 import { updateProjectInStore, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";
 import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useUpdateProject = () => {
   const dispatch = useDispatch();
@@ -51,11 +52,12 @@ const useUpdateProject = () => {
     try {
       const updated = await updateProjectAPI(id, payload);
       dispatch(updateProjectInStore(updated));
-      toast.success("Proyecto actualizado correctamente");
+      showToast("Proyecto actualizado correctamente");
       return updated;
     } catch (error) {
       dispatch(fetchProjectsFailure(error.message));
-      toast.error("Error al actualizar el proyecto: " + error.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   }, [dispatch]);
 

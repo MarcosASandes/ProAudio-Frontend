@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getTagsTypes } from "../../services/tagApiService";
 import { setTagsTypeInStore } from "../../features/tags/tagSlice";
 import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useGetTagsTypes = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,8 @@ const useGetTagsTypes = () => {
         const data = await getTagsTypes();
         dispatch(setTagsTypeInStore(data));
       } catch (error) {
-        toast(`Hubo un error cargando los tipos de etiquetas: ${error.message}`);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     };
 

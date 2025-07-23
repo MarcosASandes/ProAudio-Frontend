@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import styles from "../../styles/products/addPhotoProductForm.module.css";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const AddPhotoProductForm = ({ productId }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -15,7 +16,7 @@ const AddPhotoProductForm = ({ productId }) => {
 
   const onSubmit = () => {
     if (selectedFiles.length === 0) {
-      toast.error("Debes seleccionar al menos una foto.");
+      showToastError("Debes seleccionar al menos una foto.");
       return;
     }
 
@@ -25,7 +26,6 @@ const AddPhotoProductForm = ({ productId }) => {
     });
 
     addProductPhotos(formData, productId, () => {
-      toast.success("Fotos agregadas correctamente 🎉");
       reset();
       setSelectedFiles([]);
       setTimeout(() => {

@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { deleteExpense } from "../../services/expenseApiService";
 import { removeExpense } from "../../features/expenses/ExpenseSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteExpense = () => {
   const dispatch = useDispatch();
@@ -10,9 +11,10 @@ const useDeleteExpense = () => {
     try {
       await deleteExpense(id);
       dispatch(removeExpense(id));
-      toast.success("Gasto eliminado correctamente.");
+      showToast("Gasto eliminado correctamente.");
     } catch (error) {
-      toast.error("Error al eliminar el gasto: " + error.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   };
 

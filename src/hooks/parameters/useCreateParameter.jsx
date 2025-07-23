@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { createParameter } from "../../services/parametersApiService";
 import { fetchParametersFailure, fetchParametersStart, addParameter } from "../../features/parameters/ParameterSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useCreateParameter = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,12 @@ const useCreateParameter = () => {
       try {
         const response = await createParameter(payload);
         dispatch(addParameter(response));
-        toast.success("Parámetro creado correctamente");
+        showToast("Parámetro creado correctamente");
         return response;
       } catch (error) {
         dispatch(fetchParametersFailure(error.message));
-        toast.error("Error al crear el parámetro");
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

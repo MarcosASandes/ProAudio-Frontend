@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addDescriptionTagInStore, addRelationTagInStore, addDependencyTagInStore } from "../../features/products/ProductSlice";
 import { createProductTag } from "../../services/productApiService";
 import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useAddProductTag() {
   const dispatch = useDispatch();
@@ -31,10 +32,11 @@ export function useAddProductTag() {
           dispatch(addDependencyTagInStore(createdTag));
         }
 
-        toast.success("Etiqueta agregada correctamente ✅");
+        showToast("Etiqueta agregada correctamente.");
       } catch (error) {
         console.error("Error al agregar etiqueta:", error);
-        toast.error("Error al agregar etiqueta: " + error.response?.data?.message);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]
