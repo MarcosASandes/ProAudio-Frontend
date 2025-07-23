@@ -218,3 +218,35 @@ h1:hover{
 .animated-underline:hover::after {
   transform: scaleX(1);
 }
+
+/*-------------------------*/
+/*Sobreescritura de los estilos de los toast*/
+.custom-toast {
+  background-color: black !important;
+  border-radius: 8px !important;
+  border: 2px solid transparent !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  padding: 0 !important;
+  max-width: none !important;  /* Para que no limite ancho */
+  width: auto !important;       /* Para ajustarse al contenido */
+}
+
+.custom-toast.error-toast {
+  border-color: #ef4444 !important; /* Rojo */
+}
+
+.custom-toast-body {
+  padding: 0 !important;           /* Quitar padding para cubrir todo */
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100%;                     /* Que ocupe todo el ancho */
+  box-sizing: border-box;          /* Para que no se pase el ancho */
+}
+
+.custom-toast-progress {
+  background: transparent !important;
+}
+
+/*Sobreescritura de los estilos de los toast*/
+/*-------------------------*/

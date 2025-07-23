@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { createProductPrice } from "../../services/productApiService";
 import { toast } from "react-toastify";
 import { addProductPriceInStore } from "../../features/products/ProductSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useAddProductPrice() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export function useAddProductPrice() {
         };
 
         dispatch(addProductPriceInStore(priceToStore));
+        showToast("Precio creado correctamente.");
       } catch (error) {
         console.error("Error al agregar precio:", error);
         toast.error("Error al agregar precio.");

@@ -50,7 +50,7 @@ const AddProductPricesForm = ({ productId }) => {
         await addProductPrice(productId, price);
       }
 
-      toast.success("Precios agregados correctamente.");
+      //toast.success("Precios agregados correctamente.");
 
       // Limpiar campos locales
       reset({ prices: [] });
