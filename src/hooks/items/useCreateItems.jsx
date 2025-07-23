@@ -19,8 +19,9 @@ const useCreateItems = () => {
       toast.success("Items creados correctamente");
       return response;
     } catch (error) {
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
       dispatch(createItemsFailure(error.message));
-      toast.error("Error al crear items");
+      toast.error("Error al crear items: " + msj);
     }
   }, [dispatch]);
 

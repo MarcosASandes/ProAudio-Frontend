@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:8080/item';
 
 export const createItems = async (payload) => {
-    console.log(payload);
+    console.log("Esto es lo que se envia para crear ols items: ", payload);
   const response = await axios.post(BASE_URL, payload);
   return response.data;
 };

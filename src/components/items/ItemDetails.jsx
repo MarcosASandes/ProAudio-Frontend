@@ -77,6 +77,12 @@ const ItemDetails = () => {
               <p>
                 <strong>Fecha de compra:</strong> {item.bought_at}
               </p>
+              <p>
+                <strong>Rango de frecuencia:</strong> {item.product?.range}
+              </p>
+              <p>
+                <strong>Número de serie:</strong> {item.product?.serial_number}
+              </p>
             </div>
           </div>
 
@@ -84,7 +90,7 @@ const ItemDetails = () => {
             <div className={styles.box}>
               <h5 className={styles.boxTitle}>Producto asociado</h5>
               <p>
-                <strong>Marca:</strong> {item.product?.brand}
+                <strong>Marca:</strong> {item.product?.brand? item.product?.brand : "Sin marca"}
               </p>
               <p>
                 <strong>Modelo:</strong> {item.product?.model}
