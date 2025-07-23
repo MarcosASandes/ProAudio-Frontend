@@ -1,18 +1,3 @@
-/*import { toast } from 'react-toastify';
-import CustomToast from '../components/global/CustomToast';
-
-export const showToast = (message) => {
-  toast(<CustomToast message={message} type="normal" />);
-};
-
-export const showToastError = (message) => {
-  toast.error(<CustomToast message={message} type="error" />);
-};*/
-
-
-/*--------------------------- */
-
-// toastUtils.jsx
 import { toast } from 'react-toastify';
 import CustomToast from '../components/global/CustomToast';
 
