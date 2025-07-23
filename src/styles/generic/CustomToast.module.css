@@ -108,6 +108,15 @@
   object-fit: contain;
 }
 
+.toast:hover .logo {
+  filter: drop-shadow(0 0 6px #a855f7);
+  transition: filter 0.3s ease;
+}
+
+.toast.error:hover .logo {
+  filter: drop-shadow(0 0 6px #ef4444);
+}
+
 .text {
   flex: 1;
   display: flex;

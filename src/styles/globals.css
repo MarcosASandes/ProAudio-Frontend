@@ -248,5 +248,39 @@ h1:hover{
   background: transparent !important;
 }
 
+
+/* Barra de progreso base, visible y con transición */
+.Toastify__progress-bar {
+  background: transparent !important; /* Reset si hay algún fondo */
+  transition: transform 0.2s linear;
+}
+
+/* Barra progreso púrpura para toast normal */
+.custom-toast .Toastify__progress-bar {
+  background-color: #a855f7 !important; /* púrpura */
+}
+
+/* Barra progreso roja para toast error */
+.custom-toast.error-toast .Toastify__progress-bar {
+  background-color: #ef4444 !important; /* rojo */
+}
+
+.custom-toast .Toastify__toast-icon {
+  margin-left: 8px; /* o lo que prefieras */
+  margin-right: 8px; /* también si querés separarlo del contenido */
+}
+
+.Toastify__close-button {
+  color: white !important;
+  opacity: 1 !important; /* evitar que se vea semitransparente */
+}
+
+.Toastify__close-button:hover {
+  color: #a855f7 !important; /* púrpura al hover */
+}
+
+.custom-toast.error-toast .Toastify__close-button:hover {
+  color: #ef4444 !important;
+}
 /*Sobreescritura de los estilos de los toast*/
 /*-------------------------*/

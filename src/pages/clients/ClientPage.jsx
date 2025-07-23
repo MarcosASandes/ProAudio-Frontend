@@ -8,11 +8,11 @@ export default function ClientPage() {
       <h1 className="animated-underline">Clientes</h1>
       <p>En esta página se mostrarán los clientes.</p>
       <hr />
-      <button onClick={() => showToast("Saved suawdawdawdawdawdawdawdwadawdawdawdaccessfawdawdawdawdawdawdawdawdawdully! awdawdwadawdawdawdaccessf awdawdwadawdawdawdaccessf")}>
+      <button onClick={() => showToast("Saved suawdawdawdawed sawdawawdawawdawawdawawdawawdawawdawawdawawdawawdawawdawawdawawdawdaccessf")}>
         Show normal toast
       </button>
 
-      <button onClick={() => showToastError("SomethSaved suawdawdawdawdawdawdawdwadawdawdawdaccessfawdawdawdawdawdawdawdawdawdully! awding went wrong.")}>
+      <button onClick={() => showToastError("SomethSaved suawdawdawed .")}>
         Show error toast
       </button>
     </main>
