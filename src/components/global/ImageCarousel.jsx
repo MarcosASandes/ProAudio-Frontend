@@ -46,7 +46,7 @@ const ImageCarousel = ({ images, onDeletePhoto }) => {
   };
 
   if (imageUrls.length === 0) {
-    return <p>No hay imágenes disponibles.</p>;
+    return <p className="text-white">No hay imágenes disponibles.</p>;
   }
 
   return (
@@ -88,7 +88,7 @@ const ImageCarousel = ({ images, onDeletePhoto }) => {
               style={{
                 position: "absolute",
                 top: "10px",
-                right: "10px",
+                right: "30px",
                 background: "rgba(255, 0, 0, 0.7)",
                 border: "none",
                 borderRadius: "50%",

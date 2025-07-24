@@ -1,6 +1,7 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { getItemsStatusLabel, getItemsLocationLabel } from "../../utils/startingProjectStatusLabel";
 
 const ItemRow = ({ item }) => {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const ItemRow = ({ item }) => {
   return (
     <tr>
       <td>{item.item_id}</td>
-      <td>{item.location}</td>
-      <td>{item.status}</td>
+      <td>{getItemsLocationLabel(item.location)}</td>
+      <td>{getItemsStatusLabel(item.status)}</td>
       <td>{item.bought_at}</td>
       <td>{/*item.next_project_name*/} Nombre proyecto</td>
       <td>{/*item.next_project*/} Fecha proyecto</td>

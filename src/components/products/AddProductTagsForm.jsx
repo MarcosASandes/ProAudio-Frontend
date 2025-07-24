@@ -79,7 +79,7 @@ const AddProductTagsForm = ({ productId }) => {
     });
 
     setSelectedTag(null);
-    showToast("Etiqueta agregada a lista local.")
+    //showToast("Etiqueta agregada a lista local.")
   };
 
 

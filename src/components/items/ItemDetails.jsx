@@ -9,6 +9,8 @@ import useGetItemDetails from "../../hooks/items/useGetItemDetails";
 import { ArrowLeft } from "lucide-react";
 import styles from "../../styles/items/itemDetails.module.css";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
+import stylesButtons from "../../styles/generic/buttonsStyles.module.css";
+import { getItemsLocationLabel, getItemsStatusLabel } from "../../utils/startingProjectStatusLabel";
 
 const ItemDetails = () => {
   const { id } = useParams();
@@ -47,12 +49,12 @@ const ItemDetails = () => {
           <h4>Detalles del Artículo</h4>
           <div className="d-flex gap-2">
             <button
-              className="btn btn-warning btn-sm"
+              className={`btn ${stylesButtons.btnBlue} btn-sm`}
               onClick={() => navigate("/items/" + id + "/edit")}
             >
               Modificar Artículo
             </button>
-            <button className="btn btn-danger btn-sm" onClick={handleShowModal}>
+            <button className={`btn ${stylesButtons.btnRed} btn-sm`} onClick={handleShowModal}>
               Eliminar Artículo
             </button>
           </div>
@@ -66,10 +68,10 @@ const ItemDetails = () => {
                 <strong>Descripción:</strong> {item.description}
               </p>
               <p>
-                <strong>Estado:</strong> {item.status}
+                <strong>Estado:</strong> {getItemsStatusLabel(item.status)}
               </p>
               <p>
-                <strong>Ubicación:</strong> {item.location}
+                <strong>Ubicación:</strong> {getItemsLocationLabel(item.location)}
               </p>
               <p>
                 <strong>Precio de compra:</strong> ${item.price_bought}

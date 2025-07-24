@@ -204,7 +204,6 @@ const ProductDetails = ({ id, product }) => {
                 <div key={price.rent_price_id} className={styles.priceItem}>
                   <span>${price.value}</span>
                   <span>{price.description}</span>
-                  <span>({price.status})</span>
                 </div>
               ))
             )}

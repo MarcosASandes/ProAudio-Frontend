@@ -119,8 +119,8 @@ const ItemView = () => {
                 value={direction}
                 onChange={(e) => setDirection(e.target.value)}
               >
-                <option value="ASC">ASC</option>
-                <option value="DESC">DESC</option>
+                <option value="ASC">Ascendente</option>
+                <option value="DESC">Descendente</option>
               </select>
             </div>
             <div className="modal-footer">

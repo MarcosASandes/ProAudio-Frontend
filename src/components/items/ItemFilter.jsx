@@ -1,3 +1,5 @@
+import { getItemsStatusLabel } from "../../utils/startingProjectStatusLabel";
+
 export default function ItemFilter({
   searchTerm,
   onSearchChange,
@@ -9,7 +11,7 @@ export default function ItemFilter({
   return (
     <div className="mb-4">
       <div className="row g-2">
-        <div className="col-md-6">
+        {/*<div className="col-md-6">
           <input
             type="text"
             className="form-control"
@@ -17,7 +19,7 @@ export default function ItemFilter({
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
           />
-        </div>
+        </div>*/}
 
         <div className="col-md-4">
           <select
@@ -29,7 +31,7 @@ export default function ItemFilter({
             {statuses.status_list && statuses.status_list.length > 0
               ? statuses.status_list.map((status) => (
                   <option key={status} value={status}>
-                    {status}
+                    {getItemsStatusLabel(status)}
                   </option>
                 ))
               : null}

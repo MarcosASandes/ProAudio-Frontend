@@ -12,6 +12,7 @@ import { selectStatuses } from "../../features/items/ItemSelector";
 import updateItemSchema from "../../validators/items/itemUpdateValidator";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
+import { getItemsStatusLabel } from "../../utils/startingProjectStatusLabel";
 
 const UpdateItemForm = () => {
   const { id } = useParams();
@@ -93,7 +94,7 @@ const UpdateItemForm = () => {
             <option value="">Selecciona un estado</option>
             {statuses.status_list.map((status) => (
               <option key={status} value={status}>
-                {status}
+                {getItemsStatusLabel(status)}
               </option>
             ))}
           </select>
