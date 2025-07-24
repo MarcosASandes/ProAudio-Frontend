@@ -218,3 +218,16 @@ export const getPossiblePaymentStatusByProjectId = async (id) => {
   const response = await axios.get(BASE_URL + "/possible/payment/status/" + id);
   return response.data;
 };
+
+
+export const getBudgetPdfByProjectId = async (id) => {
+  const response = await axios.get(`${BASE_URL}/${id}/budget-pdf`, {
+    responseType: 'blob',
+    headers: {
+      Accept: 'application/pdf',
+    },
+  });
+
+  const pdfUrl = URL.createObjectURL(response.data);
+  return pdfUrl;
+};

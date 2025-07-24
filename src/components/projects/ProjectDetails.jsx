@@ -8,6 +8,8 @@ import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import { ArrowLeft } from "lucide-react";
 import { formatDateToDDMMYY } from "../../utils/formatDate";
 import stylesUnderline from "../../styles/generic/animatedUnderline.module.css";
+import useGetBudgetPdfByProjectId from "../../hooks/projects/useGetBudgetPdfByProjectId";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -15,6 +17,7 @@ const ProjectDetails = () => {
   const dispatch = useDispatch();
   const { fetchProjectDetails } = useGetProjectDetails();
   const [articlesOpen, setArticlesOpen] = useState(false);
+  const getPdf = useGetBudgetPdfByProjectId();
 
   const project = useSelector(selectSelectedProjectDetails);
 
@@ -29,6 +32,23 @@ const ProjectDetails = () => {
 
   const handleGoToUpdateProject = () => {
     navigate("/project/" + id + "/edit");
+  };
+
+  const downloadBudget = async () => {
+    try {
+      const pdfUrl = await getPdf(id); // Pasás el ID del proyecto
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = "presupuesto.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(pdfUrl); // Limpieza de la URL temporal
+      showToast("Se ha descargado el presupuesto correctamente.");
+    } catch (error) {
+      console.error("Error al descargar el PDF:", error);
+      showToastError(error.message);
+    }
   };
 
   if (!project) return <p className="text-center mt-4">Cargando proyecto...</p>;
@@ -59,6 +79,18 @@ const ProjectDetails = () => {
             Información del proyecto
           </h5>
           <div>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
+              onClick={downloadBudget}
+            >
+              Descargar presupuesto
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
+              onClick={() => navigate(`/project/${id}/budget`)}
+            >
+              Ver presupuesto
+            </button>
             <button
               className="btn btn-outline-primary btn-sm m-1"
               onClick={handleGoToUpdateProject}
