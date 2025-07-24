@@ -71,5 +71,6 @@ export const downloadCanvasAsImage = (canvas, filename) => {
   const link = document.createElement("a");
   link.download = filename;
   link.href = canvas.toDataURL("image/png");
+  console.log("Se esta descargando");
   link.click();
 };

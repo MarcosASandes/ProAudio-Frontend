@@ -11,6 +11,7 @@ const initialState = {
   loading: false,
   error: null,
   selectItemDetails: null,
+  itemRegenerateQr: null,
 };
 
 const itemSlice = createSlice({
@@ -65,6 +66,9 @@ const itemSlice = createSlice({
         items: state.items.filter((item) => item.item_id !== action.payload),
       };
     },
+    setItemRegenerateQr: (state, action) => {
+      state.itemRegenerateQr = action.payload;
+    },
   },
 });
 
@@ -81,6 +85,7 @@ export const {
   fetchItemsFailure,
   setSelectedItemDetails,
   removeItem,
+  setItemRegenerateQr,
 } = itemSlice.actions;
 
 export default itemSlice.reducer;

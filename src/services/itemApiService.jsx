@@ -35,6 +35,11 @@ export const getItemDetails = async (id) => {
   return response.data;
 };
 
+export const regenerateQrCode = async (id) => {
+  const response = await axios.post(BASE_URL + '/' + id + '/regenerate/qr');
+  return response.data;
+};
+
 /**
  * Obtiene artículos paginados con filtros opcionales.
  * @param {number} page
