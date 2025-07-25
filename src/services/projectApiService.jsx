@@ -199,7 +199,6 @@ export const getAllProjects = async () => {
 
 export const getProjectTypes = async () => {
   const response = await axios.get(BASE_URL + "/types");
-  console.log("Llegó al projectTypes API")
   return response.data;
 };
 
@@ -230,4 +229,20 @@ export const getBudgetPdfByProjectId = async (id) => {
 
   const pdfUrl = URL.createObjectURL(response.data);
   return pdfUrl;
+};
+
+
+export const getAllStatuses = async () => {
+  const response = await axios.get(BASE_URL + "/status/all");
+  return response.data;
+};
+
+export const getAllPaymentStatuses = async () => {
+  const response = await axios.get(BASE_URL + "/payment/status/all");
+  return response.data;
+};
+
+export const getAllRunningStatuses = async () => {
+  const response = await axios.get(BASE_URL + "/running/status/all");
+  return response.data;
 };

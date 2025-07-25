@@ -11,6 +11,9 @@ const initialState = {
   loading: false,
   error: null,
   selectProjectDetails: null,
+  allStatuses: [],
+  allPaymentStatuses: [],
+  allRunningStatuses: [],
 };
 
 const projectSlice = createSlice({
@@ -70,17 +73,24 @@ const projectSlice = createSlice({
     },
     setPaymentStatusInStore: (state, action) => {
       state.paymentStatus = action.payload.payment_statuses;
-      console.log("Se guardo el payment status: ", action.payload);
     },
     setProjectStatusInStore: (state, action) => {
       state.projectStatus = action.payload.statuses;
     },
     setProjectTypesInStore: (state, action) => {
       state.projectTypes = action.payload.types;
-      console.log("Se guardaron los types: ", action.payload);
     },
     setStartingProjectStatusInStore: (state, action) => {
       state.startingProjectStatus = action.payload;
+    },
+    setAllStatusesInStore: (state, action) => {
+      state.allStatuses = action.payload.statuses;
+    },
+    setAllPaymentStatusesInStore: (state, action) => {
+      state.paymentStatus = action.payload.payment_statuses;
+    },
+    setAllRunningStatusesInStore: (state, action) => {
+      state.allRunningStatuses = action.payload.running_statuses;
     },
   },
 });
@@ -100,6 +110,9 @@ export const {
     setProjectTypesInStore,
     setStartingProjectStatusInStore,
     setProjectStatusInStore,
+    setAllStatusesInStore,
+    setAllPaymentStatusesInStore,
+    setAllRunningStatusesInStore
 } = projectSlice.actions;
 
 export default projectSlice.reducer;
