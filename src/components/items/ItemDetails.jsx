@@ -280,10 +280,10 @@ const ItemDetails = () => {
                 <strong>Fecha de compra:</strong> {item.bought_at}
               </p>
               <p>
-                <strong>Rango de frecuencia:</strong> {item.product?.range}
+                <strong>Rango de frecuencia:</strong> {item.range}
               </p>
               <p>
-                <strong>Número de serie:</strong> {item.product?.serial_number}
+                <strong>Número de serie:</strong> {item.serial_number}
               </p>
             </div>
           </div>
