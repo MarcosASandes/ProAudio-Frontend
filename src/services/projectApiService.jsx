@@ -192,9 +192,9 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
   return response.data;
 };*/
 
-export const getAllProjects = async () => {
+/*export const getAllProjects = async () => {
   return projectList;
-};
+};*/
 
 
 export const getProjectTypes = async () => {
@@ -244,5 +244,50 @@ export const getAllPaymentStatuses = async () => {
 
 export const getAllRunningStatuses = async () => {
   const response = await axios.get(BASE_URL + "/running/status/all");
+  return response.data;
+};
+
+
+/**
+ * Obtiene proyectos paginados con filtros.
+ * @param {number} page - Página (empieza en 1).
+ * @param {number} size - Tamaño de página.
+ * @param {string} sortBy - Campo de ordenamiento (por defecto "start_date").
+ * @param {string} direction - Dirección ("asc" o "desc").
+ * @param {Array<string>} filterStatus - Estados de proyecto a filtrar.
+ * @param {string} filterPaymentStatus - Estado de pago a filtrar.
+ * @param {string} name - Nombre del proyecto a buscar.
+ * @returns {Promise<Object>} Respuesta con { projects, pageable }.
+ */
+export const getAllProjects = async (
+  page = 1,
+  size = 10,
+  sortBy = "start_date",
+  direction = "asc",
+  filterStatus = [],
+  filterPaymentStatus = "",
+  name = ""
+) => {
+  const params = {
+    page: page - 1, // el backend empieza en 0
+    size,
+    sortBy,
+    direction,
+  };
+
+  if (filterStatus.length > 0) {
+    params.filterStatus = filterStatus;
+  }
+
+  if (filterPaymentStatus) {
+    params.filterPaymentStatus = filterPaymentStatus;
+  }
+
+  if (name) {
+    params.name = name;
+  }
+
+  console.log(`${BASE_URL}/all`, { params });
+  const response = await axios.get(`${BASE_URL}/all`, { params });
   return response.data;
 };

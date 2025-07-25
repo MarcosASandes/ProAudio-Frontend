@@ -6,12 +6,12 @@ const ProjectRow = ({ project }) => {
 
   return (
     <tr>
+      <td>{project.project_id}</td>
       <td>{project.name}</td>
-      <td>{project.project_type === "SERVICE" ? "Servicio" : "Renta"}</td>
-      <td>{project.event_name}</td>
-      <td>{project.date_start_end}</td>
-      <td>{project.client_name || "Sin asignar"}</td>
       <td>{project.status}</td>
+      <td>{project.payment_status}</td>
+      <td>{project.start_date} / {project.end_date}</td>
+      <td>{project.running_status}</td>
       <td>
         <button
           className="btn btn-sm btn-primary"

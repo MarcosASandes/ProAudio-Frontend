@@ -17,12 +17,12 @@ const ProjectsTable = ({ projects, searchTerm }) => {
       <table className={`table table-striped table-hover ${styles.customTable}`}>
         <thead className={styles.tableHeader}>
           <tr>
+            <th>ID</th>
             <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Evento</th>
-            <th>Fechas</th>
-            <th>Cliente</th>
-            <th>Estado</th>
+            <th>Estado general</th>
+            <th>Estado de pago</th>
+            <th>Fechas | Inicio / Fin</th>
+            <th>Estado actual</th>
             <th></th>
           </tr>
         </thead>
