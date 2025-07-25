@@ -405,6 +405,7 @@ const CreateItemsForm = () => {
                   type="number"
                   {...register(`items[${index}].purchase_price`)}
                   className="form-control"
+                  onWheel={(e) => e.target.blur()}
                 />
                 {errors.items?.[index]?.purchase_price && (
                   <p className="text-danger">
@@ -435,6 +436,7 @@ const CreateItemsForm = () => {
                   type="number"
                   {...register(`items[${index}].quantity`)}
                   className="form-control"
+                  onWheel={(e) => e.target.blur()}
                 />
                 {errors.items?.[index]?.quantity && (
                   <p className="text-danger">
