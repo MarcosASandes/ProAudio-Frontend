@@ -44,6 +44,7 @@ const AddProductTagsForm = ({ productId }) => {
   const [selectedTag, setSelectedTag] = useState(null);
   const [selectedType, setSelectedType] = useState("DESCRIPTIVE");
 
+  //ToDo: Ponerlo en el archivo JS de labels
   const getNameFormat = (tipo) => {
     switch (tipo) {
       case "DESCRIPTIVE":

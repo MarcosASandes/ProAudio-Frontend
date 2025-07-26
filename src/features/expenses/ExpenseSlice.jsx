@@ -24,7 +24,7 @@ const expenseSlice = createSlice({
     },
     fetchExpensesSuccess: (state, action) => {
       state.loading = false;
-      state.expenses = action.payload.events;
+      state.expenses = action.payload.expenses;
       state.error = null;
     },
     fetchExpensesFailure: (state, action) => {
@@ -35,7 +35,7 @@ const expenseSlice = createSlice({
       return {
         ...state,
         expenses: state.expenses.filter(
-          (expense) => expense.id !== action.payload
+          (expense) => expense.expense_id !== action.payload
         ),
       };
     },

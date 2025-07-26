@@ -481,7 +481,7 @@ const ProjectDetails = () => {
           <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
             Gastos
           </h5>
-          <button className="btn btn-outline-primary btn-sm">
+          <button className="btn btn-outline-primary btn-sm" onClick={() => navigate("/project/" + id + "/expenses/create")}>
             Agregar gastos
           </button>
         </div>

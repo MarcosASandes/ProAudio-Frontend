@@ -3,11 +3,12 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:8080/expense'; 
 
 export const getAllExpensesByProject = async (id) => {
-  const response = await axios.get(BASE_URL + '/all/' + id);
+  const response = await axios.get(BASE_URL + '/project/' + id);
   return response.data;
 };
 
 export const createExpense = async (data) => {
+  console.log("Llego al apiservice: ", data);
   const response = await axios.post(BASE_URL, data);
   return response.data;
 };

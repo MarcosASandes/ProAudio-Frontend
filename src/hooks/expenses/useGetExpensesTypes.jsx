@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { getExpenseTypes } from "../../services/expenseApiService";
 import { setExpenseTypesInStore, fetchExpensesStart, fetchExpensesFailure } from "../../features/expenses/ExpenseSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useGetExpenseTypes = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,9 @@ const useGetExpenseTypes = () => {
         const data = await getExpenseTypes();
         dispatch(setExpenseTypesInStore(data));
       } catch (error) {
-        toast(`Hubo un error cargando los tipos de gastos: ${error.message}`);
         dispatch(fetchExpensesFailure(error.message));
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     };
 

@@ -70,3 +70,15 @@ export const getRunningStatusLabel = (status) => {
 };
 
 
+export const getExpensesTypesLabel = (status) => {
+  switch (status) {
+    case "PERSONNEL":
+      return "Personal";
+    case "EXTRA_COST":
+      return "Otros";
+    default:
+      return status;
+  }
+};
+
+
