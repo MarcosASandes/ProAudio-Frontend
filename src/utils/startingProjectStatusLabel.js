@@ -16,8 +16,10 @@ export const getStatusLabel = (status) => {
       return "Presupuestado";
     case "BILL_CREATED":
       return "Factura creada";
-    case "PARCIALLY_PAID":
+    case "PARTIALLY_PAID":
       return "Parcialmente pagado";
+    case "PAID":
+      return "Pagado";
     default:
       return status;
   }
@@ -48,6 +50,20 @@ export const getItemsLocationLabel = (status) => {
       return "En uso";
     case "NOT_RETURNED":
       return "No retornado";
+    default:
+      return status;
+  }
+};
+
+
+export const getRunningStatusLabel = (status) => {
+  switch (status) {
+    case "RUNNING":
+      return "En curso";
+    case "PREPARING":
+      return "En preparación";
+    case "NONE":
+      return "Pendiente";
     default:
       return status;
   }

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import qs from "qs";
 
 const BASE_URL = "http://localhost:8080/project";
 
@@ -196,7 +197,6 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
   return projectList;
 };*/
 
-
 export const getProjectTypes = async () => {
   const response = await axios.get(BASE_URL + "/types");
   return response.data;
@@ -218,19 +218,17 @@ export const getPossiblePaymentStatusByProjectId = async (id) => {
   return response.data;
 };
 
-
 export const getBudgetPdfByProjectId = async (id) => {
   const response = await axios.get(`${BASE_URL}/${id}/budget-pdf`, {
-    responseType: 'blob',
+    responseType: "blob",
     headers: {
-      Accept: 'application/pdf',
+      Accept: "application/pdf",
     },
   });
 
   const pdfUrl = URL.createObjectURL(response.data);
   return pdfUrl;
 };
-
 
 export const getAllStatuses = async () => {
   const response = await axios.get(BASE_URL + "/status/all");
@@ -246,7 +244,6 @@ export const getAllRunningStatuses = async () => {
   const response = await axios.get(BASE_URL + "/running/status/all");
   return response.data;
 };
-
 
 /**
  * Obtiene proyectos paginados con filtros.
@@ -264,7 +261,7 @@ export const getAllProjects = async (
   size = 10,
   sortBy = "start_date",
   direction = "asc",
-  filterStatus = [],
+  filterStatus = ["PLANNED", "CONFIRMED", "ON_COURSE"],
   filterPaymentStatus = "",
   name = ""
 ) => {
@@ -288,6 +285,10 @@ export const getAllProjects = async (
   }
 
   console.log(`${BASE_URL}/all`, { params });
-  const response = await axios.get(`${BASE_URL}/all`, { params });
+  const response = await axios.get(`${BASE_URL}/all`, {
+    params,
+    paramsSerializer: (params) =>
+      qs.stringify(params, { arrayFormat: "repeat" }),
+  });
   return response.data;
 };

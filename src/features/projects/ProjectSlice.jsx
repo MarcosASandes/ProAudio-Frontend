@@ -87,7 +87,7 @@ const projectSlice = createSlice({
       state.allStatuses = action.payload.statuses;
     },
     setAllPaymentStatusesInStore: (state, action) => {
-      state.paymentStatus = action.payload.payment_statuses;
+      state.allPaymentStatuses = action.payload.payment_statuses;
     },
     setAllRunningStatusesInStore: (state, action) => {
       state.allRunningStatuses = action.payload.running_statuses;

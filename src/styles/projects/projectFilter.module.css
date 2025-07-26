@@ -1,0 +1,38 @@
+/* projectFilter.module.css */
+
+.container {
+  background-color: #d7d5f0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 5px;
+}
+
+.inputSearch {
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.select,
+.input {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.checkboxLabel {
+  font-size: 0.85rem;
+  margin-left: 0.25rem;
+}

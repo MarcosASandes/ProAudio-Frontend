@@ -11,3 +11,4 @@ export const selectSelectedProject = (state) => state.projects.selectedProject;
 export const selectAllStatusesProject = (state) => state.projects.allStatuses;
 export const selectAllPaymentStatusesProject = (state) => state.projects.allPaymentStatuses;
 export const selectAllRunningStatusesProject = (state) => state.projects.allRunningStatuses;
+

@@ -20,6 +20,7 @@ const ProjectDetails = () => {
   const getPdf = useGetBudgetPdfByProjectId();
 
   const project = useSelector(selectSelectedProjectDetails);
+  console.log(project);
 
   useEffect(() => {
     if (id) fetchProjectDetails(id);
@@ -172,13 +173,13 @@ const ProjectDetails = () => {
             Agregar productos
           </button>
         </div>
-        {project.products.products?.length > 0 ? (
-          project.products.products.map((prod, idx) => (
+        {project.products?.length > 0 ? (
+          project.products.map((prod, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
                 {prod.amount}x -{" "}
                 <span
-                  onClick={() => navigate(`/product/${prod.product_id}`)}
+                  onClick={() => navigate(`/product/${prod.id}`)}
                   style={{
                     color: "#8cb4ff",
                     cursor: "pointer",

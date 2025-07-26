@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { getStatusLabel } from "../../utils/startingProjectStatusLabel";
+import { getRunningStatusLabel } from "../../utils/startingProjectStatusLabel";
 
 const ProjectRow = ({ project }) => {
   const navigate = useNavigate();
@@ -8,10 +10,10 @@ const ProjectRow = ({ project }) => {
     <tr>
       <td>{project.project_id}</td>
       <td>{project.name}</td>
-      <td>{project.status}</td>
-      <td>{project.payment_status}</td>
+      <td>{getStatusLabel(project.status)}</td>
+      <td>{getStatusLabel(project.payment_status)}</td>
       <td>{project.start_date} / {project.end_date}</td>
-      <td>{project.running_status}</td>
+      <td>{getRunningStatusLabel(project.running_status)}</td>
       <td>
         <button
           className="btn btn-sm btn-primary"
