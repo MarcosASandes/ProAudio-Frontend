@@ -174,13 +174,29 @@ export const getPossiblePaymentStatusByProjectId = async (id) => {
   return response.data;
 };
 
-export const getBudgetPdfByProjectId = async (id) => {
-  const response = await axios.get(`${BASE_URL}/${id}/budget-pdf`, {
+/*export const getBudgetPdfByProjectId = async (id) => {
+  const response = await axios.post(`${BASE_URL}/${id}/budget`, {
     responseType: "blob",
     headers: {
       Accept: "application/pdf",
     },
   });
+
+  const pdfUrl = URL.createObjectURL(response.data);
+  return pdfUrl;
+};*/
+
+export const getBudgetPdfByProjectId = async (id) => {
+  const response = await axios.post(
+    `${BASE_URL}/${id}/budget`,
+    {}, // body vacío (o los datos si corresponde)
+    {
+      responseType: "blob",
+      headers: {
+        Accept: "application/pdf",
+      },
+    }
+  );
 
   const pdfUrl = URL.createObjectURL(response.data);
   return pdfUrl;
