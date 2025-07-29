@@ -20,7 +20,6 @@ const AddProductsProjectForm = ({ id }) => {
   const navigate = useNavigate();
 
   const productsInProject = useSelector(selectProductsInProject);
-  console.log("productsInProject en pantalla:", productsInProject);
 
   const [showProductModal, setShowProductModal] = useState(false);
   const [currentProductIndex, setCurrentProductIndex] = useState(null);
@@ -119,7 +118,7 @@ const AddProductsProjectForm = ({ id }) => {
         <h5 className="text-light">Productos en el proyecto</h5>
         {productsInProject.map((productProject) => (
           <div
-            key={productProject.productProjectId}
+            key={productProject.product_project_id}
             className="d-flex justify-content-between align-items-center border rounded p-2 mb-2 bg-secondary bg-opacity-10"
           >
             <div>
@@ -130,7 +129,7 @@ const AddProductsProjectForm = ({ id }) => {
             <button
               className="btn btn-danger btn-sm"
               onClick={async () => {
-                await deleteProductProject(productProject.productProjectId);
+                await deleteProductProject(productProject.product_project_id);
                 fetchProductProjects(id);
               }}
             >
