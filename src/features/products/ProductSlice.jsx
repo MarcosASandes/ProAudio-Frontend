@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   productStatus: [],
+  productsInProject: [],
   selectedPrices: {},
   pageable: null,
   selectedProduct: null,
@@ -198,6 +199,23 @@ const productSlice = createSlice({
       const { productId, prices } = action.payload;
       state.selectedPrices[productId] = prices;
     },
+    setProductsInProjectInStore: (state, action) => {
+      state.productsInProject = action.payload.products;
+    },
+    addProductInProject: (state, action) => {
+      return {
+        ...state,
+        productsInProject: [...state.productsInProject, action.payload],
+      };
+    },
+    removeProductInProject: (state, action) => {
+      return {
+        ...state,
+        productsInProject: state.productsInProject.filter(
+          (prod) => prod.product_project_id !== action.payload
+        ),
+      };
+    },
   },
 });
 
@@ -224,6 +242,9 @@ export const {
   removeProductInStore,
   setProductStatusInStore,
   setProductSelectedPricesInStore,
+  setProductsInProjectInStore,
+  addProductInProject,
+  removeProductInProject,
 } = productSlice.actions;
 
 export default productSlice.reducer;

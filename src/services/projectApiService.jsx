@@ -264,3 +264,19 @@ export const getAllProjects = async (
   });
   return response.data;
 };
+
+export const getProductsInProject = async (id) => {
+  const response = await axios.get(BASE_URL + "/" + id + "/products");
+  return response.data;
+};
+
+export const deleteProductProject = async (id) => {
+  console.log("El id que llega del borrar productproject: ", id);
+  const response = await axios.delete("http://localhost:8080/product/project/" + id);
+  return response.data;
+};
+
+export const addProductToProject = async (data) => {
+  const response = await axios.post("http://localhost:8080/product/project", data);
+  return response.data;
+};

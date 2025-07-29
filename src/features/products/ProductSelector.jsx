@@ -1,6 +1,6 @@
 export const selectProducts = (state) => state.products.products;
 export const selectProductStatus = (state) => state.products.productStatus;
-//export const selectProductPrices = (state) => state.products.priceSelected;
+export const selectProductsInProject = (state) => state.products.productsInProject;
 export const selectProductsPageable = (state) => state.products.pageable;
 export const selectProductsLoading = (state) => state.products.loading;
 export const selectProductsError = (state) => state.products.error;

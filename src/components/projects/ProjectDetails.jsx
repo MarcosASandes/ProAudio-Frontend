@@ -425,7 +425,7 @@ const ProjectDetails = () => {
           <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
             Productos
           </h5>
-          <button className="btn btn-outline-primary btn-sm">
+          <button className="btn btn-outline-primary btn-sm" onClick={() => navigate("/project/" + id + "/products/create")}>
             Agregar productos
           </button>
         </div>
