@@ -28,6 +28,7 @@ import ProjectDetailsPage from './pages/projects/ProjectDetailsPage';
 import BudgetPDFPage from './pages/projects/BudgetPDFPage';
 import AddExpensesProjectPage from './pages/projects/AddExpensesProjectPage';
 import AddProductsProjectPage from './pages/projects/AddProductsProjectPage';
+import OutletItemPage from './pages/projects/OutletItemPage';
 //import "./styles/products.css";
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
         <Route path="/project/:id/budget" element={<BudgetPDFPage />} />
         <Route path="/project/:id/expenses/create" element={<AddExpensesProjectPage />} />
         <Route path="/project/:id/products/create" element={<AddProductsProjectPage />} />
+        <Route path="/project/:id/outlet" element={<OutletItemPage />} />
 
       </Route>
     </Routes>

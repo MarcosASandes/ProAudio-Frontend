@@ -9,6 +9,7 @@ export const selectProjectsError = (state) => state.projects.error;
 export const selectSelectedProjectDetails = (state) => state.projects.selectProjectDetails;
 export const selectSelectedProject = (state) => state.projects.selectedProject;
 export const selectAllStatusesProject = (state) => state.projects.allStatuses;
+export const selectOutletItems = (state) => state.projects.outletItems;
 export const selectAllPaymentStatusesProject = (state) => state.projects.allPaymentStatuses;
 export const selectAllRunningStatusesProject = (state) => state.projects.allRunningStatuses;
 

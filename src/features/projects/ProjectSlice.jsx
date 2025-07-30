@@ -14,6 +14,7 @@ const initialState = {
   allStatuses: [],
   allPaymentStatuses: [],
   allRunningStatuses: [],
+  outletItems: [],
 };
 
 const projectSlice = createSlice({
@@ -92,6 +93,25 @@ const projectSlice = createSlice({
     setAllRunningStatusesInStore: (state, action) => {
       state.allRunningStatuses = action.payload.running_statuses;
     },
+
+    setOutletItemsInStore: (state, action) => {
+      state.outletItems = action.payload;
+    },
+    addItemToOutletInStore: (state, action) => {
+      console.log(`En el reducer addItemToOutletInStore llega: ${action.payload}`);
+      return {
+        ...state,
+        outletItems: [...state.outletItems, action.payload],
+      };
+    },
+    removeItemToOutletInStore: (state, action) => {
+      return {
+        ...state,
+        outletItems: state.outletItems.filter(
+          (item) => item.item_id !== action.payload
+        ),
+      };
+    },
   },
 });
 
@@ -112,7 +132,10 @@ export const {
     setProjectStatusInStore,
     setAllStatusesInStore,
     setAllPaymentStatusesInStore,
-    setAllRunningStatusesInStore
+    setAllRunningStatusesInStore,
+    setOutletItemsInStore,
+    addItemToOutletInStore,
+    removeItemToOutletInStore,
 } = projectSlice.actions;
 
 export default projectSlice.reducer;

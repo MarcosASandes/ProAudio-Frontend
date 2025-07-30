@@ -271,12 +271,28 @@ export const getProductsInProject = async (id) => {
 };
 
 export const deleteProductProject = async (id) => {
-  console.log("El id que llega del borrar productproject: ", id);
   const response = await axios.delete("http://localhost:8080/product/project/" + id);
   return response.data;
 };
 
 export const addProductToProject = async (data) => {
   const response = await axios.post("http://localhost:8080/product/project", data);
+  return response.data;
+};
+
+export const exitItemToProject = async (idProject, idItem) => {
+  console.log(`En el método exitItemToProject llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
+  const response = await axios.post(BASE_URL + "/" + idProject + "/item/" + idItem + "/exit");
+  console.log("Luego de hacer la petición llega esto: ", response);
+  return response.data;
+};
+
+export const deleteOutletItemInProject = async (idProject, idItem) => {
+  const response = await axios.delete(BASE_URL + "/" + idProject + "/item/" + idItem + "/delete");
+  return response.data;
+};
+
+export const returnItemToProject = async (idProject, idItem) => {
+  const response = await axios.post(BASE_URL + "/" + idProject + "/item/" + idItem + "/return");
   return response.data;
 };

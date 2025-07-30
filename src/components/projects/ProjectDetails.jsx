@@ -335,6 +335,12 @@ const ProjectDetails = () => {
           <div>
             <button
               className="btn btn-outline-danger btn-sm m-1"
+              onClick={() => navigate(`/project/${id}/outlet`)}
+            >
+              Salida de artículos
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
               onClick={downloadBudget}
             >
               Descargar presupuesto
