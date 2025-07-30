@@ -287,6 +287,11 @@ export const exitItemToProject = async (idProject, idItem) => {
   return response.data;
 };
 
+export const getOutletItemsByProjectId = async (id) => {
+  const response = await axios.get(BASE_URL + "/" + id + "/items");
+  return response.data;
+};
+
 export const deleteOutletItemInProject = async (idProject, idItem) => {
   const response = await axios.delete(BASE_URL + "/" + idProject + "/item/" + idItem + "/delete");
   return response.data;

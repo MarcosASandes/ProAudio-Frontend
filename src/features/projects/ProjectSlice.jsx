@@ -95,7 +95,7 @@ const projectSlice = createSlice({
     },
 
     setOutletItemsInStore: (state, action) => {
-      state.outletItems = action.payload;
+      state.outletItems = action.payload.items;
     },
     addItemToOutletInStore: (state, action) => {
       console.log(`En el reducer addItemToOutletInStore llega: ${action.payload}`);

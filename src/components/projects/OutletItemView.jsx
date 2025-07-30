@@ -66,9 +66,7 @@ const OutletItemView = () => {
 
 export default OutletItemView;*/
 
-
 /*--------------------------------------- */
-
 
 /*import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -155,23 +153,20 @@ const OutletItemView = () => {
 
 export default OutletItemView;*/
 
-
-
 /*---------------------------------------------------------- */
-
-
-
-
 
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "../../styles/projects/scanItemView.module.css";
-import useScanOutletItem from "../../hooks/projects/useScanOutletItem"; // 👈 nuevo hook
+import useScanOutletItem from "../../hooks/projects/useScanOutletItem";
 import { selectOutletItems } from "../../features/projects/ProjectSelector";
+import useDeleteItemToOutlet from "../../hooks/projects/useDeleteItemToOutlet";
+import useGetOutletItemsByProjectId from "../../hooks/projects/useGetOutletItemsByProjectId";
 
 const OutletItemView = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
+  const { fetchAllOutletItemsInProject } = useGetOutletItemsByProjectId();
 
   const {
     startScan,
@@ -180,15 +175,25 @@ const OutletItemView = () => {
     cameraError,
     retryCamera,
     scannerRef,
-  } = useScanOutletItem(id); 
+  } = useScanOutletItem(id);
 
   const outletItems = useSelector(selectOutletItems);
+  const deleteItem = useDeleteItemToOutlet();
 
   useEffect(() => {
     return () => {
       stopScan();
     };
   }, [stopScan]);
+
+  useEffect(() => {
+    fetchAllOutletItemsInProject(id);
+  }, [fetchAllOutletItemsInProject, id]);
+
+  const handleDeleteItem = (idItem) => {
+    const idProject = id;
+    deleteItem(idProject, idItem);
+  };
 
   return (
     <div className={styles.container}>
@@ -222,7 +227,10 @@ const OutletItemView = () => {
                 {outletItems.map((item) => (
                   <li key={item.item_id}>
                     <strong>ID:</strong> {item.item_id} -{" "}
-                    <strong>Estado:</strong> {item.status}
+                    <strong>Estado:</strong> {item.status} -{" "}
+                    <button onClick={() => handleDeleteItem(item.item_id)}>
+                      Eliminar
+                    </button>
                   </li>
                 ))}
               </ul>
