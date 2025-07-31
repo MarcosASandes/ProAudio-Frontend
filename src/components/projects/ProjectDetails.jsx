@@ -252,6 +252,7 @@ import stylesUnderline from "../../styles/generic/animatedUnderline.module.css";
 import useGetBudgetPdfByProjectId from "../../hooks/projects/useGetBudgetPdfByProjectId";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import useDeleteProject from "../../hooks/projects/useDeleteProject";
+import { getStatusLabel } from "../../utils/startingProjectStatusLabel";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -335,6 +336,12 @@ const ProjectDetails = () => {
           <div>
             <button
               className="btn btn-outline-danger btn-sm m-1"
+              onClick={() => navigate(`/project/${id}/return`)}
+            >
+              Retorno de artículos
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
               onClick={() => navigate(`/project/${id}/outlet`)}
             >
               Salida de artículos
@@ -373,10 +380,10 @@ const ProjectDetails = () => {
               <strong>Descripción:</strong> {project.description}
             </p>
             <p>
-              <strong>Estado:</strong> {project.status}
+              <strong>Estado:</strong> {getStatusLabel(project.status)}
             </p>
             <p>
-              <strong>Estado de pago:</strong> {project.payment_status}
+              <strong>Estado de pago:</strong> {getStatusLabel(project.payment_status)}
             </p>
             {/*<p>
               <strong>Adición de costo (%):</strong> {project.cost_addition}

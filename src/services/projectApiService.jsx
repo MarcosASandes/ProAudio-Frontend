@@ -297,7 +297,7 @@ export const deleteOutletItemInProject = async (idProject, idItem) => {
   return response.data;
 };
 
-export const returnItemToProject = async (idProject, idItem) => {
+export const returnItemToDeposit = async (idProject, idItem) => {
   const response = await axios.post(BASE_URL + "/" + idProject + "/item/" + idItem + "/return");
   return response.data;
 };
