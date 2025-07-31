@@ -6,6 +6,7 @@ import { showToast, showToastError } from "../../utils/toastUtils";
 import { exitItemToProject } from "../../services/projectApiService";
 import { addItemToOutletInStore } from "../../features/projects/ProjectSlice";
 import { removeItemToOutletInStore } from "../../features/projects/ProjectSlice";
+import { addProductToOutletInStore } from "../../features/projects/ProjectSlice";
 
 const useScanOutletItem = (id) => {
   const scannerRef = useRef(null);
@@ -34,8 +35,13 @@ const useScanOutletItem = (id) => {
             const data = await exitItemToProject(idProject, idItem);
             if(data.status == "ENABLED"){
                 dispatch(addItemToOutletInStore(data));
+                const productOutletToStore = {
+                    product_id: data.product_id,
+                    model: data.product_model,
+                }
+                dispatch(addProductToOutletInStore(productOutletToStore));
             }else{
-                dispatch(removeItemToOutletInStore(data.item_id));
+                dispatch(removeItemToOutletInStore(data));
             }
             showToast("Artículo despachado correctamente.");
           } catch (error) {
