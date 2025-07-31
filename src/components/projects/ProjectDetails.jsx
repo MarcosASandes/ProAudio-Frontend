@@ -385,18 +385,15 @@ const ProjectDetails = () => {
             <p>
               <strong>Estado de pago:</strong> {getStatusLabel(project.payment_status)}
             </p>
-            {/*<p>
-              <strong>Adición de costo (%):</strong> {project.cost_addition}
-            </p>*/}
             <p>
               <strong>Inicio:</strong> {formatDateToDDMMYY(project.start_date)}
             </p>
             <p>
               <strong>Fin:</strong> {formatDateToDDMMYY(project.end_date)}
             </p>
-            {/*<p>
-              <strong>Facturación total:</strong> ${project.total}
-            </p>*/}
+            <p>
+              <strong>Porcentaje de cobro total:</strong> {project.cost_addition}%
+            </p>
           </div>
 
           {/* 🟩 Derecha: Evento + Cliente */}
@@ -457,7 +454,7 @@ const ProjectDetails = () => {
                 >
                   {prod.model}
                 </span>{" "}
-                - ${prod.rentPrice} (C/U)
+                - ${prod.rent_price} (C/U)
               </span>
             </div>
           ))

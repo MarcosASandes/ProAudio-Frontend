@@ -3,9 +3,7 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8080/product"; 
 
 export const createProduct = async (formData) => {
-  console.log("Form data: ");
-  console.log(formData);
-  const response = await axios.post("http://localhost:8080/product", formData, {
+  const response = await axios.post(BASE_URL, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -19,10 +17,8 @@ export const getProductStatus = async () => {
 };
 
 export const addProductPhotos = async (formData, productId) => {
-  console.log("Este es el formData: ");
-  console.log(formData);
   const response = await axios.post(
-    `http://localhost:8080/product/${productId}/photos/create`,
+    `${BASE_URL}/${productId}/photos/create`,
     formData,
     {
       headers: {
@@ -34,8 +30,6 @@ export const addProductPhotos = async (formData, productId) => {
 };
 
 export const updateProduct = async (productId, productData) => {
-  console.log("ProductData: ");
-  console.log(productData);
   const response = await axios.put(`${BASE_URL}/${productId}`, productData);
   return response.data;
 };
@@ -55,10 +49,10 @@ export const getProductDetails = async (id) => {
   return response.data;
 };
 
-export const getProductPrices = async (id) => {
+/*export const getProductPrices = async (id) => {
   const response = await axios.get("http://localhost:8080/price/product/" + id);
   return response.data;
-};
+};*/
 
 export const deleteProductPhoto = async (id) => {
   const response = await axios.delete(BASE_URL + '/photo/' + id);

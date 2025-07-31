@@ -308,7 +308,7 @@ const CreateProjectForm = () => {
           </div>
           <div className="col-md">
             <div className={styles.formGroup}>
-              <label htmlFor="numCostAddition">Adición de costo (%)</label>
+              <label htmlFor="numCostAddition">Porcentaje de cobro (%)</label>
               <input
                 id="numCostAddition"
                 type="number"

@@ -3,13 +3,11 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:8080/item';
 
 export const createItems = async (payload) => {
-    console.log("Esto es lo que se envia para crear ols items: ", payload);
   const response = await axios.post(BASE_URL, payload);
   return response.data;
 };
 
 export const deleteItemById = async (itemId) => {
-  console.log("ITEMID: " + itemId);
   const response = await axios.delete(`${BASE_URL}/${itemId}`);
   return response.data;
 };
@@ -20,7 +18,6 @@ export const updateItemById = async (id, payload) => {
 };
 
 export const getItemById = async (id) => {
-  console.log("Llego al getItemById");
   const response = await axios.get(BASE_URL + "/" + id);
   return response.data;
 };

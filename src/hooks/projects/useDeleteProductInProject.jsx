@@ -2,7 +2,8 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import { removeProductInProject } from "../../features/products/ProductSlice";
-import { deleteProductProject } from "../../services/projectApiService";
+//import { deleteProductProject } from "../../services/projectApiService";
+import { deleteProductProject } from "../../services/productProjectApiService";
 
 const useDeleteProductInProject = () => {
   const dispatch = useDispatch();

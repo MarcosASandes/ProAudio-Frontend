@@ -56,9 +56,10 @@ export default useGetPricesByProductId;*/
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductPrices } from "../../services/productApiService";
+//import { getProductPrices } from "../../services/productApiService";
 import { setProductSelectedPricesInStore } from "../../features/products/ProductSlice";
 import { selectProductPrices } from "../../features/products/ProductSelector";
+import { getProductPrices } from "../../services/rentPriceApiService";
 
 const useGetPricesByProductId = (productId) => {
   const dispatch = useDispatch();

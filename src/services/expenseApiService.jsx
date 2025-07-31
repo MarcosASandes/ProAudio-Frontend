@@ -8,7 +8,6 @@ export const getAllExpensesByProject = async (id) => {
 };
 
 export const createExpense = async (data) => {
-  console.log("Llego al apiservice: ", data);
   const response = await axios.post(BASE_URL, data);
   return response.data;
 };
