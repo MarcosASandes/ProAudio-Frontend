@@ -28,7 +28,7 @@ const ReturnItemView = () => {
   } = useScanReturnItem(id);
 
   const outletItems = useSelector(selectOutletItems);
-  const returnedItems = useSelector(selectOutletItems);
+  const returnedItems = useSelector(selectReturnItems);
 
   useEffect(() => {
     return () => {
