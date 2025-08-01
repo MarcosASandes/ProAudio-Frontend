@@ -10,6 +10,8 @@ import { formatDateToDDMMYY } from "../../utils/formatDate";
 import stylesUnderline from "../../styles/generic/animatedUnderline.module.css";
 import useGetBudgetPdfByProjectId from "../../hooks/projects/useGetBudgetPdfByProjectId";
 import { showToast, showToastError } from "../../utils/toastUtils";
+import useDeleteProject from "../../hooks/projects/useDeleteProject";
+import { getStatusLabel } from "../../utils/startingProjectStatusLabel";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -17,7 +19,9 @@ const ProjectDetails = () => {
   const dispatch = useDispatch();
   const { fetchProjectDetails } = useGetProjectDetails();
   const [articlesOpen, setArticlesOpen] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const getPdf = useGetBudgetPdfByProjectId();
+  const handleDeleteProject = useDeleteProject();
 
   const project = useSelector(selectSelectedProjectDetails);
   console.log(project);
@@ -33,6 +37,15 @@ const ProjectDetails = () => {
 
   const handleGoToUpdateProject = () => {
     navigate("/project/" + id + "/edit");
+  };
+
+  const handleClickDeleteProject = async () => {
+    try {
+      await handleDeleteProject(id);
+      navigate("/");
+    } catch (error) {
+      console.error("Error eliminando proyecto:", error);
+    }
   };
 
   const downloadBudget = async () => {
@@ -82,6 +95,18 @@ const ProjectDetails = () => {
           <div>
             <button
               className="btn btn-outline-danger btn-sm m-1"
+              onClick={() => navigate(`/project/${id}/return`)}
+            >
+              Retorno de artículos
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
+              onClick={() => navigate(`/project/${id}/outlet`)}
+            >
+              Salida de artículos
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
               onClick={downloadBudget}
             >
               Descargar presupuesto
@@ -98,22 +123,26 @@ const ProjectDetails = () => {
             >
               Modificar
             </button>
-            <button className="btn btn-outline-danger btn-sm m-1">
+            <button
+              className="btn btn-outline-danger btn-sm m-1"
+              onClick={() => setShowDeleteModal(true)} // abrir modal
+            >
               Eliminar
             </button>
           </div>
         </div>
 
         <div className="row">
+          
           <div className="col-md-6">
             <p>
               <strong>Descripción:</strong> {project.description}
             </p>
             <p>
-              <strong>Estado:</strong> {project.status}
+              <strong>Estado:</strong> {getStatusLabel(project.status)}
             </p>
             <p>
-              <strong>Estado de pago:</strong> {project.payment_status}
+              <strong>Estado de pago:</strong> {getStatusLabel(project.payment_status)}
             </p>
             <p>
               <strong>Inicio:</strong> {formatDateToDDMMYY(project.start_date)}
@@ -121,8 +150,12 @@ const ProjectDetails = () => {
             <p>
               <strong>Fin:</strong> {formatDateToDDMMYY(project.end_date)}
             </p>
+            <p>
+              <strong>Porcentaje de cobro total:</strong> {project.cost_addition}%
+            </p>
           </div>
 
+        
           <div className="col-md-6">
             <div className="mb-3">
               <h5
@@ -161,7 +194,7 @@ const ProjectDetails = () => {
           <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
             Productos
           </h5>
-          <button className="btn btn-outline-primary btn-sm">
+          <button className="btn btn-outline-primary btn-sm" onClick={() => navigate("/project/" + id + "/products/create")}>
             Agregar productos
           </button>
         </div>
@@ -180,7 +213,7 @@ const ProjectDetails = () => {
                 >
                   {prod.model}
                 </span>{" "}
-                - ${prod.rentPrice} (C/U)
+                - ${prod.rent_price} (C/U)
               </span>
             </div>
           ))
@@ -188,6 +221,7 @@ const ProjectDetails = () => {
           <p>No hay productos asignados.</p>
         )}
 
+        
         <button
           className={`btn w-100 text-start mt-4 ${styles.collapseButton}`}
           type="button"
@@ -199,10 +233,12 @@ const ProjectDetails = () => {
           Artículos
         </button>
 
+        
         <div
           className={`collapse mt-2 ${styles.collapseBody}`}
           id="collapseArticles"
         >
+      
           <p className="text-light">
             Aquí se mostrarán los artículos del proyecto.
           </p>
@@ -214,7 +250,7 @@ const ProjectDetails = () => {
           <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>
             Gastos
           </h5>
-          <button className="btn btn-outline-primary btn-sm">
+          <button className="btn btn-outline-primary btn-sm" onClick={() => navigate("/project/" + id + "/expenses/create")}>
             Agregar gastos
           </button>
         </div>
@@ -231,13 +267,53 @@ const ProjectDetails = () => {
           <p>No hay gastos registrados.</p>
         )}
       </div>
+
+
+   
+      {showDeleteModal && (
+        <div
+          className="modal fade show"
+          style={{ display: "block", background: "rgba(0,0,0,0.5)" }}
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Confirmar eliminación</h5>
+              </div>
+              <div className="modal-body">
+                <p>¿Estás seguro/a que deseas eliminar el proyecto?</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => setShowDeleteModal(false)}
+                >
+                  Cancelar
+                </button>
+                <button
+                  className="btn btn-danger"
+                  onClick={handleClickDeleteProject}
+                >
+                  Aceptar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default ProjectDetails;*/
 
-/*-------------------------- */
+
+
+/*---------------------------------------------- */
+
+
+
+
 
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -374,7 +450,7 @@ const ProjectDetails = () => {
         </div>
 
         <div className="row">
-          {/* 🟦 Izquierda: Datos generales */}
+          
           <div className="col-md-6">
             <p>
               <strong>Descripción:</strong> {project.description}
@@ -396,7 +472,7 @@ const ProjectDetails = () => {
             </p>
           </div>
 
-          {/* 🟩 Derecha: Evento + Cliente */}
+        
           <div className="col-md-6">
             <div className="mb-3">
               <h5
@@ -462,7 +538,7 @@ const ProjectDetails = () => {
           <p>No hay productos asignados.</p>
         )}
 
-        {/* Botón colapsable para Artículos */}
+        
         <button
           className={`btn w-100 text-start mt-4 ${styles.collapseButton}`}
           type="button"
@@ -474,15 +550,36 @@ const ProjectDetails = () => {
           Artículos
         </button>
 
-        {/* Contenedor colapsable de Artículos */}
+        
         <div
           className={`collapse mt-2 ${styles.collapseBody}`}
           id="collapseArticles"
         >
-          {/* Aquí en el futuro irán los datos de artículos */}
+      
+        {project.items?.length > 0 ? (
+          project.items.map((item, idx) => (
+            <div key={idx} className={styles.priceItem}>
+              <span>
+                {item.item_serial_number}x -{" "}
+                <span
+                  onClick={() => navigate(`/item/${item.item_id}/details`)}
+                  style={{
+                    color: "#8cb4ff",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                  }}
+                >
+                  {item.item_range}
+                </span>{" "}
+                - {item.item_location}
+              </span>
+            </div>
+          ))
+        ) : (
           <p className="text-light">
             Aquí se mostrarán los artículos del proyecto.
           </p>
+        )}
         </div>
       </div>
 
@@ -510,7 +607,7 @@ const ProjectDetails = () => {
       </div>
 
 
-      {/* Modal de confirmación */}
+   
       {showDeleteModal && (
         <div
           className="modal fade show"
@@ -547,3 +644,12 @@ const ProjectDetails = () => {
 };
 
 export default ProjectDetails;
+
+
+
+
+
+
+
+
+
