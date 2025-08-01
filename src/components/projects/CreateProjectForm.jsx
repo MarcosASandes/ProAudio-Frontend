@@ -186,7 +186,7 @@ const CreateProjectForm = () => {
   };
 
   const onSubmit = async (data) => {
-    const cleanedProducts = data.products.map(
+    const cleanedProducts = data?.products?.map(
       ({ product_id, price_id, amount }) => ({
         product_id,
         price_id,
@@ -294,7 +294,7 @@ const CreateProjectForm = () => {
                 {...register("project_type")}
               >
                 <option value="">Seleccionar tipo</option>
-                {projectTypes.map((type) => (
+                {projectTypes?.map((type) => (
                   <option key={type} value={type}>
                     {type === "SERVICE"
                       ? "Servicio"
@@ -334,7 +334,7 @@ const CreateProjectForm = () => {
                 {...register("status")}
               >
                 <option value="">Seleccionar estado</option>
-                {startingStatuses.map((status) => (
+                {startingStatuses?.map((status) => (
                   <option key={status} value={status}>
                     {getStatusLabel(status)}
                   </option>
@@ -442,7 +442,7 @@ const CreateProjectForm = () => {
             className={`collapse mt-2 ${styles.collapseBody}`}
             id="collapseProducts"
           >
-            {productFields.map((field, index) => (
+            {productFields?.map((field, index) => (
               <ProductFieldItem
                 key={field.id}
                 index={index}
@@ -495,7 +495,7 @@ const CreateProjectForm = () => {
             className={`collapse mt-2 ${styles.collapseBody}`}
             id="collapseExpenses"
           >
-            {expenseFields.map((field, index) => (
+            {expenseFields?.map((field, index) => (
               <div
                 key={field.id}
                 className="border p-3 mb-2 rounded bg-secondary bg-opacity-10"
@@ -507,7 +507,7 @@ const CreateProjectForm = () => {
                     {...register(`expenses.${index}.type`)}
                   >
                     <option value="">Seleccionar tipo de gasto</option>
-                    {expensesTypes.map((expType) => (
+                    {expensesTypes?.map((expType) => (
                       <option key={expType} value={expType}>
                         {expType === "PERSONNEL"
                           ? "Personal"
@@ -561,7 +561,7 @@ const CreateProjectForm = () => {
           <div className="alert alert-danger">
             <strong>Se han detectado errores en el formulario:</strong>
             <ul className="mb-0">
-              {errorMessages.map((msg, idx) => (
+              {errorMessages?.map((msg, idx) => (
                 <li key={idx}>{msg}</li>
               ))}
             </ul>
