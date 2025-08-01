@@ -291,7 +291,7 @@ const ProjectFilter = ({
             value={sortBy}
             onChange={(e) => onSortByChange(e.target.value)}
           >
-            {sortByOptions.map((opt) => (
+            {sortByOptions?.map((opt) => (
               <option key={opt.value} value={opt.value}>
                 {opt.label}
               </option>
@@ -325,7 +325,7 @@ const ProjectFilter = ({
                   onChange={(e) => {
                     const newValue = e.target.value;
                     onFilterStatusChange((prev) =>
-                      prev.includes(newValue)
+                      prev?.includes(newValue)
                         ? prev.filter((s) => s !== newValue)
                         : [...prev, newValue]
                     );

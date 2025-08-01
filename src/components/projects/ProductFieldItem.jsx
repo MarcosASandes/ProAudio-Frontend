@@ -55,7 +55,7 @@ const ProductFieldItem = ({
         >
           <option value="">Seleccionar precio</option>
           {prices &&
-            prices.prices.map((price) => (
+            prices?.prices?.map((price) => (
               <option key={price.rent_price_id} value={price.rent_price_id}>
                 {price.description} - ${price.value}
               </option>

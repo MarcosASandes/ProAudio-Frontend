@@ -316,7 +316,7 @@ const ItemsCreatedView = () => {
             </tr>
           </thead>
           <tbody>
-            {itemsToShow.map((item) => (
+            {itemsToShow?.map((item) => (
               <tr key={item.item_id}>
                 <td>{item.item_id}</td>
                 <td>{item.location}</td>

@@ -72,7 +72,7 @@ const ProjectsTable = ({ projects }) => {
         </thead>
         <tbody className={styles.tableBody}>
           {projects.length > 0 ? (
-            projects.map((project) => (
+            projects?.map((project) => (
               <ProjectRow key={project.project_id} project={project} />
             ))
           ) : (

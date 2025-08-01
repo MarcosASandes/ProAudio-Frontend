@@ -27,7 +27,7 @@ const ProductsTable = ({ products, searchTerm }) => {
         </thead>
         <tbody className={styles.tableBody}>
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+            filteredProducts?.map((product) => (
               <ProductRow key={product.id} product={product} />
             ))
           ) : (

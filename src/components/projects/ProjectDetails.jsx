@@ -480,7 +480,7 @@ const ProjectDetails = () => {
               >
                 Evento
               </h5>
-              {project.event ? (
+              {project?.event ? (
                 <>
                   <p>
                     <strong>{project.event.name}</strong>
@@ -516,7 +516,7 @@ const ProjectDetails = () => {
           </button>
         </div>
         {project.products?.length > 0 ? (
-          project.products.map((prod, idx) => (
+          project?.products?.map((prod, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
                 {prod.amount}x -{" "}
@@ -557,7 +557,7 @@ const ProjectDetails = () => {
         >
       
         {project.items?.length > 0 ? (
-          project.items.map((item, idx) => (
+          project?.items?.map((item, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
                 {item.item_range} -{" "}
@@ -594,7 +594,7 @@ const ProjectDetails = () => {
           </button>
         </div>
         {project.expenses?.length > 0 ? (
-          project.expenses.map((exp, idx) => (
+          project?.expenses?.map((exp, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
                 ${exp.value} - {expenseTypeLabels[exp.type] || exp.type} -{" "}

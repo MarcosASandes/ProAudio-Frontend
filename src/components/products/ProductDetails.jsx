@@ -125,7 +125,7 @@ const ProductDetails = ({ id, product }) => {
               <div>
                 <div className={styles.tagTypeTitle}>Descriptiva</div>
                 <div className={styles.tagList}>
-                  {product.description_tags.map((tag) => (
+                  {product?.description_tags?.map((tag) => (
                     <div
                       key={tag.tag_id}
                       className={`${styles.tagBadge} ${styles.tagDescriptive}`}
@@ -138,7 +138,7 @@ const ProductDetails = ({ id, product }) => {
               <div>
                 <div className={styles.tagTypeTitle}>Relación</div>
                 <div className={styles.tagList}>
-                  {product.relation_tags.map((tag) => (
+                  {product?.relation_tags?.map((tag) => (
                     <div
                       key={tag.tag_id}
                       className={`${styles.tagBadge} ${styles.tagRelation}`}
@@ -151,7 +151,7 @@ const ProductDetails = ({ id, product }) => {
               <div>
                 <div className={styles.tagTypeTitle}>Dependencia</div>
                 <div className={styles.tagList}>
-                  {product.dependency_tags.map((tag) => (
+                  {product?.dependency_tags?.map((tag) => (
                     <div
                       key={tag.tag_id}
                       className={`${styles.tagBadge} ${styles.tagDependency}`}
@@ -200,7 +200,7 @@ const ProductDetails = ({ id, product }) => {
             {product.prices.length === 0 ? (
               <p>No hay precios disponibles.</p>
             ) : (
-              product.prices.map((price) => (
+              product?.prices?.map((price) => (
                 <div key={price.rent_price_id} className={styles.priceItem}>
                   <span>${price.value}</span>
                   <span>{price.description}</span>
@@ -222,7 +222,7 @@ const ProductDetails = ({ id, product }) => {
           <Modal.Title>Confirmar eliminación</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          ¿Estás seguro de que deseas eliminar esta foto? Esta acción no se
+          ¿Estás seguro/a de que deseas eliminar esta foto? Esta acción no se
           puede deshacer.
         </Modal.Body>
         <Modal.Footer>
@@ -244,7 +244,7 @@ const ProductDetails = ({ id, product }) => {
           <Modal.Title>Confirmar eliminación</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          ¿Estás seguro de que deseas eliminar este producto? Esta acción no se
+          ¿Estás seguro/a de que deseas eliminar este producto? Esta acción no se
           puede deshacer.
         </Modal.Body>
         <Modal.Footer>

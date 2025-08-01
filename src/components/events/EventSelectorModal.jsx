@@ -40,7 +40,7 @@ const EventSelectorModal = ({ onSelect }) => {
                 </tr>
               </thead>
               <tbody>
-                {events.map((event) => (
+                {events?.map((event) => (
                   <tr key={event.event_id}>
                     <td>{event.event_id}</td>
                     <td>{event.name}</td>

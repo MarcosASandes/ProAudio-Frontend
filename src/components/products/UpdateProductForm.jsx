@@ -141,7 +141,7 @@ export default function UpdateProductForm({ productId }) {
             {allProductStatus.length === 0 ? (
               <option disabled>Cargando tipos...</option>
             ) : (
-              allProductStatus.status_list
+              allProductStatus?.status_list
                 .filter((tipo) => tipo !== "ELIMINATED")
                 .map((tipo) => (
                   <option key={tipo} value={tipo}>

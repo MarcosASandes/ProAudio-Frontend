@@ -232,7 +232,7 @@ export default function CreateProductForm() {
             className={`collapse mt-2 ${styles.collapseBody}`}
             id="collapsePrices"
           >
-            {priceFields.map((field, index) => {
+            {priceFields?.map((field, index) => {
               const isEditing = field.editMode ?? true; // por defecto true si no existe
 
               return (
@@ -267,7 +267,7 @@ export default function CreateProductForm() {
                         className="btn btn-success btn-sm me-2"
                         onClick={() => {
                           // Aceptar: cambia editMode a false
-                          const updated = getValues("prices").map((p, i) =>
+                          const updated = getValues("prices")?.map((p, i) =>
                             i === index ? { ...p, editMode: false } : p
                           );
                           replacePrices(updated);
@@ -294,7 +294,7 @@ export default function CreateProductForm() {
                           className="btn btn-warning btn-sm me-2"
                           onClick={() => {
                             // Modificar: vuelve a editMode true
-                            const updated = getValues("prices").map((p, i) =>
+                            const updated = getValues("prices")?.map((p, i) =>
                               i === index ? { ...p, editMode: true } : p
                             );
                             replacePrices(updated);
@@ -397,7 +397,7 @@ export default function CreateProductForm() {
               {allTagsTypes.length === 0 ? (
                 <option disabled>Cargando tipos...</option>
               ) : (
-                allTagsTypes.tag_types.map((tipo) => (
+                allTagsTypes?.tag_types?.map((tipo) => (
                   <option key={tipo} value={tipo}>
                     {getNameFormat(tipo)}
                   </option>
@@ -407,7 +407,7 @@ export default function CreateProductForm() {
           </div>
 
           <div className="d-flex flex-wrap gap-2">
-            {tagFields.map((tag, index) => (
+            {tagFields?.map((tag, index) => (
               <div
                 key={tag.id}
                 className="badge rounded-pill bg-info text-dark d-flex align-items-center"

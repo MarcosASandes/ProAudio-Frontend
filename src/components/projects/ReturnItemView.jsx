@@ -80,7 +80,7 @@ const ReturnItemView = () => {
               <h3>Artículos pendientes</h3>
               {outletItems.length > 0 ? (
                 <ul className={styles.list}>
-                  {outletItems.map((item) => (
+                  {outletItems?.map((item) => (
                     <li key={item.item_id}>
                       <strong>ID:</strong> {item.item_id} -{" "}
                       <strong>Numero de serie:</strong>{" "}
@@ -100,7 +100,7 @@ const ReturnItemView = () => {
               <h3>Artículos devueltos</h3>
               {returnedItems.length > 0 ? (
                 <ul className={styles.list}>
-                  {returnedItems.map((item) => (
+                  {returnedItems?.map((item) => (
                     <li key={item.item_id}>
                       <strong>ID:</strong> {item.item_id} -{" "}
                       <strong>Numero de serie:</strong>{" "}

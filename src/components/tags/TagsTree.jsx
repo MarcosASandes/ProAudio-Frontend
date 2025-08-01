@@ -93,9 +93,9 @@ const TagsTree = ({ onSelectTag = null }) => {
   return (
     <div className="container py-4">
       <div className={`mb-3 ${styles.tagsTree}`}>
-        {levels.map((grupo, i) => (
+        {levels?.map((grupo, i) => (
           <div key={i} className={`d-flex flex-wrap gap-2 mb-2 ${styles.tagRow}`}>
-            {grupo.map((etq) => {
+            {grupo?.map((etq) => {
               const estaSeleccionada = selectedPath[i]?.tag_id === etq.tag_id;
               const hijas = getSubNodes(etq.tag_id);
               return (

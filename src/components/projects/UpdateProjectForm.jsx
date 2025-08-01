@@ -766,7 +766,7 @@ const UpdateProjectForm = () => {
                 {...register("project_type")}
               >
                 <option value="">Seleccionar tipo</option>
-                {projectTypes.map((type) => (
+                {projectTypes?.map((type) => (
                   <option key={type} value={type}>
                     {type === "SERVICE"
                       ? "Servicio"
@@ -805,7 +805,7 @@ const UpdateProjectForm = () => {
               <option value={project?.status} disabled>
                 {getStatusLabel(project?.status)}
               </option>
-              {projectStatuses.map((status) => (
+              {projectStatuses?.map((status) => (
                 <option key={status} value={status}>
                   {getStatusLabel(status)}
                 </option>
@@ -825,7 +825,7 @@ const UpdateProjectForm = () => {
               <option value={project?.payment_status} disabled>
                 {getStatusLabel(project?.payment_status)}
               </option>
-              {paymentsStatuses.map((status) => (
+              {paymentsStatuses?.map((status) => (
                 <option key={status} value={status}>
                   {getStatusLabel(status)}
                 </option>
@@ -898,7 +898,7 @@ const UpdateProjectForm = () => {
             <strong>Se han detectado errores en el formulario:</strong>
             {console.log("los errores son: ", errorMessages)}
             <ul className="mb-0">
-              {errorMessages.map((msg, idx) => (
+              {errorMessages?.map((msg, idx) => (
                 <li key={idx}>{msg}</li>
               ))}
             </ul>

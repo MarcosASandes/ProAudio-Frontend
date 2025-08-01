@@ -86,7 +86,7 @@ const AddExpensesProjectForm = ({ id }) => {
       </div>
       <h2>Gastos del proyecto</h2>
       <ul className={styles.expenseList}>
-        {expenses.map((expense) => (
+        {expenses?.map((expense) => (
           <li key={expense.expense_id} className={styles.expenseItem}>
             <span>
               <strong>{getExpensesTypesLabel(expense.type)}</strong> - {expense.description} - $
@@ -111,7 +111,7 @@ const AddExpensesProjectForm = ({ id }) => {
               className={styles.input}
             >
               <option value="">Seleccionar tipo</option>
-              {expensesTypes.map((type) => (
+              {expensesTypes?.map((type) => (
                 <option key={type} value={type}>
                   {getExpensesTypesLabel(type)}
                 </option>
@@ -157,7 +157,7 @@ const AddExpensesProjectForm = ({ id }) => {
 
         {Object.keys(errors).length > 0 && (
           <div style={{ color: "red" }}>
-            Errores en el formulario, verificá los campos
+            Errores en el formulario, verifique los campos
           </div>
         )}
       </form>

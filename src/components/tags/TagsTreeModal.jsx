@@ -34,9 +34,9 @@ const TagsTreeModal = ({ tags, onSelect }) => {
   return (
     <div className="container py-3">
       <div className="tags-tree">
-        {levels.map((grupo, i) => (
+        {levels?.map((grupo, i) => (
           <div key={i} className="tag-row d-flex flex-wrap gap-2 mb-2">
-            {grupo.map((etq) => {
+            {grupo?.map((etq) => {
               const estaSeleccionada = selectedPath[i]?.tag_id === etq.tag_id;
               const hijas = getSubNodes(etq.tag_id);
               return (

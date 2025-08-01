@@ -140,7 +140,7 @@ const AddProductTagsForm = ({ productId }) => {
             <p className="text-white">No hay.</p>
           ) : (
             <ul className="list-group">
-              {product.description_tags.map((tag) => (
+              {product?.description_tags?.map((tag) => (
                 <li
                   key={`${tag.tag_id}-DESCRIPTIVE`}
                   className="list-group-item d-flex justify-content-between"
@@ -169,7 +169,7 @@ const AddProductTagsForm = ({ productId }) => {
             <p className="text-white">No hay.</p>
           ) : (
             <ul className="list-group">
-              {product.relation_tags.map((tag) => (
+              {product?.relation_tags?.map((tag) => (
                 <li
                   key={`${tag.tag_id}-RELATION`}
                   className="list-group-item d-flex justify-content-between"
@@ -198,7 +198,7 @@ const AddProductTagsForm = ({ productId }) => {
             <p className="text-white">No hay.</p>
           ) : (
             <ul className="list-group">
-              {product.dependency_tags.map((tag) => (
+              {product?.dependency_tags?.map((tag) => (
                 <li
                   key={`${tag.tag_id}-DEPENDENCY`}
                   className="list-group-item d-flex justify-content-between"
@@ -240,7 +240,7 @@ const AddProductTagsForm = ({ productId }) => {
             {allTagsTypes.length === 0 ? (
               <option disabled>Cargando tipos...</option>
             ) : (
-              allTagsTypes.tag_types.map((tipo) => (
+              allTagsTypes?.tag_types?.map((tipo) => (
                 <option key={tipo} value={tipo}>
                   {getNameFormat(tipo)}
                 </option>

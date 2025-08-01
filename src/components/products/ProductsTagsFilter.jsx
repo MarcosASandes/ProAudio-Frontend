@@ -34,7 +34,7 @@ const ProductsTagsFilter = () => {
   return (
     <div className={`${styles.tagsFilterWrapper} d-flex align-items-center justify-content-between w-100`}>
       <div className={`${styles.tagsFilterContainer} d-flex align-items-center gap-2 flex-grow-1 flex-wrap`}>
-        {activeTags.map((tag) => (
+        {activeTags?.map((tag) => (
           <span key={tag.tag_id} className={`${styles.tagBadge}`}>
             {tag.name}
             <span className={styles.removeTag} onClick={() => removeTag(tag.tag_id)}>✕</span>

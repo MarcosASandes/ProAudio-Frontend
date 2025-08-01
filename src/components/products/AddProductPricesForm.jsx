@@ -95,7 +95,7 @@ const AddProductPricesForm = ({ productId }) => {
             <p className="text-light">No hay precios registrados.</p>
           ) : (
             <ul className="list-group">
-              {product.prices.map((price) => (
+              {product?.prices?.map((price) => (
                 <li
                   key={price.rent_price_id}
                   className={`list-group-item d-flex justify-content-between align-items-center ${styles.priceSection}`}

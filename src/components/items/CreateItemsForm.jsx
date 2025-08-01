@@ -330,7 +330,7 @@ const CreateItemsForm = () => {
     };*/
 
     const payload = {
-      items: data.items.map((item) => ({
+      items: data?.items?.map((item) => ({
         product_id: productId,
         description: item.description,
         price_bought: item.purchase_price,

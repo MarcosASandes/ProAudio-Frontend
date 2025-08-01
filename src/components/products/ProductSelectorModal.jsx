@@ -33,7 +33,7 @@ const ProductSelectorModal = ({ onSelect }) => {
                 </tr>
               </thead>
               <tbody>
-                {products.map((product) => (
+                {products?.map((product) => (
                   <tr key={product.id}>
                     <td>{product.id}</td>
                     <td>{product.brand}</td>

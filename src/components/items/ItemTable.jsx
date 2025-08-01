@@ -21,7 +21,7 @@ const ItemTable = ({ items, searchTerm }) => {
           </tr>
         </thead>
         <tbody>
-          {filteredItems.map((item) => (
+          {filteredItems?.map((item) => (
             <ItemRow key={item.item_id} item={item} />
           ))}
         </tbody>

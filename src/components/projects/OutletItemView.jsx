@@ -553,7 +553,7 @@ const OutletItemView = () => {
               <h3>Artículos escaneados</h3>
               {outletItems.length > 0 ? (
                 <ul className={styles.list}>
-                  {outletItems.map((item) => (
+                  {outletItems?.map((item) => (
                     <li key={item.item_id}>
                       <strong>ID:</strong> {item.item_id} -{" "}
                       <strong>Numero de serie:</strong>{" "}
@@ -573,7 +573,7 @@ const OutletItemView = () => {
               <h3>Productos</h3>
               {outletProducts.length > 0 ? (
                 <ul className={styles.list}>
-                  {outletProducts.map((prod) => (
+                  {outletProducts?.map((prod) => (
                     <li key={prod.product_id}>
                       <strong>Modelo:</strong> {prod.model} -{" "}
                       <strong>Cantidad necesaria:</strong> {prod.amount} -{" "}

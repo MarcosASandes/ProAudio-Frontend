@@ -116,7 +116,7 @@ const AddProductsProjectForm = ({ id }) => {
       {/* Lista productos ya en el proyecto */}
       <div className="mt-4">
         <h5 className="text-light">Productos en el proyecto</h5>
-        {productsInProject.map((productProject) => (
+        {productsInProject?.map((productProject) => (
           <div
             key={productProject.product_project_id}
             className="d-flex justify-content-between align-items-center border rounded p-2 mb-2 bg-secondary bg-opacity-10"

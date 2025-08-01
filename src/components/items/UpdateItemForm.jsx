@@ -92,7 +92,7 @@ const UpdateItemForm = () => {
             {...register("status")}
           >
             <option value="">Selecciona un estado</option>
-            {statuses.status_list.map((status) => (
+            {statuses?.status_list?.map((status) => (
               <option key={status} value={status}>
                 {getItemsStatusLabel(status)}
               </option>

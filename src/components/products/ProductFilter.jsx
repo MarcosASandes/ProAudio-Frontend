@@ -42,7 +42,7 @@ export default function ProductFilter({
       </div>
 
       <div className="mt-3">
-        {selectedTags.map((tag) => (
+        {selectedTags?.map((tag) => (
           <span
             key={tag.tag_id}
             className={styles.filterBadge}
