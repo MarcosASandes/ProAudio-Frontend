@@ -99,6 +99,9 @@ const projectSlice = createSlice({
     setOutletItemsInStore: (state, action) => {
       state.outletItems = action.payload.items;
     },
+    setReturnItemsInStore: (state, action) => {
+      state.returnItems = action.payload.items;
+    },
     addItemToOutletInStore: (state, action) => {
       console.log(
         `En el reducer addItemToOutletInStore llega: ${action.payload}`
@@ -200,7 +203,7 @@ export const {
   removeItemToOutletInStore,
   setOutletProductsInStore,
   addProductToOutletInStore,
-  returnItemToDepositInStore,
+  returnItemToDepositInStore,setReturnItemsInStore,
 } = projectSlice.actions;
 
 export default projectSlice.reducer;

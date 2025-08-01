@@ -1,7 +1,7 @@
-import { useCallback } from "react";
+/*import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getOutletItemsByProjectId } from "../../services/projectApiService";
-import { setOutletItemsInStore } from "../../features/projects/ProjectSlice";
+import { setOutletItemsInStore, setReturnItemsInStore } from "../../features/projects/ProjectSlice";
 
 const useGetOutletItemsByProjectId = () => {
   const dispatch = useDispatch();
@@ -10,6 +10,44 @@ const useGetOutletItemsByProjectId = () => {
     try {
       const data = await getOutletItemsByProjectId(id);
       dispatch(setOutletItemsInStore(data));
+    } catch (error) {
+      console.error("Error al obtener los artículos:", error.message);
+    }
+  }, [dispatch]);
+
+  return { fetchAllOutletItemsInProject };
+};
+
+export default useGetOutletItemsByProjectId;*/
+
+
+/*--------------------------------- */
+
+
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { getOutletItemsByProjectId } from "../../services/projectApiService";
+import { setOutletItemsInStore, setReturnItemsInStore } from "../../features/projects/ProjectSlice";
+
+const useGetOutletItemsByProjectId = () => {
+  const dispatch = useDispatch();
+
+  const fetchAllOutletItemsInProject = useCallback(async (id) => {
+    try {
+      const data = await getOutletItemsByProjectId(id);
+
+      const itemsReturned = data.filter(
+        (obj) => obj.item_location === "IN_DEPOSIT"
+      );
+      const itemsNotReturned = data.filter(
+        (obj) => obj.item_location !== "IN_DEPOSIT"
+      );
+
+      console.log("Items retornados: ", itemsReturned);
+      console.log("Items no retornados: ", itemsNotReturned);
+
+      dispatch(setReturnItemsInStore(itemsReturned));
+      dispatch(setOutletItemsInStore(itemsNotReturned));
     } catch (error) {
       console.error("Error al obtener los artículos:", error.message);
     }
