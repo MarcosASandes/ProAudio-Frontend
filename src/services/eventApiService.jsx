@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080/event'; 
+//const BASE_URL = 'http://localhost:8080/event'; 
+const BASE_URL = 'api/event'; 
 
 export const getAllEvents = async (page, size) => {
   const response = await axios.get(`${BASE_URL}`, {

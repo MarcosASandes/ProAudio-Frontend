@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/product/project";
+//const BASE_URL = "http://localhost:8080/product/project";
+const BASE_URL = "api/product/project";
 
 export const deleteProductProject = async (id) => {
   const response = await axios.delete(BASE_URL + "/" + id);

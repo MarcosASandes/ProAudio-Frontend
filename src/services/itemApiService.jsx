@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080/item';
+//const BASE_URL = 'http://localhost:8080/item';
+const BASE_URL = 'api/item';
 
 export const createItems = async (payload) => {
   const response = await axios.post(BASE_URL, payload);
