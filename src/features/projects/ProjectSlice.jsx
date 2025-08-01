@@ -97,10 +97,10 @@ const projectSlice = createSlice({
     },
 
     setOutletItemsInStore: (state, action) => {
-      state.outletItems = action.payload.items;
+      state.outletItems = action.payload;
     },
     setReturnItemsInStore: (state, action) => {
-      state.returnItems = action.payload.items;
+      state.returnItems = action.payload;
     },
     addItemToOutletInStore: (state, action) => {
       console.log(
