@@ -560,7 +560,7 @@ const ProjectDetails = () => {
           project.items.map((item, idx) => (
             <div key={idx} className={styles.priceItem}>
               <span>
-                {item.item_serial_number}x -{" "}
+                {item.item_range} -{" "}
                 <span
                   onClick={() => navigate(`/item/${item.item_id}/details`)}
                   style={{
@@ -569,9 +569,10 @@ const ProjectDetails = () => {
                     textDecoration: "underline",
                   }}
                 >
-                  {item.item_range}
+                  {item.product_model}
                 </span>{" "}
                 - {item.item_location}
+                - {item.item_serial_number}
               </span>
             </div>
           ))
