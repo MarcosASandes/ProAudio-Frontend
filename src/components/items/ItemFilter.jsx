@@ -1,4 +1,4 @@
-import { getItemsStatusLabel } from "../../utils/startingProjectStatusLabel";
+import { getItemsStatusLabel } from "../../utils/getLabels";
 
 export default function ItemFilter({
   searchTerm,
@@ -11,16 +11,6 @@ export default function ItemFilter({
   return (
     <div className="mb-4">
       <div className="row g-2">
-        {/*<div className="col-md-6">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Buscar artículo..."
-            value={searchTerm}
-            onChange={(e) => onSearchChange(e.target.value)}
-          />
-        </div>*/}
-
         <div className="col-md-4">
           <select
             className="form-select"

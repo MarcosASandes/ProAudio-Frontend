@@ -1,3 +1,11 @@
+
+/*
+
+ANALIZAR UTILIDAD Y ELIMINAR SI NO SE USA.
+
+*/
+
+
 import TagSelectorModal from "./TagSelectorModal";
 import { useEffect } from "react";
 import * as bootstrap from "bootstrap";

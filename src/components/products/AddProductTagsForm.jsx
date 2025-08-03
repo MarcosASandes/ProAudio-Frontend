@@ -15,6 +15,7 @@ import useGetTagsTypes from "../../hooks/tags/useGetTagsTypes";
 import styles from "../../styles/products/addProductTagsForm.module.css";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import { showToast, showToastError } from "../../utils/toastUtils";
+import { getProductTagTypeLabel } from "../../utils/getLabels";
 
 const AddProductTagsForm = ({ productId }) => {
   const product = useSelector(selectSelectedProductDetails);
@@ -43,20 +44,6 @@ const AddProductTagsForm = ({ productId }) => {
 
   const [selectedTag, setSelectedTag] = useState(null);
   const [selectedType, setSelectedType] = useState("DESCRIPTIVE");
-
-  //ToDo: Ponerlo en el archivo JS de labels
-  const getNameFormat = (tipo) => {
-    switch (tipo) {
-      case "DESCRIPTIVE":
-        return "Descriptiva";
-      case "RELATION":
-        return "Relación";
-      case "DEPENDENCY":
-        return "Dependencia";
-      default:
-        return tipo;
-    }
-  };
 
   // Mostrar modal selector de etiqueta
   const showModal = () => {
@@ -242,7 +229,7 @@ const AddProductTagsForm = ({ productId }) => {
             ) : (
               allTagsTypes?.tag_types?.map((tipo) => (
                 <option key={tipo} value={tipo}>
-                  {getNameFormat(tipo)}
+                  {getProductTagTypeLabel(tipo)}
                 </option>
               ))
             )}

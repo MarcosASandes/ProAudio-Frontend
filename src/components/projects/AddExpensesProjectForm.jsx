@@ -13,10 +13,10 @@ import {
   selectExpenses,
 } from "../../features/expenses/ExpenseSelector";
 import { useSelector } from "react-redux";
-import { getExpensesTypesLabel } from "../../utils/startingProjectStatusLabel";
 import { ArrowLeft } from "lucide-react";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import { useNavigate } from "react-router-dom";
+import { getExpensesTypesLabel } from "../../utils/getLabels";
 
 const AddExpensesProjectForm = ({ id }) => {
   useGetExpensesByProject(id);

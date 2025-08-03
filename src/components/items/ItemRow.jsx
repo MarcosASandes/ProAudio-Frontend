@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { getItemsStatusLabel, getItemsLocationLabel } from "../../utils/startingProjectStatusLabel";
+import { getItemsStatusLabel, getItemsLocationLabel } from "../../utils/getLabels";
 
 const ItemRow = ({ item }) => {
   const navigate = useNavigate();

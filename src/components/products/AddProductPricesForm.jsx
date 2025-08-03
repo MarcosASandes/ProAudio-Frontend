@@ -51,8 +51,6 @@ const AddProductPricesForm = ({ productId }) => {
         await addProductPrice(productId, price);
       }
 
-      //toast.success("Precios agregados correctamente.");
-
       // Limpiar campos locales
       reset({ prices: [] });
     } catch (error) {
@@ -64,7 +62,6 @@ const AddProductPricesForm = ({ productId }) => {
   const handleDeleteExistingPrice = async (priceId) => {
     try {
       await deleteProductPrice(priceId);
-      //toast.success("Precio eliminado correctamente.");
     } catch (error) {
       console.error("Error eliminando precio:", error);
       //toast.error("Error eliminando precio.");

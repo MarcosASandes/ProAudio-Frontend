@@ -9,6 +9,34 @@ export const getEnabledDisabledLabel = (status) => {
   }
 };
 
+export const getItemsSortByOptionsLabel = (status) => {
+  switch (status) {
+    case "ID":
+      return "ID";
+    case "LOCATION":
+      return "Ubicación";
+    case "BOUGHT_AT":
+      return "Fecha de compra";
+    default:
+      return status;
+  }
+};
+
+export const getDirectionLabel = (status) => {
+  switch (status) {
+    case "ASC":
+      return "Ascendente";
+    case "DESC":
+      return "Descendente";
+    case "asc":
+      return "Ascendente";
+    case "desc":
+      return "Descendente";
+    default:
+      return status;
+  }
+};
+
 export const getItemsLocationLabel = (status) => {
   switch (status) {
     case "IN_DEPOSIT":
@@ -39,7 +67,7 @@ export const getItemsStatusLabel = (status) => {
   }
 };
 
-export const getRunningStatusLabel = (status) => {
+export const getProjectRunningStatusLabel = (status) => {
   switch (status) {
     case "RUNNING":
       return "En curso";
@@ -129,6 +157,32 @@ export const getProductTagTypeLabel = (status) => {
       return "Relación";
     case "DEPENDENCY":
       return "Dependencia";
+    default:
+      return status;
+  }
+};
+
+export const getProductsSortByOptionsLabel = (status) => {
+  switch (status) {
+    case "id":
+      return "ID";
+    case "brand":
+      return "Marca";
+    case "model":
+      return "Modelo";
+    default:
+      return status;
+  }
+};
+
+export const getProjectSortByOptionsLabel = (status) => {
+  switch (status) {
+    case "start_date":
+      return "Fecha de inicio";
+    case "name":
+      return "Nombre";
+    case "end_date":
+      return "Fecha de fin";
     default:
       return status;
   }

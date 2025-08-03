@@ -15,8 +15,9 @@ import { useParams } from "react-router-dom";
 import ItemPagination from "./ItemPagination";
 import * as bootstrap from "bootstrap";
 import { ArrowLeft } from "lucide-react";
-import stylesBackButton from "../../styles/generic/backButton.module.css"
+import stylesBackButton from "../../styles/generic/backButton.module.css";
 import { useNavigate } from "react-router-dom";
+import { getItemsSortByOptionsLabel, getDirectionLabel } from "../../utils/getLabels";
 
 const ItemView = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,9 +30,21 @@ const ItemView = () => {
   useGetStatuses();
   const navigate = useNavigate();
 
+  //ToDo: Consumir desde el backend
+  const sortByOptions = ["ID", "LOCATION", "BOUGHT_AT"];
+  //ToDo: Consumir desde el backend
+  const directionOptions = ["ASC", "DESC"];
+
   const statuses = useSelector(selectStatuses);
 
-  useGetItemsByProduct(id, currentPage - 1, pageSize, selectedStatus, sortBy, direction);
+  useGetItemsByProduct(
+    id,
+    currentPage - 1,
+    pageSize,
+    selectedStatus,
+    sortBy,
+    direction
+  );
 
   const items = useSelector(selectItems);
   const pageable = useSelector(selectItemsPageable);
@@ -107,10 +120,12 @@ const ItemView = () => {
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
-                <option value="">Seleccionar...</option>
-                <option value="ID">ID</option>
-                <option value="LOCATION">Ubicación</option>
-                <option value="BOUGHT_AT">Fecha de compra</option>
+                <option value="">Seleccionar</option>
+                {sortByOptions?.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {getItemsSortByOptionsLabel(opt)}
+                  </option>
+                ))}
               </select>
 
               <label className="form-label">Dirección</label>
@@ -119,8 +134,11 @@ const ItemView = () => {
                 value={direction}
                 onChange={(e) => setDirection(e.target.value)}
               >
-                <option value="ASC">Ascendente</option>
-                <option value="DESC">Descendente</option>
+                {directionOptions?.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {getDirectionLabel(opt)}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="modal-footer">

@@ -12,13 +12,11 @@ import { selectStatuses } from "../../features/items/ItemSelector";
 import updateItemSchema from "../../validators/items/itemUpdateValidator";
 import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
-import { getItemsStatusLabel } from "../../utils/startingProjectStatusLabel";
+import { getItemsStatusLabel } from "../../utils/getLabels";
 
 const UpdateItemForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log("ItemId del useParams:", id);
-
   const { updateItem } = useUpdateItem();
 
   useGetItemById(id);

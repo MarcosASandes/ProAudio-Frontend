@@ -8,7 +8,7 @@ const ImageCarousel = ({ images, onDeletePhoto }) => {
 
   useEffect(() => {
     if (!images || images.length === 0) {
-      // Limpiar los URLs porque ya no hay imágenes
+      //Limpiar los URLs porque ya no hay imágenes
       setImageUrls([]);
       setActiveIndex(0);
       return;

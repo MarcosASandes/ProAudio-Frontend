@@ -18,13 +18,12 @@ import useGetStartingProjectStatus from "../../hooks/projects/useGetStartingProj
 import { useSelector } from "react-redux";
 import { selectProjectTypes } from "../../features/projects/ProjectSelector";
 import { selectStartingProjectStatus } from "../../features/projects/ProjectSelector";
-import { getStatusLabel } from "../../utils/startingProjectStatusLabel";
 import useGetPricesByProductId from "../../hooks/products/useGetPricesByProductId";
 import { selectProductPrices } from "../../features/products/ProductSelector";
 import useGetExpenseTypes from "../../hooks/expenses/useGetExpensesTypes";
 import { selectExpenseTypes } from "../../features/expenses/ExpenseSelector";
-
 import ProductFieldItem from "./ProductFieldItem";
+import { getProjectTypeLabel, getProjectStatusLabel, getExpensesTypesLabel } from "../../utils/getLabels";
 
 const getInitialProjectDraft = () => {
   const raw = localStorage.getItem("projectDraft");
@@ -38,6 +37,7 @@ const getInitialProjectDraft = () => {
   }
 };
 
+//ToDo: Pasarlo a un archivo de utils
 const getAllErrorMessages = (errors) => {
   const messages = [];
 
@@ -180,7 +180,7 @@ const CreateProjectForm = () => {
     }
   };
 
-  //Temporal
+  //ToDo: Eliminarlo y poner los inputs directamente con horas
   const formatearFechaConHora = (fecha) => {
     return fecha ? `${fecha}T00:00:00` : null;
   };
@@ -296,11 +296,7 @@ const CreateProjectForm = () => {
                 <option value="">Seleccionar tipo</option>
                 {projectTypes?.map((type) => (
                   <option key={type} value={type}>
-                    {type === "SERVICE"
-                      ? "Servicio"
-                      : type === "RENT"
-                      ? "Renta"
-                      : type}
+                    {getProjectTypeLabel(type)}
                   </option>
                 ))}
               </select>
@@ -336,30 +332,12 @@ const CreateProjectForm = () => {
                 <option value="">Seleccionar estado</option>
                 {startingStatuses?.map((status) => (
                   <option key={status} value={status}>
-                    {getStatusLabel(status)}
+                    {getProjectStatusLabel(status)}
                   </option>
                 ))}
               </select>
             </div>
           </div>
-
-          {/*<div className="col-md">
-            <div className={styles.formGroup}>
-              <label htmlFor="payment_status" className="form-label">
-                Estado de pago
-              </label>
-              <select
-                id="payment_status"
-                className="form-control"
-                {...register("payment_status")}
-              >
-                <option value="BUDGETED">Presupuestado</option>
-                <option value="PARTIALLY_PAID">Parcialmente pago</option>
-                <option value="BILL_CREATED">Factura creada</option>
-                <option value="PAID">Pagado</option>
-              </select>
-            </div>
-          </div>*/}
         </div>
 
         <div className="row mt-1">
@@ -509,11 +487,7 @@ const CreateProjectForm = () => {
                     <option value="">Seleccionar tipo de gasto</option>
                     {expensesTypes?.map((expType) => (
                       <option key={expType} value={expType}>
-                        {expType === "PERSONNEL"
-                          ? "Personal"
-                          : expType === "EXTRA_COST"
-                          ? "Otros"
-                          : expType}
+                        {getExpensesTypesLabel(expType)}
                       </option>
                     ))}
                   </select>

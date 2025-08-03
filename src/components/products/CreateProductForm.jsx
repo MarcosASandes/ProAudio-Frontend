@@ -15,6 +15,7 @@ import { ArrowLeft } from "lucide-react";
 import { selectTagsTypes } from "../../features/tags/TagSelector";
 import useGetTagsTypes from "../../hooks/tags/useGetTagsTypes";
 import styles from "../../styles/products/createProductForm.module.css";
+import { getProductTagTypeLabel } from "../../utils/getLabels";
 
 export default function CreateProductForm() {
   const {
@@ -79,19 +80,6 @@ export default function CreateProductForm() {
     if (modalEl) {
       const modal = new bootstrap.Modal(modalEl);
       modal.show();
-    }
-  };
-
-  const getNameFormat = (tipo) => {
-    switch (tipo) {
-      case "DESCRIPTIVE":
-        return "Descriptiva";
-      case "RELATION":
-        return "Relación";
-      case "DEPENDENCY":
-        return "Dependencia";
-      default:
-        return tipo;
     }
   };
 
@@ -172,7 +160,7 @@ export default function CreateProductForm() {
               errors.model ? "is-invalid" : ""
             }`}
             {...register("model")}
-            placeholder="Ej: iPhone 14, Samsung Galaxy S22..."
+            placeholder="Ej: SENNHEISER EW DX EM 2"
           />
           {errors.model && (
             <div className="invalid-feedback">{errors.model.message}</div>
@@ -399,7 +387,7 @@ export default function CreateProductForm() {
               ) : (
                 allTagsTypes?.tag_types?.map((tipo) => (
                   <option key={tipo} value={tipo}>
-                    {getNameFormat(tipo)}
+                    {getProductTagTypeLabel(tipo)}
                   </option>
                 ))
               )}

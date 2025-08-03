@@ -16,6 +16,10 @@ import useGetAllTags from "../../hooks/tags/useGetAllTags";
 import { selectTags } from "../../features/tags/TagSelector";
 import * as bootstrap from "bootstrap";
 import styles from "../../styles/products/productView.module.css";
+import {
+  getDirectionLabel,
+  getProductsSortByOptionsLabel,
+} from "../../utils/getLabels";
 
 const ProductView = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,6 +36,11 @@ const ProductView = () => {
   const pageSize = 10;
 
   const navigate = useNavigate();
+
+  //ToDo: Consumir desde el backend
+  const sortByOptions = ["id", "brand", "model"];
+  //ToDo: Consumir desde el backend
+  const directionOptions = ["asc", "desc"];
 
   useGetAllProducts(currentPage, pageSize, selectedTags, sortBy, direction);
 
@@ -67,7 +76,10 @@ const ProductView = () => {
     <div className={`container my-4`}>
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h1>Productos</h1>
-        <button className={`btn ${styles.btnPurple}`} onClick={handleGoToCreate}>
+        <button
+          className={`btn ${styles.btnPurple}`}
+          onClick={handleGoToCreate}
+        >
           Crear producto
         </button>
       </div>
@@ -87,7 +99,7 @@ const ProductView = () => {
       )}
       {/* ✅ Ahora le pasas setCurrentPage a la paginación */}
       <Pagination pageable={pageable} onPageChange={setCurrentPage} />
-        <TagSelectorModal tags={tags} onSelect={handleAddTag} />
+      <TagSelectorModal tags={tags} onSelect={handleAddTag} />
 
       {showAdvancedFilterModal && (
         <div className="modal show d-block" tabIndex="-1">
@@ -113,9 +125,11 @@ const ProductView = () => {
                     onChange={(e) => setSortBy(e.target.value)}
                   >
                     <option value="">Seleccionar</option>
-                    <option value="id">ID</option>
-                    <option value="brand">Marca</option>
-                    <option value="model">Modelo</option>
+                    {sortByOptions?.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {getProductsSortByOptionsLabel(opt)}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -129,8 +143,11 @@ const ProductView = () => {
                     value={direction}
                     onChange={(e) => setDirection(e.target.value)}
                   >
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
+                    {directionOptions?.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {getDirectionLabel(opt)}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

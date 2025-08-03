@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import styles from "../../styles/events/updateEventForm.module.css";
 import useGetEventById from "../../hooks/events/useGetEventById";
 import { useNavigate } from "react-router-dom";
+import { getEnabledDisabledLabel } from "../../utils/getLabels";
 
 const UpdateEventForm = () => {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ const UpdateEventForm = () => {
   useGetEventById(id);
   const selectedEvent = useSelector(selectSelectedEvent);
   const { updateEventHook } = useUpdateEvent();
+
+  //ToDo: Consumir desde backend
+  const enabledDisabled = ["ENABLED", "DISABLED"];
 
   const {
     register,
@@ -96,8 +100,12 @@ const UpdateEventForm = () => {
       <div className={styles.formGroup}>
         <label className={styles.label}>Estado</label>
         <select className={styles.input} {...register("status")}>
-          <option value="ENABLED">Habilitado</option>
-          <option value="DISABLED">Deshabilitado</option>
+          <option value="">Seleccionar estado</option>
+          {enabledDisabled?.map((status) => (
+            <option key={status} value={status}>
+              {getEnabledDisabledLabel(status)}
+            </option>
+          ))}
         </select>
         {errors.status && (
           <p className={styles.error}>{errors.status.message}</p>

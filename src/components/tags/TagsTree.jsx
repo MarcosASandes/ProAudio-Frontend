@@ -10,6 +10,7 @@ import { selectTags } from "../../features/tags/TagSelector";
 import useGetAllTags from "../../hooks/tags/useGetAllTags";
 import styles from "../../styles/tags/tagsTree.module.css";
 import stylesButtons from "../../styles/generic/buttonsStyles.module.css";
+import { getEnabledDisabledLabel } from "../../utils/getLabels";
 
 const TagsTree = ({ onSelectTag = null }) => {
   useGetAllTags();
@@ -158,7 +159,7 @@ const TagsTree = ({ onSelectTag = null }) => {
                     {selectedTag?.description || "Sin descripción"}
                   </p>
                   <p>
-                    <strong>Estado:</strong> {selectedTag?.status}
+                    <strong>Estado:</strong> {getEnabledDisabledLabel(selectedTag?.status)}
                   </p>
                 </div>
                 <div className="modal-footer">

@@ -12,6 +12,7 @@ import useGetProductStatus from "../../hooks/products/useGetProductStatus";
 import { selectProductStatus, selectSelectedProduct } from "../../features/products/ProductSelector";
 import styles from "../../styles/products/updateProductForm.module.css";
 import stylesBackButton from "../../styles/generic/backButton.module.css";
+import { getProductStatusLabel } from "../../utils/getLabels";
 
 export default function UpdateProductForm({ productId }) {
   const navigate = useNavigate();
@@ -145,7 +146,7 @@ export default function UpdateProductForm({ productId }) {
                 .filter((tipo) => tipo !== "ELIMINATED")
                 .map((tipo) => (
                   <option key={tipo} value={tipo}>
-                    {getNameFormat(tipo)}
+                    {getProductStatusLabel(tipo)}
                   </option>
                 ))
             )}

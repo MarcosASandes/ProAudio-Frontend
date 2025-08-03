@@ -1,3 +1,10 @@
+
+/*
+
+ANALIZAR UTILIDAD Y ELIMINAR SI NO SE USA.
+
+*/
+
 import React, { useState } from "react";
 import TagNode from "./TagNode";
 

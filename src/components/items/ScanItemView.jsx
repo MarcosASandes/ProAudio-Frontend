@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectSelectedItem } from "../../features/items/ItemSelector";
 import { useNavigate } from "react-router-dom";
 import "../../styles/scanItem.css";
+import { getItemsLocationLabel, getItemsStatusLabel } from "../../utils/getLabels";
 
 const ScanItemView = () => {
   const {
@@ -52,10 +53,10 @@ const ScanItemView = () => {
           <div className="item-details">
             <h3>Artículo con ID {item.item_id}</h3>
             <p>
-              <strong>Ubicación:</strong> {item.location}
+              <strong>Ubicación:</strong> {getItemsLocationLabel(item.location)}
             </p>
             <p>
-              <strong>Estado:</strong> {item.status}
+              <strong>Estado:</strong> {getItemsStatusLabel(item.status)}
             </p>
             <p>
               <strong>Descripción:</strong> {item.description}

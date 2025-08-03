@@ -8,6 +8,7 @@ import useDeleteProduct from "../../hooks/products/useDeleteProduct";
 import styles from "../../styles/products/ProductDetails.module.css";
 import stylesUnderline from "../../styles/generic/animatedUnderline.module.css";
 import stylesBackButton from "../../styles/generic/backButton.module.css"
+import { getProductStatusLabel } from "../../utils/getLabels";
 
 const ProductDetails = ({ id, product }) => {
   const navigate = useNavigate();
@@ -189,7 +190,7 @@ const ProductDetails = ({ id, product }) => {
             <h5 className={`fw-semibold ${stylesUnderline.animatedUnderline}`}>Descripción del producto</h5>
             <p>{product.comments}</p>
             <h5 className={`fw-semibold mt-3 ${stylesUnderline.animatedUnderline}`}>Estado</h5>
-            <p>{product.status}</p>
+            <p>{getProductStatusLabel(product.status)}</p>
             <h5 className={`fw-semibold mt-3 ${stylesUnderline.animatedUnderline}`}>Valor de reposición</h5>
             <p>{product.replacement_value}</p>
           </div>
