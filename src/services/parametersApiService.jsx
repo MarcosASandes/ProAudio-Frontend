@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-//const BASE_URL = 'http://localhost:8080/parameters';
-const BASE_URL = 'api/parameters'; 
+const BASE_URL = 'http://localhost:8080/parameters';
+//const BASE_URL = '/api/parameters'; 
 
 export const getAllParameters = async () => {
   const response = await axios.get(BASE_URL + '/all');

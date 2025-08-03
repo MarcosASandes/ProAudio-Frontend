@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//const BASE_URL = "http://localhost:8080/product"; 
-const BASE_URL = "api/product"; 
+const BASE_URL = "http://localhost:8080/product"; 
+//const BASE_URL = "/api/product"; 
 
 export const createProduct = async (formData) => {
   const response = await axios.post(BASE_URL, formData, {

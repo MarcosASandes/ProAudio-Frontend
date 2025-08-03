@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-//const BASE_URL = 'http://localhost:8080/tag'; 
-const BASE_URL = 'api/tag';
+const BASE_URL = 'http://localhost:8080/tag'; 
+//const BASE_URL = '/api/tag';
 
 export const getAllTags = async () => {
   const response = await axios.get(BASE_URL + '/all');

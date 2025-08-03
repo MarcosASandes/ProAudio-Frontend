@@ -2,8 +2,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import qs from "qs";
 
-//const BASE_URL = "http://localhost:8080/project";
-const BASE_URL = "api/project";
+const BASE_URL = "http://localhost:8080/project";
+//const BASE_URL = "/api/project";
 
 export const createProject = async (data) => {
   const response = await axios.post(BASE_URL, data);
