@@ -11,7 +11,6 @@ import stylesUnderline from "../../styles/generic/animatedUnderline.module.css";
 import useGetBudgetPdfByProjectId from "../../hooks/projects/useGetBudgetPdfByProjectId";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import useDeleteProject from "../../hooks/projects/useDeleteProject";
-import { getStatusLabel } from "../../utils/startingProjectStatusLabel";
 import { getProjectStatusLabel, getProjectPaymentStatusLabel } from "../../utils/getLabels";
 
 const ProjectDetails = () => {
