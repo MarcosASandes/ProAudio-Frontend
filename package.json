@@ -33,6 +33,9 @@
     "react-router-dom": "^6.30.0",
     "react-timelines": "^2.6.1",
     "react-toastify": "^11.0.5",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles": "^3.9.0",
+    "tsparticles-slim": "^2.12.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
