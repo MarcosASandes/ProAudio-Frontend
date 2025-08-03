@@ -30,6 +30,7 @@ import AddExpensesProjectPage from './pages/projects/AddExpensesProjectPage';
 import AddProductsProjectPage from './pages/projects/AddProductsProjectPage';
 import OutletItemPage from './pages/projects/OutletItemPage';
 import ReturnItemPage from './pages/projects/ReturnItemPage';
+import LoginPage from './pages/auth/LoginPage';
 //import "./styles/products.css";
 
 function App() {
@@ -73,6 +74,8 @@ function App() {
         <Route path="/project/:id/return" element={<ReturnItemPage />} />
 
       </Route>
+
+      <Route path="/auth/login" element={<LoginPage />} />
     </Routes>
   );
 }

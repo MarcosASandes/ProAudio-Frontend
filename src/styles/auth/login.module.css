@@ -1,0 +1,135 @@
+.loginPage {
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 14px;
+  width: 420px; 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+  border: 2px solid #8000ff;
+  box-shadow: 0 0 20px #8000ff;
+  animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 5px #8000ff, 0 0 10px #8000ff, 0 0 20px #8000ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #a64dff, 0 0 30px #a64dff, 0 0 40px #a64dff;
+  }
+  100% {
+    box-shadow: 0 0 5px #8000ff, 0 0 10px #8000ff, 0 0 20px #8000ff;
+  }
+}
+
+.loginHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 0.5rem;
+}
+
+.logo {
+  height: 40px;
+}
+
+.lettering {
+  height: 25px;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+  color: #666;
+}
+
+.inputIconRight {
+  left: auto;
+  right: 10px;
+  cursor: pointer;
+}
+
+.loginInput {
+  width: 100%;
+  padding: 0.8rem 2.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.1rem; /* más grande */
+}
+
+.loginInput:focus {
+  outline: none;
+  border-color: #8000ff;
+}
+
+.forgotPassword {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.forgotPassword a {
+  color: #8000ff;
+  text-decoration: none;
+}
+
+.forgotPassword a:hover {
+  text-decoration: underline;
+}
+
+.loginButton {
+  background-color: #8000ff;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: #a64dff;
+}
+
+
+/* Animación de salto */
+@keyframes iconJump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.iconJumping {
+  animation: iconJump 0.3s ease;
+}
+
+.iconFocused {
+  filter: drop-shadow(0 0 5px var(--purple-hover)) 
+          drop-shadow(0 0 10px var(--purple-hover))
+          drop-shadow(0 0 15px var(--purple-hover));
+}
