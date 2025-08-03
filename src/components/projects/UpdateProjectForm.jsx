@@ -25,21 +25,7 @@ import useGetPossiblePaymentStatusByProjectId from "../../hooks/projects/useGetP
 import { selectPaymentStatus } from "../../features/projects/ProjectSelector";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import { getProjectTypeLabel, getProjectStatusLabel, getProjectPaymentStatusLabel } from "../../utils/getLabels";
-
-//ToDo: Hacer un método en utils y usarlo ahí.
-const getAllErrorMessages = (errors) => {
-  const messages = [];
-
-  if (errors.name) messages.push(errors.name.message);
-  if (errors.description) messages.push(errors.description.message);
-  if (errors.start_date) messages.push(errors.start_date.message);
-  if (errors.end_date) messages.push(errors.end_date.message);
-  if (errors.cost_addition) messages.push(errors.cost_addition.message);
-  if (errors.payment_status) messages.push(errors.payment_status.message);
-  if (errors.status) messages.push(errors.status.message);
-
-  return messages;
-};
+import { getUpdateProjectFormErrorMessages } from "../../utils/getErrorsMessages";
 
 const UpdateProjectForm = () => {
   const { id } = useParams();
@@ -95,7 +81,7 @@ const UpdateProjectForm = () => {
     defaultValues: savedUpdateDraft || {},
   });
 
-  const errorMessages = getAllErrorMessages(errors);
+  const errorMessages = getUpdateProjectFormErrorMessages(errors);
 
   useEffect(() => {
     if (project) {

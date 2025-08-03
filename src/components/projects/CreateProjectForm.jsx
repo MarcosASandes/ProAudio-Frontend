@@ -24,6 +24,7 @@ import useGetExpenseTypes from "../../hooks/expenses/useGetExpensesTypes";
 import { selectExpenseTypes } from "../../features/expenses/ExpenseSelector";
 import ProductFieldItem from "./ProductFieldItem";
 import { getProjectTypeLabel, getProjectStatusLabel, getExpensesTypesLabel } from "../../utils/getLabels";
+import { getCreateProjectFormErrorMessages } from "../../utils/getErrorsMessages";
 
 const getInitialProjectDraft = () => {
   const raw = localStorage.getItem("projectDraft");
@@ -35,21 +36,6 @@ const getInitialProjectDraft = () => {
     localStorage.removeItem("projectDraft");
     return null;
   }
-};
-
-//ToDo: Pasarlo a un archivo de utils
-const getAllErrorMessages = (errors) => {
-  const messages = [];
-
-  if (errors.name) messages.push(errors.name.message);
-  if (errors.description) messages.push(errors.description.message);
-  if (errors.start_date) messages.push(errors.start_date.message);
-  if (errors.end_date) messages.push(errors.end_date.message);
-  if (errors.cost_addition) messages.push(errors.cost_addition.message);
-  if (errors.products?.message) messages.push(errors.products.message);
-  if (errors.expenses?.message) messages.push(errors.expenses.message);
-
-  return messages;
 };
 
 const CreateProjectForm = () => {
@@ -105,7 +91,7 @@ const CreateProjectForm = () => {
         },
   });
 
-  const errorMessages = getAllErrorMessages(errors);
+  const errorMessages = getCreateProjectFormErrorMessages(errors);
 
   const {
     fields: productFields,
