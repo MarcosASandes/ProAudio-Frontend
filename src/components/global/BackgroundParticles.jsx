@@ -161,7 +161,7 @@ export default function BackgroundParticles() {
 
   const particlesOptions = {
     background: {
-      color: { value: "#000000" },
+      color: { value: "#06000fff" },
     },
     fpsLimit: isMobile ? 30 : 60,
     interactivity: {

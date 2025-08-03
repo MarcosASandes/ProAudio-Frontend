@@ -1,5 +1,20 @@
+:root {
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --gray-color: #cccccc;
+
+  --russian-violet: #10002bff;
+  --russian-violet-2: #240046ff;
+  --persian-indigo: #3c096cff;
+  --tekhelet: #5a189aff;
+  --french-violet: #7b2cbfff;
+  --amethyst: #9d4eddff;
+  --heliotrope: #c77dffff;
+  --mauve: #e0aaffff;
+}
+
 .loginPage {
-  background-color: #000;
+  background-color: var(--russian-violet);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -8,35 +23,35 @@
 }
 
 .loginContainer {
-  background-color: #fff;
+  background-color: var(--white-color);
   padding: 2.5rem;
   border-radius: 14px;
-  width: 420px; 
+  width: 420px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; 
-  border: 2px solid #8000ff;
-  box-shadow: 0 0 20px #8000ff;
+  gap: 1.5rem;
+  border: 1px solid var(--russian-violet-2);
+  box-shadow: 0 0 20px var(--persian-indigo);
   animation: borderGlow 3s linear infinite;
 }
 
 @keyframes borderGlow {
   0% {
-    box-shadow: 0 0 5px #8000ff, 0 0 10px #8000ff, 0 0 20px #8000ff;
+    box-shadow: 0 0 5px var(--persian-indigo), 0 0 10px var(--persian-indigo), 0 0 20px var(--persian-indigo);
   }
   50% {
-    box-shadow: 0 0 20px #a64dff, 0 0 30px #a64dff, 0 0 40px #a64dff;
+    box-shadow: 0 0 20px var(--tekhelet), 0 0 30px var(--tekhelet), 0 0 40px var(--tekhelet);
   }
   100% {
-    box-shadow: 0 0 5px #8000ff, 0 0 10px #8000ff, 0 0 20px #8000ff;
+    box-shadow: 0 0 5px var(--french-violet), 0 0 10px var(--french-violet), 0 0 20px var(--french-violet);
   }
 }
 
 .loginHeader {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -57,7 +72,7 @@
 .inputIcon {
   position: absolute;
   left: 10px;
-  color: #666;
+  color: var(--black-color);
 }
 
 .inputIconRight {
@@ -69,14 +84,14 @@
 .loginInput {
   width: 100%;
   padding: 0.8rem 2.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gray-color);
   border-radius: 8px;
-  font-size: 1.1rem; /* más grande */
+  font-size: 1.1rem; 
 }
 
 .loginInput:focus {
   outline: none;
-  border-color: #8000ff;
+  border-color: var(--french-violet);
 }
 
 .forgotPassword {
@@ -85,7 +100,7 @@
 }
 
 .forgotPassword a {
-  color: #8000ff;
+  color: var(--persian-indigo);
   text-decoration: none;
 }
 
@@ -94,8 +109,8 @@
 }
 
 .loginButton {
-  background-color: #8000ff;
-  color: white;
+  background-color: var(--tekhelet);
+  color: var(--white-color);
   padding: 0.9rem;
   border: none;
   border-radius: 8px;
@@ -105,9 +120,8 @@
 }
 
 .loginButton:hover {
-  background-color: #a64dff;
+  background-color: var(--french-violet);
 }
-
 
 /* Animación de salto */
 @keyframes iconJump {
@@ -130,7 +144,7 @@
 }
 
 .iconFocused {
-  filter: drop-shadow(0 0 5px var(--purple-hover)) 
-          drop-shadow(0 0 10px var(--purple-hover))
-          drop-shadow(0 0 15px var(--purple-hover));
+  filter: drop-shadow(0 0 5px var(--amethyst))
+    drop-shadow(0 0 10px var(--amethyst))
+    drop-shadow(0 0 15px var(--amethyst));
 }

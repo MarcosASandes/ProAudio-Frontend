@@ -157,6 +157,7 @@ const ItemsCreatedView = () => {
           <thead>
             <tr>
               <th>ID</th>
+              <th>Nro de serie</th>
               <th>Ubicación</th>
               <th>Estado</th>
               <th>Descripción</th>
@@ -169,6 +170,7 @@ const ItemsCreatedView = () => {
             {itemsToShow?.map((item) => (
               <tr key={item.item_id}>
                 <td>{item.item_id}</td>
+                <td>{item.serial_number}</td>
                 <td>{getItemsLocationLabel(item.location)}</td>
                 <td>{getItemsStatusLabel(item.status)}</td>
                 <td>{item.description}</td>
