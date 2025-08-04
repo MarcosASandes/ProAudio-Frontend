@@ -1,7 +1,6 @@
 import Navbar from "../components/global/navbar";
 import Sidebar from "../components/global/sidebar";
 import { Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../styles/layout/mainLayout.module.css";
 
@@ -15,16 +14,6 @@ function MainLayout() {
           <Outlet />
         </main>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </div>
   );
 }
