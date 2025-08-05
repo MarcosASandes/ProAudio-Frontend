@@ -7,6 +7,7 @@ import expenseReducer from "../features/expenses/ExpenseSlice";
 import parameterReducer from "../features/parameters/ParameterSlice";
 import projectReducer from "../features/projects/ProjectSlice";
 import authReducer from "../features/auth/AuthSlice";
+import clientReducer from "../features/clients/ClientSlice";
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     parameters: parameterReducer,
     projects: projectReducer,
     auth: authReducer,
+    clients: clientReducer,
   }
 });
 
