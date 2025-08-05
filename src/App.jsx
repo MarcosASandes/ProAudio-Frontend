@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import MainLayout from "./layout/MainLayout";
 import ProjectPage from "./pages/projects/ProjectPage";
 import ProductPage from "./pages/products/ProductPage";
@@ -34,7 +35,7 @@ import ReturnItemPage from "./pages/projects/ReturnItemPage";
 import LoginPage from "./pages/auth/LoginPage";
 //import "./styles/products.css";
 
-function App() {
+/*function App() {
   return (
     <>
       <Routes>
@@ -77,6 +78,100 @@ function App() {
         </Route>
 
         <Route path="/auth/login" element={<LoginPage />} />
+      </Routes>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </>
+  );
+}
+
+export default App;*/
+
+/*--------------------------- */
+
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/auth/login" element={<LoginPage />} />
+
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <MainLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<ProjectPage />} />
+          <Route path="/tags" element={<TagsPage />} />
+          <Route path="/products" element={<ProductPage />} />
+          <Route path="/clients" element={<ClientPage />} />
+          <Route path="/analytics" element={<AnalyticsPage />} />
+
+          <Route path="/tag/create" element={<CreateTagFormPage />} />
+          <Route path="/tag/edit/:tagId" element={<UpdateTagPage />} />
+
+          <Route path="/product/create" element={<CreateProductPage />} />
+          <Route
+            path="/product/edit/:productId"
+            element={<UpdateProductPage />}
+          />
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+          <Route
+            path="/product/:id/photos/create"
+            element={<AddPhotosProductPage />}
+          />
+          <Route
+            path="/product/:id/prices/create"
+            element={<AddProductPricesPage />}
+          />
+          <Route path="/product/:id/tag/add" element={<AddProductTagsPage />} />
+
+          <Route
+            path="/products/:productId/items/create"
+            element={<CreateItemsPage />}
+          />
+          <Route
+            path="/products/:productId/items/created"
+            element={<ItemsCreatedPage />}
+          />
+          <Route path="/items/:id/edit" element={<UpdateItemPage />} />
+          <Route path="/scan-item" element={<ScanItemPage />} />
+          <Route path="/product/:id/items" element={<ItemPage />} />
+          <Route path="/item/:id/details" element={<ItemDetailsPage />} />
+
+          <Route path="/event/create" element={<CreateEventPage />} />
+          <Route path="/event/:id/edit" element={<UpdateEventPage />} />
+          <Route
+            path="/events/create/embedded"
+            element={<CreateEmbeddedEventPage />}
+          />
+
+          <Route path="/project/create" element={<CreateProjectPage />} />
+          <Route path="/project/:id/edit" element={<UpdateProjectPage />} />
+          <Route path="/project/:id" element={<ProjectDetailsPage />} />
+          <Route path="/project/:id/budget" element={<BudgetPDFPage />} />
+          <Route
+            path="/project/:id/expenses/create"
+            element={<AddExpensesProjectPage />}
+          />
+          <Route
+            path="/project/:id/products/create"
+            element={<AddProductsProjectPage />}
+          />
+          <Route path="/project/:id/outlet" element={<OutletItemPage />} />
+          <Route path="/project/:id/return" element={<ReturnItemPage />} />
+        </Route>
       </Routes>
 
       <ToastContainer
