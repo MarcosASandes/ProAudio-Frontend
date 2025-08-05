@@ -6,6 +6,7 @@ import eventReducer from "../features/events/EventSlice";
 import expenseReducer from "../features/expenses/ExpenseSlice";
 import parameterReducer from "../features/parameters/ParameterSlice";
 import projectReducer from "../features/projects/ProjectSlice";
+import authReducer from "../features/auth/AuthSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     expenses: expenseReducer,
     parameters: parameterReducer,
     projects: projectReducer,
+    auth: authReducer,
   }
 });
 

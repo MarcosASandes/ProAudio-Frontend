@@ -90,11 +90,16 @@ import { Bell, User, ScanQrCode } from "lucide-react";
 import logo from "../../assets/proaudio-logo-2.png";
 import { Link, NavLink } from "react-router-dom";
 import styles from "../../styles/layout/navbar.module.css";
+import useLogout from "../../hooks/auth/useLogout";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [userName, setUserName] = useState("Juan Pérez");
   const [userMail, setUserMail] = useState("juan@example.com");
+  const [userToken, setUserToken] = useState();
+  const { logoutUser } = useLogout();
+  const navigate = useNavigate();
 
   const menuRef = useRef();
   const iconRef = useRef();
@@ -123,10 +128,23 @@ export default function Navbar() {
   useEffect(() => {
     const storedName = localStorage.getItem("userName");
     const storedMail = localStorage.getItem("userMail");
+    const storedToken = localStorage.getItem("userToken");
 
     if (storedName) setUserName(storedName);
     if (storedMail) setUserMail(storedMail);
+    if (storedToken) setUserToken(storedToken);
   }, []);
+
+  const logoutAndRedirect = async () => {
+    await logoutUser(userToken);
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userMail");
+    localStorage.removeItem("userToken");
+
+    setTimeout(() => {
+      navigate("/auth/login");
+    }, 3000);
+  };
 
   return (
     <nav
@@ -171,8 +189,15 @@ export default function Navbar() {
 
                 <div className={styles.userName}>{userName}</div>
                 <div className={styles.userEmail}>{userMail}</div>
-                <button className={styles.userButton}>Cambiar contraseña</button>
-                <button className={styles.userButton}>Cerrar sesión</button>
+                <button className={styles.userButton}>
+                  Cambiar contraseña
+                </button>
+                <button
+                  onClick={logoutAndRedirect}
+                  className={styles.userButton}
+                >
+                  Cerrar sesión
+                </button>
               </div>
             )}
           </div>
