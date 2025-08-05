@@ -10,7 +10,11 @@ const useLogin = () => {
   const loginUser = useCallback(
     async (mail, password) => {
       try {
-        const response = await login(mail, password);
+        const data = {
+          email: mail,
+          password: password
+        }
+        const response = await login(data);
         dispatch(setLoggedUser(response));
         showToast("Logueado correctamente");
         return response;
