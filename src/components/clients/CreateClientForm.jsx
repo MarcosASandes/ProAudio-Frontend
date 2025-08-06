@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import styles from "../../styles/clients/createClientForm.module.css";
 import createClientValidator from "../../validators/clients/createClientValidator";
+import BackButton from "../global/BackButton";
 
 const CreateClientForm = () => {
   const {
@@ -21,6 +22,7 @@ const CreateClientForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <BackButton target={"/clients"} />
       <h2 className={styles.title}>Crear cliente</h2>
 
       <div className={styles.formGroup}>
@@ -66,7 +68,10 @@ const CreateClientForm = () => {
           Limpiar formulario
         </button>
 
-        <button type="submit" className={`${styles.submitBtn} ${styles.clientFormButtons}`}>
+        <button
+          type="submit"
+          className={`${styles.submitBtn} ${styles.clientFormButtons}`}
+        >
           Crear Cliente
         </button>
       </div>
