@@ -6,6 +6,20 @@
   --purple-main: #7355ce; /* Púrpura principal*/
   --purple-secondary: #8365ee; /* Púrpura segundario */
   --purple-extra: #5335ae; /* Púrpura extra */
+
+    /*EXTRAS*/
+  --russian-violet: #10002bff;
+  --russian-violet-2: #240046ff;
+  --russian-violet-3: rgb(7, 1, 19);
+  --persian-indigo: #3c096cff;
+  --tekhelet: #5a189aff;
+  --french-violet: #7b2cbfff;
+  --amethyst: #9d4eddff;
+  --heliotrope: #c77dffff;
+  --mauve: #e0aaffff;
+
+  --red-color: #b31414;
+  --red-dark: #8b0f0f;
 }
 
 /*Agregarle estilos a la barra de scroll*/
@@ -18,13 +32,13 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #8a2be2;
+  background-color: var(--purple-extra);
   border-radius: 8px;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #8a2be2 transparent;
+  scrollbar-color: var(--purple-extra) transparent;
 }
 /*Agregarle estilos a la barra de scroll*/
 

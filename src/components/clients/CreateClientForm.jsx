@@ -21,41 +21,55 @@ const CreateClientForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <h2 className={styles.title}>Nuevo Cliente</h2>
+      <h2 className={styles.title}>Crear cliente</h2>
 
       <div className={styles.formGroup}>
-        <label>Nombre / Empresa</label>
-        <input type="text" {...register("name")} />
+        <label htmlFor="txtName">Nombre / Empresa</label>
+        <input id="txtName" type="text" {...register("name")} />
         {errors.name && <p className={styles.error}>{errors.name.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Teléfono</label>
-        <input type="text" {...register("phone")} />
+        <label htmlFor="numPhone">Teléfono</label>
+        <input id="numPhone" type="text" {...register("phone")} />
         {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Email</label>
-        <input type="email" {...register("email")} />
+        <label htmlFor="txtEmail">Email</label>
+        <input id="txtEmail" type="email" {...register("email")} />
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Dirección</label>
-        <input type="text" {...register("address")} />
-        {errors.address && <p className={styles.error}>{errors.address.message}</p>}
+        <label htmlFor="txtAddress">Dirección</label>
+        <input id="txtAddress" type="text" {...register("address")} />
+        {errors.address && (
+          <p className={styles.error}>{errors.address.message}</p>
+        )}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Detalles</label>
-        <textarea rows="4" {...register("details")} />
-        {errors.details && <p className={styles.error}>{errors.details.message}</p>}
+        <label htmlFor="txtDetails">Detalles</label>
+        <textarea id="txtDetails" rows="4" {...register("details")} />
+        {errors.details && (
+          <p className={styles.error}>{errors.details.message}</p>
+        )}
       </div>
 
-      <button type="submit" className={styles.submitBtn}>
-        Crear Cliente
-      </button>
+      <div className={styles.buttonGroup}>
+        <button
+          type="button"
+          className={styles.clearBtn}
+          onClick={() => reset()}
+        >
+          Limpiar formulario
+        </button>
+
+        <button type="submit" className={styles.submitBtn}>
+          Crear Cliente
+        </button>
+      </div>
     </form>
   );
 };
