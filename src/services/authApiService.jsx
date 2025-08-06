@@ -30,6 +30,11 @@ export const login = async (data) => {
   return response.data;
 };
 
+export const forgotPassword = async (email) => {
+  const response = await axiosInstance.post('/user/forgot/password', email);
+  return response.data;
+};
+
 export const logout = async (token) => {
   return new Promise((resolve) => {
     setTimeout(() => {

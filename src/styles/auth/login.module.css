@@ -99,7 +99,7 @@
   font-size: 0.9rem;
 }
 
-.forgotPassword a {
+.forgotPassword .forgotPasswordLink {
   color: var(--persian-indigo);
   text-decoration: none;
 }
@@ -147,4 +147,20 @@
   filter: drop-shadow(0 0 5px var(--amethyst))
     drop-shadow(0 0 10px var(--amethyst))
     drop-shadow(0 0 15px var(--amethyst));
+}
+
+.containerOptionalTitle{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--tekhelet);
+}
+
+.disabledButton {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.changeBackgroundColor {
+  background-color: var(--tekhelet);
 }

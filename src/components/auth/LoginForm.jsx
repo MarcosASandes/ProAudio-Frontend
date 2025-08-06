@@ -188,6 +188,8 @@ export default function LoginForm() {
   const emailValue = watch("email");
   const passwordValue = watch("password");
 
+  const handleGoToForgot = () => navigate("/auth/forgot/password");
+
   return (
     <form className={styles.loginContainer} onSubmit={handleSubmit(onSubmit)}>
       {/* Encabezado */}
@@ -263,7 +265,7 @@ export default function LoginForm() {
 
       {/* Link */}
       <div className={styles.forgotPassword}>
-        <a href="#">¿Olvidaste la contraseña?</a>
+        <a className={styles.forgotPasswordLink} onClick={handleGoToForgot}>¿Olvidaste la contraseña?</a>
       </div>
 
       {/* Botón */}

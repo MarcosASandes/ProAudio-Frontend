@@ -34,6 +34,7 @@ import OutletItemPage from "./pages/projects/OutletItemPage";
 import ReturnItemPage from "./pages/projects/ReturnItemPage";
 import LoginPage from "./pages/auth/LoginPage";
 import CreateClientPage from "./pages/clients/CreateClientPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 //import "./styles/products.css";
 
 /*function App() {
@@ -104,6 +105,7 @@ function App() {
     <>
       <Routes>
         <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/auth/forgot/password" element={<ForgotPasswordPage />} />
 
         <Route
           path="/"

@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "../../styles/auth/login.module.css";
-import LoginForm from "../../components/auth/LoginForm";
 import BackgroundParticles from "../../components/global/BackgroundParticles";
+import ForgotPasswordForm from "../../components/auth/ForgotPasswordForm";
 
-export default function LoginPage() {
+export default function ForgotPasswordPage() {
   return (
     <div className={styles.loginPage}>
       <BackgroundParticles />
-      <LoginForm />
+      <ForgotPasswordForm />
     </div>
   );
 }
