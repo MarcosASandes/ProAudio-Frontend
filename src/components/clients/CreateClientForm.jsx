@@ -60,13 +60,13 @@ const CreateClientForm = () => {
       <div className={styles.buttonGroup}>
         <button
           type="button"
-          className={styles.clearBtn}
+          className={`${styles.clearBtn} ${styles.clientFormButtons}`}
           onClick={() => reset()}
         >
           Limpiar formulario
         </button>
 
-        <button type="submit" className={styles.submitBtn}>
+        <button type="submit" className={`${styles.submitBtn} ${styles.clientFormButtons}`}>
           Crear Cliente
         </button>
       </div>

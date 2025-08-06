@@ -54,7 +54,6 @@
 .formGroup textarea:focus {
   outline: none;
   border-color: var(--purple-extra);
-  /*background-color: #2f2f2f;*/
    background-color: rgb(34, 27, 41);
 }
 
@@ -68,7 +67,7 @@
   font-size: 0.9rem;
 }
 
-button {
+.clientFormButtons {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 8px;
@@ -88,17 +87,12 @@ button {
   background-color: var(--tekhelet);
 }
 
-/*.clearBtn {
-  background-color: var(--red-color);
-  color: #ffffff;
-}*/
-
 .clearBtn {
   background-color: transparent;
   color: var(--red-color);
   border: 1px var(--red-color) solid;
-  /*transition: background 0.8s ease,
-                color 0.8s ease;*/
+  transition: background 0.8s ease,
+                color 0.8s ease;
 }
 
 .clearBtn:hover {
