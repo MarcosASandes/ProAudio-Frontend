@@ -1,0 +1,56 @@
+/*.container {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #444; 
+  border-radius: 8px;
+}
+
+.container {
+  scrollbar-width: thin;
+  scrollbar-color: #444 transparent;
+}*/
+
+
+/*------------------------------------------------- Version 2------------------------------------------*/
+
+.container {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; 
+}
+
+/*.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #444; 
+  border-radius: 8px;
+}
+
+.container {
+  scrollbar-width: thin;
+  scrollbar-color: #444 transparent;
+}*/

@@ -33,6 +33,7 @@ import AddProductsProjectPage from "./pages/projects/AddProductsProjectPage";
 import OutletItemPage from "./pages/projects/OutletItemPage";
 import ReturnItemPage from "./pages/projects/ReturnItemPage";
 import LoginPage from "./pages/auth/LoginPage";
+import CreateClientPage from "./pages/clients/CreateClientPage";
 //import "./styles/products.css";
 
 /*function App() {
@@ -171,6 +172,8 @@ function App() {
           />
           <Route path="/project/:id/outlet" element={<OutletItemPage />} />
           <Route path="/project/:id/return" element={<ReturnItemPage />} />
+
+          <Route path="/client/create" element={<CreateClientPage />} />
         </Route>
       </Routes>
 

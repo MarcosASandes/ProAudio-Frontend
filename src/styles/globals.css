@@ -8,6 +8,26 @@
   --purple-extra: #5335ae; /* Púrpura extra */
 }
 
+/*Agregarle estilos a la barra de scroll*/
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8a2be2;
+  border-radius: 8px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8a2be2 transparent;
+}
+/*Agregarle estilos a la barra de scroll*/
+
 body {
   background-color: var(--body-bg) !important;
   color: var(--text-color);
