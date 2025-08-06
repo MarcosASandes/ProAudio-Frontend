@@ -120,24 +120,9 @@ export default function LoginForm() {
   );
 }*/
 
-
-
 /*------------------------------------------ */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -182,7 +167,7 @@ export default function LoginForm() {
     const response = await loginUser(data.email, data.password);
     if (response) {
       console.log("Este es el response: ", response);
-      localStorage.setItem("userName", response.name); 
+      localStorage.setItem("userName", response.name);
       localStorage.setItem("userMail", response.email);
       localStorage.setItem("userToken", response.token);
 
@@ -192,6 +177,14 @@ export default function LoginForm() {
     }
   };
 
+  useEffect(() => {
+    const userToken = localStorage.getItem("userToken");
+
+    if (loggedUser || userToken) {
+      navigate("/");
+    }
+  }, [loggedUser]);
+
   const emailValue = watch("email");
   const passwordValue = watch("password");
 
@@ -200,7 +193,11 @@ export default function LoginForm() {
       {/* Encabezado */}
       <div className={styles.loginHeader}>
         <img src={proaudioLogo} alt="logo" className={styles.logo} />
-        <img src={proaudioLetter} alt="lettering" className={styles.lettering} />
+        <img
+          src={proaudioLetter}
+          alt="lettering"
+          className={styles.lettering}
+        />
       </div>
 
       {/* Email */}
