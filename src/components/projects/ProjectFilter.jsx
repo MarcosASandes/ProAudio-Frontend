@@ -35,7 +35,7 @@ const ProjectFilter = ({
   //ToDo: Consumir desde el backend
   const sortByOptions = ["start_date", "name", "end_date"];
   //ToDo: Consumir desde el backend
-  const directionOptions = ["asc", "desc"];
+  const directionOptions = ["desc", "asc"];
 
   return (
     <div className={styles.container}>
