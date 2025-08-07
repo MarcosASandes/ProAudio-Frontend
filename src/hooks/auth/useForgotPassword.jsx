@@ -10,7 +10,7 @@ const useForgotPassword = () => {
     async (email) => {
       try {
         const response = await forgotPassword(email);
-        showToast(response?.message);
+        showToast(response?.data?.message);
         return response;
       } catch (error) {
         const msj = error.response?.data?.message || "Ocurrió un error inesperado";

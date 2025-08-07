@@ -31,8 +31,21 @@ export const login = async (data) => {
 };
 
 export const forgotPassword = async (email) => {
-  const response = await axiosInstance.post('/user/forgot/password', email);
+  //const response = await axiosInstance.post('/user/forgot/password?email=' + email);
+  const response = await axiosInstance.post(`/user/forgot/password?email=${encodeURIComponent(email)}`);
+  return response;
+};
+
+/*export const changePasswordWithToken = async (data) => {
+    console.log("Así queda la data: ", data);
+  const response = await axiosInstance.post('/user/reset/password', data);
   return response.data;
+};*/
+
+export const changePasswordWithToken = async (data) => {
+    console.log("Así queda la data: ", data);
+  const response = await axiosInstance.post('/user/reset/password', data);
+  return response;
 };
 
 export const logout = async (token) => {
