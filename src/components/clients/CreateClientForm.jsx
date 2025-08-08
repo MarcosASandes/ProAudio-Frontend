@@ -4,8 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import styles from "../../styles/clients/createClientForm.module.css";
 import createClientValidator from "../../validators/clients/createClientValidator";
 import BackButton from "../global/BackButton";
+import useCreateClient from "../../hooks/clients/useCreateClient";
 
 const CreateClientForm = () => {
+  const { clientCreation } = useCreateClient();
+
   const {
     register,
     handleSubmit,
@@ -16,8 +19,11 @@ const CreateClientForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log("Datos del cliente:", data);
+    clientCreation(data);
     reset();
+    setTimeout(() => {
+        navigate("/clients");
+      }, 3000);
   };
 
   return (
