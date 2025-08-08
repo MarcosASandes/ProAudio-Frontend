@@ -189,7 +189,7 @@ export default function Navbar() {
 
                 <div className={styles.userName}>{userName}</div>
                 <div className={styles.userEmail}>{userMail}</div>
-                <button className={styles.userButton}>
+                <button onClick={() => navigate("/change/password")} className={styles.userButton}>
                   Cambiar contraseña
                 </button>
                 <button

@@ -48,6 +48,11 @@ export const changePasswordWithToken = async (data) => {
   return response;
 };
 
+export const changePasswordLogged = async (data) => {
+  const response = await axiosInstance.post('/user/change/password', data);
+  return response.data;
+};
+
 export const logout = async (token) => {
   return new Promise((resolve) => {
     setTimeout(() => {
