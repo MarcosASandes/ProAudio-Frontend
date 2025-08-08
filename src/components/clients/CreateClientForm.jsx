@@ -32,7 +32,7 @@ const CreateClientForm = () => {
       <h2 className={styles.title}>Crear cliente</h2>
 
       <div className={styles.formGroup}>
-        <label htmlFor="txtName">Nombre / Empresa</label>
+        <label htmlFor="txtName">Nombre (Persona / Empresa)</label>
         <input id="txtName" type="text" {...register("name")} />
         {errors.name && <p className={styles.error}>{errors.name.message}</p>}
       </div>

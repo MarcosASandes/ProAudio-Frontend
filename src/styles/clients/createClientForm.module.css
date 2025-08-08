@@ -192,7 +192,7 @@
 .formGroup textarea:focus {
   outline: none;
   border-color: var(--purple-extra);
-   background-color: rgb(67, 48, 83);
+   background-color: rgb(38, 28, 48);
 }
 
 .formGroup textarea {
