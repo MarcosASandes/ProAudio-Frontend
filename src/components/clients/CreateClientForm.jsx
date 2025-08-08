@@ -5,9 +5,11 @@ import styles from "../../styles/clients/createClientForm.module.css";
 import createClientValidator from "../../validators/clients/createClientValidator";
 import BackButton from "../global/BackButton";
 import useCreateClient from "../../hooks/clients/useCreateClient";
+import { useNavigate } from "react-router-dom";
 
 const CreateClientForm = () => {
   const { clientCreation } = useCreateClient();
+  const navigate = useNavigate();
 
   const {
     register,

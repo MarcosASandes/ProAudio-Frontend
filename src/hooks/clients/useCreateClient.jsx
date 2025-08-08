@@ -11,7 +11,14 @@ const useCreateClient = () => {
     async (payload) => {
       dispatch(fetchClientsStart());
       try {
-        const response = await createClient(payload);
+        const data = {
+          name: payload.name,
+          phone_number: payload.phone,
+          email: payload.email,
+          address: payload.address,
+          details: payload.details
+        }
+        const response = await createClient(data);
         dispatch(addClient(response));
         showToast("Cliente creado correctamente");
         return response;
