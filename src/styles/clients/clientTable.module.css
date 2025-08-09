@@ -122,7 +122,7 @@ td {
   border-collapse: collapse;
   background-color: #1c1c2a;
   color: white;
-  min-width: 700px; /* para scroll horizontal en pantallas pequeñas */
+  min-width: 700px; 
 }
 
 .table th,
@@ -189,9 +189,9 @@ td {
   color: #ff6b6b;
 }
 
-/* Responsive */
+
 @media (max-width: 576px) {
   .table {
-    min-width: 100%; /* que ocupe todo el ancho */
+    min-width: 100%; 
   }
 }
