@@ -37,6 +37,7 @@ import CreateClientPage from "./pages/clients/CreateClientPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import RepeatPasswordPage from "./pages/auth/RepeatPasswordPage";
 import ChangePasswordPage from "./pages/auth/ChangePasswordPage";
+import UpdateClientPage from "./pages/clients/UpdateClientPage";
 //import "./styles/products.css";
 
 /*function App() {
@@ -179,6 +180,7 @@ function App() {
           <Route path="/project/:id/return" element={<ReturnItemPage />} />
 
           <Route path="/client/create" element={<CreateClientPage />} />
+          <Route path="/client/:id/edit" element={<UpdateClientPage />} />
 
           <Route path="/change/password" element={<ChangePasswordPage />} />
         </Route>

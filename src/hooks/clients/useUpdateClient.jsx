@@ -7,7 +7,7 @@ import { updateClientInStore, fetchClientsStart, fetchClientsFailure } from "../
 const useUpdateClient = () => {
   const dispatch = useDispatch();
 
-  const updateClient = useCallback(async (id, payload) => {
+  const updateClientFetch = useCallback(async (id, payload) => {
     dispatch(fetchClientsStart());
     try {
       const updated = await updateClient(id, payload);
@@ -21,7 +21,7 @@ const useUpdateClient = () => {
     }
   }, [dispatch]);
 
-  return { updateClient };
+  return { updateClientFetch };
 };
 
 export default useUpdateClient;
