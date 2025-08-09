@@ -1,0 +1,116 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #1d1d2b;
+  border-radius: 10px;
+}
+
+/* Header: título + botón en una sola línea */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 48px;
+}
+
+/* Título */
+.title {
+  margin: 0;
+  color: #d6b3ff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Botón crear (estética coherente con UpdateClientForm) */
+.createButton {
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--purple-extra);
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(83, 53, 174, 0.12);
+  transition: background-color 0.18s ease, transform 0.08s ease;
+}
+
+.createButton:hover {
+  background-color: var(--purple-secondary);
+}
+
+.createButton:active {
+  transform: translateY(1px);
+}
+
+.createButton:disabled {
+  background-color: #4e3c82;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* Wrapper para el filtro (a usar alrededor de <ClientFilter />) */
+.filterWrapper {
+  width: 100%;
+  /* No forzamos scroll aquí: el panel padre controla el scroll general */
+}
+
+/* Wrapper para la tabla: ocupa el espacio restante y gestiona scroll interno */
+.tableWrapper {
+  flex: 1 1 auto;
+  min-height: 0; /* necesario para que flex children con overflow funcionen */
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Espaciado para que la tabla no esté pegada */
+  padding-top: 0.25rem;
+}
+
+/* Wrapper para la paginación (a usar alrededor de <ClientPagination />) */
+.paginationWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+/* Responsive: en pantallas pequeñas apilamos header */
+/*@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .createButton {
+    width: 100%;
+    text-align: center;
+  }
+}*/
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem; /* un poco más espacio vertical */
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem; /* separación del botón */
+  }
+
+  .createButton {
+    width: 100%;
+    text-align: center;
+    padding: 0.65rem 0; /* más cómodo para el dedo */
+    font-size: 1rem;
+  }
+}

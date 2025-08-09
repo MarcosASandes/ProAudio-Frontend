@@ -187,3 +187,16 @@ export const getProjectSortByOptionsLabel = (status) => {
       return status;
   }
 };
+
+export const getClientSortByOptionsLabel = (status) => {
+  switch (status) {
+    case "id":
+      return "ID";
+    case "name":
+      return "Nombre";
+    case "phone_number":
+      return "Número de teléfono";
+    default:
+      return status;
+  }
+}
