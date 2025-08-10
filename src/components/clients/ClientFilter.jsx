@@ -143,7 +143,7 @@ const ClientFilter = ({
             <input
               type="text"
               className={`form-control ${styles.inputSearch}`}
-              placeholder="nombre..."
+              placeholder="Nombre..."
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
             />

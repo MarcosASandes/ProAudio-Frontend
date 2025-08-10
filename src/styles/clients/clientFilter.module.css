@@ -135,6 +135,7 @@
   outline: none;
   border-color: var(--purple-extra);
   background-color: rgb(38, 28, 48);
+  color: var(--white-color);
 }
 
 .checkboxGroup {
