@@ -43,7 +43,8 @@ const ClientRow = ({ client }) => {
         <button
           type="button"
           className={styles.editBtn}
-          aria-label={`Ver detalle de cliente: ${client.name}`}
+          aria-label={`Ver detalle de ${client.name}`}
+          title={`Ver detalle de ${client.name}`}
           onClick={() => {
             // Aquí iría lógica para editar, o se pasa prop onEdit
           }}
