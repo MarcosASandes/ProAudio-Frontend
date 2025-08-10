@@ -194,7 +194,7 @@ export const getClientSortByOptionsLabel = (status) => {
       return "ID";
     case "name":
       return "Nombre";
-    case "phone_number":
+    case "phone":
       return "Número de teléfono";
     default:
       return status;

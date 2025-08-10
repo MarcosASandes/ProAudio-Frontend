@@ -123,7 +123,7 @@ const ClientFilter = ({
 
   const [showFilters, setShowFilters] = useState(false);
   const statusOptions = ["ENABLED", "DISABLED"];
-  const sortByOptions = ["id", "name", "phone_number"];
+  const sortByOptions = ["id", "name", "phone"];
   const directionOptions = ["desc", "asc"];
 
   return (
