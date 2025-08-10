@@ -30,8 +30,11 @@ export default ClientRow;*/
 import React from "react";
 import styles from "../../styles/clients/clientTable.module.css";
 import { SquareArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ClientRow = ({ client }) => {
+  const navigate = useNavigate();
+
   return (
     <tr className={styles.row}>
       <td title={client.client_id}>{client.client_id}</td>
@@ -45,9 +48,7 @@ const ClientRow = ({ client }) => {
           className={styles.editBtn}
           aria-label={`Ver detalle de ${client.name}`}
           title={`Ver detalle de ${client.name}`}
-          onClick={() => {
-            // Aquí iría lógica para editar, o se pasa prop onEdit
-          }}
+          onClick={() => navigate(`/client/${client.client_id}`)}
         >
           <SquareArrowRight size={22} />
         </button>

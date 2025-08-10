@@ -89,7 +89,7 @@ const ClientView = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("id");
   const [direction, setDirection] = useState("desc");
-  const [filterStatus, setFilterStatus] = useState(""); // string, porque ahora es select
+  const [filterStatus, setFilterStatus] = useState("ENABLED"); // string, porque ahora es select
   const [page, setPage] = useState(1);
   const size = 10; // fijo para la paginación
   const navigate = useNavigate();

@@ -20,7 +20,7 @@ const ProjectView = () => {
 
 
   const [sortBy, setSortBy] = useState("start_date");
-  const [direction, setDirection] = useState("asc");
+  const [direction, setDirection] = useState("desc");
   const [filterStatus, setFilterStatus] = useState([]); // checklist
   const [filterPaymentStatus, setFilterPaymentStatus] = useState(""); // uno solo
 

@@ -60,7 +60,7 @@ const UpdateClientForm = () => {
   const onSubmit = async (data) => {
     await updateClientFetch(id, data);
     setTimeout(() => {
-      navigate("/clients");
+      navigate(`/client/${id}`);
     }, 3000);
   };
 
@@ -72,7 +72,7 @@ const UpdateClientForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <BackButton target={"/clients"} />
+      <BackButton target={`/client/${id}`} />
       <h2 className={styles.title}>Actualizar Cliente</h2>
 
       <div className={styles.formGroup}>

@@ -27,7 +27,7 @@ export const updateClientValidator = yup.object().shape({
     .string()
     .max(20, "El nombre debe tener como máximo 20 caracteres")
     .required("Este campo es obligatorio."),
-  phone: yup
+  phone_number: yup
     .string()
     .max(12, "La longitud de caracteres del teléfono debe ser 12")
     .required("El teléfono es obligatorio.")
