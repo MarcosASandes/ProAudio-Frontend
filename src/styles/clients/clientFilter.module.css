@@ -1,17 +1,16 @@
-.container {
+/*.container {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding: 0.9rem;
   box-sizing: border-box;
-  background-color: #1c1c2a; /* panel como el formulario */
+  background-color: #1c1c2a; 
   border-radius: 12px;
   border: 1px solid rgba(115, 85, 206, 0.08);
   box-shadow: 0 0 10px rgba(115, 85, 206, 0.04);
 }
 
-/* Etiqueta de campo */
 .label {
   display: block;
   margin-bottom: 0.25rem;
@@ -20,7 +19,6 @@
   font-size: 0.95rem;
 }
 
-/* Input buscador (aplica sobre el input junto con form-control) */
 .inputSearch {
   padding: 0.6rem 0.75rem;
   background-color: #2a2a40;
@@ -35,7 +33,6 @@
   color: #ffffff;
 }
 
-/* Selects (aplica sobre .form-select + esta clase) */
 .select {
   padding: 0.5rem 0.65rem;
   background-color: #2a2a40;
@@ -45,7 +42,6 @@
   width: 100%;
 }
 
-/* Efecto focus para inputs y selects */
 .inputSearch:focus,
 .select:focus,
 .container :is(.form-control:focus, .form-select:focus) {
@@ -54,7 +50,6 @@
   background-color: rgb(38, 28, 48);
 }
 
-/* Grupo de checkboxes */
 .checkboxGroup {
   display: flex;
   flex-wrap: wrap;
@@ -62,19 +57,16 @@
   align-items: center;
 }
 
-/* Label de cada checkbox */
 .checkboxLabel {
   color: #d6b3ff;
   font-weight: 600;
   font-size: 0.92rem;
 }
 
-/* Hacer los checkboxes con acento púrpura si el navegador lo soporta */
 .form-check-input {
   accent-color: var(--purple-main);
 }
 
-/* Pequeños ajustes responsivos */
 @media (max-width: 768px) {
   .container {
     padding: 0.6rem;
@@ -87,5 +79,138 @@
 
   .checkboxLabel {
     font-size: 0.88rem;
+  }
+}*/
+
+/*-------------------------------------*/
+
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.9rem;
+  box-sizing: border-box;
+  background-color: #1c1c2a; 
+  border-radius: 12px;
+  border: 1px solid rgba(115, 85, 206, 0.08);
+  box-shadow: 0 0 10px rgba(115, 85, 206, 0.04);
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #d6b3ff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.inputSearch {
+  padding: 0.6rem 0.75rem;
+  background-color: #2a2a40;
+  border: 1px solid #444;
+  border-radius: 10px;
+  color: #ffffff;
+  width: 100%;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.inputSearch::placeholder {
+  color: #ffffff;
+}
+
+.select {
+  padding: 0.5rem 0.65rem;
+  background-color: #2a2a40;
+  border: 1px solid #444;
+  border-radius: 10px;
+  color: #fff;
+  width: 100%;
+}
+
+.inputSearch:focus,
+.select:focus,
+.container :is(.form-control:focus, .form-select:focus) {
+  outline: none;
+  border-color: var(--purple-extra);
+  background-color: rgb(38, 28, 48);
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.checkboxLabel {
+  color: #d6b3ff;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.form-check-input {
+  accent-color: var(--purple-main);
+}
+
+.filterToggleBtn {
+  display: none;
+}
+
+/*@media (max-width: 768px) {
+  .filterToggleBtn {
+    background-color: var(--purple-extra);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .filterToggleBtn:active {
+    transform: translateY(1px);
+  }
+
+  .container {
+    display: none;
+  }
+  
+  .container.show {
+    display: flex;
+  }
+}*/
+
+@media (max-width: 768px) {
+  .filterToggleBtn {
+    display: block;
+    background-color: var(--purple-extra);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .filterToggleBtn:active {
+    transform: translateY(1px);
+  }
+
+  /* Por defecto filtros ocultos en móvil */
+  .container {
+    display: none;
+  }
+  
+  /* Clase que muestra filtros */
+  .container.show {
+    display: flex;
   }
 }
