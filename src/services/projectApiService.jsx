@@ -1,176 +1,12 @@
-/*
-VERSIÓN NO CENTRALIZADA
-
-import axios from "axios";
-import { toast } from "react-toastify";
-import qs from "qs";
-
-const BASE_URL = "http://localhost:8080/project";
-//const BASE_URL = "/api/project";
-
-export const createProject = async (data) => {
-  const response = await axios.post(BASE_URL, data);
-  return response.data;
-};
-
-export const updateProject = async (id, data) => {
-  const response = await axios.put(BASE_URL + "/" + id, data);
-  return response.data;
-};
-
-export const deleteProject = async (id) => {
-  const response = await axios.delete(BASE_URL + "/" + id);
-  return response.data;
-};
-
-export const getProjectById = async (id) => {
-  const response = await axios.get(BASE_URL + "/" + id);
-  return response.data;
-};
-
-export const getProjectDetails = async (id) => {
-  const response = await axios.get(BASE_URL + "/details/" + id);
-  return response.data;
-};
-
-export const getProjectTypes = async () => {
-  const response = await axios.get(BASE_URL + "/types");
-  return response.data;
-};
-
-export const getProjectStatusByProjectId = async (id) => {
-  const response = await axios.get(BASE_URL + "/possible/status/" + id);
-  return response.data;
-};
-
-export const getStartingProjectStatus = async () => {
-  const response = await axios.get(BASE_URL + "/possible/status");
-  return response.data;
-};
-
-export const getPossiblePaymentStatusByProjectId = async (id) => {
-  console.log("coso pum");
-  const response = await axios.get(BASE_URL + "/possible/payment/status/" + id);
-  return response.data;
-};
-
-
-export const getBudgetPdfByProjectId = async (id) => {
-  const response = await axios.post(
-    `${BASE_URL}/${id}/budget`,
-    {}, // body vacío (o los datos si corresponde)
-    {
-      responseType: "blob",
-      headers: {
-        Accept: "application/pdf",
-      },
-    }
-  );
-
-  const pdfUrl = URL.createObjectURL(response.data);
-  return pdfUrl;
-};
-
-export const getAllStatuses = async () => {
-  const response = await axios.get(BASE_URL + "/status/all");
-  return response.data;
-};
-
-export const getAllPaymentStatuses = async () => {
-  const response = await axios.get(BASE_URL + "/payment/status/all");
-  return response.data;
-};
-
-export const getAllRunningStatuses = async () => {
-  const response = await axios.get(BASE_URL + "/running/status/all");
-  return response.data;
-};
-
-
-export const getAllProjects = async (
-  page = 1,
-  size = 10,
-  sortBy = "start_date",
-  direction = "asc",
-  filterStatus = ["PLANNED", "CONFIRMED", "ON_COURSE"],
-  filterPaymentStatus = "",
-  name = ""
-) => {
-  const params = {
-    page: page - 1, // el backend empieza en 0
-    size,
-    sortBy,
-    direction,
-  };
-
-  if (filterStatus.length > 0) {
-    params.filterStatus = filterStatus;
-  }
-
-  if (filterPaymentStatus) {
-    params.filterPaymentStatus = filterPaymentStatus;
-  }
-
-  if (name) {
-    params.name = name;
-  }
-
-  console.log(`${BASE_URL}/all`, { params });
-  const response = await axios.get(`${BASE_URL}/all`, {
-    params,
-    paramsSerializer: (params) =>
-      qs.stringify(params, { arrayFormat: "repeat" }),
-  });
-  return response.data;
-};
-
-export const getProductsInProject = async (id) => {
-  const response = await axios.get(BASE_URL + "/" + id + "/products");
-  return response.data;
-};
-
-export const exitItemToProject = async (idProject, idItem) => {
-  console.log(`En el método exitItemToProject llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
-  const response = await axios.post(BASE_URL + "/" + idProject + "/item/" + idItem + "/exit");
-  console.log("Luego de hacer la petición llega esto: ", response);
-  return response.data;
-};
-
-export const getOutletItemsByProjectId = async (id) => {
-  const response = await axios.get(BASE_URL + "/" + id + "/items");
-  return response.data;
-};
-
-export const deleteOutletItemInProject = async (idProject, idItem) => {
-  const response = await axios.delete(BASE_URL + "/" + idProject + "/item/" + idItem + "/delete");
-  return response.data;
-};
-
-export const returnItemToDeposit = async (idProject, idItem) => {
-  const response = await axios.post(BASE_URL + "/" + idProject + "/item/" + idItem + "/return");
-  return response.data;
-};*/
-
-
-
-/*--------------------------------------- */
-
-
-
 import axiosInstance from './axiosInstance';
 import qs from 'qs';
-import { toast } from 'react-toastify'; // si usas toast en este archivo
 
 export const createProject = async (data) => {
-  /*console.log("Datos del proyecto que se creará: ", data);
-  return data;*/
   const response = await axiosInstance.post('/project', data);
   return response.data;
 };
 
 export const updateProject = async (id, data) => {
-  /*console.log("Datos del proyecto que se editará: ", data);
-  return data;*/
   const response = await axiosInstance.put(`/project/${id}`, data);
   return response.data;
 };
@@ -206,7 +42,6 @@ export const getStartingProjectStatus = async () => {
 };
 
 export const getPossiblePaymentStatusByProjectId = async (id) => {
-  console.log("coso pum");
   const response = await axiosInstance.get(`/project/possible/payment/status/${id}`);
   return response.data;
 };
@@ -295,9 +130,7 @@ export const getProductsInProject = async (id) => {
 };
 
 export const exitItemToProject = async (idProject, idItem) => {
-  console.log(`En el método exitItemToProject llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
   const response = await axiosInstance.post(`/project/${idProject}/item/${idItem}/exit`);
-  console.log('Luego de hacer la petición llega esto: ', response);
   return response.data;
 };
 
