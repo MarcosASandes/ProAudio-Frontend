@@ -39,6 +39,7 @@ import RepeatPasswordPage from "./pages/auth/RepeatPasswordPage";
 import ChangePasswordPage from "./pages/auth/ChangePasswordPage";
 import UpdateClientPage from "./pages/clients/UpdateClientPage";
 import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
+import CreateEmbeddedClientPage from "./pages/clients/CreateEmbeddedClientPage";
 //import "./styles/products.css";
 
 /*function App() {
@@ -183,6 +184,10 @@ function App() {
           <Route path="/client/create" element={<CreateClientPage />} />
           <Route path="/client/:id/edit" element={<UpdateClientPage />} />
           <Route path="/client/:id" element={<ClientDetailsPage />} />
+          <Route
+            path="/clients/create/embedded"
+            element={<CreateEmbeddedClientPage />}
+          />
 
           <Route path="/change/password" element={<ChangePasswordPage />} />
         </Route>

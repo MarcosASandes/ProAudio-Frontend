@@ -162,6 +162,8 @@ import qs from 'qs';
 import { toast } from 'react-toastify'; // si usas toast en este archivo
 
 export const createProject = async (data) => {
+  /*console.log("Datos del proyecto que se creará: ", data);
+  return data;*/
   const response = await axiosInstance.post('/project', data);
   return response.data;
 };
