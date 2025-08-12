@@ -169,6 +169,8 @@ export const createProject = async (data) => {
 };
 
 export const updateProject = async (id, data) => {
+  /*console.log("Datos del proyecto que se editará: ", data);
+  return data;*/
   const response = await axiosInstance.put(`/project/${id}`, data);
   return response.data;
 };

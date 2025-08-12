@@ -31,7 +31,10 @@ const CreateEmbeddedEventForm = () => {
     };
 
     // Guardamos el evento temporal en localStorage
-    localStorage.setItem("temporaryProjectEvent", JSON.stringify(newEventObject));
+    localStorage.setItem(
+      "temporaryProjectEvent",
+      JSON.stringify(newEventObject)
+    );
 
     showToast("Evento creado temporalmente.");
     const from = location.state?.from;
@@ -39,15 +42,26 @@ const CreateEmbeddedEventForm = () => {
 
     reset();
     setTimeout(() => {
-      if (from === "create-project"){
+      if (from === "create-project") {
         navigate("/project/create");
-      } else if (from === "update-project" && projectId){
+      } else if (from === "update-project" && projectId) {
         navigate("/project/" + projectId + "/edit");
-      } else{
+      } else {
         navigate("/");
       }
-      
     }, 1000);
+  };
+
+  const backButtonDirection = () => {
+    const from = location.state?.from;
+    const projectId = location.state?.projectId;
+    if (from === "create-project") {
+      return "/project/create";
+    } else if (from === "update-project" && projectId) {
+      return `/project/${projectId}/edit`;
+    } else {
+      return "/";
+    }
   };
 
   return (
@@ -55,7 +69,7 @@ const CreateEmbeddedEventForm = () => {
       <button
         type="button"
         className={`mb-3 ${stylesBackButton.btnBackArrow}`}
-        onClick={() => navigate("/project/create")}
+        onClick={() => navigate(backButtonDirection())}
       >
         <ArrowLeft size={24} />
         <span className="ms-2">Volver</span>

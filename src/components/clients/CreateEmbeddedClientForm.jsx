@@ -51,12 +51,24 @@ const CreateEmbeddedClientForm = () => {
     }, 1000);
   };
 
+  const backButtonDirection = () => {
+    const from = location.state?.from;
+    const projectId = location.state?.projectId;
+    if (from === "create-project") {
+      return "/project/create";
+    } else if (from === "update-project" && projectId) {
+      return `/project/${projectId}/edit`;
+    } else {
+      return "/";
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <button
         type="button"
         className={`mb-3 ${stylesBackButton.btnBackArrow}`}
-        onClick={() => navigate("/project/create")}
+        onClick={() => navigate(backButtonDirection())}
       >
         <ArrowLeft size={24} />
         <span className="ms-2">Volver</span>
