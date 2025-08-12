@@ -8,6 +8,7 @@ import parameterReducer from "../features/parameters/ParameterSlice";
 import projectReducer from "../features/projects/ProjectSlice";
 import authReducer from "../features/auth/AuthSlice";
 import clientReducer from "../features/clients/ClientSlice";
+import notificationReducer from "../features/notifications/NotificationSlice";
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     projects: projectReducer,
     auth: authReducer,
     clients: clientReducer,
+    notifications: notificationReducer,
   }
 });
 
