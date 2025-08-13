@@ -924,8 +924,6 @@ export default function Navbar() {
   useGetRecentNotifications(1, 10, "desc", false, false);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
-  console.log("Valor de: notifications: ", notifications);
-  console.log("Valor de: totalNotifications: ", totalNotifications);
 
   const userMenuRef = useRef();
   const userIconRef = useRef();
@@ -1017,6 +1015,10 @@ export default function Navbar() {
     // Aquí luego podrías hacer navigate(`/notifications/${id}`);
   };
 
+  const handleGoToList = (id) => {
+    navigate(`/notifications`);
+  };
+
   const handleMarkAllRead = () => {
     const notificationIds = notifications
       .filter((n) => !n.is_seen)
@@ -1070,7 +1072,7 @@ export default function Navbar() {
                 <div className={styles.notificationsHeader}>
                   <span>Notificaciones</span>
 
-                  <button className={styles.notificationActionButtonPurple}>
+                  <button onClick={handleGoToList} className={styles.notificationActionButtonPurple}>
                     Ver todas
                   </button>
                 </div>
