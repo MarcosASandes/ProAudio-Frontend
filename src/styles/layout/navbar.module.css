@@ -621,6 +621,7 @@
   background-color: transparent;
   position: relative;
   color: var(--text-color);
+  user-select: none;
 }
 
 
