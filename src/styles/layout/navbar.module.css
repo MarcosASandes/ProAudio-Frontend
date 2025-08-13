@@ -1,6 +1,4 @@
-/* ESTILOS DEL COMPONENTE NAVBAR */
-
-.navbar {
+/*.navbar {
   background-color: var(--main-bg);
   height: 60px;
   z-index: 1030;
@@ -14,7 +12,6 @@
   transition: filter 0.5s ease;
 }
 
-/* Efecto neón */
 .logoPlaceholder:hover {
   filter: drop-shadow(0 0 5px var(--purple-extra)) 
           drop-shadow(0 0 10px var(--purple-extra))
@@ -33,13 +30,11 @@
 }
 
 
-/* Ajustes de responsive */
 @media (max-width: 768px) {
   .logo-logoPlaceholder {
     max-width: 30px;
   }
 }
-
 
 .arrowUp {
   position: absolute;
@@ -98,8 +93,639 @@
   color: #fff;
 }
 
-/* Ícono activo */
 .iconActive {
   box-shadow: 0 0 10px var(--purple-extra);
   border: 1px solid var(--purple-extra);
+}*/
+
+
+/*------------------------------------*/
+
+.navbar {
+  background-color: var(--main-bg);
+  height: 60px;
+  z-index: 1030;
+}
+
+.logoPlaceholder {
+  color: var(--text-color);
+  font-weight: bold;
+  max-width: 45px;
+  margin-top: 5px;
+  transition: filter 0.5s ease;
+}
+
+.logoPlaceholder:hover {
+  filter: drop-shadow(0 0 5px var(--purple-extra)) 
+          drop-shadow(0 0 10px var(--purple-extra))
+          drop-shadow(0 0 15px var(--purple-extra));
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+  transition: color 0.7s ease;
+}
+
+.icon:hover {
+  color: var(--purple-secondary);
+}
+
+
+@media (max-width: 768px) {
+  .logo-logoPlaceholder {
+    max-width: 30px;
+  }
+}
+
+.arrowUp {
+  position: absolute;
+  top: -10px;
+  left: 85%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #111;
+}
+
+.userDropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #111;
+  border: 1px solid var(--purple-extra);
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 200px;
+  box-shadow: 0 0 10px var(--purple-extra);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.userName {
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.userEmail {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+
+.userButton {
+  background-color: #222;
+  color: var(--purple-secondary);
+  border: 1px solid var(--purple-secondary);
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.userButton:hover {
+  background-color: var(--purple-secondary);
+  color: #fff;
+}
+
+.iconActive {
+  box-shadow: 0 0 10px var(--purple-extra);
+  border: 1px solid var(--purple-extra);
+}
+
+
+
+
+
+/*.notificationsDropdown {
+  position: absolute;
+  top: 50px;
+  right: 40px; 
+  width: 380px;
+  max-height: 400px;
+  background-color: #111;
+  border: 1px solid var(--purple-extra);
+  border-radius: 12px;
+  box-shadow: 0 0 15px var(--purple-extra);
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  z-index: 1050;
+  user-select: none;
+}
+
+
+.notificationsDropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 25px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #111;
+}
+
+
+.notificationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--purple-secondary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+.notificationsHeaderButtons {
+  display: flex;
+  gap: 12px;
+}
+
+
+.notificationActionButton {
+  background-color: transparent;
+  border: 1px solid var(--purple-secondary);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  color: var(--purple-secondary);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.notificationActionButton:hover {
+  background-color: var(--purple-secondary);
+  color: #fff;
+}
+
+
+.notificationsList {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 300px;
+  border-top: 1px solid var(--purple-extra);
+  padding-top: 10px;
+}
+
+
+.notificationRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--text-color);
+  border-radius: 6px;
+  transition: background-color 0.25s;
+  font-size: 0.9rem;
+}
+
+
+.notificationRow:hover {
+  background-color: rgba(115, 85, 206, 0.15); 
+  position: relative;
+}
+
+
+.notificationDetails {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+
+.notificationDate {
+  color: var(--purple-secondary);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+
+.notificationEyeIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--purple-secondary);
+  opacity: 0;
+  transition: opacity 0.3s;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.notificationRow:hover .notificationEyeIcon {
+  opacity: 1;
+}
+*/
+
+
+
+
+/*-----------------------------*/
+/*.notificationsDropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #111;
+  border: 1px solid var(--purple-extra);
+  border-radius: 12px;
+  padding: 20px;
+  width: 420px;
+  max-height: 400px;
+  box-shadow: 0 0 15px var(--purple-extra);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+
+.notificationsDropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 25px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #111;
+}
+
+
+.notificationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--purple-secondary);
+}
+
+
+.notificationsHeaderButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.notificationActionButtonSmall {
+  background-color: transparent;
+  border: 1px solid var(--purple-secondary);
+  border-radius: 6px;
+  color: var(--purple-secondary);
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.notificationActionButtonSmall:hover {
+  background-color: var(--purple-secondary);
+  color: #fff;
+}
+
+.notificationActionButtonPurple {
+  background-color: var(--purple-secondary);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notificationActionButtonPurple:hover {
+  background-color: var(--purple-extra);
+}
+
+
+.notificationsList {
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 300px;
+  border-top: 1px solid var(--purple-extra);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.notificationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  background-color: transparent;
+  position: relative;
+  color: var(--text-color);
+}
+
+
+.notificationRow:hover {
+  background-color: var(--purple-extra);
+  color: #fff;
+}
+
+
+.notificationDetails {
+  display: flex;
+  gap: 12px;
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.notificationDate {
+  margin-left: 10px;
+  font-size: 0.95rem;
+  font-style: italic;
+  white-space: nowrap;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+
+.notificationEyeIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.notificationRow:hover .notificationEyeIcon {
+  opacity: 1;
+  color: #fff;
+}
+
+.notificationEyeBlink {
+  color: var(--purple-secondary) !important;
+  animation: eyeBlinkAnim 0.7s ease forwards;
+}
+
+@keyframes eyeBlinkAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}*/
+
+
+
+/*------------------------------------------------*/
+
+
+.notificationsDropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #111;
+  border: 1px solid var(--purple-extra);
+  border-radius: 12px;
+  padding: 20px;
+  width: 420px;
+  max-height: 400px;
+  box-shadow: 0 0 15px var(--purple-extra);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+
+.notificationsDropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 25px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #111;
+}
+
+
+.notificationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--purple-secondary);
+}
+
+
+.notificationsHeaderButtons {
+  display: none;
+}
+
+.notificationActionButtonSmall {
+  background-color: transparent;
+  border: 1px solid var(--purple-secondary);
+  border-radius: 6px;
+  color: var(--purple-secondary);
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.notificationActionButtonSmall:hover {
+  background-color: var(--purple-secondary);
+  color: #fff;
+}
+
+.notificationActionButtonPurple {
+  background-color: var(--purple-secondary);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notificationActionButtonPurple:hover {
+  background-color: var(--purple-extra);
+}
+
+
+.notificationsList {
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 300px;
+  border-top: 1px solid var(--purple-extra);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.notificationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  background-color: transparent;
+  position: relative;
+  color: var(--text-color);
+}
+
+
+.notificationRow:hover {
+  background-color: var(--purple-extra);
+  color: #fff;
+}
+
+
+.notificationDetails {
+  display: flex;
+  gap: 12px;
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.notificationDate {
+  margin-left: 10px;
+  font-size: 0.95rem;
+  font-style: italic;
+  white-space: nowrap;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+
+.notificationEyeIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.notificationRow:hover .notificationEyeIcon {
+  opacity: 1;
+  color: #fff;
+}
+
+.notificationEyeBlink {
+  color: var(--purple-secondary) !important;
+  animation: eyeBlinkAnim 0.7s ease forwards;
+}
+
+@keyframes eyeBlinkAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.markAsReadLink {
+  cursor: pointer;
+  color: var(--purple-secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.markAsReadLink:hover {
+  color: var(--purple-extra);
+  text-decoration: underline;
+}
+
+.notificationsFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+
+@media (max-width: 767px) {
+  .notificationsDropdown {
+    position: fixed !important; /* fijo en pantalla para no recortarse */
+    top: 60px !important;       /* un poco abajo del navbar */
+    right: 5vw !important;       /* margen desde el borde derecho */
+    left: 5vw !important;        /* margen desde el borde izquierdo */
+    width: auto !important;      /* se ajusta entre los márgenes */
+    max-width: none !important;  /* sin máximo ancho fijo */
+    max-height: 70vh !important; /* para que no desborde vertical */
+    overflow-y: auto !important; /* scroll interno si es necesario */
+    border-radius: 12px !important;
+    box-shadow: 0 0 15px var(--purple-extra) !important;
+    z-index: 3000 !important;     /* asegurarse que esté arriba */
+    background-color: var(--secondary-bg) !important; /* bg oscuro */
+  }
+
+  /* Ocultar flecha para evitar problemas de posicionamiento */
+  :global(.notificationsDropdown::before) {
+    display: none !important;
+  }
+
+  /* Ajuste del tamaño y padding */
+  .notificationsList {
+    max-height: 50vh !important;
+  }
+
+  .notificationActionButtonPurple {
+    font-size: 0.9rem !important;
+    padding: 5px 10px !important;
+  }
 }
