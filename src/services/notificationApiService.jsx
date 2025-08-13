@@ -10,6 +10,7 @@ const notificationsMock = {
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
       is_solved: false,
       is_seen: false,
+      is_completed: true,
       created_at: "2025-07-12T20:30:30",
     },
     {
@@ -19,6 +20,7 @@ const notificationsMock = {
         "El envío programado para la fecha acordada no ha sido despachado debido a problemas logísticos.",
       is_solved: false,
       is_seen: true,
+      is_completed: false,
       created_at: "2025-06-28T15:10:45",
     },
     {
@@ -28,6 +30,7 @@ const notificationsMock = {
         "Un cliente ha dejado un nuevo comentario en el proyecto 'Reforma de oficinas'.",
       is_solved: true,
       is_seen: false,
+      is_completed: true,
       created_at: "2025-08-01T09:45:12",
     },
     {
@@ -37,6 +40,7 @@ const notificationsMock = {
         "Se han realizado cambios en las cláusulas del contrato. Revísalos antes de la fecha límite.",
       is_solved: false,
       is_seen: false,
+      is_completed: false,
       created_at: "2025-08-10T17:22:05",
     },
     {
@@ -46,6 +50,7 @@ const notificationsMock = {
         "El pago correspondiente al proyecto 'Desarrollo Web Corporativo' ha sido acreditado con éxito.",
       is_solved: true,
       is_seen: true,
+      is_completed: true,
       created_at: "2025-07-30T11:05:59",
     },
     {
@@ -55,6 +60,7 @@ const notificationsMock = {
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
       is_solved: false,
       is_seen: false,
+      is_completed: false,
       created_at: "2025-07-12T20:30:30",
     },
     {
@@ -64,6 +70,7 @@ const notificationsMock = {
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
       is_solved: false,
       is_seen: true,
+      is_completed: true,
       created_at: "2025-07-12T20:30:30",
     },
     {
@@ -73,6 +80,7 @@ const notificationsMock = {
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
       is_solved: false,
       is_seen: true,
+      is_completed: false,
       created_at: "2025-07-12T20:30:30",
     },
     {
@@ -82,6 +90,7 @@ const notificationsMock = {
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
       is_solved: false,
       is_seen: true,
+      is_completed: true,
       created_at: "2025-07-12T20:30:30",
     },
     {
@@ -91,6 +100,7 @@ const notificationsMock = {
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
       is_solved: false,
       is_seen: true,
+      is_completed: false,
       created_at: "2025-07-12T20:30:30",
     },
   ],
@@ -114,6 +124,7 @@ export const getAllNotifications = async (
   size = 10,
   direction = "desc",
   type = null,
+  completed = false,
   solved = false,
   seen = false
 ) => {
@@ -122,6 +133,7 @@ export const getAllNotifications = async (
     size,
     direction,
     type,
+    completed,
     solved,
     seen,
   };

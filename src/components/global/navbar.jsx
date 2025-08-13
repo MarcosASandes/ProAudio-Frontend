@@ -903,6 +903,7 @@ import styles from "../../styles/layout/navbar.module.css";
 import useLogout from "../../hooks/auth/useLogout";
 import { useNavigate } from "react-router-dom";
 import useMarkNotificationAsRead from "../../hooks/notifications/useMarkNotificationAsRead";
+import useMarkMultipleNotificationsAsRead from "../../hooks/notifications/useMarkMultipleNotificationsAsRead";
 import useGetRecentNotifications from "../../hooks/notifications/useGetRecentNotifications";
 import {
   selectRecentNotifications,
@@ -919,6 +920,7 @@ export default function Navbar() {
   const { logoutUser } = useLogout();
   const navigate = useNavigate();
   const { markAsRead } = useMarkNotificationAsRead();
+  const { markMultipleAsRead } = useMarkMultipleNotificationsAsRead();
   useGetRecentNotifications(1, 10, "desc", false, false);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
@@ -1013,6 +1015,14 @@ export default function Navbar() {
   const handleGoToDetails = (id) => {
     console.log("Ir a detalles de la notificación:", id);
     // Aquí luego podrías hacer navigate(`/notifications/${id}`);
+  };
+
+  const handleMarkAllRead = () => {
+    const notificationIds = notifications
+      .filter((n) => !n.is_seen)
+      .map((n) => n.notification_id);
+    //markMultipleAsRead(notificationIds);
+    console.log("Estas notif se pondrán en vistas: ", notificationIds);
   };
 
   return (
@@ -1158,7 +1168,10 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.notificationsFooter}>
-                  <div className={styles.markAsReadLink}>
+                  <div
+                    onClick={handleMarkAllRead}
+                    className={styles.markAsReadLink}
+                  >
                     Marcar como leídas
                   </div>
                 </div>

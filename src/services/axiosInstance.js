@@ -34,6 +34,10 @@ axiosInstance.interceptors.response.use(
         localStorage.removeItem('userToken');
         localStorage.removeItem('userName');
         localStorage.removeItem('userMail');
+        localStorage.removeItem('temporaryProjectClient');
+        localStorage.removeItem('temporaryProjectEvent');
+        localStorage.removeItem('projectDraft');
+        localStorage.removeItem('projectDraftUpdate');
         window.location.href = '/auth/login';
       }
     }
