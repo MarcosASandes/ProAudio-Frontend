@@ -82,7 +82,7 @@ const ClientSelectorModal  = ({ onSelect }) => {
   const [page, setPage] = useState(1);
   const size = 10;
 
-  useGetAllClients(page, size, "id", "desc", "", "");
+  useGetAllClients(page, size, "id", "desc", "ENABLED", "");
 
   const clients = useSelector(selectClients);
   const pageable = useSelector(selectClientsPageable);

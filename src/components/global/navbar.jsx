@@ -1021,6 +1021,51 @@ export default function Navbar() {
       is_seen: true,
       created_at: "2025-07-30T11:05:59",
     },
+    {
+      notification_id: 6,
+      title: "Proyecto no pagado!",
+      description:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
+      is_solved: false,
+      is_seen: false,
+      created_at: "2025-07-12T20:30:30",
+    },
+    {
+      notification_id: 7,
+      title: "Nuevo comentario",
+      description:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
+      is_solved: false,
+      is_seen: true,
+      created_at: "2025-07-12T20:30:30",
+    },
+    {
+      notification_id: 8,
+      title: "Nuevo comentario",
+      description:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
+      is_solved: false,
+      is_seen: true,
+      created_at: "2025-07-12T20:30:30",
+    },
+    {
+      notification_id: 9,
+      title: "Nuevo comentario",
+      description:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
+      is_solved: false,
+      is_seen: true,
+      created_at: "2025-07-12T20:30:30",
+    },
+    {
+      notification_id: 10,
+      title: "Nuevo comentario",
+      description:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
+      is_solved: false,
+      is_seen: true,
+      created_at: "2025-07-12T20:30:30",
+    },
   ];
 
   const formatDate = (dateString) => {
@@ -1030,8 +1075,11 @@ export default function Navbar() {
 
   // Maneja click en icono ojo para parpadear
   const handleEyeClick = (id, e) => {
-    e.stopPropagation(); // evitar que dispare onClick fila
+    e.stopPropagation(); // evita que se dispare onClick de la fila
+    console.log("Notificación clickeada:", id); // solo para pruebas
+
     setEyeBlinkingIds((prev) => ({ ...prev, [id]: true }));
+
     setTimeout(() => {
       setEyeBlinkingIds((prev) => {
         const newState = { ...prev };
@@ -1039,6 +1087,11 @@ export default function Navbar() {
         return newState;
       });
     }, 700); // dura 700ms ojo cerrado
+  };
+
+  const handleGoToDetails = (id) => {
+    console.log("Ir a detalles de la notificación:", id);
+    // Aquí luego podrías hacer navigate(`/notifications/${id}`);
   };
 
   return (
@@ -1065,7 +1118,9 @@ export default function Navbar() {
 
           <div className="nav-item me-3 position-relative">
             <button
-              className="btn btn-dark"
+              className={`btn btn-dark ${
+                showNotificationsMenu ? styles.iconActive : ""
+              }`}
               onClick={toggleNotificationsMenu}
               ref={notifIconRef}
               aria-label="Notificaciones"
@@ -1145,10 +1200,12 @@ export default function Navbar() {
                   {notifications.map((notif) => (
                     <div
                       key={notif.notification_id}
-                      className={styles.notificationRow}
+                      className={`${styles.notificationRow} ${
+                        !notif.is_seen ? styles.notSeenNotification : ""
+                      }`}
                       tabIndex={0}
                       role="button"
-                      onClick={() => {}}
+                      onClick={() => handleGoToDetails(notif.notification_id)}
                       onKeyDown={(e) => {
                         if (e.key === "Enter" || e.key === " ") {
                           e.preventDefault();
@@ -1156,7 +1213,7 @@ export default function Navbar() {
                       }}
                     >
                       <div className={styles.notificationDetails}>
-                        <span>ID: {notif.notification_id}</span>
+                        <span>ID: {notif.notification_id}</span> -
                         <span>{notif.title}</span>
                       </div>
                       <span className={styles.notificationDate}>
