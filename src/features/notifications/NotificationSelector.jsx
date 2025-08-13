@@ -10,3 +10,5 @@ export const selectUnreadCount = (state) =>
   (state.notifications.allNotifications || []).filter((n) => !n.is_seen).length;
 export const selectNotificationTypes = (state) =>
   state.notifications.notificationTypes || [];
+export const selectTotalNotifications = (state) =>
+  state.notifications?.totalNotifications ?? 0;

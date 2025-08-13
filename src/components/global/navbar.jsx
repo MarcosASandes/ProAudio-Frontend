@@ -902,6 +902,13 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "../../styles/layout/navbar.module.css";
 import useLogout from "../../hooks/auth/useLogout";
 import { useNavigate } from "react-router-dom";
+import useMarkNotificationAsRead from "../../hooks/notifications/useMarkNotificationAsRead";
+import useGetRecentNotifications from "../../hooks/notifications/useGetRecentNotifications";
+import {
+  selectRecentNotifications,
+  selectTotalNotifications,
+} from "../../features/notifications/NotificationSelector";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -911,6 +918,12 @@ export default function Navbar() {
   const [userToken, setUserToken] = useState();
   const { logoutUser } = useLogout();
   const navigate = useNavigate();
+  const { markAsRead } = useMarkNotificationAsRead();
+  useGetRecentNotifications(1, 10, "desc", false, false);
+  const notifications = useSelector(selectRecentNotifications);
+  const totalNotifications = useSelector(selectTotalNotifications);
+  console.log("Valor de: notifications: ", notifications);
+  console.log("Valor de: totalNotifications: ", totalNotifications);
 
   const userMenuRef = useRef();
   const userIconRef = useRef();
@@ -975,99 +988,6 @@ export default function Navbar() {
     }, 3000);
   };
 
-  const notifications = [
-    {
-      notification_id: 1,
-      title: "Proyecto no pagado!",
-      description:
-        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
-      is_solved: false,
-      is_seen: false,
-      created_at: "2025-07-12T20:30:30",
-    },
-    {
-      notification_id: 2,
-      title: "Entrega retrasada",
-      description:
-        "El envío programado para la fecha acordada no ha sido despachado debido a problemas logísticos.",
-      is_solved: false,
-      is_seen: true,
-      created_at: "2025-06-28T15:10:45",
-    },
-    {
-      notification_id: 3,
-      title: "Nuevo comentario",
-      description:
-        "Un cliente ha dejado un nuevo comentario en el proyecto 'Reforma de oficinas'.",
-      is_solved: true,
-      is_seen: false,
-      created_at: "2025-08-01T09:45:12",
-    },
-    {
-      notification_id: 4,
-      title: "Actualización de contrato",
-      description:
-        "Se han realizado cambios en las cláusulas del contrato. Revísalos antes de la fecha límite.",
-      is_solved: false,
-      is_seen: false,
-      created_at: "2025-08-10T17:22:05",
-    },
-    {
-      notification_id: 5,
-      title: "Pago recibido",
-      description:
-        "El pago correspondiente al proyecto 'Desarrollo Web Corporativo' ha sido acreditado con éxito.",
-      is_solved: true,
-      is_seen: true,
-      created_at: "2025-07-30T11:05:59",
-    },
-    {
-      notification_id: 6,
-      title: "Proyecto no pagado!",
-      description:
-        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
-      is_solved: false,
-      is_seen: false,
-      created_at: "2025-07-12T20:30:30",
-    },
-    {
-      notification_id: 7,
-      title: "Nuevo comentario",
-      description:
-        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
-      is_solved: false,
-      is_seen: true,
-      created_at: "2025-07-12T20:30:30",
-    },
-    {
-      notification_id: 8,
-      title: "Nuevo comentario",
-      description:
-        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
-      is_solved: false,
-      is_seen: true,
-      created_at: "2025-07-12T20:30:30",
-    },
-    {
-      notification_id: 9,
-      title: "Nuevo comentario",
-      description:
-        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
-      is_solved: false,
-      is_seen: true,
-      created_at: "2025-07-12T20:30:30",
-    },
-    {
-      notification_id: 10,
-      title: "Nuevo comentario",
-      description:
-        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable.",
-      is_solved: false,
-      is_seen: true,
-      created_at: "2025-07-12T20:30:30",
-    },
-  ];
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString();
@@ -1087,6 +1007,7 @@ export default function Navbar() {
         return newState;
       });
     }, 700); // dura 700ms ojo cerrado
+    //markAsRead(id);
   };
 
   const handleGoToDetails = (id) => {
@@ -1126,65 +1047,13 @@ export default function Navbar() {
               aria-label="Notificaciones"
             >
               <Bell className={styles.icon} />
+
+              {(totalNotifications ?? 0) > 0 && (
+                <span className={styles.notificationBadge}>
+                  {totalNotifications}
+                </span>
+              )}
             </button>
-
-            {/*{showNotificationsMenu && (
-              <div className={styles.notificationsDropdown} ref={notifMenuRef}>
-                <div className={styles.notificationsHeader}>
-                  <span>Notificaciones</span>
-
-                  <button className={styles.notificationActionButtonPurple}>
-                    Ver todas
-                  </button>
-                </div>
-
-                <div className={styles.notificationsList}>
-                  {notifications.map((notif) => (
-                    <div
-                      key={notif.notification_id}
-                      className={styles.notificationRow}
-                      tabIndex={0}
-                      role="button"
-                      onClick={() => {}}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                        }
-                      }}
-                    >
-                      <div className={styles.notificationDetails}>
-                        <span>ID: {notif.notification_id}</span>
-                        <span>{notif.title}</span>
-                      </div>
-                      <span className={styles.notificationDate}>
-                        {formatDate(notif.created_at)}
-                      </span>
-
-                      {eyeBlinkingIds[notif.notification_id] ? (
-                        <EyeOff
-                          className={`${styles.notificationEyeIcon} ${styles.notificationEyeBlink}`}
-                          onClick={(e) =>
-                            handleEyeClick(notif.notification_id, e)
-                          }
-                        />
-                      ) : (
-                        <Eye
-                          className={styles.notificationEyeIcon}
-                          onClick={(e) =>
-                            handleEyeClick(notif.notification_id, e)
-                          }
-                        />
-                      )}
-                    </div>
-                  ))}
-                </div>
-                
-
-                <div className={styles.notificationsFooter}>
-                  <div className={styles.markAsReadLink}>Marcar como leídas</div>
-                </div>
-              </div>
-            )}*/}
 
             {showNotificationsMenu && (
               <div className={styles.notificationsDropdown} ref={notifMenuRef}>
@@ -1196,7 +1065,7 @@ export default function Navbar() {
                   </button>
                 </div>
 
-                <div className={styles.notificationsList}>
+                {/*<div className={styles.notificationsList}>
                   {notifications.map((notif) => (
                     <div
                       key={notif.notification_id}
@@ -1237,6 +1106,55 @@ export default function Navbar() {
                       )}
                     </div>
                   ))}
+                </div>*/}
+
+                <div className={styles.notificationsList}>
+                  {notifications.length === 0 ? (
+                    <div className={styles.noNotificationsMessage}>
+                      No hay notificaciones pendientes
+                    </div>
+                  ) : (
+                    notifications.map((notif) => (
+                      <div
+                        key={notif.notification_id}
+                        className={`${styles.notificationRow} ${
+                          !notif.is_seen ? styles.notSeenNotification : ""
+                        }`}
+                        tabIndex={0}
+                        role="button"
+                        onClick={() => handleGoToDetails(notif.notification_id)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                          }
+                        }}
+                      >
+                        <div className={styles.notificationDetails}>
+                          <span>ID: {notif.notification_id}</span> -
+                          <span>{notif.title}</span>
+                        </div>
+                        <span className={styles.notificationDate}>
+                          {formatDate(notif.created_at)}
+                        </span>
+
+                        {eyeBlinkingIds[notif.notification_id] ? (
+                          <EyeOff
+                            className={`${styles.notificationEyeIcon} ${styles.notificationEyeBlink}`}
+                            onClick={(e) =>
+                              handleEyeClick(notif.notification_id, e)
+                            }
+                          />
+                        ) : (
+                          <Eye
+                            className={styles.notificationEyeIcon}
+                            onClick={(e) =>
+                              handleEyeClick(notif.notification_id, e)
+                            }
+                          />
+                        )}
+                      </div>
+                    ))
+                  )}
                 </div>
 
                 <div className={styles.notificationsFooter}>

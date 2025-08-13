@@ -4,7 +4,15 @@ const initialState = {
   recentNotifications: [],
   allNotifications: [],
   notificationTypes: [],
-  pageable: null,
+  pageable: {
+    totalElements: 0,
+    pageNumber: 0,
+    pageSize: 10,
+    totalPages: 0,
+    hasNext: false,
+    hasPrevious: false,
+  },
+  totalNotifications: 0,
   selectedNotification: null,
   loading: false,
   error: null,
@@ -22,6 +30,7 @@ const notificationSlice = createSlice({
     fetchSuccessRecent: (state, action) => {
       state.loading = false;
       state.recentNotifications = action.payload.notifications || [];
+      state.totalNotifications = action.payload.pageable.totalElements || null;
       state.error = null;
     },
     fetchSuccessAll: (state, action) => {

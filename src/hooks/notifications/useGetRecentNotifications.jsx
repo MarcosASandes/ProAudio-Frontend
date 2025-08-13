@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllNotifications } from "../../services/notificationApiService";
-import { fetchSuccessAll, fetchFailure, fetchStart } from "../../features/notifications/NotificationSlice";
+import { fetchSuccessRecent, fetchFailure, fetchStart } from "../../features/notifications/NotificationSlice";
 
 const useGetRecentNotifications = (
   page = 0,
@@ -25,7 +25,7 @@ const useGetRecentNotifications = (
           solved,
           seen
         );
-        dispatch(fetchSuccessAll(data));
+        dispatch(fetchSuccessRecent(data));
       } catch (error) {
         dispatch(
           fetchFailure(error.message || "Error al cargar notificaciones recientes")
