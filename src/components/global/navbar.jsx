@@ -921,7 +921,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { markAsRead } = useMarkNotificationAsRead();
   const { markMultipleAsRead } = useMarkMultipleNotificationsAsRead();
-  useGetRecentNotifications(1, 10, "desc", false, false);
+  useGetRecentNotifications(1, 10, "desc", "Project", false);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
 

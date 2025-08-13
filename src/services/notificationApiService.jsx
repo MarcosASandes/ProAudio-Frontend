@@ -125,8 +125,8 @@ export const getAllNotifications = async (
   direction = "desc",
   type = null,
   completed = false,
-  solved = false,
-  seen = false
+  /*solved = false,
+  seen = false*/
 ) => {
   const params = {
     page: page - 1,
@@ -134,8 +134,8 @@ export const getAllNotifications = async (
     direction,
     type,
     completed,
-    solved,
-    seen,
+    /*solved,
+    seen,*/
   };
 
   /*const response = await axiosInstance.get("/notification/all", {

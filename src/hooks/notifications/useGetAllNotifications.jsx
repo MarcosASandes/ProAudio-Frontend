@@ -8,8 +8,9 @@ const useGetAllNotifications = (
   size = 10,
   direction = "desc",
   type = null,
-  solved = false,
-  seen = false
+  is_completed = false,
+  /*solved = false,
+  seen = false*/
 ) => {
   const dispatch = useDispatch();
 
@@ -22,8 +23,9 @@ const useGetAllNotifications = (
           size,
           direction,
           type,
-          solved,
-          seen
+          is_completed,
+          /*solved,
+          seen*/
         );
         dispatch(fetchSuccessAll(data));
       } catch (error) {
@@ -34,7 +36,7 @@ const useGetAllNotifications = (
     };
 
     fetchData();
-  }, [dispatch, page, size, direction, type, solved, seen]);
+  }, [dispatch, page, size, direction, type, is_completed]);
 };
 
 export default useGetAllNotifications;

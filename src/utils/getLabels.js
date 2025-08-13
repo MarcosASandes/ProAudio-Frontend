@@ -200,3 +200,28 @@ export const getClientSortByOptionsLabel = (status) => {
       return status;
   }
 }
+
+export const getNotificationCompletedLabel = (status) => {
+  return status ? "Completada" : "Incompleta";
+};
+
+export const getNotificationSeenLabel = (is_seen) => {
+  return is_seen ? "Vista" : "No vista";
+};
+
+export const getNotificationSolveLabel = (is_solve) => {
+  return is_solve ? "Resuelta" : "No resuelta";
+};
+
+export const getNotificationsTypeLabel = (type) => {
+  switch (type) {
+    case "Project":
+      return "Proyecto";
+    case "Client":
+      return "Cliente";
+    case "Product":
+      return "Producto";
+    default:
+      return type;
+  }
+}

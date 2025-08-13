@@ -9,8 +9,8 @@ const useGetRecentNotifications = (
   direction = "desc",
   type = null,
   is_completed = false,
-  solved = false,
-  seen = false
+  /*solved = false,
+  seen = false*/
 ) => {
   const dispatch = useDispatch();
 
@@ -24,8 +24,8 @@ const useGetRecentNotifications = (
           direction,
           type,
           is_completed,
-          solved,
-          seen
+          /*solved,
+          seen*/
         );
         dispatch(fetchSuccessRecent(data));
       } catch (error) {
@@ -36,7 +36,7 @@ const useGetRecentNotifications = (
     };
 
     fetchData();
-  }, [dispatch, page, size, direction, type, solved, seen, is_completed]);
+  }, [dispatch, page, size, direction, type, is_completed]);
 };
 
 export default useGetRecentNotifications;
