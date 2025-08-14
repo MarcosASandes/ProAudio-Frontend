@@ -114,6 +114,55 @@ const notificationsMock = {
   },
 };
 
+const detailsMock = {
+  notification_id: 1,
+  title: "Proyecto no pagado!",
+  description:
+    "El proyecto Carnaval 2025 ha terminado y sigue en estado FACTURA CREADA",
+  is_solved: true,
+  is_seen: false,
+  created_at: "2025-07-12T20:30:30",
+  expires_at: "2025-07-12T20:30:30",
+  type: "PROJECT",
+  entity_id: 1,
+  action: {
+    action_id: 1,
+    key: "RETURN_ITEMS",
+    description: "Retorna todos los articulos para solucionar esta alerta",
+  },
+  type_data: [
+    {
+      title: "nombre",
+      value: "Carnaval",
+    },
+    {
+      title: "description",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+    {
+      title: "description2",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+    {
+      title: "description3",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+    {
+      title: "description4",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+    {
+      title: "description5",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+  ],
+};
+
 export const getNotificationTypes = async () => {
   const response = await axiosInstance.get("/notifications/types");
   return response.data;
@@ -124,7 +173,7 @@ export const getAllNotifications = async (
   size = 10,
   direction = "desc",
   type = null,
-  completed = false,
+  completed = false
   /*solved = false,
   seen = false*/
 ) => {
@@ -149,8 +198,10 @@ export const getAllNotifications = async (
 };
 
 export const getNotificationDetails = async (id) => {
-  const response = await axiosInstance.get(`/notifications/${id}`);
-  return response.data;
+  /*const response = await axiosInstance.get(`/notifications/${id}`);
+  return response.data;*/
+
+  return detailsMock;
 };
 
 export const readNotification = async (id) => {

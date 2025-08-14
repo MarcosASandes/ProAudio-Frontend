@@ -41,6 +41,7 @@ import UpdateClientPage from "./pages/clients/UpdateClientPage";
 import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
 import CreateEmbeddedClientPage from "./pages/clients/CreateEmbeddedClientPage";
 import NotificationPage from "./pages/notifications/NotificationPage";
+import NotificationDetailsPage from "./pages/notifications/NotificationDetailsPage";
 //import "./styles/products.css";
 
 /*function App() {
@@ -193,6 +194,7 @@ function App() {
           <Route path="/change/password" element={<ChangePasswordPage />} />
 
           <Route path="/notifications" element={<NotificationPage />} />
+          <Route path="/notification/:id" element={<NotificationDetailsPage />} />
         </Route>
       </Routes>
 

@@ -1012,10 +1012,12 @@ export default function Navbar() {
 
   const handleGoToDetails = (id) => {
     console.log("Ir a detalles de la notificación:", id);
-    // Aquí luego podrías hacer navigate(`/notifications/${id}`);
+    setShowNotificationsMenu(false);
+    navigate(`/notification/${id}`);
   };
 
   const handleGoToList = (id) => {
+    setShowNotificationsMenu(false);
     navigate(`/notifications`);
   };
 
