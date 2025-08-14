@@ -57,9 +57,9 @@ const ProjectsTable = ({ projects }) => {
             <tr>
               <th>ID</th>
               <th>Nombre</th>
+              <th>Inicio / Fin</th>
               <th>Estado general</th>
               <th>Estado de pago</th>
-              <th>Inicio / Fin</th>
               <th>Estado actual</th>
               <th>Acciones</th>
             </tr>

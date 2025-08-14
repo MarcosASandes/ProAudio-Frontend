@@ -107,6 +107,14 @@ const ProjectRow = ({ project }) => {
     <tr className={styles.row}>
       <td title={project.project_id}>{project.project_id}</td>
       <td title={project.name}>{project.name}</td>
+      <td
+        title={`${formatearFecha(project.start_date)} / ${formatearFecha(
+          project.end_date
+        )}`}
+      >
+        {formatearFecha(project.start_date)} /{" "}
+        {formatearFecha(project.end_date)}
+      </td>
       <td title={getProjectStatusLabel(project.status)}>
         <span
           className={`${styles.badge} ${
@@ -122,16 +130,8 @@ const ProjectRow = ({ project }) => {
             styles[getProjectPaymentStatusClass(project.payment_status)]
           }`}
         >
-          {getProjectPaymentStatusLabel(project.payment_status)} $
+          {getProjectPaymentStatusLabel(project.payment_status)}
         </span>
-      </td>
-      <td
-        title={`${formatearFecha(project.start_date)} / ${formatearFecha(
-          project.end_date
-        )}`}
-      >
-        {formatearFecha(project.start_date)} /{" "}
-        {formatearFecha(project.end_date)}
       </td>
       <td title={getProjectRunningStatusLabel(project.running_status)}>
         <span
