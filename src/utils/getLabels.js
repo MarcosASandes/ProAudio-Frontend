@@ -225,3 +225,18 @@ export const getNotificationsTypeLabel = (type) => {
       return type;
   }
 }
+
+export const getActionKeyLabel = (key) => {
+  switch (key) {
+    case "NOT_REQUIRED":
+      return "No requerido";
+    case "RETURN_ITEMS":
+      return "Retorno de artículos";
+    case "PAY_PROJECT":
+      return "Pago de proyecto";
+    case "SEND_ITEMS":
+      return "Salida de artículos";
+    default:
+      return type;
+  }
+}

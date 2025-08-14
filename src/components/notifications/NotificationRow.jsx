@@ -120,7 +120,7 @@ const NotificationRow = ({ notification }) => {
       </td>
 
       {/* Badge de estado */}
-      <td title={`${notification.is_completed}`}>
+      <td title={`${getNotificationCompletedLabel(notification.is_completed)}`}>
         <span
           className={`${styles.statusBadge} ${
             notification.is_completed ? styles.completed : styles.pending
