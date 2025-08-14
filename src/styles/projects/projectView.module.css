@@ -76,13 +76,54 @@
   padding-top: 0.5rem;
 }
 
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.calendarButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--purple-extra);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 45px;
+  height: 45px;
+  padding: 0.5rem;
+  box-shadow: 0 6px 14px rgba(83, 53, 174, 0.12);
+  transition: width 0.3s ease, background-color 0.18s ease, transform 0.08s ease;
+}
+
+.calendarButton:hover {
+  width: 130px;
+  background-color: var(--purple-secondary);
+}
+
+.calendarButton svg {
+  flex-shrink: 0; /* evita que el ícono se reduzca */
+}
+
+.calendarText {
+  white-space: nowrap;
+  opacity: 0;
+  display: inline;
+  transition: opacity 0.2s ease;
+}
+
+.calendarButton:hover .calendarText {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .tableWrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-top: 0;
   }
-
   .tableWrapper::-webkit-scrollbar {
     height: 6px;
   }
@@ -90,4 +131,14 @@
     background: rgba(150, 100, 250, 0.3);
     border-radius: 10px;
   }
+  .calendarButton {
+    width: 40px !important;
+    height: 40px !important;
+    transition: none !important;
+  }
+  .calendarText {
+    display: none !important;
+    opacity: 0 !important;
+  }
 }
+
