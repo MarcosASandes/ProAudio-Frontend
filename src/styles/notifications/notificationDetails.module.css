@@ -264,7 +264,7 @@
   border: 1px solid rgba(115, 85, 206, 0.18);
   border-radius: 10px;
   padding: 0.6rem;
-  max-height: 40vh; /* 👈 el único scroll del componente */
+  max-height: 34vh; /* 👈 el único scroll del componente */
   overflow-y: auto;
 }
 
@@ -324,6 +324,6 @@
     align-self: flex-start;
   }
   .relatedPanel {
-    max-height: 23vh;
+    max-height: 18vh;
   }
 }

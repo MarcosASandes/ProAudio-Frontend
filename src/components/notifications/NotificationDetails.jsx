@@ -90,6 +90,7 @@ import { useSelector } from "react-redux";
 import { getActionKeyLabel } from "../../utils/getLabels";
 import { Info, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import useMarkNotificationAsRead from "../../hooks/notifications/useMarkNotificationAsRead";
+import BackButton from "../global/BackButton";
 
 const NotificationDetails = () => {
   const { id } = useParams();
@@ -120,6 +121,7 @@ const NotificationDetails = () => {
 
   return (
     <div className={styles.container}>
+      <BackButton target={"/notifications"} />
       {/* Header: título + badge */}
       <header className={styles.headerRow}>
         <h1 className={styles.title}>{notification.title}</h1>
