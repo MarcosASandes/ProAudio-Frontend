@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ItemFilter from "./ItemFilter";
 import ItemTable from "./ItemTable";
@@ -92,7 +92,7 @@ const ItemView = () => {
 
       <ItemPagination pageable={pageable} onPageChange={setCurrentPage} />
 
-      {/* Modal de Filtros Avanzados */}
+      
       <div
         className="modal fade"
         id="advancedFilterModal"
@@ -161,6 +161,186 @@ const ItemView = () => {
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+export default ItemView;*/
+
+/*------------------------------------------------------------- */
+
+/*import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+
+import ItemFilter from "./ItemFilter";
+import ItemTable from "./ItemTable";
+import ItemPagination from "./ItemPagination";
+
+import useGetItemsByProduct from "../../hooks/items/useGetItemsByProduct";
+import useGetStatuses from "../../hooks/items/useGetStatuses";
+
+import {
+  selectItems,
+  selectItemsPageable,
+  selectItemsLoadingAllItems,
+  selectItemsErrorAllItems,
+  selectStatuses,
+} from "../../features/items/ItemSelector";
+
+import styles from "../../styles/items/itemView.module.css";
+
+const ItemView = () => {
+  // Estados de filtros y paginación
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("ID");
+  const [direction, setDirection] = useState("DESC");
+  const [selectedStatus, setSelectedStatus] = useState(""); // string
+  const [page, setPage] = useState(1);
+  const size = 10;
+
+  const { id } = useParams(); // product id (contexto)
+  const navigate = useNavigate();
+
+  // Cargar estados disponibles y los ítems
+  useGetStatuses();
+  useGetItemsByProduct(id, page - 1, size, selectedStatus, sortBy, direction);
+
+  // Datos desde el store
+  const items = useSelector(selectItems);
+  const pageable = useSelector(selectItemsPageable);
+  const loading = useSelector(selectItemsLoadingAllItems);
+  const error = useSelector(selectItemsErrorAllItems);
+  const statuses = useSelector(selectStatuses);
+
+  // Resetear a página 1 cuando cambien filtros
+  useEffect(() => {
+    setPage(1);
+  }, [searchTerm, sortBy, direction, selectedStatus]);
+
+  return (
+    <div className={styles.container}>
+     
+      <div className={styles.header}>
+        <h2 className={styles.title}>Artículos</h2>
+      
+      </div>
+
+      
+      <ItemFilter
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        sortBy={sortBy}
+        onSortByChange={setSortBy}
+        direction={direction}
+        onDirectionChange={setDirection}
+        selectedStatus={selectedStatus}
+        onStatusChange={setSelectedStatus}
+        statuses={statuses}
+      />
+
+     
+      <div className={styles.tableWrapper}>
+        {loading && <p>Cargando artículos...</p>}
+        {error && <p className="text-danger">{error}</p>}
+        {!loading && !error && (
+          <ItemTable items={items} searchTerm={searchTerm} />
+        )}
+      </div>
+
+  
+      <ItemPagination pageable={pageable} onPageChange={setPage} />
+    </div>
+  );
+};
+
+export default ItemView;*/
+
+/*---------------------------------- */
+
+import React, { useState, useEffect } from "react";
+import ItemFilter from "./ItemFilter";
+import ItemTable from "./ItemTable";
+import ItemPagination from "./ItemPagination";
+import styles from "../../styles/items/itemView.module.css";
+import useGetItemsByProduct from "../../hooks/items/useGetItemsByProduct";
+import useGetStatuses from "../../hooks/items/useGetStatuses";
+import { useSelector } from "react-redux";
+import {
+  selectItems,
+  selectItemsPageable,
+  selectStatuses,
+} from "../../features/items/ItemSelector";
+import { useNavigate, useParams } from "react-router-dom";
+import useGetProductById from "../../hooks/products/useGetProductById";
+import { selectSelectedProduct } from "../../features/products/ProductSelector";
+
+const ItemView = () => {
+  // Estados de filtros y paginación
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("ID");
+  const [direction, setDirection] = useState("DESC");
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [page, setPage] = useState(1);
+  const size = 10;
+  const { id } = useParams();
+  const navigate = useNavigate();
+  useGetProductById(id);
+  const productReference = useSelector(selectSelectedProduct);
+
+  // Llamada al hook para obtener items según filtros
+  useGetStatuses();
+  useGetItemsByProduct(id, page - 1, size, selectedStatus, sortBy, direction);
+
+  // Obtener datos desde el store
+  const items = useSelector(selectItems);
+  const pageable = useSelector(selectItemsPageable);
+  const statuses = useSelector(selectStatuses);
+
+  // Cambio de página
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
+
+  useEffect(() => {
+    setPage(1);
+  }, [searchTerm, sortBy, direction, selectedStatus]);
+
+  return (
+    <div className={styles.container}>
+      {/* Header */}
+      <div className={styles.header}>
+        {productReference?.model ? (
+          <h2 className={styles.title}>
+            Artículos de {productReference?.model}
+          </h2>
+        ) : (
+          <h2 className={styles.title}>Artículos</h2>
+        )}
+        {/* Botón de creación si se desea */}
+        {/* <button className={styles.createButton} onClick={() => navigate("/item/create")}>Crear artículo</button> */}
+      </div>
+
+      {/* Filtros */}
+      <ItemFilter
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        sortBy={sortBy}
+        onSortByChange={setSortBy}
+        direction={direction}
+        onDirectionChange={setDirection}
+        selectedStatus={selectedStatus}
+        onStatusChange={setSelectedStatus}
+        statuses={statuses}
+      />
+
+      {/* Tabla */}
+      <div className={styles.tableWrapper}>
+        <ItemTable items={items} searchTerm={searchTerm} />
+      </div>
+
+      {/* Paginación */}
+      <ItemPagination pageable={pageable} onPageChange={handlePageChange} />
     </div>
   );
 };

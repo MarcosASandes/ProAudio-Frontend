@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import ItemView from "../../components/items/ItemView";
 //import "../../styles/itemPage.css";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
@@ -12,4 +12,22 @@ const ItemPage = () => {
   );
 };
 
+export default ItemPage;*/
+
+
+/*---------------------------------- */
+
+import React from "react";
+import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";
+import ItemView from "../../components/items/ItemView";
+
+const ItemPage = () => {
+  return (
+    <div className={stylesScrollableContainer.container}>
+      <ItemView />
+    </div>
+  );
+};
+
 export default ItemPage;
+

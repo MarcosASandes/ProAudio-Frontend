@@ -291,3 +291,33 @@ export const getProjectPaymentStatusClass = (status) => {
       return "default";
   }
 };
+
+export const getItemsStatusBadgeClass = (status) => {
+  switch (status) {
+    case "CREATED":
+      return "badgeCreated";
+    case "DELETED":
+      return "badgeDeleted";
+    case "GOOD":
+      return "badgeGood";
+    case "WITH_DETAILS":
+      return "badgeDetails";
+    case "OUT_OF_USAGE":
+      return "badgeOutOfUsage";
+    default:
+      return "badgeDefault";
+  }
+};
+
+export const getItemsLocationBadgeClass = (location) => {
+  switch (location) {
+    case "IN_DEPOSIT":
+      return "badgeDepositLocation";
+    case "USING":
+      return "badgeUsingLocation";
+    case "NOT_RETURNED":
+      return "badgeNotReturnedLocation";
+    default:
+      return "badgeLocationDefaultLocation";
+  }
+};
