@@ -78,10 +78,7 @@ const NotificationDetails = () => {
 
 export default NotificationDetails;*/
 
-
-
 /*----------------------------------------------- */
-
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -92,17 +89,24 @@ import { selectSelectedNotification } from "../../features/notifications/Notific
 import { useSelector } from "react-redux";
 import { getActionKeyLabel } from "../../utils/getLabels";
 import { Info, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import useMarkNotificationAsRead from "../../hooks/notifications/useMarkNotificationAsRead";
 
 const NotificationDetails = () => {
   const { id } = useParams();
   const { fetchNotificationDetails } = useGetNotificationDetails();
   const notification = useSelector(selectSelectedNotification);
-
+  const { markAsRead } = useMarkNotificationAsRead();
   const [showRelated, setShowRelated] = useState(false);
 
   useEffect(() => {
     if (id) fetchNotificationDetails(id);
   }, [id, fetchNotificationDetails]);
+
+  useEffect(() => {
+    if (notification && !notification.is_seen) {
+      //markAsRead(id);
+    }
+  }, [id]);
 
   if (!notification) {
     return <div className={styles.loading}>Cargando notificación...</div>;
@@ -132,7 +136,7 @@ const NotificationDetails = () => {
       <p className={styles.description}>{notification.description}</p>
 
       {/* Acción sugerida */}
-      {notification.action && (
+      {/*{notification.action && (
         <section className={styles.actionBlock}>
           <div className={styles.actionLeft}>
             <div className={styles.infoIconWrap} aria-hidden="true">
@@ -160,9 +164,43 @@ const NotificationDetails = () => {
             <ArrowRight size={18} />
           </button>
         </section>
+      )}*/}
+
+      {notification.action && (
+        <section className={styles.actionBlock}>
+          <div className={styles.actionLeft}>
+            <div className={styles.infoIconWrap} aria-hidden="true">
+              <Info size={20} />
+              <div className={styles.tooltip}>
+                Puedes solucionar la notificación clickeando en el botón
+                <strong> "Solucionar"</strong>, te redireccionará al lugar
+                correcto para que puedas completar la acción sugerida.
+              </div>
+            </div>
+            <div className={styles.actionText}>
+              <p className={styles.actionKey}>
+                {getActionKeyLabel(notification.action.key)}
+              </p>
+              <p className={styles.actionDescription}>
+                {notification.action.description}
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className={styles.solveBtn}
+            onClick={handleSolve}
+            disabled={notification.is_solved}
+            title={notification.is_solved ? "Ya resuelta" : "Solucionar"}
+            aria-disabled={notification.is_solved}
+          >
+            <span>Solucionar</span>
+            <ArrowRight size={18} />
+          </button>
+        </section>
       )}
 
-      {/* Desplegable: Datos relacionados */}
       {notification.type_data && notification.type_data.length > 0 && (
         <section className={styles.relatedSection}>
           <button
@@ -179,14 +217,22 @@ const NotificationDetails = () => {
           {showRelated && (
             <div id="related-panel" className={styles.relatedPanel}>
               <ul className={styles.dataList}>
-                {notification.type_data.map((item, idx) => (
-                  <li key={idx} className={styles.dataItem}>
-                    {/* Mostramos solo el valor en UI; el título va como title para quien pase el mouse */}
-                    <span className={styles.dataValue} title={item.title}>
-                      {item.value}
-                    </span>
-                  </li>
-                ))}
+                {notification.type_data.map((item, idx) => {
+                  const formattedTitle =
+                    item.title.charAt(0).toUpperCase() +
+                    item.title.slice(1) +
+                    ":";
+                  return (
+                    <li key={idx} className={styles.dataItem}>
+                      <span className={styles.dataValue} title={item.title}>
+                        <strong className={styles.relatedTitles}>
+                          {formattedTitle}
+                        </strong>{" "}
+                        {item.value}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
@@ -195,9 +241,14 @@ const NotificationDetails = () => {
 
       {/* Footer con fechas (siempre visible) */}
       <footer className={styles.footer}>
-        <span>Creada: {formatearFecha(notification.created_at)}</span>
+        <span>
+          <strong>Creada:</strong> {formatearFecha(notification.created_at)}
+        </span>
         {notification.expiration_date && (
-          <span>Expira: {formatearFecha(notification.expiration_date)}</span>
+          <span>
+            <strong>Expira:</strong>{" "}
+            {formatearFecha(notification.expiration_date)}
+          </span>
         )}
       </footer>
     </div>

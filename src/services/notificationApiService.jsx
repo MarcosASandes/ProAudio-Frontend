@@ -119,7 +119,7 @@ const detailsMock = {
   title: "Proyecto no pagado!",
   description:
     "El proyecto Carnaval 2025 ha terminado y sigue en estado FACTURA CREADA",
-  is_solved: true,
+  is_solved: false,
   is_seen: false,
   created_at: "2025-07-12T20:30:30",
   expires_at: "2025-07-12T20:30:30",
@@ -157,6 +157,16 @@ const detailsMock = {
     },
     {
       title: "description5",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+    {
+      title: "description6",
+      value:
+        "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
+    },
+    {
+      title: "description7",
       value:
         "El carnaval o carnestolendas es una celebración que tiene lugar inmediatamente antes de la Cuaresma y que tiene fecha variable",
     },
