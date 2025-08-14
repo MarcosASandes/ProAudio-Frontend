@@ -240,3 +240,54 @@ export const getActionKeyLabel = (key) => {
       return type;
   }
 }
+
+
+/* Estilos de badge: 
+Se envía el status y se devuelve el nombre de la clase personalizada de CSS */
+
+export const getProjectRunningStatusClass = (status) => {
+  switch (status) {
+    case "RUNNING":
+      return "runningRunning";
+    case "PREPARING":
+      return "preparingRunning";
+    case "NONE":
+      return "pendingRunning";
+    default:
+      return "default";
+  }
+};
+
+export const getProjectGeneralStatusClass = (status) => {
+  switch (status) {
+    case "PLANNED":
+      return "plannedGeneral";
+    case "CONFIRMED":
+      return "confirmedGeneral";
+    case "ON_COURSE":
+      return "onCourseGeneral"; 
+    case "COMPLETED":
+      return "completedGeneral"; 
+    case "EXPIRED":
+      return "expiredGeneral";  
+    case "DISCARDED":
+      return "discardedGeneral"; 
+    default:
+      return "default";
+  }
+};
+
+export const getProjectPaymentStatusClass = (status) => {
+  switch (status) {
+    case "BUDGETED":
+      return "budgetedPayment";
+    case "BILL_CREATED":
+      return "billCreatedPayment";
+    case "PARTIALLY_PAID":
+      return "partiallyPaidPayment";
+    case "PAID":
+      return "paidPayment";
+    default:
+      return "default";
+  }
+};

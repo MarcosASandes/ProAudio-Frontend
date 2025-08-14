@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import ProjectRow from "./ProjectRow";
 import styles from "../../styles/projects/projectTable.module.css";
 
@@ -35,4 +35,45 @@ const ProjectsTable = ({ projects }) => {
   );
 };
 
+export default ProjectsTable;*/
+
+
+/*----------------------------------------- */
+
+import React from "react";
+import ProjectRow from "./ProjectRow";
+import styles from "../../styles/projects/projectTable.module.css";
+
+const ProjectsTable = ({ projects }) => {
+  if (!projects || projects.length === 0) {
+    return <div className={styles.noData}>No hay proyectos para mostrar.</div>;
+  }
+
+  return (
+    <div className={styles.tableWrapper}>
+      <div className={styles.tableContainer}>
+        <table className={styles.table} aria-label="Listado de proyectos">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Estado general</th>
+              <th>Estado de pago</th>
+              <th>Inicio / Fin</th>
+              <th>Estado actual</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.map((project) => (
+              <ProjectRow key={project.project_id} project={project} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
 export default ProjectsTable;
+

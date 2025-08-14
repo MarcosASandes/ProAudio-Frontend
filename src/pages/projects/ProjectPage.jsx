@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
 import stylesContainerSpace from "../../styles/generic/containerSpace.module.css";
 import ProjectView from '../../components/projects/ProjectView';
@@ -9,4 +9,20 @@ export default function ProjectPage() {
       <ProjectView />
     </div>
   );
-}
+}*/
+
+/*--------------------------- */
+
+import React from "react";
+import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";
+import ProjectView from "../../components/projects/ProjectView";
+
+const ProjectPage = () => {
+  return (
+    <div className={stylesScrollableContainer.container}>
+      <ProjectView />
+    </div>
+  );
+};
+
+export default ProjectPage;

@@ -1,5 +1,4 @@
-/* Tabla principal de proyectos */
-.customTable {
+/*.customTable {
   background-color: #1d1d35;
   color: #f0f0f0;
   border-radius: 12px;
@@ -7,7 +6,6 @@
   box-shadow: 0 0 10px rgba(115, 85, 206, 0.15);
 }
 
-/* Encabezado de la tabla */
 .tableHeader {
   background-color: #282847;
   color: #ffffff;
@@ -15,7 +13,6 @@
   font-size: 0.95rem;
 }
 
-/* Cuerpo de la tabla */
 .tableBody tr {
   transition: background-color 0.2s ease;
 }
@@ -24,20 +21,17 @@
   background-color: #2f2f55;
 }
 
-/* Celda con texto recortado si es muy largo */
 .truncateText {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Alineación vertical para celdas */
 .tableBody td {
   vertical-align: middle;
   font-size: 0.92rem;
 }
 
-/* Estilo para el botón de acción (Ver, Editar, etc.) */
 .actionBtn {
   background-color: #7355ce;
   color: white;
@@ -53,7 +47,6 @@
   background-color: #8365ee;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .tableHeader,
   .tableBody td {
@@ -63,5 +56,186 @@
   .actionBtn {
     padding: 4px 10px;
     font-size: 0.8rem;
+  }
+}*/
+
+
+
+/*----------------------------------------------------*/
+
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: #1c1c2a;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.1);
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1c1c2a;
+  color: white;
+  min-width: 800px; /* Ajustado porque hay más columnas */
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #2c2c3a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.table th {
+  background-color: #26263a;
+  font-weight: 600;
+  color: #c4b5fd;
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.table th:hover {
+  background-color: #332e4d;
+  color: #d8b4fe;
+  cursor: pointer;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+  background-color: #2a2a3f;
+}
+
+.noData {
+  text-align: center;
+  padding: 2rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editBtn,
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #c9c9ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+.editBtn:hover {
+  color: #a855f7;
+}
+
+.deleteBtn:hover {
+  color: #ff6b6b;
+}
+
+.row {
+  transition: background-color 0.2s;
+}
+
+.row:hover {
+  background-color: #2a2a3f;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.runningRunning {
+  background-color: #3b83f66b;
+}
+
+.preparingRunning {
+  background-color: #9d7cff73; 
+}
+
+.pendingRunning {
+  background-color: #f59f0b73;
+}
+
+.default {
+  background-color: #6b72809d;
+}
+
+
+.plannedGeneral {
+  background-color: #8bf3fa80;
+}
+
+.confirmedGeneral {
+  background-color: #3b67f696;
+}
+
+.onCourseGeneral {
+  background-color: #10b95686; 
+}
+
+.completedGeneral {
+  background-color: #d865d879;
+}
+
+.expiredGeneral {
+  background-color: #ef444493;
+}
+
+.discardedGeneral {
+  background-color: #9ca3af6e;
+}
+
+
+.budgetedPayment {
+  background-color: #906ae96e;
+}
+
+.billCreatedPayment {
+  background-color: #17d3ec67;
+}
+
+.partiallyPaidPayment {
+  background-color: #f9741675;
+}
+
+.paidPayment {
+  background-color: #10b9487a;
+}
+
+@media (max-width: 768px) {
+  .table {
+    min-width: 700px;
+    font-size: 0.85rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
   }
 }

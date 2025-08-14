@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+/*import React, { useState, useMemo, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ProjectFilter from "./ProjectFilter";
 import ProjectsTable from "./ProjectsTable";
@@ -83,4 +83,102 @@ const ProjectView = () => {
   );
 };
 
+export default ProjectView;*/
+
+
+/*------------------------------------- */
+
+
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import ProjectFilter from "./ProjectFilter";
+import ProjectsTable from "./ProjectsTable";
+import useGetAllProjects from "../../hooks/projects/useGetAllProjects";
+import {
+  selectProjects,
+  selectProjectPageable,
+  selectProjectsLoading,
+  selectProjectsError,
+} from "../../features/projects/ProjectSelector";
+import { useNavigate } from "react-router-dom";
+import styles from "../../styles/projects/projectView.module.css";
+import ProjectPagination from "./ProjectPagination";
+
+const ProjectView = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const [sortBy, setSortBy] = useState("start_date");
+  const [direction, setDirection] = useState("desc");
+  const [filterStatus, setFilterStatus] = useState([]);
+  const [filterPaymentStatus, setFilterPaymentStatus] = useState("");
+
+  const navigate = useNavigate();
+
+  useGetAllProjects(
+    currentPage,
+    pageSize,
+    sortBy,
+    direction,
+    filterStatus,
+    filterPaymentStatus,
+    searchTerm
+  );
+
+  const projects = useSelector(selectProjects);
+  const pageable = useSelector(selectProjectPageable);
+  const loading = useSelector(selectProjectsLoading);
+  const error = useSelector(selectProjectsError);
+
+  const handleGoToCreate = () => {
+    navigate("/project/create");
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, sortBy, direction, filterStatus, filterPaymentStatus]);
+
+  return (
+    <div className={styles.container}>
+      {/* Header */}
+      <div className={styles.header}>
+        <h2 className={styles.title}>Proyectos</h2>
+        <button className={styles.createButton} onClick={handleGoToCreate}>
+          Crear proyecto
+        </button>
+      </div>
+
+      {/* Filtros */}
+      <ProjectFilter
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        sortBy={sortBy}
+        onSortByChange={setSortBy}
+        direction={direction}
+        onDirectionChange={setDirection}
+        filterStatus={filterStatus}
+        onFilterStatusChange={setFilterStatus}
+        filterPaymentStatus={filterPaymentStatus}
+        onFilterPaymentStatusChange={setFilterPaymentStatus}
+      />
+
+      {/* Tabla */}
+      {loading && <p>Cargando proyectos...</p>}
+      {error && <p className="text-danger">{error}</p>}
+      {!loading && !error && (
+        <div className={styles.tableWrapper}>
+          <ProjectsTable projects={projects} />
+        </div>
+      )}
+
+      {/* Paginación */}
+      <div className={styles.paginationWrapper}>
+        <ProjectPagination pageable={pageable} onPageChange={setCurrentPage} />
+      </div>
+    </div>
+  );
+};
+
 export default ProjectView;
+
