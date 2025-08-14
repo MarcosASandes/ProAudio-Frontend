@@ -1,44 +1,8 @@
-/*.container {
-  background-color: #d7d5f0;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 5px;
-}
-
-.inputSearch {
-  margin-bottom: 1rem;
-}
-
-.label {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.select,
-.input {
-  width: 100%;
-  padding: 0.4rem;
-  border-radius: 0.375rem;
-  border: 1px solid #ced4da;
-}
-
-.checkboxGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.checkboxLabel {
-  font-size: 0.85rem;
-  margin-left: 0.25rem;
-}*/
-
-
-/*------------------------------------------------------------*/
-
-
+/* ==========================================================================
+   ProjectFilter Styles
+   Descripción: Estilos para el componente ProjectFilter, incluyendo
+   contenedor, campos de entrada, selectores, botones y modal de filtros.
+   ========================================================================= */
 
 .container {
   width: 100%;
@@ -116,7 +80,7 @@
 
 .filtersRow {
   display: flex;
-  flex-wrap: wrap; /* Para que en pantallas pequeñas baje a otra línea */
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: flex-end;
 }
@@ -124,8 +88,8 @@
 .filterItem {
   display: flex;
   flex-direction: column;
-  min-width: 140px; /* Controla el tamaño mínimo */
-  max-width: 220px; /* Evita que crezca demasiado */
+  min-width: 140px;
+  max-width: 220px;
 }
 
 .inputSearch,
@@ -136,21 +100,21 @@
 }
 
 .statusFilter {
-  flex: 1; /* Ocupa más espacio si hay disponible */
+  flex: 1;
   min-width: 200px;
 }
 
 .checkboxGroup {
   display: flex;
-  flex-wrap: nowrap; /* No permitir que bajen de línea */
+  flex-wrap: nowrap;
   gap: 0.5rem;
-  align-items: center; /* Centra verticalmente los checkbox */
-  overflow-x: auto; /* Si no caben en el contenedor, que haya scroll horizontal */
-  padding-bottom: 0.25rem; /* Opcional, para que no choque con el borde */
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
 }
 
 .checkboxGroup .form-check {
-  flex: 0 0 auto; /* Evita que se encojan o expandan */
+  flex: 0 0 auto;
 }
 
 .statusButton {

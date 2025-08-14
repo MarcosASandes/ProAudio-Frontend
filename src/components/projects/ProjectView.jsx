@@ -1,93 +1,22 @@
-/*import React, { useState, useMemo, useEffect } from "react";
-import { useSelector } from "react-redux";
-import ProjectFilter from "./ProjectFilter";
-import ProjectsTable from "./ProjectsTable";
-import useGetAllProjects from "../../hooks/projects/useGetAllProjects";
-import {
-  selectProjects,
-  selectProjectPageable,
-  selectProjectsLoading,
-  selectProjectsError,
-} from "../../features/projects/ProjectSelector";
-import { useNavigate } from "react-router-dom";
-import styles from "../../styles/projects/projectView.module.css";
-import ProjectPagination from "./ProjectPagination";
-
-const ProjectView = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
-
-
-  const [sortBy, setSortBy] = useState("start_date");
-  const [direction, setDirection] = useState("desc");
-  const [filterStatus, setFilterStatus] = useState([]); // checklist
-  const [filterPaymentStatus, setFilterPaymentStatus] = useState(""); // uno solo
-
-  const navigate = useNavigate();
-
-  useGetAllProjects(
-    currentPage,
-    pageSize,
-    sortBy,
-    direction,
-    filterStatus,
-    filterPaymentStatus,
-    searchTerm
-  );
-
-  const projects = useSelector(selectProjects);
-  const pageable = useSelector(selectProjectPageable);
-  const loading = useSelector(selectProjectsLoading);
-  const error = useSelector(selectProjectsError);
-
-  const handleGoToCreate = () => {
-    navigate("/project/create");
-  };
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchTerm, sortBy, direction, filterStatus, filterPaymentStatus]);
-
-  return (
-    <div className="container my-4">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h1>Proyectos</h1>
-        <button
-          className={`btn ${styles.btnPurple}`}
-          onClick={handleGoToCreate}
-        >
-          Crear proyecto
-        </button>
-      </div>
-
-      <ProjectFilter
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
-        sortBy={sortBy}
-        onSortByChange={setSortBy}
-        direction={direction}
-        onDirectionChange={setDirection}
-        filterStatus={filterStatus}
-        onFilterStatusChange={setFilterStatus}
-        filterPaymentStatus={filterPaymentStatus}
-        onFilterPaymentStatusChange={setFilterPaymentStatus}
-      />
-
-      {loading && <p>Cargando proyectos...</p>}
-      {error && <p className="text-danger">{error}</p>}
-      {!loading && !error && <ProjectsTable projects={projects} />}
-
-      <ProjectPagination pageable={pageable} onPageChange={setCurrentPage} />
-    </div>
-  );
-};
-
-export default ProjectView;*/
-
-
-/*------------------------------------- */
-
+/**
+ * Vista principal de gestión de proyectos.
+ *
+ * Este componente actúa como contenedor para la visualización, filtrado, ordenamiento
+ * y paginación de la lista de proyectos.  
+ * Combina varios subcomponentes para ofrecer una interfaz completa:
+ * - `ProjectFilter`: para aplicar búsqueda, filtros y ordenamiento.
+ * - `ProjectsTable`: para mostrar la lista de proyectos en formato tabular.
+ * - `ProjectPagination`: para navegar entre páginas de resultados.
+ *
+ * Funcionalidades principales:
+ * - Obtiene los proyectos desde la API utilizando el hook `useGetAllProjects`.
+ * - Gestiona el estado local de búsqueda, filtros, orden y página actual.
+ * - Permite crear un nuevo proyecto redirigiendo a la vista de creación.
+ * - Muestra mensajes de carga o error según el estado de la petición.
+ *
+ * @component
+ * @returns {JSX.Element} Vista completa con filtros, tabla y paginación de proyectos.
+ */
 
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";

@@ -1,44 +1,24 @@
-/*import React from "react";
-import ProjectRow from "./ProjectRow";
-import styles from "../../styles/projects/projectTable.module.css";
-
-const ProjectsTable = ({ projects }) => {
-  return (
-    <div className="table-responsive">
-      <table className={`table table-striped table-hover ${styles.customTable}`}>
-        <thead className={styles.tableHeader}>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Estado general</th>
-            <th>Estado de pago</th>
-            <th>Inicio / Fin</th>
-            <th>Estado actual</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className={styles.tableBody}>
-          {projects.length > 0 ? (
-            projects?.map((project) => (
-              <ProjectRow key={project.project_id} project={project} />
-            ))
-          ) : (
-            <tr>
-              <td colSpan="7" className="text-center">
-                No se encontraron resultados.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-export default ProjectsTable;*/
-
-
-/*----------------------------------------- */
+/**
+ * Tabla de visualización de proyectos.
+ *
+ * Este componente muestra un listado de proyectos en formato tabular.
+ * Incluye columnas para:
+ * - ID del proyecto.
+ * - Nombre.
+ * - Fechas de inicio y fin.
+ * - Estado general.
+ * - Estado de pago.
+ * - Estado actual.
+ * - Acciones disponibles.
+ *
+ * Si no existen proyectos para mostrar, se muestra un mensaje indicativo.
+ * Cada fila de la tabla se renderiza utilizando el componente `ProjectRow`.
+ *
+ * @component
+ * @param {Object} props - Propiedades del componente.
+ * @param {Array} props.projects - Lista de proyectos a mostrar.
+ * @returns {JSX.Element} Tabla con los proyectos o mensaje de "sin datos".
+ */
 
 import React from "react";
 import ProjectRow from "./ProjectRow";

@@ -1,17 +1,14 @@
-/*import React from 'react';
-import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
-import stylesContainerSpace from "../../styles/generic/containerSpace.module.css";
-import ProjectView from '../../components/projects/ProjectView';
-
-export default function ProjectPage() {
-  return (
-    <div className={`${stylesSectionContainer.sectionContainerDark} ${stylesContainerSpace.mainSection}`}>
-      <ProjectView />
-    </div>
-  );
-}*/
-
-/*--------------------------- */
+/**
+ * Página de proyectos.
+ *
+ * Este componente sirve como punto de entrada para la ruta asociada a la
+ * gestión y visualización de proyectos.  
+ * Su única responsabilidad es envolver y renderizar el componente `ProjectView`
+ * dentro de un contenedor con estilo de desplazamiento (`scrollableContainer`).
+ *
+ * @component
+ * @returns {JSX.Element} Página que muestra la vista principal de proyectos.
+ */
 
 import React from "react";
 import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";

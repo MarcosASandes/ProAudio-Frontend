@@ -1,74 +1,8 @@
-/*.btnPurple {
-  background-color: #7355ce;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-.btnPurple:hover {
-  background-color: #8365ee;
-}
-
-.customTable {
-  background-color: #1d1d35;
-  color: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.tableHeader {
-  background-color: #282847;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.tableBody tr {
-  transition: background-color 0.2s ease;
-}
-
-.tableBody tr:hover {
-  background-color: #2a2a4d;
-}
-
-.filterBadge {
-  display: inline-block;
-  background-color: #7355ce;
-  color: white;
-  border-radius: 999px;
-  padding: 6px 12px;
-  margin-right: 0.5rem;
-}
-
-.closeBtnSmall {
-  margin-left: 0.4rem;
-  vertical-align: middle;
-}
-
-.subtitle {
-  color: #ccc;
-  font-weight: 400;
-}
-
-@media (max-width: 768px) {
-  .btnPurple {
-    width: 100%;
-    font-size: 0.95rem;
-  }
-
-  .filterBadge {
-    font-size: 0.85rem;
-    padding: 5px 10px;
-  }
-}*/
-
-
-
-/*-------------------------------------------------------*/
-
+/* ==========================================================================
+   ProjectView Styles
+   Descripción: Estilos para la vista principal de proyectos, incluyendo el
+   contenedor, cabecera, botón de creación, filtros, tabla y paginación.
+   ========================================================================== */
 
 .container {
   display: flex;
