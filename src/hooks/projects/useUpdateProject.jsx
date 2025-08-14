@@ -58,6 +58,7 @@ const useUpdateProject = () => {
       dispatch(fetchProjectsFailure(error.message));
       const msj = error.response?.data?.message || "Ocurrió un error inesperado";
       showToastError(msj);
+      return error;
     }
   }, [dispatch]);
 
