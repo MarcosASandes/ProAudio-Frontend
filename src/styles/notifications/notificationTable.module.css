@@ -17,7 +17,7 @@
   border-collapse: collapse;
   background-color: #1c1c2a;
   color: white;
-  min-width: 700px; 
+  min-width: 700px;
 }
 
 .table th,
@@ -119,15 +119,20 @@
 
 .statusBadge {
   display: inline-block;
-  padding: 0.30rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
+  transition: box-shadow 0.5s ease;
+}
+
+.statusBadge:hover {
+  box-shadow: 0 0 15px rgba(67, 166, 223, 0.322);
 }
 
 .completed {
-    user-select: none;
+  user-select: none;
   background-color: #28a74663; /* verde */
 }
 
@@ -157,9 +162,17 @@
 }
 
 @keyframes eyeBlinkAnim {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.8); opacity: 0.7; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {

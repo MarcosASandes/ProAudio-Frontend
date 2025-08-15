@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Download } from "lucide-react";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+import useGetProductById from "../../hooks/products/useGetProductById";
+import { selectSelectedProduct } from "../../features/products/ProductSelector";
 import {
   selectCreatedItems,
   selectItemsLoading,
@@ -8,16 +14,10 @@ import {
   generateEsterilizedQR,
   downloadCanvasAsImage,
 } from "../../utils/qrUtils";
+import ItemsCreatedTable from "./ItemsCreatedTable";
+import styles from "../../styles/items/itemsCreatedView.module.css";
 import logo from "../../assets/proaudio-logo-1.png";
-import useGetProductById from "../../hooks/products/useGetProductById";
-import { selectSelectedProduct } from "../../features/products/ProductSelector";
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download } from "lucide-react";
-import JSZip from "jszip";
-import { saveAs } from "file-saver";
-import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
-import { useLocation } from "react-router-dom";
-import { getItemsLocationLabel, getItemsStatusLabel } from "../../utils/getLabels";
+import BackButton from "../global/BackButton";
 
 const ItemsCreatedView = () => {
   const reduxItems = useSelector(selectCreatedItems);
@@ -25,7 +25,6 @@ const ItemsCreatedView = () => {
   const navigate = useNavigate();
   const [localItems, setLocalItems] = useState([]);
 
-  // Usamos items desde Redux o desde localStorage si Redux está vacío
   const itemsToShow =
     reduxItems.items?.length > 0
       ? reduxItems.items
@@ -37,40 +36,19 @@ const ItemsCreatedView = () => {
   useGetProductById(productIdSelected);
   const product = useSelector(selectSelectedProduct);
 
-  const location = useLocation();
-
   useEffect(() => {
-    // Guardar los items en localStorage
     if (reduxItems?.items?.length > 0) {
       localStorage.setItem("createdItems", JSON.stringify(reduxItems.items));
     }
+    return () => localStorage.removeItem("createdItems");
+  }, [reduxItems]);
 
-    // Borrar cuando cambia la ruta (no recarga, solo navegación)
-    return () => {
-      const nextPath = window.location.pathname;
-      const currentPath = location.pathname;
-
-      // Si el usuario se va a otra ruta (no recarga)
-      if (nextPath !== currentPath) {
-        localStorage.removeItem("createdItems");
-      }
-    };
-  }, [reduxItems, location]);
-
-  // Leer del localStorage si no hay items en Redux
   useEffect(() => {
     if (!reduxItems?.items?.length) {
       const saved = localStorage.getItem("createdItems");
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved);
-          setLocalItems(parsed);
-        } catch (error) {
-          console.error("Error al leer items del localStorage:", error);
-        }
-      }
+      if (saved) setLocalItems(JSON.parse(saved));
     }
-  }, []);
+  }, [reduxItems]);
 
   const handleDownload = async (item) => {
     const canvas = await generateEsterilizedQR(
@@ -103,11 +81,10 @@ const ItemsCreatedView = () => {
 
   if (loading) return <p className="text-light">Cargando...</p>;
 
-  if (!itemsToShow || itemsToShow.length === 0) {
+  if (!itemsToShow.length)
     return (
       <div
-        className="d-flex flex-column justify-content-center align-items-center text-light"
-        style={{ height: "80vh" }}
+        className={`d-flex flex-column justify-content-center align-items-center text-light ${styles.noItemsContainer}`}
       >
         <h3 className="mb-4 text-center">
           Los items están creados pero no se pudo mostrar la página
@@ -120,74 +97,26 @@ const ItemsCreatedView = () => {
         </button>
       </div>
     );
-  }
 
   return (
-    <div className="container my-4">
-      <button
-        type="button"
-        className="btn-back-arrow mb-3"
-        onClick={() => navigate(`/product/${productIdSelected}`)}
-      >
-        <ArrowLeft size={24} />
-        <span className="ms-2">Volver</span>
-      </button>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <BackButton target={`/product/${productIdSelected}`} />
 
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        {product?.model ? (
-          <h2 className="text-light m-0">
-            Artículos creados para <span>{product.model}</span>
-          </h2>
-        ) : (
-          <h2 className="text-light m-0">Artículos creados</h2>
-        )}
-
-        <button
-          type="button"
-          className="btn btn-purple d-flex align-items-center"
-          onClick={handleDownloadAll}
-        >
-          <Download className="me-2" size={20} />
-          Descargar todo (ZIP)
-        </button>
+        <div className={styles.titleWrapper}>
+          <h2 className={styles.title}>Artículos creados</h2>
+          <button
+            className={`btn btn-purple d-flex align-items-center ${styles.downloadAll}`}
+            onClick={handleDownloadAll}
+          >
+            <Download className="me-2" size={20} />
+            Descargar todo (ZIP)
+          </button>
+        </div>
       </div>
 
-      <div className="table-responsive bg-dark bg-opacity-50 rounded p-3">
-        <table className="table table-dark table-hover table-bordered align-middle">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nro de serie</th>
-              <th>Ubicación</th>
-              <th>Estado</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Fecha Compra</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {itemsToShow?.map((item) => (
-              <tr key={item.item_id}>
-                <td>{item.item_id}</td>
-                <td>{item.serial_number}</td>
-                <td>{getItemsLocationLabel(item.location)}</td>
-                <td>{getItemsStatusLabel(item.status)}</td>
-                <td>{item.description}</td>
-                <td>${item.price_bought}</td>
-                <td>{item.bought_at}</td>
-                <td>
-                  <button
-                    className="btn btn-purple btn-sm"
-                    onClick={() => handleDownload(item)}
-                  >
-                    Descargar QR
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className={styles.tableWrapper}>
+        <ItemsCreatedTable items={itemsToShow} onDownload={handleDownload} />
       </div>
     </div>
   );

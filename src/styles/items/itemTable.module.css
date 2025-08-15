@@ -17,7 +17,7 @@
   border-collapse: collapse;
   background-color: #1c1c2a;
   color: white;
-  min-width: 800px; /* un poco más ancho que clientes */
+  min-width: 800px;
 }
 
 .table th,
@@ -97,13 +97,18 @@
 .badge {
   display: inline-block;
   padding: 0.25rem 0.6rem;
-  border-radius: 0.5rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff;
+  border-radius: 12px;
+  color: white;
   text-align: center;
   white-space: nowrap;
   user-select: none;
+  transition: box-shadow 0.5s ease;
+}
+
+.badge:hover {
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.12);
 }
 
 .badgeCreated {
@@ -129,8 +134,6 @@
 .badgeDefault {
   background-color: #9ca3af7a;
 }
-
-
 
 .badgeDepositLocation {
   background-color: #8a5cf665;
