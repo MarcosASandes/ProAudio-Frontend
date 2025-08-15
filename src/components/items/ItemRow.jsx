@@ -1,36 +1,3 @@
-/*import React from "react";
-import { ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { getItemsStatusLabel, getItemsLocationLabel } from "../../utils/getLabels";
-
-const ItemRow = ({ item }) => {
-  const navigate = useNavigate();
-
-  const handleDetailsClick = () => {
-    navigate(`/item/${item.item_id}/details`);
-  };
-
-  return (
-    <tr>
-      <td>{item.item_id}</td>
-      <td>{getItemsLocationLabel(item.location)}</td>
-      <td>{getItemsStatusLabel(item.status)}</td>
-      <td>{item.bought_at}</td>
-      <td>Nombre proyecto</td>
-      <td>Fecha proyecto</td>
-      <td>
-        <button className="btn btn-outline-secondary btn-sm" onClick={handleDetailsClick}>
-          <ChevronRight size={16} />
-        </button>
-      </td>
-    </tr>
-  );
-};
-
-export default ItemRow;*/
-
-/*---------------------------------------- */
-
 import React from "react";
 import styles from "../../styles/items/itemTable.module.css";
 import { SquareArrowRight, MapPin } from "lucide-react";

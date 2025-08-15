@@ -26,6 +26,9 @@
 }
 
 .createButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.55rem 1rem;
   border-radius: 8px;
   border: none;
@@ -51,6 +54,14 @@
   opacity: 0.85;
 }
 
+.createButton .icon {
+  display: inline-block;
+}
+
+.createButton .buttonText {
+  display: inline-block;
+}
+
 .filterWrapper {
   width: 100%;
 }
@@ -73,16 +84,23 @@
 @media (max-width: 768px) {
   .tableWrapper {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+    -webkit-overflow-scrolling: touch;
     padding-top: 0;
   }
 
-  /* Evitar que el contenido se vea aplastado */
   .tableWrapper::-webkit-scrollbar {
     height: 6px;
   }
   .tableWrapper::-webkit-scrollbar-thumb {
     background: rgba(150, 100, 250, 0.3);
     border-radius: 10px;
+  }
+
+  .createButton {
+    padding: 0.55rem 0.6rem; 
+  }
+
+  .createButton .buttonText {
+    display: none; 
   }
 }
