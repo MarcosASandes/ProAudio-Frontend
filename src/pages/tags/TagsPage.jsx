@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import TagsTree from "./../../components/tags/TagsTree";
 //import "../../styles/tags.css";
 import useGetAllTags from "../../hooks/tags/useGetAllTags";
@@ -45,6 +45,23 @@ const TagsPage = () => {
           </div>
         </div>
       )}
+    </div>
+  );
+};
+
+export default TagsPage;*/
+
+
+/*------------------------------------------------------- */
+
+import React from "react";
+import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";
+import TagsView from "../../components/tags/TagsView";
+
+const TagsPage = () => {
+  return (
+    <div className={stylesScrollableContainer.container}>
+      <TagsView />
     </div>
   );
 };
