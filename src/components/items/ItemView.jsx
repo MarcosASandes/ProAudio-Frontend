@@ -15,6 +15,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useGetProductById from "../../hooks/products/useGetProductById";
 import { selectSelectedProduct } from "../../features/products/ProductSelector";
 import { Plus } from "lucide-react";
+import BackButton from "../global/BackButton";
 
 const ItemView = () => {
   // Estados de filtros y paginación
@@ -54,6 +55,7 @@ const ItemView = () => {
 
   return (
     <div className={styles.container}>
+      <BackButton target={"/products"} />
       {/* Header */}
       <div className={styles.header}>
         {productReference?.model ? (

@@ -102,6 +102,7 @@
 .forgotPassword .forgotPasswordLink {
   color: var(--persian-indigo);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .forgotPassword a:hover {

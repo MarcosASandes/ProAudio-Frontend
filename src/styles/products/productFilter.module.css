@@ -218,10 +218,10 @@
 
 .tagsContainer {
   display: flex;
-  flex-wrap: nowrap; /* no se envuelvan */
+  flex-wrap: nowrap;
   gap: 0.5rem;
-  overflow-x: auto; /* scroll horizontal */
-  padding-bottom: 0.2rem; /* un poco de espacio para la scrollbar */
+  overflow-x: auto;
+  padding-bottom: 0.2rem; 
 }
 
 .tagsContainer::-webkit-scrollbar {
@@ -246,7 +246,7 @@
   align-items: center;
   gap: 0.3rem;
   font-size: 0.85rem;
-  flex-shrink: 0; /* importante para que no se reduzcan demasiado */
+  flex-shrink: 0;
 }
 
 .closeBtnSmall {
@@ -298,7 +298,18 @@
     display: none;
   }
 
+  /*.container.show {
+    display: flex;
+  }*/
+
   .container.show {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 60vh;
+    min-height: 250px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 0.5rem;
   }
 }
