@@ -19,6 +19,8 @@ const TagsTree = ({ onSelectTag = null }) => {
   const modalRef = useRef();
   const confirmDeleteRef = useRef();
   const navigate = useNavigate();
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [showConfirmDeleteModal, setShowConfirmDeleteModal] = useState(false);
 
   console.log(tags);
 
@@ -34,7 +36,6 @@ const TagsTree = ({ onSelectTag = null }) => {
     setSelectedPath(newPath);
     if (onSelectTag) onSelectTag(etiqueta);
   };
-
 
   const handleModifyClick = () => {
     if (!selectedTag) return;
@@ -74,7 +75,7 @@ const TagsTree = ({ onSelectTag = null }) => {
     confirmModal.show();
   };
 
-  const handleDelete = async () => {
+  /*const handleDelete = async () => {
     if (!confirmDeleteRef.current || !modalRef.current) return;
 
     const confirmModalInstance = bootstrap.Modal.getInstance(
@@ -89,13 +90,31 @@ const TagsTree = ({ onSelectTag = null }) => {
       detailsModalInstance?.hide();
       setSelectedPath([]);
     }
+  };*/
+
+  const handleDelete = async () => {
+    if (!selectedTag) return;
+
+    const success = await deleteTag(selectedTag.tag_id);
+
+    if (success) {
+      // Cerramos ambos modales
+      setShowConfirmDeleteModal(false);
+      setShowDetailsModal(false);
+
+      // Reseteamos selección
+      setSelectedPath([]);
+    }
   };
 
   return (
     <div className="container py-4">
       <div className={`mb-3 ${styles.tagsTree}`}>
         {levels?.map((grupo, i) => (
-          <div key={i} className={`d-flex flex-wrap gap-2 mb-2 ${styles.tagRow}`}>
+          <div
+            key={i}
+            className={`d-flex flex-wrap gap-2 mb-2 ${styles.tagRow}`}
+          >
             {grupo?.map((etq) => {
               const estaSeleccionada = selectedPath[i]?.tag_id === etq.tag_id;
               const hijas = getSubNodes(etq.tag_id);
@@ -117,15 +136,14 @@ const TagsTree = ({ onSelectTag = null }) => {
       {!onSelectTag && (
         <>
           <button
-            /*className="btn btn-primary"*/
-            className={`btn ${stylesButtons.btnPurple}`}
+            className={styles.actionButton}
             disabled={!selectedTag}
-            onClick={showModal}
+            onClick={() => setShowDetailsModal(true)}
           >
             Ver detalles
           </button>
 
-          {/* Modal de detalles */}
+          {/* Modal de detalles 
           <div
             className="modal fade"
             ref={modalRef}
@@ -180,9 +198,9 @@ const TagsTree = ({ onSelectTag = null }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>*/}
 
-          {/* Modal de confirmación de eliminación */}
+          {/* Modal de confirmación de eliminación 
           <div
             className="modal fade"
             ref={confirmDeleteRef}
@@ -219,7 +237,86 @@ const TagsTree = ({ onSelectTag = null }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>*/}
+
+          {/* Modal de detalles */}
+          {showDetailsModal && (
+            <div className={styles.modalOverlay}>
+              <div className={styles.modalContent}>
+                <div className={styles.modalHeader}>
+                  <h5 className={styles.modalTitle}>
+                    {selectedTag?.name || "Etiqueta"}
+                  </h5>
+                  <button
+                    className={styles.closeButton}
+                    onClick={() => setShowDetailsModal(false)}
+                  >
+                    ×
+                  </button>
+                </div>
+                <div className={styles.modalBody}>
+                  <p>
+                    <strong>ID:</strong> {selectedTag?.tag_id}
+                  </p>
+                  <p>
+                    <strong>Nombre:</strong> {selectedTag?.name}
+                  </p>
+                  <p>
+                    <strong>Descripción:</strong>{" "}
+                    {selectedTag?.description || "Sin descripción"}
+                  </p>
+                  <p>
+                    <strong>Estado:</strong>{" "}
+                    {getEnabledDisabledLabel(selectedTag?.status)}
+                  </p>
+                </div>
+                <div className={styles.modalFooter}>
+                  <button
+                    className={styles.actionButton}
+                    onClick={handleModifyClick}
+                  >
+                    Modificar
+                  </button>
+                  <button
+                    className={styles.dangerButton}
+                    onClick={() => setShowConfirmDeleteModal(true)}
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Modal de confirmación de eliminación */}
+          {showConfirmDeleteModal && (
+            <div className={styles.deleteModalOverlay}>
+              <div className={styles.deleteModal}>
+                <h2 className={styles.deleteModalTitle}>
+                  ⚠️ Eliminar etiqueta
+                </h2>
+                <p className={styles.deleteModalText}>
+                  Si tienes artículos categorizados con esta etiqueta no podrás
+                  eliminarla. <br />
+                  <strong>¿Seguro/a que deseas continuar?</strong>
+                </p>
+                <div className={styles.deleteModalActions}>
+                  <button
+                    onClick={() => setShowConfirmDeleteModal(false)}
+                    className={styles.cancelButton}
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    onClick={handleDelete}
+                    className={styles.confirmDeleteButton}
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </>
       )}
     </div>
