@@ -14,7 +14,6 @@ const useGetEventById = (id) => {
       try {
         const response = await getEventById(id);
         dispatch(setSelectedEvent(response));
-        toast("Evento encontrado con éxito.");
       } catch (error) {
         toast("Error al obtener el producto:" + error.message);
       }
