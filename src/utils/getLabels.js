@@ -201,6 +201,19 @@ export const getClientSortByOptionsLabel = (status) => {
   }
 }
 
+export const getEventSortByOptionsLabel = (status) => {
+  switch (status) {
+    case "id":
+      return "ID";
+    case "name":
+      return "Nombre";
+    case "distance":
+      return "Distancia";
+    default:
+      return status;
+  }
+}
+
 export const getNotificationCompletedLabel = (status) => {
   return status ? "Completada" : "Incompleta";
 };
@@ -244,6 +257,17 @@ export const getActionKeyLabel = (key) => {
 
 /* Estilos de badge: 
 Se envía el status y se devuelve el nombre de la clase personalizada de CSS */
+
+export const getEnabledDisabledBadgeClass = (status) => {
+  switch (status) {
+    case "ENABLED":
+      return "enabledBadge";
+    case "DISABLED":
+      return "disabledBadge";
+    default:
+      return "default";
+  }
+};
 
 export const getProjectRunningStatusClass = (status) => {
   switch (status) {

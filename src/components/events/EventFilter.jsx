@@ -1,0 +1,101 @@
+import React from "react";
+import styles from "../../styles/events/eventFilter.module.css";
+import { useSelector } from "react-redux";
+import {
+  getEnabledDisabledLabel,
+  getDirectionLabel,
+  getEventSortByOptionsLabel,
+} from "../../utils/getLabels";
+import { useState } from "react";
+
+const EventFilter = ({
+  searchTerm,
+  onSearchChange,
+  sortBy,
+  onSortByChange,
+  direction,
+  onDirectionChange,
+  filterStatus,
+  onFilterStatusChange,
+}) => {
+
+  const [showFilters, setShowFilters] = useState(false);
+  const statusOptions = ["ENABLED", "DISABLED"];
+  const sortByOptions = ["id", "name", "distance"];
+  const directionOptions = ["desc", "asc"];
+
+  return (
+    <>
+      {/* Botón toggle visible solo en móvil */}
+      <button
+        className={styles.filterToggleBtn}
+        onClick={() => setShowFilters(!showFilters)}
+      >
+        {showFilters ? "Ocultar filtros" : "Mostrar filtros"}
+      </button>
+
+      <div className={`${styles.container} ${showFilters ? styles.show : ""}`}>
+        <div className="row align-items-end">
+          <div className="col-md-4 mb-2">
+            <label className={styles.label}>Buscador:</label>
+            <input
+              type="text"
+              className={`form-control ${styles.inputSearch}`}
+              placeholder="Nombre..."
+              value={searchTerm}
+              onChange={(e) => onSearchChange(e.target.value)}
+            />
+          </div>
+
+          <div className="col-md-2 mb-2">
+            <label className={styles.label}>Ordenar por:</label>
+            <select
+              className={`form-select ${styles.select}`}
+              value={sortBy}
+              onChange={(e) => onSortByChange(e.target.value)}
+            >
+              {sortByOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {getEventSortByOptionsLabel(opt)}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="col-md-2 mb-2">
+            <label className={styles.label}>Dirección:</label>
+            <select
+              className={`form-select ${styles.select}`}
+              value={direction}
+              onChange={(e) => onDirectionChange(e.target.value)}
+            >
+              {directionOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {getDirectionLabel(opt)}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="col-md-2 mb-2">
+            <label className={styles.label}>Estado:</label>
+            <select
+              className={`form-select ${styles.select}`}
+              value={filterStatus}
+              onChange={(e) => onFilterStatusChange(e.target.value)}
+            >
+              <option value="">Todos</option>
+              {statusOptions.map((status) => (
+                <option key={status} value={status}>
+                  {getEnabledDisabledLabel(status)}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default EventFilter;

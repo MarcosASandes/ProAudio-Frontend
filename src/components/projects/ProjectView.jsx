@@ -161,7 +161,7 @@ const ProjectView = () => {
   };
 
   const handleGoToEvents = () => {
-    console.log("Yendo a events");
+    navigate("/events");
   };
 
   useEffect(() => {

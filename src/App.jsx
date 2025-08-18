@@ -42,6 +42,7 @@ import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
 import CreateEmbeddedClientPage from "./pages/clients/CreateEmbeddedClientPage";
 import NotificationPage from "./pages/notifications/NotificationPage";
 import NotificationDetailsPage from "./pages/notifications/NotificationDetailsPage";
+import EventPage from "./pages/events/EventPage";
 //import "./styles/products.css";
 
 /*function App() {
@@ -161,6 +162,7 @@ function App() {
           <Route path="/product/:id/items" element={<ItemPage />} />
           <Route path="/item/:id/details" element={<ItemDetailsPage />} />
 
+          <Route path="/events" element={<EventPage />} />
           <Route path="/event/create" element={<CreateEventPage />} />
           <Route path="/event/:id/edit" element={<UpdateEventPage />} />
           <Route
