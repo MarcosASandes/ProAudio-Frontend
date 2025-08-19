@@ -16,14 +16,7 @@ export function useAddProductTag() {
           tag_id: tagId,
           type: type, // "DESCRIPTIVE", "RELATION", "DEPENDENCY"
         };
-
-        console.log("Este es el payload: ");
-        console.log(payload);
-
         const createdTag = await createProductTag(payload);
-        console.log("Este es el createdTag: ");
-        console.log(createdTag);
-
         if (type === "DESCRIPTIVE") {
           dispatch(addDescriptionTagInStore(createdTag));
         } else if (type === "RELATION") {
@@ -32,7 +25,7 @@ export function useAddProductTag() {
           dispatch(addDependencyTagInStore(createdTag));
         }
 
-        showToast("Etiqueta agregada correctamente.");
+        showToast("Etiqueta agregada correctamente");
       } catch (error) {
         console.error("Error al agregar etiqueta:", error);
         const msj = error.response?.data?.message || "Ocurrió un error inesperado";

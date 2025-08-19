@@ -21,7 +21,7 @@ export function useDeleteProductTag() {
           dispatch(removeDependencyTagInStore(deletedTag));
         }
 
-        showToast("Etiqueta eliminada correctamente ✅");
+        showToast("Etiqueta eliminada correctamente");
       } catch (error) {
         console.error("Error al eliminar etiqueta:", error);
         const msj = error.response?.data?.message || "Ocurrió un error inesperado";
