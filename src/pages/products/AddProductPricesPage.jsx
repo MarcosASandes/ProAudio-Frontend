@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { useParams } from "react-router-dom";
 import AddProductPricesForm from "../../components/products/AddProductPricesForm";
 import useGetProductDetails from "../../hooks/products/useGetProductDetails";
@@ -15,6 +15,23 @@ const AddProductPricesPage = () => {
       <div className="container mt-4">
         <AddProductPricesForm productId={id} />
       </div>
+    </div>
+  );
+};
+
+export default AddProductPricesPage;*/
+
+/*------------------------------------------- */
+
+
+import React from "react";
+import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";
+import AddProductPricesForm from "../../components/products/AddProductPricesForm";
+
+const AddProductPricesPage = () => {
+  return (
+    <div className={stylesScrollableContainer.container}>
+      <AddProductPricesForm />
     </div>
   );
 };
