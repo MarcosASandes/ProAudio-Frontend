@@ -79,7 +79,7 @@ export const createItemsSchemaArray = yup.object().shape({
 
 /*-------------------------------- */
 
-import * as yup from "yup";
+/*import * as yup from "yup";
 
 const createItemsSchema = yup.object().shape({
   description: yup.string().required("La descripción es obligatoria"),
@@ -118,6 +118,125 @@ const createItemsSchema = yup.object().shape({
           }
         ),
     })
+  ),
+});
+
+export const createItemsSchemaArray = yup.object().shape({
+  items: yup
+    .array()
+    .of(createItemsSchema)
+    .min(1, "Debe agregar al menos un lote de artículos"),
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------- */
+
+
+
+
+
+
+
+
+
+import * as yup from "yup";
+
+/*export const createItemsSchema = yup.object().shape({
+  description: yup.string().required("La descripción es obligatoria"),
+  purchase_price: yup
+    .number()
+    .typeError("Debe ser un número")
+    .positive("Debe ser positivo")
+    .required("El precio de compra es obligatorio"),
+  purchase_date: yup
+    .date()
+    .transform((value, originalValue) => (originalValue === "" ? null : value))
+    .nullable()
+    .required("La fecha de compra es obligatoria"),
+  quantity: yup
+    .number()
+    .typeError("Debe ser un número")
+    .integer("Debe ser entero")
+    .positive("Debe ser positivo")
+    .required("La cantidad es obligatoria"),
+  itemRange: yup.string().required("El rango de transmisión es obligatorio"),
+  serialNumbers: yup.array().of(
+    yup.object().shape({
+      serial_numbers: yup.array()
+        .of(
+          yup.object().shape({
+            serial_number: yup.string().required("Obligatorio"),
+          })
+        )
+        .test(
+          "match-quantity",
+          "La cantidad de números de serie no coincide con la cantidad",
+          function (value) {
+            const { quantity } = this.parent;
+            const serialCount = Array.isArray(value) ? value.length : 0;
+            return serialCount === quantity;
+          }
+        ),
+    })
+  ),
+});*/
+
+export const createItemsSchema = yup.object().shape({
+  description: yup.string().required("La descripción es obligatoria"),
+  purchase_price: yup
+    .number()
+    .typeError("Debe ser un número")
+    .positive("Debe ser positivo")
+    .required("El precio de compra es obligatorio"),
+  purchase_date: yup
+    .date()
+    .transform((value, originalValue) => (originalValue === "" ? null : value))
+    .nullable()
+    .required("La fecha de compra es obligatoria"),
+  quantity: yup
+    .number()
+    .typeError("Debe ser un número")
+    .integer("Debe ser entero")
+    .positive("Debe ser positivo")
+    .required("La cantidad es obligatoria"),
+  itemRange: yup.string().required("El rango de transmisión es obligatorio"),
+  serialNumbers: yup.array().of(
+    yup.object().shape({
+      serial_numbers: yup.array().of(
+        yup.object().shape({
+          serial_number: yup.string().required("Obligatorio"),
+        })
+      ),
+    })
+  )
+  .test(
+    "match-quantity",
+    "La cantidad de números de serie no coincide con la cantidad",
+    function (serialNumbers) {
+      const quantity = this.parent.quantity;
+      // Si no hay números de serie todavía, no hay error
+      if (!serialNumbers || serialNumbers.length === 0) return true;
+
+      let totalSerials = 0;
+      serialNumbers.forEach(s => {
+        if (Array.isArray(s.serial_numbers)) {
+          totalSerials += s.serial_numbers.length;
+        }
+      });
+      return totalSerials === quantity;
+    }
   ),
 });
 

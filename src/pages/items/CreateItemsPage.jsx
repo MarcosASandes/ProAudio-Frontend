@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import CreateItemsForm from "../../components/items/CreateItemsForm";
 import "../../styles/createItems.css";
 import stylesSectionContainer from "../../styles/generic/sectionContainer.module.css";
@@ -17,4 +17,29 @@ const CreateItemsPage = () => {
   );
 };
 
+export default CreateItemsPage;*/
+
+
+
+
+
+
+
+
+/*-------------------------------- */
+
+
+import React from "react";
+import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";
+import CreateItemsForm from "../../components/items/CreateItemsForm";
+
+const CreateItemsPage = () => {
+  return (
+    <div className={stylesScrollableContainer.container}>
+      <CreateItemsForm />
+    </div>
+  );
+};
+
 export default CreateItemsPage;
+

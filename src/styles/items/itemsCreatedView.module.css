@@ -50,6 +50,8 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
+  background-color: #7e3af275;
+  color: var(--white-color);
   transition: background-color 0.18s ease, transform 0.08s ease;
 }
 
