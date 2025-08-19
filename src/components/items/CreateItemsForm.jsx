@@ -72,6 +72,7 @@ const CreateItemsForm = () => {
       resetForm();
     } catch (err) {
       console.log("Error de validación Yup:", err);
+      showToastError(err.message);
       if (err.inner) {
         err.inner.forEach((e) => {
           console.log(`Path: ${e.path}, Message: ${e.message}`);
