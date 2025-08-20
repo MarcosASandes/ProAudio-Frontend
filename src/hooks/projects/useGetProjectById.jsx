@@ -37,6 +37,7 @@ const useGetProjectById = () => {
   const fetchProjectById = useCallback(async (id) => {
     try {
       const data = await getProjectById(id);
+      console.log("la data en el useGetProjectById: ", data);
       dispatch(setSelectedProject(data));
     } catch (error) {
       console.error("Error al obtener el proyecto:", error.message);
