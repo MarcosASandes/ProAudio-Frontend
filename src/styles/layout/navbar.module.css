@@ -113,6 +113,7 @@
   max-width: 45px;
   margin-top: 5px;
   transition: filter 0.5s ease;
+  user-select: none;
 }
 
 .logoPlaceholder:hover {

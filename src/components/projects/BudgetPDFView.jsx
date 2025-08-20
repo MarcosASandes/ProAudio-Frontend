@@ -2,18 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import stylesBackButtom from "../../styles/generic/backButton.module.css";
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import styles from "../../styles/projects/budgetView.module.css";
 import useGetBudgetPdfByProjectId from '../../hooks/projects/useGetBudgetPdfByProjectId';
+import BackButton from '../global/BackButton';
 
 const BudgetPDFView = () => {
   const { id } = useParams();
   const getPdf = useGetBudgetPdfByProjectId();
-  const navigate = useNavigate();
 
   const [pdfUrl, setPdfUrl] = useState(null);
   const [hasError, setHasError] = useState(false);
@@ -41,17 +38,8 @@ const BudgetPDFView = () => {
   }
 
   return (
-    <div className={styles.contenedorVisorPDF}>
-      <div className="mb-3">
-        <button
-          type="button"
-          className={stylesBackButtom.btnBackArrow}
-          onClick={() => navigate("/project/" + id)}
-        >
-          <ArrowLeft size={24} />
-          <span className="ms-2">Volver</span>
-        </button>
-      </div>
+    <div className={styles.pdfViewerContainer}>
+      <BackButton target={"/project/" + id} />
 
       {pdfUrl ? (
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">

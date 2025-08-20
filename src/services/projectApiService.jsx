@@ -49,12 +49,13 @@ export const getPossiblePaymentStatusByProjectId = async (id) => {
 export const getBudgetPdfByProjectId = async (id) => {
   const response = await axiosInstance.post(
     `/project/${id}/budget`,
-    {}, // body vacío
+    {},
     {
       responseType: 'blob',
       headers: { Accept: 'application/pdf' },
     }
   );
+  console.log(response);
 
   const pdfUrl = URL.createObjectURL(response.data);
   return pdfUrl;

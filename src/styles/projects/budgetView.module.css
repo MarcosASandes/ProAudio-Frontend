@@ -1,10 +1,10 @@
-/* src/components/Budget/budgetView.module.css */
-.contenedorVisorPDF {
-  height: 80vh;             /* Altura del visor (ajustable) */
-  overflow-y: auto;         /* Scroll solo dentro del visor */
-  border: 1px solid #ccc;   /* Borde sutil */
-  padding: 16px;            /* Espaciado interno */
-  background-color: #f8f8f8;/* Color de fondo claro */
-  border-radius: 8px;       /* Bordes redondeados */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+.pdfViewerContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #1d1d2b;
+  border-radius: 10px;
 }
