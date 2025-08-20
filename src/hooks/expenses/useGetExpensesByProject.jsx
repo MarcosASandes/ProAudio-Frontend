@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-
 import { getAllExpensesByProject } from "../../services/expenseApiService";
 import {
   fetchExpensesStart,
@@ -20,7 +19,6 @@ const useGetExpensesByProject = (id) => {
       try {
         const response = await getAllExpensesByProject(id);
         dispatch(fetchExpensesSuccess(response));
-        toast("Gastos encontrados correctamente.");
       } catch (error) {
         toast("Error al obtener los gastos:" + error.message);
         dispatch(fetchExpensesFailure(error.messag));
