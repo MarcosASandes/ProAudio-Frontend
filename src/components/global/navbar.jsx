@@ -921,9 +921,10 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { markAsRead } = useMarkNotificationAsRead();
   const { markMultipleAsRead } = useMarkMultipleNotificationsAsRead();
-  useGetRecentNotifications(1, 10, "desc", "Project", false);
+  useGetRecentNotifications(1, 5, null, false, "", 15);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
+  console.log("Total de notif: ", totalNotifications);
 
   const userMenuRef = useRef();
   const userIconRef = useRef();
@@ -1007,7 +1008,7 @@ export default function Navbar() {
         return newState;
       });
     }, 700); // dura 700ms ojo cerrado
-    //markAsRead(id);
+    markAsRead(id);
   };
 
   const handleGoToDetails = (id) => {
@@ -1025,7 +1026,7 @@ export default function Navbar() {
     const notificationIds = notifications
       .filter((n) => !n.is_seen)
       .map((n) => n.notification_id);
-    //markMultipleAsRead(notificationIds);
+    markMultipleAsRead(notificationIds);
     console.log("Estas notif se pondrán en vistas: ", notificationIds);
   };
 

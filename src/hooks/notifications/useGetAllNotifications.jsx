@@ -6,9 +6,9 @@ import { fetchSuccessAll, fetchFailure, fetchStart } from "../../features/notifi
 const useGetAllNotifications = (
   page = 0,
   size = 10,
-  direction = "desc",
   type = null,
   is_completed = false,
+  name = '',
   /*solved = false,
   seen = false*/
 ) => {
@@ -21,12 +21,13 @@ const useGetAllNotifications = (
         const data = await getAllNotifications(
           page,
           size,
-          direction,
           type,
           is_completed,
+          name,
           /*solved,
           seen*/
         );
+        console.log("Notificaciones: ", data);
         dispatch(fetchSuccessAll(data));
       } catch (error) {
         dispatch(
@@ -36,7 +37,7 @@ const useGetAllNotifications = (
     };
 
     fetchData();
-  }, [dispatch, page, size, direction, type, is_completed]);
+  }, [dispatch, page, size, type, is_completed, name]);
 };
 
 export default useGetAllNotifications;

@@ -30,7 +30,7 @@ const notificationSlice = createSlice({
     fetchSuccessRecent: (state, action) => {
       state.loading = false;
       state.recentNotifications = action.payload.notifications || [];
-      state.totalNotifications = action.payload.pageable.totalElements || null;
+      state.totalNotifications = action.payload.pageable.total_elements || null;
       state.error = null;
     },
     fetchSuccessAll: (state, action) => {
@@ -97,7 +97,8 @@ const notificationSlice = createSlice({
     },
 
     setNotificationTypes: (state, action) => {
-      state.notificationTypes = action.payload;
+      state.notificationTypes = action.payload.types;
+      console.log("Types en la store: ", action.payload);
     },
   },
 });

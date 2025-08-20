@@ -228,12 +228,14 @@ export const getNotificationSolveLabel = (is_solve) => {
 
 export const getNotificationsTypeLabel = (type) => {
   switch (type) {
-    case "Project":
+    case "PROJECT":
       return "Proyecto";
-    case "Client":
+    case "CLIENT":
       return "Cliente";
-    case "Product":
+    case "PRODUCT":
       return "Producto";
+    case "ITEM":
+      return "Artículo";
     default:
       return type;
   }
@@ -250,7 +252,7 @@ export const getActionKeyLabel = (key) => {
     case "SEND_ITEMS":
       return "Salida de artículos";
     default:
-      return type;
+      return key;
   }
 }
 

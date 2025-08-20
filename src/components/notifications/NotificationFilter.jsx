@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import styles from "../../styles/notifications/notificationFilter.module.css";
 import { getDirectionLabel, getNotificationsTypeLabel } from "../../utils/getLabels";
+import useGetNotificationTypes from "../../hooks/notifications/useGetNotificationTypes";
+import { useSelector } from "react-redux";
+import { selectNotificationTypes } from "../../features/notifications/NotificationSelector";
 
 const NotificationFilter = ({
   searchTerm,
   onSearchChange,
-  direction,
-  onDirectionChange,
   type,
   onTypeChange,
   completed,
   onCompletedChange,
 }) => {
   const [showFilters, setShowFilters] = useState(false);
+  useGetNotificationTypes();
 
   const directionOptions = ["desc", "asc"];
-  const typeOptions = ["Client", "Project", "Product"];
+  //const typeOptions = ["Client", "Project", "Product"];
+  const typeOptions = useSelector(selectNotificationTypes);
   const completedOptions = [
     { label: "Completada", value: "true" },
     { label: "No completada", value: "false" },
   ];
+
+  console.log("Los types que estan en el typeOptions: ", typeOptions);
 
   return (
     <>
@@ -43,22 +48,6 @@ const NotificationFilter = ({
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
             />
-          </div>
-
-          {/* Dirección */}
-          <div className="col-md-2 mb-2">
-            <label className={styles.label}>Dirección:</label>
-            <select
-              className={`form-select ${styles.select}`}
-              value={direction}
-              onChange={(e) => onDirectionChange(e.target.value)}
-            >
-              {directionOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {getDirectionLabel(opt)}
-                </option>
-              ))}
-            </select>
           </div>
 
           {/* Tipo */}

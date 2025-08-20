@@ -103,7 +103,7 @@ const NotificationRow = ({ notification }) => {
     e.stopPropagation();
     setIsEyeClosed(true);
     setTimeout(() => setIsEyeClosed(false), 700);
-    // markAsRead(notId);
+    markAsRead(notId);
   };
 
   return (
@@ -120,13 +120,13 @@ const NotificationRow = ({ notification }) => {
       </td>
 
       {/* Badge de estado */}
-      <td title={`${getNotificationCompletedLabel(notification.is_completed)}`}>
+      <td title={`${getNotificationCompletedLabel(notification.is_solved)}`}>
         <span
           className={`${styles.statusBadge} ${
-            notification.is_completed ? styles.completed : styles.pending
+            notification.is_solved ? styles.completed : styles.pending
           }`}
         >
-          {getNotificationCompletedLabel(notification.is_completed)}
+          {getNotificationCompletedLabel(notification.is_solved)}
         </span>
       </td>
 

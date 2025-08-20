@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "../../styles/notifications/notificationDetails.module.css";
@@ -27,9 +26,9 @@ const NotificationDetails = () => {
 
   useEffect(() => {
     if (notification && !notification.is_seen) {
-      //markAsRead(id);
+      markAsRead(id);
     }
-  }, [id]);
+  }, [id, notification, markAsRead]);
 
   if (!notification) {
     return <div className={styles.loading}>Cargando notificación...</div>;
@@ -39,7 +38,11 @@ const NotificationDetails = () => {
     if (notification.is_solved) return;
 
     const routeRedirection = getActionSolutionRoute(notification);
-    navigate(routeRedirection);
+    if (routeRedirection) {
+      navigate(routeRedirection);
+    } else {
+      console.warn("No se encontró ruta para:", notification);
+    }
     console.log("Solucionar notificación:", notification.notification_id);
   };
 
@@ -74,7 +77,7 @@ const NotificationDetails = () => {
             </div>
             <div className={styles.actionText}>
               <p className={styles.actionKey}>
-                {getActionKeyLabel(notification.action.key)}
+                {getActionKeyLabel(notification.action.action_key)}
               </p>
               <p className={styles.actionDescription}>
                 {notification.action.description}
@@ -112,7 +115,7 @@ const NotificationDetails = () => {
           {showRelated && (
             <div id="related-panel" className={styles.relatedPanel}>
               <ul className={styles.dataList}>
-                {notification.type_data.map((item, idx) => {
+                {notification?.type_data.map((item, idx) => {
                   const formattedTitle =
                     item.title.charAt(0).toUpperCase() +
                     item.title.slice(1) +

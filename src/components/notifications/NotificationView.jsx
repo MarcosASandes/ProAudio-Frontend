@@ -11,14 +11,13 @@ import useMarkMultipleNotificationsAsRead from "../../hooks/notifications/useMar
 
 const NotificationView = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [direction, setDirection] = useState("desc");
   const [type, setType] = useState("");
   const [completed, setCompleted] = useState(false);
   const [page, setPage] = useState(1);
   const size = 10;
   const navigate = useNavigate();
   const { markMultipleAsRead } = useMarkMultipleNotificationsAsRead();
-  useGetAllNotifications(page, size, direction, type, completed);
+  useGetAllNotifications(page, size, type, completed, searchTerm);
   const notifications = useSelector(selectAllNotifications);
   const pageable = useSelector(selectNotificationsPageable);
 
@@ -30,13 +29,13 @@ const NotificationView = () => {
     const notificationIds = notifications
       .filter((n) => !n.is_seen)
       .map((n) => n.notification_id);
-    //markMultipleAsRead(notificationIds);
+    markMultipleAsRead(notificationIds);
     console.log("Estas notif se pondrán en vistas: ", notificationIds); 
   }
 
   useEffect(() => {
     setPage(1);
-  }, [searchTerm, direction, type, completed]);
+  }, [searchTerm, type, completed]);
   
 
   return (
@@ -51,8 +50,6 @@ const NotificationView = () => {
       <NotificationFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        direction={direction}
-        onDirectionChange={setDirection}
         type={type}
         onTypeChange={setType}
         completed={completed}
