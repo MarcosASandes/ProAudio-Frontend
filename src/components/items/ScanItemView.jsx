@@ -101,8 +101,8 @@ const ScanItemView = () => {
     retryCamera,
     scannerRef,
   } = useItemScanner();
-  //const item = useSelector(selectSelectedItem);
-  const item = {
+  const item = useSelector(selectSelectedItem);
+  /*const item = {
     item_id: 438,
     product_id: 92,
     location: "IN_DEPOSIT",
@@ -114,7 +114,7 @@ const ScanItemView = () => {
     item_range: "ASF5",
     serial_number: "ASF54",
     qr_image: null,
-  };
+  };*/
 
   const { fetchReturnItemById } = useReturnItemById();
 

@@ -17,7 +17,7 @@ const NotificationTable = ({ notifications = [] }) => {
               <th>Título</th>
               <th>Descripción</th>
               <th>Fecha de creación</th>
-              <th>Estado</th>
+              <th>Resuelta</th>
               <th>Acciones</th>
             </tr>
           </thead>
