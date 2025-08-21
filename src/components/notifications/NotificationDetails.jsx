@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import styles from "../../styles/notifications/notificationDetails.module.css";
 import { formatearFecha } from "../../utils/formatDate";
@@ -19,14 +19,16 @@ const NotificationDetails = () => {
   const { markAsRead } = useMarkNotificationAsRead();
   const [showRelated, setShowRelated] = useState(false);
   const navigate = useNavigate();
+  const hasMarked = useRef(false);
 
   useEffect(() => {
     if (id) fetchNotificationDetails(id);
   }, [id, fetchNotificationDetails]);
 
   useEffect(() => {
-    if (notification && !notification.is_seen) {
+    if (notification && !notification.is_seen && !hasMarked.current) {
       markAsRead(id);
+      hasMarked.current = true;
     }
   }, [id, notification, markAsRead]);
 
