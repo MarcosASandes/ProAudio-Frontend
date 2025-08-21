@@ -215,7 +215,7 @@ export const getEventSortByOptionsLabel = (status) => {
 }
 
 export const getNotificationCompletedLabel = (status) => {
-  return status ? "Completada" : "Incompleta";
+  return status ? "Resuelta" : "No resuelta";
 };
 
 export const getNotificationSeenLabel = (is_seen) => {
