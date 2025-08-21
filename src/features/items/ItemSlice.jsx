@@ -24,7 +24,7 @@ const itemSlice = createSlice({
     },
     createItemsSuccess(state, action) {
       state.loading = false;
-      state.createdItems = action.payload; 
+      state.createdItems = action.payload;
     },
     createItemsFailure(state, action) {
       state.loading = false;
@@ -69,6 +69,14 @@ const itemSlice = createSlice({
     setItemRegenerateQr: (state, action) => {
       state.itemRegenerateQr = action.payload;
     },
+    updateItemLocationAndStatus: (state, action) => {
+      const { item } = action.payload;
+      state.items = state.items.map((i) =>
+        i.id === item.id
+          ? { ...i, location: item.location, status: item.status }
+          : i
+      );
+    },
   },
 });
 
@@ -86,6 +94,7 @@ export const {
   setSelectedItemDetails,
   removeItem,
   setItemRegenerateQr,
+  updateItemLocationAndStatus,
 } = itemSlice.actions;
 
 export default itemSlice.reducer;

@@ -35,6 +35,11 @@ export const regenerateQrCode = async (id) => {
   return response.data;
 };
 
+export const returnItemById = async (id) => {
+  const response = await axiosInstance.post(`/item/${id}/return`);
+  return response.data;
+};
+
 /**
  * Obtiene artículos paginados con filtros opcionales.
  * @param {number} page
