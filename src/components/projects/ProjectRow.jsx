@@ -39,7 +39,7 @@ const ProjectRow = ({ project }) => {
   const navigate = useNavigate();
 
   return (
-    <tr className={styles.row}>
+    <tr className={`${styles.row} ${styles[project?.running_status?.toLowerCase()] || ""}`}>
       <td title={project.project_id}>{project.project_id}</td>
       <td title={project.name}>{project.name}</td>
       <td
@@ -68,7 +68,7 @@ const ProjectRow = ({ project }) => {
           {getProjectPaymentStatusLabel(project.payment_status)}
         </span>
       </td>
-      <td title={getProjectRunningStatusLabel(project.running_status)}>
+      {/*<td title={getProjectRunningStatusLabel(project.running_status)}>
         <span
           className={`${styles.badge} ${
             styles[getProjectRunningStatusClass(project.running_status)]
@@ -76,7 +76,7 @@ const ProjectRow = ({ project }) => {
         >
           {getProjectRunningStatusLabel(project.running_status)}
         </span>
-      </td>
+      </td>*/}
       <td className={styles.actions}>
         <button
           type="button"

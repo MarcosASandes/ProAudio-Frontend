@@ -173,6 +173,14 @@
   background-color: #10b9487a;
 }
 
+.running {
+  background-color: rgba(200, 13, 0, 0.096);
+}
+
+.preparing {
+  background-color: rgba(187, 139, 35, 0.062);
+}
+
 @media (max-width: 768px) {
   .table {
     min-width: 700px;
