@@ -925,6 +925,24 @@
   box-shadow: 0 0 20px rgba(115, 85, 206, 0.4);
 }
 
+.sectionContainerGallery {
+  box-sizing: border-box;
+  padding: 0; /* Para que el carrusel pueda tocar los bordes */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionContainerGallery h3.sectionTitle {
+  margin: 1rem; /* Mantiene espacio alrededor del título */
+}
+
+.carouselWrapper {
+  width: 100%;
+  padding: 0; /* Sin espacio lateral */
+  margin: 0;  /* Sin espacio lateral */
+}
+
 .sectionTitle {
   font-size: 1.2rem;
   font-weight: 600;

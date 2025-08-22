@@ -133,6 +133,7 @@ import styles from "../../styles/auth/changePassword.module.css";
 import { changePasswordSchema } from "../../validators/auth/changePasswordValidator";
 import useChangePasswordLogged from "../../hooks/auth/useChangePasswordLogged";
 import BackButton from "../global/BackButton";
+import { useNavigate } from "react-router-dom";
 
 export default function ChangePasswordForm() {
   const [showCurrent, setShowCurrent] = useState(false);
@@ -140,6 +141,7 @@ export default function ChangePasswordForm() {
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const [jumpingIcon, setJumpingIcon] = useState("");
   const [focusedField, setFocusedField] = useState("");
+  const navigate = useNavigate();
 
   const { changePassLogged } = useChangePasswordLogged();
 
@@ -157,12 +159,24 @@ export default function ChangePasswordForm() {
     setTimeout(() => setJumpingIcon(""), 300);
   };
 
-  const onSubmit = async (data) => {
+  /*const onSubmit = async (data) => {
     await changePassLogged(
       data.currentPassword,
       data.password,
       data.repeatPassword
     );
+  };*/
+
+  const onSubmit = async (data) => {
+    const response = await changePassLogged(
+      data.currentPassword,
+      data.password,
+      data.repeatPassword
+    );
+
+    if(response){
+      navigate("/");
+    }
   };
 
   const handleReset = () => {

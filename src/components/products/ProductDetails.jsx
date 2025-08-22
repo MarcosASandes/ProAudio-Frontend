@@ -960,7 +960,7 @@ const ProductDetails = () => {
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Etiquetas</h3>
               <button className={styles.addButton} onClick={handleGoToAddTags}>
-                <Tags size={16} /> Agregar etiquetas
+                <Tags size={16} /> Editar etiquetas
               </button>
             </div>
 
@@ -1016,7 +1016,7 @@ const ProductDetails = () => {
                 className={styles.addButton}
                 onClick={handleGoToAddPrices}
               >
-                <DollarSign size={16} /> Agregar precios
+                <DollarSign size={16} /> Editar precios
               </button>
             </div>
             {product.prices.length === 0 ? (
@@ -1032,13 +1032,27 @@ const ProductDetails = () => {
           </div>
         )}
 
-        {activeTab === "gallery" && (
-          <div className={styles.sectionContainer}>
+        {/*{activeTab === "gallery" && (
+          <div className={`${styles.sectionContainer}`}>
             <h3 className={styles.sectionTitle}>Galería</h3>
             <ImageCarousel
               images={product.photos || []}
               onDeletePhoto={handleDeletePhotoRequest}
             />
+          </div>
+        )}*/}
+
+        {activeTab === "gallery" && (
+          <div
+            className={`${styles.sectionContainer} ${styles.sectionContainerGallery}`}
+          >
+            <h3 className={styles.sectionTitle}>Galería</h3>
+            <div className={styles.carouselWrapper}>
+              <ImageCarousel
+                images={product.photos || []}
+                onDeletePhoto={handleDeletePhotoRequest}
+              />
+            </div>
           </div>
         )}
       </div>
