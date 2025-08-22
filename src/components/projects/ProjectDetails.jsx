@@ -1360,6 +1360,7 @@ import useDeleteProject from "../../hooks/projects/useDeleteProject";
 import {
   getProjectStatusLabel,
   getProjectPaymentStatusLabel,
+  getExpensesTypesLabel
 } from "../../utils/getLabels";
 import BackButton from "../global/BackButton";
 import {
@@ -1394,11 +1395,6 @@ const ProjectDetails = () => {
   useEffect(() => {
     if (id) fetchProjectDetails(id);
   }, [id]);
-
-  const expenseTypeLabels = {
-    PERSONNEL: "Personal",
-    EXTRA_COST: "Otros",
-  };
 
   const handleGoToUpdateProject = () => {
     navigate("/project/" + id + "/edit");
@@ -1716,7 +1712,7 @@ const ProjectDetails = () => {
                     </div>
                   ))
                 ) : (
-                  <p>No hay artículos asignados.</p>
+                  <p className={styles.noData}>No hay artículos asignados.</p>
                 )}
               </div>
             )}
@@ -1739,13 +1735,13 @@ const ProjectDetails = () => {
               project.expenses.map((exp, idx) => (
                 <div key={idx} className={styles.listItem}>
                   <span>
-                    ${exp.value} - {expenseTypeLabels[exp.type] || exp.type} -{" "}
+                    ${exp.value} - {getExpensesTypesLabel(exp.type) || exp.type} -{" "}
                     {exp.description}
                   </span>
                 </div>
               ))
             ) : (
-              <p>No hay gastos registrados.</p>
+              <p className={styles.noData}>No hay gastos registrados.</p>
             )}
           </div>
         )}

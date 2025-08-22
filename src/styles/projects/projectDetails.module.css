@@ -778,6 +778,11 @@
   display: none;
 }
 
+.noData{
+  color: #d6b3ff;
+  font-style: italic;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .generalContainer {
