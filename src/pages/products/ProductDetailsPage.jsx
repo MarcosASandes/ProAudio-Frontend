@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+/*import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProductDetails from '../../components/products/ProductDetails';
@@ -22,6 +22,25 @@ const ProductDetailsPage = () => {
       <ProductDetails id={id} product={product} />
     </div>
   )
+};
+
+export default ProductDetailsPage;*/
+
+
+
+/*-------------------------------- */
+
+
+import React from "react";
+import stylesScrollableContainer from "../../styles/generic/scrollableContainer.module.css";
+import ProductDetails from '../../components/products/ProductDetails';
+
+const ProductDetailsPage = () => {
+  return (
+    <div className={stylesScrollableContainer.container}>
+      <ProductDetails />
+    </div>
+  );
 };
 
 export default ProductDetailsPage;
