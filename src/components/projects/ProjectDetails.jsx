@@ -1592,6 +1592,9 @@ const ProjectDetails = () => {
 
             <p className={styles.label}>Porcentaje de cobro total</p>
             <p className={styles.value}>{project.cost_addition}%</p>
+
+            <p className={styles.label}>ID</p>
+            <p className={styles.value}>{project.project_id}</p>
           </div>
         )}
 

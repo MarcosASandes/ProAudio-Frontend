@@ -415,7 +415,7 @@ const ProductView = () => {
   useGetAllTags();
   const tags = useSelector(selectTags);
 
-  useGetAllProducts(page, size, selectedTags, sortBy, direction, dateFrom, dateTo, searchTerm);
+  useGetAllProducts(page, size, selectedTags, sortBy, direction, searchTerm, dateFrom, dateTo);
   const products = useSelector(selectProducts);
   const pageable = useSelector(selectProductsPageable);
   const loading = useSelector(selectProductsLoading);

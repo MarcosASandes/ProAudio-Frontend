@@ -85,7 +85,7 @@ export const createProductTag = async (productPriceData) => {
  * @param {string} direction - Dirección del orden (asc o desc).
  * @returns {Promise<Object>} Respuesta con { products, pageable }.
  */
-export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "id", direction = "asc") => {
+export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "id", direction = "asc", title = '') => {
   const params = {
     page: page - 1,
     size,
@@ -98,6 +98,10 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
   if (sortBy) {
     params.sortBy = sortBy;
     params.direction = direction;
+  }
+
+  if (title) {
+    params.title = title;
   }
 
   console.log('/product/all', { params });

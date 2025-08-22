@@ -952,6 +952,8 @@ const ProductDetails = () => {
             </p>
             <p className={styles.label}>Valor de reposición</p>
             <p className={styles.value}>{product.replacement_value} USD</p>
+            <p className={styles.label}>ID</p>
+            <p className={styles.value}>{product.product_id}</p>
           </div>
         )}
 

@@ -537,6 +537,8 @@
   border: 1px solid rgba(125, 93, 223, 0.3);
   box-shadow: 0 0 10px rgba(127, 98, 212, 0.1);
   transition: all 0.3s ease;
+  overflow-y: auto;
+  max-height: 400px;
 }
 
 .sectionContainer:hover {
