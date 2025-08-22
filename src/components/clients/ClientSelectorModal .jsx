@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import useGetAllClients from "../../hooks/clients/useGetAllClients";
-import ClientPagination from "./ClientPagination";
+import Pagination from "../global/Pagination";
 import {
   selectClients,
   selectClientsPageable,
@@ -59,7 +59,7 @@ const ClientSelectorModal  = ({ onSelect }) => {
             </table>
           </div>
 
-          <ClientPagination pageable={pageable} onPageChange={setPage} />
+          <Pagination pageable={pageable} onPageChange={setPage} />
         </>
       )}
     </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NotificationPagination from "./NotificationPagination";
+import Pagination from "../global/Pagination";
 import styles from "../../styles/notifications/notificationView.module.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +62,7 @@ const NotificationView = () => {
       </div>
 
       {/* Paginación */}
-      <NotificationPagination pageable={pageable} onPageChange={handlePageChange} />
+      <Pagination pageable={pageable} onPageChange={handlePageChange} />
     </div>
   );
 };

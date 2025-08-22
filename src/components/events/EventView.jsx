@@ -72,7 +72,7 @@ import { useNavigate } from "react-router-dom";
 import useGetAllEvents from "../../hooks/events/useGetAllEvents";
 import EventFilter from "./EventFilter";
 import EventTable from "./EventTable";
-import EventPagination from "./EventPagination";
+import Pagination from "../global/Pagination";
 import { selectEvents, selectEventsPageable } from "../../features/events/eventSelector";
 import BackButton from "../global/BackButton";
 import useDeleteEvent from "../../hooks/events/useDeleteEvent";
@@ -137,7 +137,7 @@ const EventView = () => {
       </div>
 
       {/* Paginación */}
-      <EventPagination pageable={pageable} onPageChange={handlePageChange} />
+      <Pagination pageable={pageable} onPageChange={handlePageChange} />
 
       {/* Modal de confirmación */}
       {deleteTarget && (

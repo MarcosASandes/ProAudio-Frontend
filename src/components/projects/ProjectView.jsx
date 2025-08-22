@@ -126,8 +126,8 @@ import {
 } from "../../features/projects/ProjectSelector";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/projects/projectView.module.css";
-import ProjectPagination from "./ProjectPagination";
 import { Calendar } from "lucide-react";
+import Pagination from "../global/Pagination";
 
 const ProjectView = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -210,7 +210,7 @@ const ProjectView = () => {
 
       {/* Paginación */}
       <div className={styles.paginationWrapper}>
-        <ProjectPagination pageable={pageable} onPageChange={setCurrentPage} />
+        <Pagination pageable={pageable} onPageChange={setCurrentPage} />
       </div>
     </div>
   );

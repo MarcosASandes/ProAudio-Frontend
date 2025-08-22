@@ -8,7 +8,6 @@ import {
   selectEventsLoading,
   selectEventsError,
 } from "../../features/events/eventSelector";
-import ClientPagination from "../clients/ClientPagination";
 
 const EventSelectorModal = ({ onSelect }) => {
   const [page, setPage] = useState(1);
@@ -60,7 +59,7 @@ const EventSelectorModal = ({ onSelect }) => {
             </table>
           </div>
 
-          <ClientPagination pageable={pageable} onPageChange={setPage} />
+          <Pagination pageable={pageable} onPageChange={setPage} />
         </>
       )}
     </>

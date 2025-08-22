@@ -87,7 +87,7 @@ export const createProductTag = async (productPriceData) => {
  */
 export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "id", direction = "asc") => {
   const params = {
-    page,
+    page: page - 1,
     size,
   };
 

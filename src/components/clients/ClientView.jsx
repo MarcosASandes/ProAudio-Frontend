@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ClientFilter from "./ClientFilter";
 import ClientTable from "./ClientTable";
-import ClientPagination from "./ClientPagination";
+import Pagination from "../global/Pagination";
 import styles from "../../styles/clients/clientView.module.css";
 import useGetAllClients from "../../hooks/clients/useGetAllClients";
 import { useSelector } from "react-redux";
@@ -73,7 +73,7 @@ const ClientView = () => {
       </div>
 
       {/* Paginación */}
-      <ClientPagination pageable={pageable} onPageChange={handlePageChange} />
+      <Pagination pageable={pageable} onPageChange={handlePageChange} />
     </div>
   );
 };

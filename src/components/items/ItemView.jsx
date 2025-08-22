@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemFilter from "./ItemFilter";
 import ItemTable from "./ItemTable";
-import ItemPagination from "./ItemPagination";
+import Pagination from "../global/Pagination";
 import styles from "../../styles/items/itemView.module.css";
 import useGetItemsByProduct from "../../hooks/items/useGetItemsByProduct";
 import useGetStatuses from "../../hooks/items/useGetStatuses";
@@ -90,7 +90,7 @@ const ItemView = () => {
       </div>
 
       {/* Paginación */}
-      <ItemPagination pageable={pageable} onPageChange={handlePageChange} />
+      <Pagination pageable={pageable} onPageChange={handlePageChange} />
     </div>
   );
 };
