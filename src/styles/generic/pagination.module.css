@@ -121,3 +121,28 @@
 .pageLink:hover:not(:disabled) {
   color: #fff;
 }
+
+.desktopOnly {
+  display: flex;
+}
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .desktopOnly {
+    display: none;
+  }
+  .mobileOnly {
+    display: flex;
+  }
+
+  .pagination {
+    gap: 0.25rem;
+  }
+
+  .pageLink {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
