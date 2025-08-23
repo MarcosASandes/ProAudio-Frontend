@@ -37,8 +37,9 @@ const EventFilter = ({
       <div className={`${styles.container} ${showFilters ? styles.show : ""}`}>
         <div className="row align-items-end">
           <div className="col-md-4 mb-2">
-            <label className={styles.label}>Buscador:</label>
+            <label htmlFor="txtEventSearcher" className={styles.label}>Buscador:</label>
             <input
+            id="txtEventSearcher"
               type="text"
               className={`form-control ${styles.inputSearch}`}
               placeholder="Nombre..."
@@ -48,8 +49,9 @@ const EventFilter = ({
           </div>
 
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Ordenar por:</label>
+            <label htmlFor="slcEventSortBy" className={styles.label}>Ordenar por:</label>
             <select
+            id="slcEventSortBy"
               className={`form-select ${styles.select}`}
               value={sortBy}
               onChange={(e) => onSortByChange(e.target.value)}
@@ -63,8 +65,9 @@ const EventFilter = ({
           </div>
 
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Dirección:</label>
+            <label htmlFor="slcEventDirection" className={styles.label}>Dirección:</label>
             <select
+            id="slcEventDirection"
               className={`form-select ${styles.select}`}
               value={direction}
               onChange={(e) => onDirectionChange(e.target.value)}
@@ -78,8 +81,9 @@ const EventFilter = ({
           </div>
 
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Estado:</label>
+            <label htmlFor="slcEventStatus" className={styles.label}>Estado:</label>
             <select
+            id="slcEventStatus"
               className={`form-select ${styles.select}`}
               value={filterStatus}
               onChange={(e) => onFilterStatusChange(e.target.value)}

@@ -162,8 +162,8 @@ const EventRow = ({ event, onDeleteEvent }) => {
       <td title={event.event_id}>{event.event_id}</td>
       <td title={event.name}>{event.name}</td>
       <td title={event.address}>{event.address}</td>
-      <td title={event.description}>{event.description}</td>
-      <td title={event.distance}>{event.distance}</td>
+      <td title={event.description}>{event.description ? event.description : "-"}</td>
+      <td title={event.distance}>{event.distance} KM</td>
       <td title={getEnabledDisabledLabel(event.status)}>
         <span
           className={`${styles.badge} ${

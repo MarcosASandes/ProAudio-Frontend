@@ -21,6 +21,7 @@ export const repeatPasswordSchema = yup.object().shape({
   password: yup
     .string()
     .required("La nueva contraseña es obligatoria")
+    .oneOf([yup.ref("repeatPassword"), null], "Las contraseñas no coinciden")
     .min(8, "Debe tener al menos 8 caracteres")
     .matches(/[A-Z]/, "Debe contener al menos una letra mayúscula")
     .matches(/[a-z]/, "Debe contener al menos una letra minúscula")

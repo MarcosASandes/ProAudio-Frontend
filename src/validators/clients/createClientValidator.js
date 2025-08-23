@@ -3,7 +3,7 @@ import * as yup from "yup";
 const createClientValidator = yup.object().shape({
   name: yup
     .string()
-    .max(20, "El nombre debe tener como máximo 20 caracteres")
+    .max(100, "El nombre debe tener como máximo 100 caracteres")
     .required("Este campo es obligatorio."),
   phone: yup
     .string()

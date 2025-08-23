@@ -57,7 +57,7 @@ const EventTable = ({ events = [], onDeleteEvent }) => {
             <tr>
               <th>ID</th>
               <th>Nombre</th>
-              <th>Dirección</th>
+              <th>Dirección del evento</th>
               <th>Descripción</th>
               <th>Distancia</th>
               <th>Estado</th>

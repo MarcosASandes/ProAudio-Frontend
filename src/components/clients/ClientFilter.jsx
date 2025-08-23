@@ -42,8 +42,11 @@ const ClientFilter = ({
       <div className={`${styles.container} ${showFilters ? styles.show : ""}`}>
         <div className="row align-items-end">
           <div className="col-md-4 mb-2">
-            <label className={styles.label}>Buscador:</label>
+            <label htmlFor="txtSearcher" className={styles.label}>
+              Buscador:
+            </label>
             <input
+              id="txtSearcher"
               type="text"
               className={`form-control ${styles.inputSearch}`}
               placeholder="Nombre..."
@@ -53,8 +56,11 @@ const ClientFilter = ({
           </div>
 
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Ordenar por:</label>
+            <label htmlFor="slcSortBy" className={styles.label}>
+              Ordenar por:
+            </label>
             <select
+              id="slcSortBy"
               className={`form-select ${styles.select}`}
               value={sortBy}
               onChange={(e) => onSortByChange(e.target.value)}
@@ -68,8 +74,11 @@ const ClientFilter = ({
           </div>
 
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Dirección:</label>
+            <label htmlFor="slcDir" className={styles.label}>
+              Dirección:
+            </label>
             <select
+              id="slcDir"
               className={`form-select ${styles.select}`}
               value={direction}
               onChange={(e) => onDirectionChange(e.target.value)}
@@ -83,8 +92,11 @@ const ClientFilter = ({
           </div>
 
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Estado:</label>
+            <label htmlFor="slcStatus" className={styles.label}>
+              Estado:
+            </label>
             <select
+              id="slcStatus"
               className={`form-select ${styles.select}`}
               value={filterStatus}
               onChange={(e) => onFilterStatusChange(e.target.value)}

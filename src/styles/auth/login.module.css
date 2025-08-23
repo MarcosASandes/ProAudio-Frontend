@@ -57,10 +57,12 @@
 
 .logo {
   height: 40px;
+  user-select: none;
 }
 
 .lettering {
   height: 25px;
+  user-select: none;
 }
 
 .inputGroup {
