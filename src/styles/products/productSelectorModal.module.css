@@ -75,8 +75,8 @@
   background-color: #1c1c2a;
 }
 
-.inputDate{
-    min-width: 150px;
+.inputDate {
+  min-width: 150px;
 }
 
 /* ---------- Estilos adaptados de eventTable ---------- */
@@ -142,8 +142,8 @@
   background-color: #7939ad62;
 }
 
-.selectedButtonStyle{
-    background-color: #aa232398;
+.selectedButtonStyle {
+  background-color: #aa232398;
 }
 
 /* Footer */
@@ -196,6 +196,76 @@
   color: #ff6b6b;
 }
 
+.tagsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+}
+
+.tagsContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tagsContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(115, 85, 206, 0.6);
+  border-radius: 3px;
+}
+
+.tagsContainer::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.filterBadge {
+  background-color: var(--purple-extra);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.closeBtnSmall {
+  margin-left: 0.3rem;
+  font-size: 0.6rem;
+}
+
+.addTagBtn {
+  background-color: transparent;
+  color: var(--purple-extra);
+  border: 1px solid var(--purple-extra);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 0.6rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.addTagBtn:hover {
+  background-color: var(--purple-extra);
+  color: white;
+}
+
+.mobileFiltersButton {
+  display: none;
+}
+
+.filtersDesktop {
+  display: block;
+}
+
 /* Responsive ajustes */
 @media (max-width: 768px) {
   .modalContent {
@@ -227,5 +297,66 @@
 
   .modalTitle {
     font-size: 1rem;
+  }
+
+  .mobileFiltersButton {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .filtersDesktop {
+    display: none;
+  }
+
+  .filtersModalContent {
+    background: #1c1c2a;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .mobileFiltersButtonStyles {
+    display: block;
+    background-color: var(--purple-extra);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.1rem;
+  }
+
+  .filtersModalTitle{
+    display: block;
+    color: white;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.1rem;
+  }
+
+  .filtersModalBtnClose{
+    display: block;
+    background-color: var(--purple-extra);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.1rem;
+  }
+
+  .tagsContainer{
+    padding-bottom: 0.5rem;
   }
 }
