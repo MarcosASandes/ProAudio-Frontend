@@ -70,7 +70,7 @@ export default ClientSelectorModal;*/
 
 /*----------------------------------------------------------- */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import useGetAllClients from "../../hooks/clients/useGetAllClients";
 import Pagination from "../global/Pagination";
@@ -100,6 +100,10 @@ const ClientSelectorModal = ({ onClose, onSelect }) => {
   const pageable = useSelector(selectClientsPageable);
   const loading = useSelector(selectClientsLoading);
   const error = useSelector(selectClientsError);
+
+  useEffect(() => {
+    setPage(1);
+  }, [searchTerm, filterStatus, sortBy, direction]);
 
   const handleConfirmSelection = () => {
     if (selectedClient) {

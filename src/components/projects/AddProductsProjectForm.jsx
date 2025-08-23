@@ -61,7 +61,6 @@ const AddProductsProjectForm = ({ id }) => {
     setCurrentProductIndex(null);
   };
 
-
   return (
     <>
       <div className="mb-3">
@@ -139,7 +138,7 @@ const AddProductsProjectForm = ({ id }) => {
         ))}
       </div>
 
-      {showProductModal && (
+      {/*{showProductModal && (
         <div
           className="modal show d-block"
           tabIndex="-1"
@@ -165,6 +164,13 @@ const AddProductsProjectForm = ({ id }) => {
             </div>
           </div>
         </div>
+      )}*/}
+
+      {showProductModal && (
+        <ProductSelectorModal
+          onClose={() => setShowProductModal(false)}
+          onSelect={handleProductSelected}
+        />
       )}
     </>
   );

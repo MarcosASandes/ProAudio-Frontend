@@ -91,8 +91,9 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
     size,
   };
 
-  if (tags.length > 0) {
-    params.tags = tags.map(t => t.tag_id).join(",");
+  if (tags?.length > 0) {
+    console.log("Esto es tags: ", tags);
+    params.tags = tags?.map(t => t.tag_id).join(",");
   }
 
   if (sortBy) {
