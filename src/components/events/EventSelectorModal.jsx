@@ -138,9 +138,9 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
-              <option value="id">ID</option>
-              <option value="name">Nombre</option>
-              <option value="distance">Distancia</option>
+              <option className={styles.selectOption} value="id">ID</option>
+              <option className={styles.selectOption} value="name">Nombre</option>
+              <option className={styles.selectOption} value="distance">Distancia</option>
             </select>
 
             <select
@@ -148,8 +148,8 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
               value={direction}
               onChange={(e) => setDirection(e.target.value)}
             >
-              <option value="asc">Asc</option>
-              <option value="desc">Desc</option>
+              <option className={styles.selectOption} value="asc">Asc</option>
+              <option className={styles.selectOption} value="desc">Desc</option>
             </select>
           </div>
 
