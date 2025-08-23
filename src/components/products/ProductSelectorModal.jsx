@@ -663,8 +663,8 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
                           <td>
                             <button
                               className={`${styles.selectRowButton} ${
-                                selectedProduct?.product_id ===
-                                product.product_id
+                                selectedProduct?.id ===
+                                product.id
                                   ? styles.selectedButtonStyle
                                   : ""
                               }`}

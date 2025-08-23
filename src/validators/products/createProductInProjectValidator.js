@@ -1,4 +1,4 @@
-import * as yup from "yup";
+/*import * as yup from "yup";
 
 export const createProductInProjectValidator = yup.object().shape({
   products: yup.array().of(
@@ -12,4 +12,27 @@ export const createProductInProjectValidator = yup.object().shape({
         .required("La cantidad es obligatoria"),
     })
   ),
+});*/
+
+
+
+/*-------------------------------------------- */
+
+
+import * as yup from "yup";
+
+export const createProductInProjectValidator = yup.object().shape({
+  product_id: yup
+    .number()
+    .typeError("El producto es obligatorio")
+    .required("El producto es obligatorio"),
+  price_id: yup
+    .number()
+    .typeError("El precio es obligatorio")
+    .required("El precio es obligatorio"),
+  amount: yup
+    .number()
+    .typeError("Debe ser un número")
+    .positive("Debe ser mayor a cero")
+    .required("La cantidad es obligatoria"),
 });
