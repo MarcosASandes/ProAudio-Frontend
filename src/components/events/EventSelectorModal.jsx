@@ -68,12 +68,7 @@ const EventSelectorModal = ({ onSelect }) => {
 
 export default EventSelectorModal;*/
 
-
-
-
 /*------------------------------------------------ */
-
-
 
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -138,9 +133,15 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
-              <option className={styles.selectOption} value="id">ID</option>
-              <option className={styles.selectOption} value="name">Nombre</option>
-              <option className={styles.selectOption} value="distance">Distancia</option>
+              <option className={styles.selectOption} value="id">
+                ID
+              </option>
+              <option className={styles.selectOption} value="name">
+                Nombre
+              </option>
+              <option className={styles.selectOption} value="distance">
+                Distancia
+              </option>
             </select>
 
             <select
@@ -148,8 +149,12 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
               value={direction}
               onChange={(e) => setDirection(e.target.value)}
             >
-              <option className={styles.selectOption} value="asc">Asc</option>
-              <option className={styles.selectOption} value="desc">Desc</option>
+              <option className={styles.selectOption} value="asc">
+                Asc
+              </option>
+              <option className={styles.selectOption} value="desc">
+                Desc
+              </option>
             </select>
           </div>
 
@@ -184,7 +189,11 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
                         <td>{event.address}</td>
                         <td>
                           <button
-                            className={styles.selectRowButton}
+                            className={`${styles.selectRowButton} ${
+                              selectedEvent?.event_id === event.event_id
+                                ? styles.selectedButtonStyle
+                                : ""
+                            }`}
                             onClick={() => setSelectedEvent(event)}
                           >
                             <Target size={16} /> Seleccionar

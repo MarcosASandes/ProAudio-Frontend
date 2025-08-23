@@ -492,6 +492,10 @@
   background-color: #7939ad62;
 }
 
+.selectedButtonStyle{
+    background-color: #aa232398;
+}
+
 /* Footer */
 .modalFooter {
   padding: 1rem;

@@ -2127,7 +2127,7 @@ const CreateProjectForm = () => {
         />
       )}
 
-      {/*Modal de seleccion de cliente */}
+      {/*Modal de seleccion de cliente 
       {showClientModal && (
         <div
           className="modal show d-block"
@@ -2167,6 +2167,22 @@ const CreateProjectForm = () => {
             </div>
           </div>
         </div>
+      )}*/}
+
+      {showClientModal && (
+        <ClientSelectorModal
+          onClose={() => setShowClientModal(false)}
+          onSelect={(client) => {
+            setSelectedClient(client);
+            setValue("client", {
+              client_id: client.client_id,
+              name: client.name,
+              email: client.email,
+              phone_number: client.phone_number,
+            });
+            setShowClientModal(false);
+          }}
+        />
       )}
     </>
   );

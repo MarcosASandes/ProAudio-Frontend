@@ -983,7 +983,7 @@ const UpdateProjectForm = () => {
         </div>
       </form>
 
-      {showEventModal && (
+      {/*{showEventModal && (
         <div
           className="modal show d-block"
           tabIndex="-1"
@@ -1016,9 +1016,26 @@ const UpdateProjectForm = () => {
             </div>
           </div>
         </div>
+      )}*/}
+
+      {showEventModal && (
+        <EventSelectorModal
+          onClose={() => setShowEventModal(false)}
+          onSelect={(event) => {
+            setSelectedEvent(event);
+            setValue("event", {
+              event_id: event.event_id,
+              name: event.name,
+              address: event.address,
+              distance: event.distance,
+              description: event.description,
+            });
+            setShowEventModal(false);
+          }}
+        />
       )}
 
-      {/*MODAL DE CLIENTE */}
+      {/*MODAL DE CLIENTE 
       {showClientModal && (
         <div
           className="modal show d-block"
@@ -1052,6 +1069,22 @@ const UpdateProjectForm = () => {
             </div>
           </div>
         </div>
+      )}*/}
+
+      {showClientModal && (
+        <ClientSelectorModal
+          onClose={() => setShowClientModal(false)}
+          onSelect={(client) => {
+            setSelectedClient(client);
+            setValue("client", {
+              client_id: client.client_id,
+              name: client.name,
+              email: client.email,
+              phone_number: client.phone_number,
+            });
+            setShowClientModal(false);
+          }}
+        />
       )}
     </>
   );
