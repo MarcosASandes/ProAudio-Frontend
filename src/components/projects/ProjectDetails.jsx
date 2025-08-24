@@ -1615,7 +1615,7 @@ const ProjectDetails = () => {
                 <p className={styles.value}>{project.event.description}</p>
               </>
             ) : (
-              <p>No hay evento asignado.</p>
+              <p className={styles.noData}>No hay evento asignado.</p>
             )}
           </div>
         )}
@@ -1646,7 +1646,7 @@ const ProjectDetails = () => {
                 <p className={styles.value}>{project.client.details}</p>
               </>
             ) : (
-              <p>No hay cliente asignado.</p>
+              <p className={styles.noData}>No hay cliente asignado.</p>
             )}
           </div>
         )}
@@ -1679,7 +1679,7 @@ const ProjectDetails = () => {
                 </div>
               ))
             ) : (
-              <p>No hay productos asignados.</p>
+              <p className={styles.noData}>No hay productos asignados.</p>
             )}
 
             {/* Artículos */}

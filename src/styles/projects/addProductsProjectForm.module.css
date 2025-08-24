@@ -124,11 +124,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1c1c2a;
+  background: #23175762;
   padding: 0.5rem;
   border-radius: 6px;
   margin-bottom: 0.5rem;
   color: white;
+  box-shadow: 0 0 10px rgba(83, 66, 19, 0.329);
 }
 
 .emptyList {
@@ -303,6 +304,66 @@
   }
 }*/
 
+/* Botón para mostrar productos agregados en móvil */
+.productsListButton {
+  display: none;
+  background-color: #523e5f60;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.productsListButton:hover {
+  background-color: #5a5a5a;
+}
+
+/* Overlay del modal */
+.mobileProductsModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* overlay semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Contenido del modal */
+.mobileProductsModalContent {
+  background-color: #1c1c2a;
+  border-radius: 12px;
+  width: 400px; /* ancho fijo */
+  height: 500px; /* alto fijo */
+  max-height: 90vh; /* para no salirse de pantalla en móviles */
+  overflow-y: auto; /* scroll interno si el contenido excede */
+  padding: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Botón cerrar */
+.mobileProductsModalContent .closeModalBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
 
 @media (max-width: 1024px) {
   .row {
@@ -358,6 +419,14 @@
   .formButton {
     width: 100%;
     min-width: unset;
+  }
+
+  .productsListSection {
+    display: none;
+  }
+
+  .productsListButton {
+    display: inline-block;
   }
 }
 
