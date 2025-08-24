@@ -146,7 +146,7 @@ const useGetRecentNotifications = (
     };
   }, [dispatch, page, size, type, is_completed, name]);
 
-  /*useEffect(() => {
+  useEffect(() => {
     // Llamada inicial
     fetchRef.current();
 
@@ -155,18 +155,7 @@ const useGetRecentNotifications = (
       if (fetchRef.current) {
         fetchRef.current();
       }
-    }, intervalMinutes * 60 * 1000);*/
-
-    useEffect(() => {
-    // Llamada inicial
-    fetchRef.current();
-
-    // Llamadas periódicas
-    const intervalId = setInterval(() => {
-      if (fetchRef.current) {
-        fetchRef.current();
-      }
-    }, 20000);
+    }, intervalMinutes * 60 * 1000);
 
     return () => clearInterval(intervalId);
   }, [intervalMinutes]);
