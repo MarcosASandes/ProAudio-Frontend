@@ -270,7 +270,7 @@ const CreateItemsForm = () => {
                 <li key={index} className={styles.cartItem}>
                   <div>
                     <strong>{lote.description}</strong> - {lote.quantity}{" "}
-                    unidades - ${lote.purchase_price}
+                    unidades - {lote.purchase_price} USD
                   </div>
                   <div className={styles.cartActions}>
                     <button

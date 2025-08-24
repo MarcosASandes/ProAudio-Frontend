@@ -458,6 +458,7 @@
   font-size: 0.85rem;
   white-space: nowrap;
   transition: background 0.3s ease;
+  user-select: none;
 }
 
 .serialBadge:hover {

@@ -33,7 +33,8 @@ const ItemsCreatedRow = ({ item, onDownload }) => {
         </span>
       </td>
       <td title={item.description}>{item.description || "-"}</td>
-      <td title={item.price_bought}>${item.price_bought || "-"}</td>
+      {/*<td title={item.price_bought}>{item.price_bought || "-"} USD</td>*/}
+      <td title={item.price_bought}>{item.price_bought === 0 ? "0" : item.price_bought || "-"} USD</td>
       <td title={item.bought_at}>{item.bought_at || "-"}</td>
       <td className={styles.actions}>
         <button

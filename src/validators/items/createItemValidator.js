@@ -198,7 +198,7 @@ export const createItemsSchema = yup.object().shape({
   purchase_price: yup
     .number()
     .typeError("Debe ser un número")
-    .positive("Debe ser positivo")
+    .min(0, "El precio de compra no puede ser negativo")
     .required("El precio de compra es obligatorio"),
   purchase_date: yup
     .date()
@@ -223,7 +223,7 @@ export const createItemsSchema = yup.object().shape({
   )
   .test(
     "match-quantity",
-    "La cantidad de números de serie no coincide con la cantidad",
+    "La cantidad de números de serie no coincide con la cantidad comprada",
     function (serialNumbers) {
       const quantity = this.parent.quantity;
       // Si no hay números de serie todavía, no hay error
