@@ -70,7 +70,7 @@ const itemSlice = createSlice({
       state.itemRegenerateQr = action.payload;
     },
     updateItemLocationAndStatus: (state, action) => {
-      const { item } = action.payload;
+      const item = action.payload;
       state.items = state.items.map((i) =>
         i.item_id === item.item_id
           ? { ...i, location: item.item_location, status: item.item_status }
@@ -78,6 +78,8 @@ const itemSlice = createSlice({
       );
 
       if (state.selectedItem && state.selectedItem.item_id === item.item_id) {
+        console.log("LLEGO AL UPDATE ITEM LOCATION STATUS", item);
+        console.log("ESTO SE GUARDO EN LA STORE", state.selectedItem);
         state.selectedItem = {
           ...state.selectedItem,
           location: item.item_location,
