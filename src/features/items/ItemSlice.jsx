@@ -73,9 +73,17 @@ const itemSlice = createSlice({
       const { item } = action.payload;
       state.items = state.items.map((i) =>
         i.id === item.id
-          ? { ...i, location: item.location, status: item.status }
+          ? { ...i, location: item.item_location, status: item.item_status }
           : i
       );
+
+      if (state.selectedItem && state.selectedItem.item_id === item.id) {
+        state.selectedItem = {
+          ...state.selectedItem,
+          location: item.item_location,
+          status: item.item_status,
+        };
+      }
     },
   },
 });
