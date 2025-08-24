@@ -1674,7 +1674,7 @@ const ProjectDetails = () => {
                     >
                       {prod.model}
                     </span>{" "}
-                    - ${prod.rent_price} (C/U)
+                    - {prod.rent_price} USD (C/U)
                   </span>
                 </div>
               ))

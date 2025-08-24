@@ -249,8 +249,9 @@ const ProductFilter = ({
         <div className="row align-items-end">
           {/* Buscador */}
           <div className="col-md-4 mb-2">
-            <label className={styles.label}>Buscar modelo:</label>
+            <label htmlFor="txtProductSearcher" className={styles.label}>Buscar modelo:</label>
             <input
+            id="txtProductSearcher"
               type="text"
               className={`form-control ${styles.inputSearch}`}
               placeholder="Modelo de producto..."
@@ -261,8 +262,9 @@ const ProductFilter = ({
 
           {/* Fecha desde */}
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Fecha desde:</label>
+            <label htmlFor="dateProductFrom" className={styles.label}>Fecha desde:</label>
             <input
+            id="dateProductFrom"
               type="date"
               className={`form-control ${styles.inputDate}`}
               value={dateFrom}
@@ -272,8 +274,9 @@ const ProductFilter = ({
 
           {/* Fecha hasta */}
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Fecha hasta:</label>
+            <label htmlFor="dateProductTo" className={styles.label}>Fecha hasta:</label>
             <input
+            id="dateProductTo"
               type="date"
               className={`form-control ${styles.inputDate}`}
               value={dateTo}
@@ -283,8 +286,9 @@ const ProductFilter = ({
 
           {/* Ordenar por */}
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Ordenar por:</label>
+            <label htmlFor="slcProductSortBy" className={styles.label}>Ordenar por:</label>
             <select
+            id="slcProductSortBy"
               className={`form-select ${styles.select}`}
               value={sortBy}
               onChange={(e) => onSortByChange(e.target.value)}
@@ -299,8 +303,9 @@ const ProductFilter = ({
 
           {/* Dirección */}
           <div className="col-md-2 mb-2">
-            <label className={styles.label}>Dirección:</label>
+            <label htmlFor="slcProductDirection" className={styles.label}>Dirección:</label>
             <select
+            id="slcProductDirection"
               className={`form-select ${styles.select}`}
               value={direction}
               onChange={(e) => onDirectionChange(e.target.value)}

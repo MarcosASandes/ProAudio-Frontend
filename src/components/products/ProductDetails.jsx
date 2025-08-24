@@ -859,7 +859,7 @@ const ProductDetails = () => {
       {/* Header */}
       <div className={styles.header}>
         <h1 className={styles.title}>{product.model}</h1>
-        <p className={styles.subtitle}>Marca: {product.brand || "N/A"}</p>
+        <p className={styles.subtitle}>Marca: {product?.brand || "N/A"}</p>
       </div>
 
       <div className={styles.mobileActionsButton}>

@@ -297,7 +297,7 @@ const ItemDetails = () => {
                 {getItemsLocationLabel(item.location)}
               </p>
               <p>
-                <strong>Precio de compra:</strong> ${item.price_bought}
+                <strong>Precio de compra:</strong> {item.price_bought} USD
               </p>
               <p>
                 <strong>Fecha de compra:</strong> {item.bought_at}

@@ -228,7 +228,7 @@ const AddPhotoProductForm = () => {
             onChange={handleFileChange}
           />
           <p className={styles.infoText}>
-            Solamente apto para imágenes de 800kb.
+            Límite máximo de subida: 10Mb.
           </p>
         </div>
 

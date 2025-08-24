@@ -24,7 +24,7 @@ export const productSchema = Yup.object().shape({
       Yup.object().shape({
         value: Yup.number()
           .typeError('Debe ser un número válido')
-          .min(0.01, 'El valor debe ser mayor a 0')
+          .min(0, "Debe ser mayor o igual a 0")
           .max(99999999.99, 'Máximo valor permitido: 99999999.99')
           .test(
             'max-decimals',
