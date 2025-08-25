@@ -21,7 +21,7 @@ const ItemTable = ({ items = [], searchTerm }) => {
               <th>Ubicación</th>
               <th>Estado</th>
               <th>Fecha Compra</th>
-              <th>Próximo Proyecto</th>
+              <th>Actual/Próximo proyecto</th>
               <th>Fecha Proyecto</th>
               <th>Acciones</th>
             </tr>

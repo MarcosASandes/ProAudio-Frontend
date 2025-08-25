@@ -202,10 +202,20 @@ const productSlice = createSlice({
     setProductsInProjectInStore: (state, action) => {
       state.productsInProject = action.payload.products;
     },
-    addProductInProject: (state, action) => {
+    /*addProductInProject: (state, action) => {
       return {
         ...state,
         productsInProject: [...state.productsInProject, action.payload],
+      };
+    },*/
+    addProductInProject: (state, action) => {
+      const payload = {
+        ...action.payload,
+        rent_price: action.payload.rent_price_value,
+      };
+      return {
+        ...state,
+        productsInProject: [...state.productsInProject, payload],
       };
     },
     removeProductInProject: (state, action) => {

@@ -1153,7 +1153,7 @@ const AddProductsProjectForm = () => {
               >
                 <span>
                   <strong>{productProject.model}</strong> –{" "}
-                  {productProject.comments} ({productProject.rent_price} USD) ×{" "}
+                  {productProject.comments} ({productProject.rent_price} USD) x{" "}
                   {productProject.amount}
                 </span>
                 <button
