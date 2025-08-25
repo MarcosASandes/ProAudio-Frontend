@@ -13,7 +13,8 @@ import stylesButtons from "../../styles/generic/buttonsStyles.module.css";
 import { getEnabledDisabledLabel } from "../../utils/getLabels";
 
 const TagsTree = ({ onSelectTag = null }) => {
-  useGetAllTags();
+  //useGetAllTags();
+  useGetAllTags(true);
   const tags = useSelector(selectTags);
   const [selectedPath, setSelectedPath] = useState([]);
   const modalRef = useRef();
