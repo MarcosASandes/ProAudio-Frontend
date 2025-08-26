@@ -487,7 +487,7 @@ export default UpdateProjectForm;*/
 
 /*--------------------------------------------- */
 
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -520,6 +520,7 @@ import {
 } from "../../utils/getLabels";
 import { getUpdateProjectFormErrorMessages } from "../../utils/getErrorsMessages";
 import ClientSelectorModal from "../clients/ClientSelectorModal ";
+import BackButton from "../global/BackButton";
 
 const UpdateProjectForm = () => {
   const { id } = useParams();
@@ -628,7 +629,7 @@ const UpdateProjectForm = () => {
 
   const handleGoBack = () => {
     localStorage.removeItem("projectDraftUpdate");
-    navigate("/");
+    return "/";
   };
 
   useEffect(() => {
@@ -718,17 +719,9 @@ const UpdateProjectForm = () => {
 
   return (
     <>
-      <div className="mb-3">
-        <button
-          type="button"
-          className={stylesBackButtom.btnBackArrow}
-          onClick={handleGoBack}
-        >
-          <ArrowLeft size={24} />
-          <span className="ms-2">Volver</span>
-        </button>
-      </div>
+      
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <BackButton target={handleGoBack()} />
         <h2 className={styles.title}>Modificar Proyecto</h2>
         <div className={styles.formGroup}>
           <label htmlFor="txtNameProject">Nombre del proyecto</label>
@@ -889,7 +882,6 @@ const UpdateProjectForm = () => {
             </div>
           </div>
 
-          {/*SELECCIONAR O CREAR CLIENTE */}
           <div className="col-md">
             <div className={styles.formGroup}>
               <label>Cliente</label>
@@ -983,40 +975,7 @@ const UpdateProjectForm = () => {
         </div>
       </form>
 
-      {/*{showEventModal && (
-        <div
-          className="modal show d-block"
-          tabIndex="-1"
-          role="dialog"
-          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-        >
-          <div
-            className="modal-dialog modal-dialog-centered modal-lg"
-            role="document"
-          >
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Seleccionar evento</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setShowEventModal(false)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <EventSelectorModal
-                  onSelect={(event) => {
-                    setSelectedEvent(event);
-                    setValue("event", event);
-                    setValue("event_id", event.id);
-                    setShowEventModal(false);
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}*/}
+      
 
       {showEventModal && (
         <EventSelectorModal
@@ -1035,41 +994,623 @@ const UpdateProjectForm = () => {
         />
       )}
 
-      {/*MODAL DE CLIENTE 
+    
+
       {showClientModal && (
-        <div
-          className="modal show d-block"
-          tabIndex="-1"
-          role="dialog"
-          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-        >
-          <div
-            className="modal-dialog modal-dialog-centered modal-lg"
-            role="document"
-          >
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Seleccionar cliente</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setShowClientModal(false)}
-                ></button>
+        <ClientSelectorModal
+          onClose={() => setShowClientModal(false)}
+          onSelect={(client) => {
+            setSelectedClient(client);
+            setValue("client", {
+              client_id: client.client_id,
+              name: client.name,
+              email: client.email,
+              phone_number: client.phone_number,
+            });
+            setShowClientModal(false);
+          }}
+        />
+      )}
+    </>
+  );
+};
+
+export default UpdateProjectForm;*/
+
+/*----------------------------------------------------------------------------- */
+
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useForm, useFieldArray } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import updateProjectValidator from "../../validators/projects/updateProjectValidator";
+import useGetProjectById from "../../hooks/projects/useGetProjectById";
+import useUpdateProject from "../../hooks/projects/useUpdateProject";
+import {
+  selectSelectedProject,
+  selectProjectsLoading,
+  selectProjectsError,
+} from "../../features/projects/ProjectSelector";
+import styles from "../../styles/projects/updateProjectForm.module.css";
+import EventSelectorModal from "../events/EventSelectorModal";
+import { formatDateToYYYYMMDD } from "../../utils/formatDate";
+import useGetProjectTypes from "../../hooks/projects/useGetProjectTypes";
+import useGetPossibleStatusByProjectId from "../../hooks/projects/useGetPossibleStatusByProjectId";
+import { selectProjectTypes } from "../../features/projects/ProjectSelector";
+import { selectProjectStatus } from "../../features/projects/ProjectSelector";
+import useGetPossiblePaymentStatusByProjectId from "../../hooks/projects/useGetPossiblePaymentStatusByProjectId";
+import {
+  selectPaymentStatus,
+  selectAllPaymentStatusesProject,
+} from "../../features/projects/ProjectSelector";
+import { showToast, showToastError } from "../../utils/toastUtils";
+import {
+  getProjectTypeLabel,
+  getProjectStatusLabel,
+  getProjectPaymentStatusLabel,
+} from "../../utils/getLabels";
+import {
+  Plus,
+  MousePointerClick,
+  ChevronRight,
+  ChevronDown,
+  X,
+  Info,
+} from "lucide-react";
+import { getUpdateProjectFormErrorMessages } from "../../utils/getErrorsMessages";
+import ClientSelectorModal from "../clients/ClientSelectorModal ";
+import BackButton from "../global/BackButton";
+import useGetAllProjectPaymentStatuses from "../../hooks/projects/useGetAllProjectPaymentStatuses";
+
+const UpdateProjectForm = () => {
+  const { id } = useParams();
+
+  const savedUpdateDraft = JSON.parse(
+    localStorage.getItem("projectDraftUpdate")
+  );
+  const navigate = useNavigate();
+  const { fetchProjectById } = useGetProjectById();
+  const { updateProject } = useUpdateProject();
+
+  const project = useSelector(selectSelectedProject);
+  const loading = useSelector(selectProjectsLoading);
+  const error = useSelector(selectProjectsError);
+
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedClient, setSelectedClient] = useState(null);
+
+  const [showEventModal, setShowEventModal] = useState(false);
+  const [showClientModal, setShowClientModal] = useState(false);
+
+  useGetProjectTypes();
+  const projectTypes = useSelector(selectProjectTypes);
+
+  const { fetchProjectStatusByProjectId } = useGetPossibleStatusByProjectId();
+  /*const { fetchPaymentStatusByProjectId } =
+    useGetPossiblePaymentStatusByProjectId();
+  const paymentsStatuses = useSelector(selectPaymentStatus);*/
+  /*const fetchAllProjectPaymentStatuses =
+    useGetAllProjectPaymentStatuses();*/
+  useGetAllProjectPaymentStatuses();
+  const paymentsStatuses = useSelector(selectAllPaymentStatusesProject);
+  const projectStatuses = useSelector(selectProjectStatus);
+
+  /*useEffect(() => {
+    fetchAllProjectPaymentStatuses();
+  }, [id, fetchAllProjectPaymentStatuses]);*/
+
+  useEffect(() => {
+    fetchProjectStatusByProjectId(id);
+  }, [id, fetchProjectStatusByProjectId]);
+
+  useEffect(() => {
+    fetchProjectById(id);
+  }, [id]);
+
+  const {
+    register,
+    control,
+    handleSubmit,
+    setValue,
+    getValues,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(updateProjectValidator),
+    defaultValues: savedUpdateDraft || {},
+  });
+
+  const errorMessages = getUpdateProjectFormErrorMessages(errors);
+
+  useEffect(() => {
+    if (project) {
+      const savedUpdateDraft = JSON.parse(
+        localStorage.getItem("projectDraftUpdate")
+      );
+
+      if (!savedUpdateDraft) {
+        Object.entries(project).forEach(([key, value]) => {
+          if (key === "start_date" || key === "end_date") {
+            setValue(key, formatDateToYYYYMMDD(value));
+          } else if (key === "status") {
+            setValue(key, value);
+          } else if (key === "payment_status") {
+            setValue(key, value);
+          } else {
+            setValue(key, value);
+          }
+        });
+
+        setSelectedEvent(project.event || null);
+        setSelectedClient(project.client || null);
+      }
+    }
+  }, [project, setValue]);
+
+  useEffect(() => {
+    const subscription = watch((value) => {
+      const withEvent = {
+        ...value,
+        event: selectedEvent,
+        client: selectedClient,
+      };
+      localStorage.setItem("projectDraftUpdate", JSON.stringify(withEvent));
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, selectedEvent]);
+
+  useEffect(() => {
+    const savedDraft = JSON.parse(localStorage.getItem("projectDraftUpdate"));
+    if (savedDraft?.event) {
+      setSelectedEvent(savedDraft.event);
+    }
+
+    if (savedDraft?.client) {
+      setSelectedClient(savedDraft.client);
+    }
+  }, []);
+
+  const handleGoBack = () => {
+    localStorage.removeItem("projectDraftUpdate");
+    return "/";
+  };
+
+  useEffect(() => {
+    const newEvent = JSON.parse(localStorage.getItem("temporaryProjectEvent"));
+    if (newEvent) {
+      setSelectedEvent(newEvent);
+      setValue("event", newEvent);
+      setValue("event_id", null);
+      localStorage.removeItem("temporaryProjectEvent");
+    }
+  }, []);
+
+  useEffect(() => {
+    const newClient = JSON.parse(
+      localStorage.getItem("temporaryProjectClient")
+    );
+    if (newClient) {
+      setSelectedClient(newClient);
+      setValue("client", newClient);
+      setValue("client_id", null);
+      localStorage.removeItem("temporaryProjectClient");
+    }
+  }, []);
+
+  const handleGoToCreateEvent = () => {
+    const currentData = getValues();
+    try {
+      const cleaned = JSON.parse(JSON.stringify(currentData));
+      localStorage.setItem("projectDraftUpdate", JSON.stringify(cleaned));
+
+      navigate("/events/create/embedded", {
+        state: {
+          from: "update-project",
+          projectId: id,
+        },
+      });
+    } catch (err) {
+      console.error("No se pudo guardar el draft:", err.message);
+    }
+  };
+
+  const handleGoToCreateClient = () => {
+    const currentData = getValues();
+    try {
+      const cleaned = JSON.parse(JSON.stringify(currentData));
+      localStorage.setItem("projectDraftUpdate", JSON.stringify(cleaned));
+
+      navigate("/clients/create/embedded", {
+        state: {
+          from: "update-project",
+          projectId: id,
+        },
+      });
+    } catch (err) {
+      console.error("No se pudo guardar el draft:", err.message);
+    }
+  };
+
+  //Temporal
+  const formatearFechaConHora = (fecha) => {
+    return fecha ? `${fecha}T00:00:00` : null;
+  };
+
+  const onSubmit = async (data) => {
+    const payload = {
+      ...data,
+      start_date: formatearFechaConHora(data.start_date),
+      end_date: formatearFechaConHora(data.end_date),
+      //event_id: selectedEvent?.id || null,
+      event: selectedEvent?.id ? null : selectedEvent,
+      client: selectedClient?.id ? null : selectedClient,
+    };
+
+    console.log("La data del form: ", payload);
+
+    await updateProject(id, payload);
+    navigate("/");
+
+    localStorage.removeItem("temporaryProjectEvent");
+    localStorage.removeItem("temporaryProjectClient");
+    localStorage.removeItem("projectDraftUpdate");
+  };
+
+  if (loading) return <p>Cargando proyecto...</p>;
+  if (error) return <p className="text-danger">{error}</p>;
+  if (!project) return null;
+
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <BackButton target={handleGoBack()} />
+        <h2 className={styles.title}>Modificar Proyecto</h2>
+
+        {/* Nombre */}
+        <div className={styles.formGroup}>
+          <label htmlFor="txtNameProject">Nombre del proyecto</label>
+          <input
+            id="txtNameProject"
+            type="text"
+            className={styles.input}
+            {...register("name")}
+          />
+        </div>
+
+        {/* Descripción */}
+        <div className={styles.formGroup}>
+          <label htmlFor="txtDescriptionProject">Descripción</label>
+          <textarea
+            id="txtDescriptionProject"
+            rows="3"
+            className={`${styles.textarea || ""}`}
+            {...register("description")}
+          />
+        </div>
+
+        {/* Fila de datos principales */}
+        <div className={styles.sameRow}>
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <div className={styles.labelWithIcon}>
+                <label htmlFor="dateStartProject">Fecha de inicio</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                    Tener en cuenta que si el proyecto está en curso no podrá
+                    modificarse la fecha de inicio.
+                  </div>
+                </div>
               </div>
-              <div className="modal-body">
-                <ClientSelectorModal
-                  onSelect={(client) => {
-                    setSelectedClient(client);
-                    setValue("client", client);
-                    setValue("client_id", client.client_id);
-                    setShowClientModal(false);
-                  }}
-                />
+              <input
+                id="dateStartProject"
+                type="date"
+                className={styles.input}
+                {...register("start_date")}
+              />
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <div className={styles.labelWithIcon}>
+                <label htmlFor="dateFinishProject">Fecha de fin</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                    Tener en cuenta que si el proyecto está en curso no podrá
+                    modificarse la fecha de finalización.
+                  </div>
+                </div>
               </div>
+              <input
+                id="dateFinishProject"
+                type="date"
+                className={styles.input}
+                {...register("end_date")}
+              />
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <div className={styles.labelWithIcon}>
+                <label htmlFor="slcProjectType">Tipo de proyecto</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                    Los proyectos de tipo "Renta" se les imprime el valor de
+                    reposición en el PDF del presupuesto. En cambio a los que
+                    son de tipo "Servicio" se les omite.
+                  </div>
+                </div>
+              </div>
+              <select
+                id="slcProjectType"
+                className={styles.select}
+                {...register("project_type")}
+              >
+                <option value="">Seleccionar tipo</option>
+                {projectTypes?.map((type) => (
+                  <option key={type} value={type}>
+                    {getProjectTypeLabel(type)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <div className={styles.labelWithIcon}>
+                <label htmlFor="numCostAddition">Porcentaje de cobro (%)</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipLeft}`}>
+                    Representa qué porcentaje se cobrará del presupuesto total
+                    del proyecto.
+                  </div>
+                </div>
+              </div>
+              <input
+                id="numCostAddition"
+                type="number"
+                step="0.01"
+                onWheel={(e) => e.target.blur()}
+                className={styles.input}
+                {...register("cost_addition")}
+              />
             </div>
           </div>
         </div>
-      )}*/}
+
+        {/* Estado y estado de pago */}
+        <div className={styles.sameRow}>
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <label htmlFor="slcStatus">Estado del proyecto</label>
+              <select
+                id="status"
+                className={styles.select}
+                {...register("status")}
+              >
+                <option value={project?.status} disabled>
+                  {getProjectStatusLabel(project?.status)}
+                </option>
+                {projectStatuses?.map((status) => (
+                  <option key={status} value={status}>
+                    {getProjectStatusLabel(status)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <label htmlFor="slcPaymentStatus">Estado de pago</label>
+              <select
+                id="slcPaymentStatus"
+                className={styles.select}
+                {...register("payment_status")}
+              >
+                <option value={project?.payment_status} disabled>
+                  {getProjectPaymentStatusLabel(project?.payment_status)}
+                </option>
+                {paymentsStatuses?.map((status) => (
+                  <option key={status} value={status}>
+                    {getProjectPaymentStatusLabel(status)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Evento y Cliente (misma fila) */}
+        <div className={styles.sameRow}>
+          {/* Evento */}
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <div className={styles.labelWithIcon}>
+                <label>Evento</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                    Puedes seleccionar un evento ya existente o crear uno desde
+                    cero. Ten en cuenta que si creas un evento desde cero este
+                    no se guardará en el sistema hasta que no guardes el
+                    proyecto con los nuevos datos.
+                  </div>
+                </div>
+              </div>
+              {selectedEvent ? (
+                <div className={styles.selectedEventBadge}>
+                  <span className={styles.eventText}>
+                    <strong>{selectedEvent.name}</strong> –{" "}
+                    {selectedEvent.address}
+                  </span>
+                  <button
+                    type="button"
+                    className={styles.removeEventBtn}
+                    onClick={() => {
+                      setSelectedEvent(null);
+                      setValue("event", null);
+                      setValue("event_id", null);
+                    }}
+                    aria-label="Quitar evento"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+              ) : (
+                <div className={styles.inlineButtons}>
+                  <button
+                    type="button"
+                    className={styles.actionButton}
+                    onClick={() => setShowEventModal(true)}
+                  >
+                    <MousePointerClick size={16} />
+                    Seleccionar evento
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.actionButtonSecondary}
+                    onClick={handleGoToCreateEvent}
+                  >
+                    <Plus size={16} />
+                    Crear nuevo evento
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Cliente */}
+          <div className={styles.col}>
+            <div className={styles.formGroup}>
+              <div className={styles.labelWithIcon}>
+                <label>Cliente</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                    Puedes seleccionar un cliente ya existente o crear uno desde
+                    cero. Ten en cuenta que si creas un cliente desde cero este
+                    no se guardará en el sistema hasta que no guardes el
+                    proyecto con los nuevos datos.
+                  </div>
+                </div>
+              </div>
+              {selectedClient ? (
+                <div className={styles.selectedEventBadge}>
+                  <span className={styles.eventText}>
+                    <strong>{selectedClient.name}</strong> -{" "}
+                    {selectedClient.email}
+                  </span>
+                  <button
+                    type="button"
+                    className={styles.removeEventBtn}
+                    onClick={() => {
+                      setSelectedClient(null);
+                      setValue("client", null);
+                      setValue("client_id", null);
+                    }}
+                    aria-label="Quitar cliente"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+              ) : (
+                <div className={styles.inlineButtons}>
+                  <button
+                    type="button"
+                    className={styles.actionButton}
+                    onClick={() => setShowClientModal(true)}
+                  >
+                    <MousePointerClick size={16} />
+                    Seleccionar cliente
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.actionButtonSecondary}
+                    onClick={handleGoToCreateClient}
+                  >
+                    <Plus size={16} />
+                    Crear nuevo cliente
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Errores */}
+        {errorMessages.length > 0 && (
+          <div className={styles.errorSummary}>
+            <strong>Se han detectado errores en el formulario:</strong>
+            {console.log("los errores son: ", errorMessages)}
+            <ul>
+              {errorMessages?.map((msg, idx) => (
+                <li key={idx}>{msg}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Botones finales */}
+        <div className={styles.buttonGroup}>
+          <button
+            type="button"
+            className={styles.clearBtn}
+            onClick={() => {
+              localStorage.removeItem("projectDraftUpdate");
+              if (project) {
+                reset({
+                  name: project.name || "",
+                  description: project.description || "",
+                  start_date: formatDateToYYYYMMDD(project.start_date) || "",
+                  end_date: formatDateToYYYYMMDD(project.end_date) || "",
+                  project_type: project.project_type || "SERVICE",
+                  cost_addition: project.cost_addition || 0,
+                  event_id: project.event_id || null,
+                  event: project.event || null,
+                  status: project.status || "PLANNED",
+                  payment_status: project.payment_status || "NO_BILL",
+                  client: project.client || null,
+                });
+                setSelectedEvent(project.event || null);
+                setSelectedClient(project.client || null);
+              }
+              showToast("Formulario reestablecido");
+            }}
+          >
+            Reestablecer formulario
+          </button>
+
+          <button type="submit" className={styles.submitBtn}>
+            Actualizar proyecto
+          </button>
+        </div>
+      </form>
+
+      {showEventModal && (
+        <EventSelectorModal
+          onClose={() => setShowEventModal(false)}
+          onSelect={(event) => {
+            setSelectedEvent(event);
+            setValue("event", {
+              event_id: event.event_id,
+              name: event.name,
+              address: event.address,
+              distance: event.distance,
+              description: event.description,
+            });
+            setShowEventModal(false);
+          }}
+        />
+      )}
 
       {showClientModal && (
         <ClientSelectorModal

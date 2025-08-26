@@ -24,12 +24,31 @@
 }
 
 /* Título principal */
-.title {
+/*.title {
   font-weight: bold;
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: #ffffff;
+}*/
+
+.titleWrap {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+}
+
+/* el título */
+.title {
+  display: inline-block;      /* respeta max-width */
+  max-width: 520px;           /* ajustá el ancho que quieras */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 1rem 0.5rem;      /* separación */
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;         /* para que el texto dentro del inline-block quede centrado */
 }
 
 /* Subtítulo */
@@ -63,6 +82,10 @@
 .value {
   color: #ffffff;
   margin-bottom: 0.75rem;
+  max-width: 900px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* Botón para desplegar proyectos asociados */
@@ -201,9 +224,6 @@
     align-items: flex-start;
   }
 }
-
-
-
 
 /*Estilos del modal*/
 .modalOverlay {

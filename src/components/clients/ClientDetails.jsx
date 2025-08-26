@@ -15,7 +15,10 @@ import styles from "../../styles/clients/clientDetails.module.css";
 import BackButton from "../global/BackButton";
 import { getEnabledDisabledLabel } from "../../utils/getLabels";
 import { formatDateToDDMMYY } from "../../utils/formatDate";
-import { getProjectPaymentStatusLabel, getProjectStatusLabel } from "../../utils/getLabels";
+import {
+  getProjectPaymentStatusLabel,
+  getProjectStatusLabel,
+} from "../../utils/getLabels";
 
 const ClientDetails = () => {
   const { id } = useParams();
@@ -48,7 +51,10 @@ const ClientDetails = () => {
   return (
     <div className={styles.generalContainer}>
       <BackButton target={"/clients"} />
-      <h1 className={styles.title}>{client.name}</h1>
+      <div className={styles.titleWrap}>
+        <h1 className={styles.title}>{client.name}</h1>
+      </div>
+      {/*<h1 className={styles.title}>{client.name}</h1>*/}
       <p className={styles.subtitle}>ID Cliente: {client.client_id}</p>
 
       <div className={styles.sectionContainer}>
@@ -104,13 +110,20 @@ const ClientDetails = () => {
               client.projects_participated.map((project) => (
                 <div key={project.projectId} className={styles.projectItem}>
                   <div>
-                    <p className={styles.projectName}>{project.name} | {formatDateToDDMMYY(project.startDate)} - {formatDateToDDMMYY(project.endDate)}</p>
+                    <p className={styles.projectName}>
+                      {project.name} | {formatDateToDDMMYY(project.startDate)} -{" "}
+                      {formatDateToDDMMYY(project.endDate)}
+                    </p>
                     <p className={styles.projectMeta}>
-                      ID: {project.projectId} | Estado: {getProjectStatusLabel(project.status)} | Pago:{" "}
+                      ID: {project.projectId} | Estado:{" "}
+                      {getProjectStatusLabel(project.status)} | Pago:{" "}
                       {getProjectPaymentStatusLabel(project.paymentStatus)}
                     </p>
                   </div>
-                  <button onClick={() => navigate(`/project/${project.projectId}`)} className={styles.projectAction}>
+                  <button
+                    onClick={() => navigate(`/project/${project.projectId}`)}
+                    className={styles.projectAction}
+                  >
                     <ArrowRight size={18} />
                   </button>
                 </div>

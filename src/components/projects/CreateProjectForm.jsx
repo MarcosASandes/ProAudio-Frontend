@@ -1613,7 +1613,6 @@ const CreateProjectForm = () => {
         }
       : null;
 
-  
     const payload = {
       ...data,
       client: clientForBackend,
@@ -1683,7 +1682,17 @@ const CreateProjectForm = () => {
           <div className={styles.sameRow}>
             <div className={styles.col}>
               <div className={styles.formGroup}>
-                <label htmlFor="dateStartProject">Fecha de inicio</label>
+                <div className={styles.labelWithIcon}>
+                  <label htmlFor="dateStartProject">Fecha de inicio</label>
+                  <div className={styles.infoIconWrap} aria-hidden="true">
+                    <Info size={15} />
+                    <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                      Tener en cuenta que una vez iniciado el proyecto no podrá
+                      modificarse la fecha de inicio.
+                    </div>
+                  </div>
+                </div>
+
                 <input
                   id="dateStartProject"
                   type="datetime-local"
@@ -1695,7 +1704,16 @@ const CreateProjectForm = () => {
 
             <div className={styles.col}>
               <div className={styles.formGroup}>
-                <label htmlFor="dateFinishProject">Fecha de fin</label>
+                <div className={styles.labelWithIcon}>
+                  <label htmlFor="dateFinishProject">Fecha de fin</label>
+                  <div className={styles.infoIconWrap} aria-hidden="true">
+                    <Info size={15} />
+                    <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                      Tener en cuenta que una vez iniciado el proyecto no podrá
+                      modificarse la fecha de finalización.
+                    </div>
+                  </div>
+                </div>
                 <input
                   id="dateFinishProject"
                   type="datetime-local"
@@ -1707,7 +1725,17 @@ const CreateProjectForm = () => {
 
             <div className={styles.col}>
               <div className={styles.formGroup}>
-                <label htmlFor="slcProjectType">Tipo de proyecto</label>
+                <div className={styles.labelWithIcon}>
+                  <label htmlFor="slcProjectType">Tipo de proyecto</label>
+                  <div className={styles.infoIconWrap} aria-hidden="true">
+                    <Info size={15} />
+                    <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                      Los proyectos de tipo "Renta" se les imprime el valor de
+                      reposición en el PDF del presupuesto. En cambio a los que
+                      son de tipo "Servicio" se les omite.
+                    </div>
+                  </div>
+                </div>
                 <select
                   id="slcProjectType"
                   className={styles.select}
@@ -1726,7 +1754,19 @@ const CreateProjectForm = () => {
             {/* Estado */}
             <div className={styles.col}>
               <div className={styles.formGroup}>
-                <label htmlFor="status">Estado del proyecto</label>
+                <div className={styles.labelWithIcon}>
+                  <label htmlFor="status">Estado del proyecto</label>
+                  <div className={styles.infoIconWrap} aria-hidden="true">
+                    <Info size={15} />
+                    <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                      Los dos estados iniciales son "Planificado" y
+                      "Confirmado". Si un proyecto planificado no se confirma
+                      antes de la fecha de inicio pasará automáticamente a estar
+                      descartado; en cambio un proyecto confirmado, una vez
+                      llegue la fecha de inicio pasará a "En curso".
+                    </div>
+                  </div>
+                </div>
                 <select
                   id="status"
                   className={styles.select}
