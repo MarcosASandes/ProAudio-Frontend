@@ -14,7 +14,7 @@ const createProjectValidator = yup.object().shape({
     .required("La fecha de finalización es obligatoria"),
   project_type: yup
     .string()
-    .oneOf(["SERVICE", "RENT"])
+    .oneOf(["SERVICE", "RENT"], "No se ha seleccionado un tipo de proyecto válido.")
     .required("El tipo de proyecto es obligatorio"),
   cost_addition: yup
     .number()
@@ -55,12 +55,12 @@ const createProjectValidator = yup.object().shape({
         .min(1, "La cantidad debe ser al menos 1")
         .required("La cantidad es obligatoria"),
     })
-  ).min(1, "Debe haber al menos un producto"),
+  ),
   expenses: yup.array().of(
     yup.object().shape({
       type: yup
         .string()
-        .oneOf(["PERSONNEL", "EXTRA_COST"])
+        .oneOf(["PERSONNEL", "EXTRA_COST"], "No se ha seleccionado un tipo de gasto válido.")
         .required("El tipo de gasto es obligatorio"),
       value: yup
         .number()
