@@ -163,7 +163,7 @@ const CreateEmbeddedClientForm = () => {
       name: data.name,
       address: data.address,
       email: data.email,
-      phone_number: data.phone,
+      phone: data.phone,
       details: data.details,
     };
 
@@ -214,24 +214,24 @@ const CreateEmbeddedClientForm = () => {
       <div className={styles.formGroup}>
         <label htmlFor="txtEmail">Email</label>
         <input type="email" id="txtEmail" {...register("email")} />
-        {errors.address && (
-          <p className={styles.error}>{errors.address.message}</p>
+        {errors.email && (
+          <p className={styles.error}>{errors.email.message}</p>
         )}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtTel">Teléfono</label>
         <input type="text" id="txtTel" {...register("phone")} />
-        {errors.distance && (
-          <p className={styles.error}>{errors.distance.message}</p>
+        {errors.phone && (
+          <p className={styles.error}>{errors.phone.message}</p>
         )}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtAddress">Dirección</label>
         <input type="text" id="txtAddress" {...register("address")} />
-        {errors.description && (
-          <p className={styles.error}>{errors.description.message}</p>
+        {errors.address && (
+          <p className={styles.error}>{errors.address.message}</p>
         )}
       </div>
 

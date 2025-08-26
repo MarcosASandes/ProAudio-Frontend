@@ -4,7 +4,7 @@ import qs from 'qs';
 export const createProject = async (data) => {
   console.log("Proyecto que se creará: ", data);
   const response = await axiosInstance.post('/project', data);
-  console.log("Proyecto que se creó: ", response);
+  console.log("Proyecto que se creóoooooooooooo: ", response);
   return response.data;
 };
 

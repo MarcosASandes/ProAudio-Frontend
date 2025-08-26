@@ -232,7 +232,7 @@ const createProjectValidator = yup.object().shape({
     ),
 
   // --- CLIENTE ---
-  client: yup
+  /*client: yup
     .object()
     .nullable()
     .test(
@@ -251,6 +251,20 @@ const createProjectValidator = yup.object().shape({
             message: "Los datos del cliente son inválidos",
           });
         }
+      }
+    ),*/
+
+  client: yup
+    .object()
+    .nullable()
+    .test(
+      "client-required",
+      "Debes seleccionar o crear un cliente",
+      function (value) {
+        console.log("Valor en test de Yup:", value);
+        if (!value) return false;
+        if (value.client_id) return true;
+        return createClientValidator.isValidSync(value);
       }
     ),
 

@@ -1533,6 +1533,7 @@ const CreateProjectForm = () => {
 
   useEffect(() => {
     const tempClient = localStorage.getItem("temporaryProjectClient");
+    console.log("Este es el cliente del localStorage: ", tempClient);
     if (tempClient) {
       const parsedClient = JSON.parse(tempClient);
       setSelectedClient(parsedClient);
@@ -1589,6 +1590,7 @@ const CreateProjectForm = () => {
   };*/
 
   const onSubmit = async (data) => {
+    console.log("Datos que se van a enviar:", data);
     const cleanedProducts = data?.products?.map(
       ({ product_id, price_id, amount }) => ({
         product_id,
@@ -1597,8 +1599,24 @@ const CreateProjectForm = () => {
       })
     );
 
+    /*const payload = {
+      ...data,
+      start_date: data.start_date,
+      end_date: data.end_date,
+      products: cleanedProducts,
+    };*/
+
+    const clientForBackend = data.client
+      ? {
+          ...data.client,
+          phone_number: data.client.phone,
+        }
+      : null;
+
+  
     const payload = {
       ...data,
+      client: clientForBackend,
       start_date: data.start_date,
       end_date: data.end_date,
       products: cleanedProducts,
@@ -1936,8 +1954,8 @@ const CreateProjectForm = () => {
               <div className={styles.infoIconWrap} aria-hidden="true">
                 <Info size={15} />
                 <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
-                  Puedes agregar todos los gastos extra que necesites.
-                  Ejemplo: Pago a personal, viaje, etc.
+                  Puedes agregar todos los gastos extra que necesites. Ejemplo:
+                  Pago a personal, viaje, etc.
                 </div>
               </div>
             </div>
@@ -2091,14 +2109,32 @@ const CreateProjectForm = () => {
       {showClientModal && (
         <ClientSelectorModal
           onClose={() => setShowClientModal(false)}
-          onSelect={(client) => {
+          /*onSelect={(client) => {
             setSelectedClient(client);
             setValue("client", {
-              client_id: client.client_id,
+              // cliente nuevo, sin client_id
               name: client.name,
               email: client.email,
-              phone_number: client.phone_number,
+              phone: client.phone_number, // <-- cambiar a "phone"
+              address: client.address,
+              details: client.details || "",
             });
+            setShowClientModal(false);
+          }}*/
+
+          onSelect={(client) => {
+            console.log("Cliente recibido del modal:", client); // <--- Aquí
+            setSelectedClient(client);
+
+            setValue("client", {
+              name: client.name,
+              email: client.email,
+              phone: client.phone_number,
+              address: client.address,
+              details: client.details || "",
+            });
+
+            console.log("Cliente seteado en el form:", getValues("client")); // <--- Aquí
             setShowClientModal(false);
           }}
         />
