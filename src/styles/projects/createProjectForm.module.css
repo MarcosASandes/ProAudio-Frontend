@@ -446,8 +446,8 @@ textarea {
 
 .labelWithIcon {
   display: flex;
-  align-items: center;   /* centra verticalmente label + icono */
-  gap: 0.5rem;           /* espacio entre texto y el icono */
+  align-items: center; /* centra verticalmente label + icono */
+  gap: 0.5rem; /* espacio entre texto y el icono */
 }
 
 .infoIconWrap {
@@ -471,7 +471,7 @@ textarea {
 .tooltip {
   position: absolute;
   top: 50%;
-  
+
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
@@ -492,16 +492,16 @@ textarea {
   transform: translateY(-50%) scale(1.02);
 }
 
-.tooltipLeft{
+.tooltipLeft {
   right: calc(100% + 8px);
 }
 
-.tooltipRight{
+.tooltipRight {
   left: calc(100% + 8px);
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   .form {
     padding: 1rem;
   }
@@ -513,5 +513,115 @@ textarea {
   .buttonGroup {
     flex-direction: column;
     align-items: stretch;
+  }
+}*/
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  /* Ajustes generales del form */
+  .form {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  /* Filas con varias columnas */
+  .sameRow {
+    flex-wrap: wrap;
+  }
+
+  .col {
+    flex: 1 1 100%; /* Cada columna ocupa todo el ancho */
+    min-width: 200px; /* Opcional, asegura inputs no demasiado pequeños */
+  }
+
+  /* Ajuste para inline buttons */
+  .inlineButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Ajuste botones agregar/crear evento/cliente */
+  .actionButton,
+  .actionButtonSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Ajuste de badges de evento/cliente */
+  .selectedEventBadge {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .eventText {
+    white-space: normal;
+  }
+
+  .removeEventBtn {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ajuste final para pantallas móviles */
+  .form {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .collapseButton {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .collapseBody {
+    padding: 0.75rem;
+  }
+
+  .productItem,
+  .expenseItem {
+    padding: 0.6rem;
+  }
+
+  .addButton,
+  .removeButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .labelWithIcon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .infoIconWrap {
+    margin-top: 0.25rem;
+  }
+
+  .tooltip {
+    width: 180px;
+  }
+
+  .tooltipLeft {
+    left: calc(100% + 8px);
   }
 }

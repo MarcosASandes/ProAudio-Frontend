@@ -1584,9 +1584,9 @@ const CreateProjectForm = () => {
     }
   };
 
-  const formatearFechaConHora = (fecha) => {
+  /*const formatearFechaConHora = (fecha) => {
     return fecha ? `${fecha}T00:00:00` : null;
-  };
+  };*/
 
   const onSubmit = async (data) => {
     const cleanedProducts = data?.products?.map(
@@ -1599,8 +1599,8 @@ const CreateProjectForm = () => {
 
     const payload = {
       ...data,
-      start_date: formatearFechaConHora(data.start_date),
-      end_date: formatearFechaConHora(data.end_date),
+      start_date: data.start_date,
+      end_date: data.end_date,
       products: cleanedProducts,
     };
 

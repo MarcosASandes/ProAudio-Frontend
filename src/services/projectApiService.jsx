@@ -2,7 +2,9 @@ import axiosInstance from './axiosInstance';
 import qs from 'qs';
 
 export const createProject = async (data) => {
+  console.log("Proyecto que se creará: ", data);
   const response = await axiosInstance.post('/project', data);
+  console.log("Proyecto que se creó: ", response);
   return response.data;
 };
 

@@ -1353,7 +1353,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useGetProjectDetails from "../../hooks/projects/useGetProjectDetails";
 import { selectSelectedProjectDetails } from "../../features/projects/ProjectSelector";
 import styles from "../../styles/projects/projectDetails.module.css";
-import { formatDateToDDMMYY } from "../../utils/formatDate";
+import { formatDateToDDMMYY, formatearFecha } from "../../utils/formatDate";
 import useGetBudgetPdfByProjectId from "../../hooks/projects/useGetBudgetPdfByProjectId";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import useDeleteProject from "../../hooks/projects/useDeleteProject";
@@ -1582,12 +1582,12 @@ const ProjectDetails = () => {
 
             <p className={styles.label}>Inicio</p>
             <p className={styles.value}>
-              {formatDateToDDMMYY(project.start_date)}
+              {formatearFecha(project.start_date)}
             </p>
 
             <p className={styles.label}>Fin</p>
             <p className={styles.value}>
-              {formatDateToDDMMYY(project.end_date)}
+              {formatearFecha(project.end_date)}
             </p>
 
             <p className={styles.label}>Porcentaje de cobro total</p>

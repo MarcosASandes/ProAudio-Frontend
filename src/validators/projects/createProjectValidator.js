@@ -5,7 +5,7 @@ const createProjectValidator = yup.object().shape({
   description: yup
     .string()
     .max(150, "La descripción no puede tener más de 150 caracteres")
-    .required("La descripción del proyecto es obligatoria"),
+    .notRequired(),
   start_date: yup
     .string()
     .required("La fecha de inicio es obligatoria"),
@@ -27,7 +27,7 @@ const createProjectValidator = yup.object().shape({
   event: yup.object().shape({
     name: yup
       .string()
-      .max(50, "El nombre del evento no puede tener más de 50 caracteres")
+      .max(150, "El nombre del evento no puede tener más de 150 caracteres")
       .required("El nombre del evento es obligatorio"),
     address: yup
       .string()
@@ -41,7 +41,7 @@ const createProjectValidator = yup.object().shape({
     description: yup
       .string()
       .max(150, "La descripción no puede tener más de 150 caracteres")
-      .required("La descripción del evento es obligatoria"),
+      .notRequired(),
   }),
   products: yup.array().of(
     yup.object().shape({
@@ -70,7 +70,7 @@ const createProjectValidator = yup.object().shape({
       description: yup
         .string()
         .max(150, "La descripción del gasto no puede tener más de 150 caracteres")
-        .required("La descripción del gasto es obligatoria"),
+        .notRequired(),
     })
   ),
 });
