@@ -2064,7 +2064,7 @@ const CreateProjectForm = () => {
             setValue(`products.${currentProductIndex}.product_id`, product.id);
             setValue(
               `products.${currentProductIndex}.product_label`,
-              `${product.brand} ${product.model}`
+              `${product.brand ? product.brand : ""} ${product.model}`
             );
             setShowProductModal(false);
           }}
