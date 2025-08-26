@@ -173,12 +173,22 @@
   background-color: #10b9487a;
 }
 
+
+
 .running {
-  background-color: rgba(200, 13, 0, 0.096);
+  background-color: rgba(200, 13, 0, 0.1);
 }
 
 .preparing {
-  background-color: rgba(187, 139, 35, 0.062);
+  background-color: rgba(138, 101, 20, 0.1);
+}
+
+.finished {
+  background-color: rgba(20, 99, 24, 0.1);
+}
+
+.discarded {
+  background-color: #181824c7;
 }
 
 @media (max-width: 768px) {

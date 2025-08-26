@@ -318,7 +318,8 @@ textarea {
   border-radius: 15px; /* pill look */
   font-size: 0.9rem;
   color: #f0f0f5;
-  width: 100%; /* opcional, asegura ocupar todo el ancho */
+  text-overflow: ellipsis;
+  max-width: 500px;
 }
 
 .eventText {
@@ -555,6 +556,9 @@ textarea {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
   }
 
   .eventText {
