@@ -6,7 +6,7 @@ const BackButton = ({ target }) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(target);
+    navigate(target || "/");
   };
 
   return (

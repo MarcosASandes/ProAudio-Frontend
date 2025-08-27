@@ -924,7 +924,7 @@ export default function Navbar() {
   useGetRecentNotifications(1, 5, null, false, "", 15);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
-  console.log("Total de notif: ", totalNotifications);
+  const [isDraftLoaded, setIsDraftLoaded] = useState(false);
 
   const userMenuRef = useRef();
   const userIconRef = useRef();

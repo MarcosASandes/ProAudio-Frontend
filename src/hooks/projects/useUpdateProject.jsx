@@ -50,6 +50,7 @@ const useUpdateProject = () => {
   const updateProject = useCallback(async (id, payload) => {
     dispatch(fetchProjectsStart());
     try {
+      console.log("Estoy en useUpdateProject: ", payload);
       const updated = await updateProjectAPI(id, payload);
       dispatch(updateProjectInStore(updated));
       showToast("Proyecto actualizado correctamente");

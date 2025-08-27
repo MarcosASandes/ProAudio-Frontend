@@ -127,9 +127,7 @@ const CreateEmbeddedClientForm = () => {
 
 export default CreateEmbeddedClientForm;*/
 
-
 /*------------------------------------------------------- */
-
 
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -144,8 +142,6 @@ import { showToast, showToastError } from "../../utils/toastUtils";
 import BackButton from "../global/BackButton";
 
 const CreateEmbeddedClientForm = () => {
-
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -187,6 +183,49 @@ const CreateEmbeddedClientForm = () => {
     }, 1000);
   };
 
+  /*const onSubmit = (data) => {
+    const newClientObject = {
+      name: data.name,
+      address: data.address,
+      email: data.email,
+      phone: data.phone,
+      details: data.details,
+    };
+
+    // Guardamos el cliente temporal en localStorage
+    localStorage.setItem(
+      "temporaryProjectClient",
+      JSON.stringify(newClientObject)
+    );
+
+    // -------------------------------
+    // Actualizar también el draft del proyecto
+    const currentDraft =
+      JSON.parse(localStorage.getItem("projectDraftUpdate")) || {};
+    const updatedDraft = {
+      ...currentDraft,
+      client: newClientObject,
+      client_id: null,
+    };
+    localStorage.setItem("projectDraftUpdate", JSON.stringify(updatedDraft));
+    // -------------------------------
+
+    showToast("Cliente creado temporalmente.");
+    const from = location.state?.from;
+    const projectId = location.state?.projectId;
+
+    reset();
+    setTimeout(() => {
+      if (from === "create-project") {
+        navigate("/project/create");
+      } else if (from === "update-project" && projectId) {
+        navigate("/project/" + projectId + "/edit");
+      } else {
+        navigate("/");
+      }
+    }, 1000);
+  };*/
+
   const backButtonDirection = () => {
     const from = location.state?.from;
     const projectId = location.state?.projectId;
@@ -214,17 +253,13 @@ const CreateEmbeddedClientForm = () => {
       <div className={styles.formGroup}>
         <label htmlFor="txtEmail">Email</label>
         <input type="email" id="txtEmail" {...register("email")} />
-        {errors.email && (
-          <p className={styles.error}>{errors.email.message}</p>
-        )}
+        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtTel">Teléfono</label>
         <input type="text" id="txtTel" {...register("phone")} />
-        {errors.phone && (
-          <p className={styles.error}>{errors.phone.message}</p>
-        )}
+        {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -237,11 +272,7 @@ const CreateEmbeddedClientForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtDetails">Detalles</label>
-        <textarea
-          rows="3"
-          id="txtDetails"
-          {...register("details")}
-        ></textarea>
+        <textarea rows="3" id="txtDetails" {...register("details")}></textarea>
         {errors.details && (
           <p className={styles.error}>{errors.details.message}</p>
         )}

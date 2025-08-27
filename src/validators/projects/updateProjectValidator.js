@@ -67,6 +67,7 @@ export default updateProjectValidator;*/
 /*----------------------------------------------------- */
 
 import * as yup from "yup";
+import createClientValidator from "../clients/createClientValidator";
 
 const updateProjectValidator = yup.object().shape({
   name: yup

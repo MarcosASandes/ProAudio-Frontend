@@ -38,7 +38,6 @@ const projectSlice = createSlice({
       state.error = action.payload;
     },
     setSelectedProject: (state, action) => {
-      console.log("El proyecto que s setea en stor: ", action.payload);
       state.selectedProject = action.payload;
     },
     clearSelectedProject: (state) => {

@@ -182,6 +182,49 @@ const CreateEmbeddedEventForm = () => {
     }, 1000);
   };
 
+  /*const onSubmit = (data) => {
+    const newEventObject = {
+      name: data.name,
+      address: data.address,
+      distance: data.distance,
+      description: data.description,
+    };
+
+    // Guardamos el evento temporal en localStorage
+    localStorage.setItem(
+      "temporaryProjectEvent",
+      JSON.stringify(newEventObject)
+    );
+
+    // -------------------------------
+    // NUEVO: actualizar el draft del proyecto
+    const currentDraft =
+      JSON.parse(localStorage.getItem("projectDraftUpdate")) || {};
+    const updatedDraft = {
+      ...currentDraft,
+      event: newEventObject,
+      event_id: null,
+    };
+    localStorage.setItem("projectDraftUpdate", JSON.stringify(updatedDraft));
+    // -------------------------------
+
+    showToast("Evento creado temporalmente.");
+
+    const from = location.state?.from;
+    const projectId = location.state?.projectId;
+
+    reset();
+    setTimeout(() => {
+      if (from === "create-project") {
+        navigate("/project/create");
+      } else if (from === "update-project" && projectId) {
+        navigate("/project/" + projectId + "/edit");
+      } else {
+        navigate("/");
+      }
+    }, 1000);
+  };*/
+
   const backButtonDirection = () => {
     const from = location.state?.from;
     const projectId = location.state?.projectId;
