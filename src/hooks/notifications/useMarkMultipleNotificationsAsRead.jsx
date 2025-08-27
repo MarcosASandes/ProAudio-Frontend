@@ -15,7 +15,6 @@ const useMarkMultipleNotificationsAsRead = () => {
       }
 
       try {
-        // Podríamos optimizar con Promise.all para paralelizar
         await Promise.all(
           ids.map(async (id) => {
             await readNotification(id);

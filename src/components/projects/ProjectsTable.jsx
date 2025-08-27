@@ -40,7 +40,6 @@ const ProjectsTable = ({ projects }) => {
               <th>Inicio / Fin</th>
               <th>Estado</th>
               <th>Estado de pago</th>
-              {/*<th>Estado actual</th>*/}
               <th>Acciones</th>
             </tr>
           </thead>

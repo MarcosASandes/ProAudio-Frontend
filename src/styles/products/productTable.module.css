@@ -1,29 +1,3 @@
-/*:root {
-  --purple-header: #6f42c1;
-  --soft-gray: #f8f9fa;
-  --dark-gray: #e9ecef;
-}
-
-.customTable {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 10px var(--purple-header);
-  border: 1px solid var(--purple-header);
-}
-
-.tableHeader {
-  background-color: var(--purple-header);
-  color: white;
-}
-
-.tableBody {
-  background-color: var(--dark-gray);
-}*/
-
-
-/*-------------------------------------------------------*/
-
-
 .tableWrapper {
   width: 100%;
   overflow-x: auto;

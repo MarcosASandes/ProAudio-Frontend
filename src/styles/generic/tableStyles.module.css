@@ -1,11 +1,11 @@
 :root {
-  --main-bg: #000000; /* Color del layout main (Navbar y Sidebar) */
-  --secondary-bg: #1a1a1a; /* Color segundario */
-  --text-color: #ffffff; /* Color de texto */
-  --body-bg: #121212; /* Color de fondo del main / outlet */
-  --purple-main: #7355ce; /* Púrpura principal*/
-  --purple-secondary: #8365ee; /* Púrpura segundario */
-  --purple-extra: #5335ae; /* Púrpura extra */
+  --main-bg: #000000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #ffffff;
+  --body-bg: #121212;
+  --purple-main: #7355ce;
+  --purple-secondary: #8365ee;
+  --purple-extra: #5335ae;
 }
 
 

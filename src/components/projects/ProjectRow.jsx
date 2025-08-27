@@ -68,15 +68,6 @@ const ProjectRow = ({ project }) => {
           {getProjectPaymentStatusLabel(project.payment_status)}
         </span>
       </td>
-      {/*<td title={getProjectRunningStatusLabel(project.running_status)}>
-        <span
-          className={`${styles.badge} ${
-            styles[getProjectRunningStatusClass(project.running_status)]
-          }`}
-        >
-          {getProjectRunningStatusLabel(project.running_status)}
-        </span>
-      </td>*/}
       <td className={styles.actions}>
         <button
           type="button"

@@ -191,9 +191,6 @@ const productSlice = createSlice({
       state.productStatus = action.payload;
     },
 
-    /*setProductSelectedPricesInStore: (state, action) => {
-      state.priceSelected = action.payload.prices;
-    },*/
 
     setProductSelectedPricesInStore: (state, action) => {
       const { productId, prices } = action.payload;
@@ -202,12 +199,6 @@ const productSlice = createSlice({
     setProductsInProjectInStore: (state, action) => {
       state.productsInProject = action.payload.products;
     },
-    /*addProductInProject: (state, action) => {
-      return {
-        ...state,
-        productsInProject: [...state.productsInProject, action.payload],
-      };
-    },*/
     addProductInProject: (state, action) => {
       const payload = {
         ...action.payload,

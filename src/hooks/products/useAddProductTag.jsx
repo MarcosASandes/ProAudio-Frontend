@@ -14,7 +14,7 @@ export function useAddProductTag() {
         const payload = {
           product_id: productId,
           tag_id: tagId,
-          type: type, // "DESCRIPTIVE", "RELATION", "DEPENDENCY"
+          type: type,
         };
         const createdTag = await createProductTag(payload);
         if (type === "DESCRIPTIVE") {

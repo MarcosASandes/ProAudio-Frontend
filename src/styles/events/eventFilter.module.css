@@ -91,17 +91,6 @@
     transform: translateY(1px);
   }
 
-  /*.container {
-    display: none;
-  }
-
-  
-  .container.show {
-    display: flex;
-    gap: 0.20rem;
-    padding: 0.1rem;
-  }*/
-
   .container {
     display: none;
     flex-direction: column;

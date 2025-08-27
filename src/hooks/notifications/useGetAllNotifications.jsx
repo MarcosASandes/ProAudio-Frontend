@@ -9,8 +9,6 @@ const useGetAllNotifications = (
   type = null,
   is_completed = false,
   name = '',
-  /*solved = false,
-  seen = false*/
 ) => {
   const dispatch = useDispatch();
 
@@ -24,8 +22,6 @@ const useGetAllNotifications = (
           type,
           is_completed,
           name,
-          /*solved,
-          seen*/
         );
         console.log("Notificaciones: ", data);
         dispatch(fetchSuccessAll(data));

@@ -10,14 +10,14 @@ const useDeleteTag = () => {
   const dispatch = useDispatch();
   const deleteTag = useCallback(async (tagId) => {
     try {
-      const deleted = await deleteTagById(tagId);  // aquí consumes la respuesta, pero no la usas
+      const deleted = await deleteTagById(tagId);
       dispatch(deleteTagStore(tagId));
       showToast("Etiqueta eliminada correctamente");
-      return true;  // solo indico éxito
+      return true; 
     } catch (error) {
       const msj = error.response?.data?.message || "Ocurrió un error inesperado";
       showToastError(msj);
-      return false;  // indico fallo
+      return false;
     }
   }, []);
 

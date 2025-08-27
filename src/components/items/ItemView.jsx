@@ -18,7 +18,6 @@ import { Plus } from "lucide-react";
 import BackButton from "../global/BackButton";
 
 const ItemView = () => {
-  // Estados de filtros y paginación
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("ID");
   const [direction, setDirection] = useState("DESC");
@@ -30,16 +29,13 @@ const ItemView = () => {
   useGetProductById(id);
   const productReference = useSelector(selectSelectedProduct);
 
-  // Llamada al hook para obtener items según filtros
   useGetStatuses();
   useGetItemsByProduct(id, page - 1, size, selectedStatus, sortBy, direction);
 
-  // Obtener datos desde el store
   const items = useSelector(selectItems);
   const pageable = useSelector(selectItemsPageable);
   const statuses = useSelector(selectStatuses);
 
-  // Cambio de página
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };

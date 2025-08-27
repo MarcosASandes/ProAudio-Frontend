@@ -13,7 +13,6 @@ import stylesButtons from "../../styles/generic/buttonsStyles.module.css";
 import { getEnabledDisabledLabel } from "../../utils/getLabels";
 
 const TagsTree = ({ onSelectTag = null }) => {
-  //useGetAllTags();
   useGetAllTags(true);
   const tags = useSelector(selectTags);
   const [selectedPath, setSelectedPath] = useState([]);
@@ -76,34 +75,15 @@ const TagsTree = ({ onSelectTag = null }) => {
     confirmModal.show();
   };
 
-  /*const handleDelete = async () => {
-    if (!confirmDeleteRef.current || !modalRef.current) return;
-
-    const confirmModalInstance = bootstrap.Modal.getInstance(
-      confirmDeleteRef.current
-    );
-    const detailsModalInstance = bootstrap.Modal.getInstance(modalRef.current);
-
-    const success = await deleteTag(selectedTag.tag_id);
-
-    if (success) {
-      confirmModalInstance?.hide();
-      detailsModalInstance?.hide();
-      setSelectedPath([]);
-    }
-  };*/
-
   const handleDelete = async () => {
     if (!selectedTag) return;
 
     const success = await deleteTag(selectedTag.tag_id);
 
     if (success) {
-      // Cerramos ambos modales
       setShowConfirmDeleteModal(false);
       setShowDetailsModal(false);
 
-      // Reseteamos selección
       setSelectedPath([]);
     }
   };
@@ -143,102 +123,6 @@ const TagsTree = ({ onSelectTag = null }) => {
           >
             Ver detalles
           </button>
-
-          {/* Modal de detalles 
-          <div
-            className="modal fade"
-            ref={modalRef}
-            tabIndex="-1"
-            aria-labelledby="modalEtiquetaLabel"
-            aria-hidden="true"
-            id="tagDetailModal"
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className={`modal-title ${styles.overflowControlled}`} id="modalEtiquetaLabel">
-                    {selectedTag?.name || "Etiqueta"}
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Cerrar"
-                  ></button>
-                </div>
-                <div className="modal-body">
-                  <p>
-                    <strong>ID:</strong> {selectedTag?.tag_id}
-                  </p>
-                  <p>
-                    <strong>Nombre:</strong> {selectedTag?.name}
-                  </p>
-                  <p>
-                    <strong>Descripción:</strong>{" "}
-                    {selectedTag?.description || "Sin descripción"}
-                  </p>
-                  <p>
-                    <strong>Estado:</strong> {getEnabledDisabledLabel(selectedTag?.status)}
-                  </p>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={handleModifyClick}
-                  >
-                    Modificar
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={showConfirmDelete}
-                  >
-                    Eliminar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>*/}
-
-          {/* Modal de confirmación de eliminación 
-          <div
-            className="modal fade"
-            ref={confirmDeleteRef}
-            tabIndex="-1"
-            aria-labelledby="confirmDeleteLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-sm modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="confirmDeleteLabel">
-                    Advertencia
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Cerrar"
-                  ></button>
-                </div>
-                <div className="modal-body">
-                  Si tienes artículos categorizados con esta etiqueta no podrás
-                  eliminarla.
-                  <br />
-                  ¿Quieres eliminar la etiqueta?
-                </div>
-                <div className="modal-footer">
-                  <button className="btn btn-secondary" data-bs-dismiss="modal">
-                    Cancelar
-                  </button>
-                  <button className="btn btn-danger" onClick={handleDelete}>
-                    Eliminar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>*/}
 
           {/* Modal de detalles */}
           {showDetailsModal && (

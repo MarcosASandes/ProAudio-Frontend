@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
-//import { addProductToProject } from "../../services/projectApiService";
 import { addProductInProject } from "../../features/products/ProductSlice";
 import { addProductToProject } from "../../services/productProjectApiService";
 

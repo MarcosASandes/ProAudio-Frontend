@@ -1,15 +1,3 @@
-/* Contenedor principal del detalle */
-/*.generalContainer {
-  background-color: #1e1e2f;
-  box-shadow: 0 0 20px rgba(115, 85, 206, 0.15);
-  border-radius: 10px;
-  padding: 2rem;
-  color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}*/
-
 .generalContainer {
   width: 100%;
   display: flex;
@@ -23,42 +11,30 @@
   height: 100%;
 }
 
-/* Título principal */
-/*.title {
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-}*/
-
 .titleWrap {
   display: flex;
-  justify-content: center; /* centra horizontalmente */
+  justify-content: center;
 }
 
-/* el título */
 .title {
-  display: inline-block;      /* respeta max-width */
-  max-width: 520px;           /* ajustá el ancho que quieras */
+  display: inline-block;    
+  max-width: 520px;           
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin: 0 1rem 0.5rem;      /* separación */
+  margin: 0 1rem 0.5rem;      
   font-weight: bold;
   font-size: 1.8rem;
   color: #fff;
-  text-align: center;         /* para que el texto dentro del inline-block quede centrado */
+  text-align: center;     
 }
 
-/* Subtítulo */
 .subtitle {
   text-align: center;
   font-size: 1.1rem;
   color: #cccccc;
 }
 
-/* Secciones internas */
 .sectionContainer {
   background-color: #1d1d35;
   padding: 1.5rem;
@@ -72,7 +48,6 @@
   box-shadow: 0 0 20px rgba(115, 85, 206, 0.4);
 }
 
-/* Etiquetas y datos */
 .label {
   font-weight: 600;
   color: #d6b3ff;
@@ -88,7 +63,6 @@
   text-overflow: ellipsis;
 }
 
-/* Botón para desplegar proyectos asociados */
 .collapseButton {
   background-color: #2d1f45;
   color: #d6b3ff;

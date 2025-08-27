@@ -1,13 +1,6 @@
 import axiosInstance from './axiosInstance';
 import qs from "qs";
 
-/*export const getAllEvents = async (page, size) => {
-  const response = await axiosInstance.get('/event', {
-    params: { page, size },
-  });
-  return response.data;
-};*/
-
 export const getAllEvents = async (
   page = 1,
   size = 10,

@@ -13,7 +13,7 @@ const useUpdateEvent = () => {
         const response = await updateEvent(id, payload);
         dispatch(updateEventInStore(response));
         showToast("Evento actualizado correctamente");
-        if (onSuccess) onSuccess(); // 👈 ejecutamos callback si existe
+        if (onSuccess) onSuccess();
         return true;
       } catch (error) {
         console.error(error);

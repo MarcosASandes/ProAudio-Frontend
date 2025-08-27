@@ -99,7 +99,7 @@ export const getAllProjects = async (
   name = ''
 ) => {
   const params = {
-    page: page - 1, // backend empieza en 0
+    page: page - 1,
     size,
     sortBy,
     direction,

@@ -36,11 +36,6 @@ const useScanOutletItem = (id) => {
             if(data.status == "ENABLED"){
                 dispatch(addItemToOutletInStore(data));
                 showToast("Artículo despachado correctamente.");
-                /*const productOutletToStore = {
-                    product_id: data.product_id,
-                    model: data.product_model,
-                }
-                dispatch(addProductToOutletInStore(productOutletToStore));*/
             }else{
                 dispatch(removeItemToOutletInStore(data));
                 showToast("Artículo removido correctamente.");

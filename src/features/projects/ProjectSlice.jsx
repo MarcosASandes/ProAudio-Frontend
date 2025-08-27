@@ -111,29 +111,18 @@ const projectSlice = createSlice({
         outletItems: [...state.outletItems, action.payload],
       };
     },
-    /*removeItemToOutletInStore: (state, action) => {
-      return {
-        ...state,
-        outletItems: state.outletItems.filter(
-          (item) => item.item_id !== action.payload
-        ),
-      };
-    },*/
     removeItemToOutletInStore: (state, action) => {
       const item = action.payload;
       const { item_id, product_id } = item;
 
-      //Eliminar el item
       state.outletItems = state.outletItems.filter(
         (i) => i.item_id !== item_id
       );
 
-      //Revisar si quedan otros items del mismo producto
       const isAnotherItemOfSameProduct = state.outletItems.some(
         (i) => i.product_id === product_id
       );
 
-      //Si no quedan, eliminar el producto
       if (!isAnotherItemOfSameProduct) {
         state.outletProducts = state.outletProducts.filter(
           (p) => p.product_id !== product_id
@@ -158,15 +147,12 @@ const projectSlice = createSlice({
       const item = action.payload;
       const { item_id, product_id } = item;
 
-      //Agregar el item al array de retorno
       state.returnItems.push(item);
 
-      //Eliminar el item de outletItems
       state.outletItems = state.outletItems.filter(
         (i) => i.item_id !== item_id
       );
 
-      //Si ya no quedan items de ese producto en outletItems, eliminarlo de outletProducts
       const isAnotherItemOfSameProduct = state.outletItems.some(
         (i) => i.product_id === product_id
       );

@@ -37,7 +37,7 @@ const SerialNumbersForm = ({ nestIndex, control, register, setValue }) => {
     }
 
     append({ serial_number: inputValue.trim() });
-    setInputValue(""); // limpiar input
+    setInputValue("");
   };
 
   const handleRemoveSerial = (index) => {

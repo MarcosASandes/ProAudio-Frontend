@@ -17,7 +17,6 @@ const NotificationFilter = ({
   useGetNotificationTypes();
 
   const directionOptions = ["desc", "asc"];
-  //const typeOptions = ["Client", "Project", "Product"];
   const typeOptions = useSelector(selectNotificationTypes);
   const completedOptions = [
     { label: "Completada", value: "true" },

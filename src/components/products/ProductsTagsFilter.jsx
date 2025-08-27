@@ -4,7 +4,6 @@ import TagSelectorModal from "./../tags/TagSelectorModal";
 import { useSelector } from "react-redux";
 import { selectTags } from "../../features/tags/TagSelector";
 import * as bootstrap from "bootstrap";
-//import "../../styles/products.css";
 import styles from "../../styles/products/productsTagsFilter.module.css";
 
 const ProductsTagsFilter = () => {

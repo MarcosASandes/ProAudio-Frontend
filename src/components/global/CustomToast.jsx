@@ -8,7 +8,7 @@ const CustomToast = ({ message, type = 'normal' }) => {
 
   const toggleExpanded = () => setExpanded(!expanded);
 
-  // Limitar la cantidad de caracteres para mostrar el botón solo si es largo
+  //limitar la cantidad de caracteres para mostrar el botón solo si es largo
   const isLongMessage = message.length > 80;
 
   return (

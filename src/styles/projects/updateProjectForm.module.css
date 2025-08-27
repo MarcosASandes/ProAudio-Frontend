@@ -1,47 +1,3 @@
-/*.form {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 24px;
-  text-align: center;
-  color: #333;
-}
-
-.formGroup {
-  margin-bottom: 20px;
-}
-
-.textarea {
-  resize: none;
-}
-
-.selectedEventBox {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 12px;
-  background-color: #f9f9f9;
-}
-
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 4px;
-}*/
-
-
-/*----------------------------------------------------------------------------*/
-
-
-
-
-/* ---- Formulario general ---- */
 .form {
   width: 100%;
   display: flex;
@@ -62,7 +18,6 @@
   text-align: left;
 }
 
-/* ---- Grupos de campos ---- */
 .formGroup {
   display: flex;
   flex-direction: column;
@@ -101,7 +56,6 @@ textarea {
   resize: none;
 }
 
-/* ---- Botones generales ---- */
 .buttonGroup {
   display: flex;
   gap: 1rem;
@@ -141,7 +95,6 @@ textarea {
   background-color: var(--red-dark);
 }
 
-/* Botones internos (agregar/eliminar) */
 .actionBtn {
   background-color: var(--purple-secondary);
   color: #fff;
@@ -173,7 +126,6 @@ textarea {
   background-color: var(--red-dark);
 }
 
-/* ---- Error summary ---- */
 .errorSummary {
   background-color: rgba(255, 107, 107, 0.1);
   border: 1px solid #ff6b6b;
@@ -194,11 +146,11 @@ textarea {
 
 .sameRow {
   display: flex;
-  gap: 1rem; /* espacio entre las columnas */
+  gap: 1rem;
 }
 
 .col {
-  flex: 1; /* que ambas columnas ocupen el mismo ancho */
+  flex: 1;
 }
 
 .inlineButtons {
@@ -242,14 +194,14 @@ textarea {
 }
 
 .selectedEventBadge {
-  display: flex; /* en vez de inline-flex */
+  display: flex; 
   align-items: center;
-  justify-content: space-between; /* separa extremos */
+  justify-content: space-between;
   gap: 0.5rem;
   background-color: #852c2671;
   border: 1px solid #852c26b2;
   padding: 0.5rem 0.75rem;
-  border-radius: 15px; /* pill look */
+  border-radius: 15px;
   font-size: 0.9rem;
   color: #f0f0f5;
   text-overflow: ellipsis;
@@ -277,13 +229,11 @@ textarea {
   color: #ff6b6b;
 }
 
-/* ---- Sección desplegable ---- */
 .collapseSection {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-/* Botón header del acordeón */
 .collapseButton {
   width: 100%;
   text-align: left;
@@ -304,7 +254,6 @@ textarea {
   background-color: #3a2b5c;
 }
 
-/* Cuerpo del acordeón */
 .collapseBody {
   margin-top: 0.5rem;
   background-color: #1f1f2f;
@@ -315,7 +264,6 @@ textarea {
   gap: 0.75rem;
 }
 
-/* Item de producto */
 .productItem {
   background-color: #2a2a40;
   padding: 0.75rem;
@@ -325,7 +273,6 @@ textarea {
   gap: 0.5rem;
 }
 
-/* Item de gasto */
 .expenseItem {
   background-color: #2a2a40;
   padding: 0.75rem;
@@ -335,7 +282,6 @@ textarea {
   gap: 0.5rem;
 }
 
-/* Inputs y selects internos */
 .input,
 .select {
   width: 100%;
@@ -346,7 +292,6 @@ textarea {
   color: #fff;
 }
 
-/* Botones de agregar */
 .addButton {
   align-self: flex-start;
   padding: 0.5rem 1rem;
@@ -363,7 +308,6 @@ textarea {
   background-color: #684bc2;
 }
 
-/* Botón eliminar */
 .removeButton {
   background-color: #ff4d4f;
   color: #fff;
@@ -381,8 +325,8 @@ textarea {
 
 .labelWithIcon {
   display: flex;
-  align-items: center; /* centra verticalmente label + icono */
-  gap: 0.5rem; /* espacio entre texto y el icono */
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .infoIconWrap {
@@ -393,8 +337,6 @@ textarea {
   cursor: help;
   color: var(--black-color);
   transition: filter 0.3s ease, transform 0.3s ease;
-  /*width: 34px;
-  height: 34px;*/
   width: 25px;
   height: 25px;
   border-radius: 999px;
@@ -435,25 +377,7 @@ textarea {
   left: calc(100% + 8px);
 }
 
-/* ---- Responsive ---- */
-/*@media (max-width: 768px) {
-  .form {
-    padding: 1rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .buttonGroup {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}*/
-
-/* ---- Responsive ---- */
 @media (max-width: 1024px) {
-  /* Ajustes generales del form */
   .form {
     padding: 1.5rem;
   }
@@ -462,30 +386,26 @@ textarea {
     font-size: 1.6rem;
   }
 
-  /* Filas con varias columnas */
   .sameRow {
     flex-wrap: wrap;
   }
 
   .col {
-    flex: 1 1 100%; /* Cada columna ocupa todo el ancho */
-    min-width: 200px; /* Opcional, asegura inputs no demasiado pequeños */
+    flex: 1 1 100%;
+    min-width: 200px; 
   }
 
-  /* Ajuste para inline buttons */
   .inlineButtons {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  /* Ajuste botones agregar/crear evento/cliente */
   .actionButton,
   .actionButtonSecondary {
     width: 100%;
     justify-content: center;
   }
 
-  /* Ajuste de badges de evento/cliente */
   .selectedEventBadge {
     flex-direction: column;
     align-items: flex-start;
@@ -505,7 +425,6 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  /* Ajuste final para pantallas móviles */
   .form {
     padding: 1rem;
   }

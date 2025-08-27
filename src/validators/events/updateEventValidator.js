@@ -9,7 +9,6 @@ const updateEventValidator = yup.object().shape({
     .positive("Debe ser positivo")
     .required("La distancia es obligatoria"),
   description: yup.string().max(150, "La descripción no puede tener más de 150 caracteres").notRequired(),
-  /*status: yup.string().oneOf(["ENABLED", "DISABLED"]).required("El estado es obligatorio"),*/
 });
 
 export default updateEventValidator;
