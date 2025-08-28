@@ -160,6 +160,12 @@
   opacity: 1;
 }
 
+.noDataImages{
+  color: #d6b3ff;
+  font-style: italic;
+  margin-left: 20px;
+}
+
 @media (max-width: 768px) {
   .sidePreview {
     display: none;

@@ -62,7 +62,7 @@ export default function ImageCarousel({ images = [], onDeletePhoto }) {
     setActive((i) => (items.length ? (i < items.length - 1 ? i + 1 : 0) : 0));
 
   if (!items.length) {
-    return <p className="text-white">No hay imágenes disponibles.</p>;
+    return <p className={styles.noDataImages}>No hay imágenes disponibles.</p>;
   }
 
   return (

@@ -6,11 +6,12 @@ import proaudioLogo from "../../assets/proaudio-logo-1.png";
 import proaudioLetter from "../../assets/proaudio-letter-blacked.png";
 import styles from "../../styles/auth/login.module.css";
 import { loginSchema } from "../../validators/auth/loginValidator";
-import { showToast } from "../../utils/toastUtils";
+import { showToastError } from "../../utils/toastUtils";
 import useLogin from "../../hooks/auth/useLogin";
 import { selectLoggedUser } from "../../features/auth/AuthSelector";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +20,7 @@ export default function LoginForm() {
   const { loginUser } = useLogin();
   const loggedUser = useSelector(selectLoggedUser);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Configuración del formulario
   const {
@@ -29,6 +31,13 @@ export default function LoginForm() {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
+
+  //Probar en producción de que funcione solo UNA VEZ, en desarrollo se dispara dos veces por StrictMode.
+  useEffect(() => {
+    if (location.state?.message) {
+      showToastError(location.state.message);
+    }
+  }, [location.state]);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -141,7 +150,9 @@ export default function LoginForm() {
 
       {/* Link */}
       <div className={styles.forgotPassword}>
-        <a className={styles.forgotPasswordLink} onClick={handleGoToForgot}>¿Olvidaste la contraseña?</a>
+        <a className={styles.forgotPasswordLink} onClick={handleGoToForgot}>
+          ¿Olvidaste la contraseña?
+        </a>
       </div>
 
       {/* Botón */}

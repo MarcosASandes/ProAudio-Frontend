@@ -9,6 +9,7 @@
   box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
   overflow-y: auto;
   height: 100%;
+  z-index: 9999;
 }
 
 .titleWrap {
@@ -17,16 +18,16 @@
 }
 
 .title {
-  display: inline-block;    
-  max-width: 520px;           
+  display: inline-block;
+  max-width: 520px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin: 0 1rem 0.5rem;      
+  margin: 0 1rem 0.5rem;
   font-weight: bold;
   font-size: 1.8rem;
   color: #fff;
-  text-align: center;     
+  text-align: center;
 }
 
 .subtitle {
@@ -196,6 +197,18 @@
   .projectItem {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  .actionButton {
+    width: 100%;
+    justify-content: center;
   }
 }
 
