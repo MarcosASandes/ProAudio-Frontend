@@ -13,6 +13,7 @@ import {
   selectTotalNotifications,
 } from "../../features/notifications/NotificationSelector";
 import { useSelector } from "react-redux";
+import { clearData } from "../../utils/localStorageUtilities";
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -83,9 +84,10 @@ export default function Navbar() {
 
   const logoutAndRedirect = async () => {
     await logoutUser(userToken);
-    localStorage.removeItem("userName");
+    /*localStorage.removeItem("userName");
     localStorage.removeItem("userMail");
-    localStorage.removeItem("userToken");
+    localStorage.removeItem("userToken");*/
+    clearData();
 
     setTimeout(() => {
       navigate("/auth/login");

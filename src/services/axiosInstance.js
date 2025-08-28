@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { clearData } from '../utils/localStorageUtilities';
 
 const apiURL = "/api";
 const localURL = "http://localhost:8080";
@@ -31,13 +32,14 @@ axiosInstance.interceptors.response.use(
     if (error.response) {
       if (error.response.status === 401 || error.response.status === 403) {
         console.warn("Token expirado o inválido, cerrando sesión...");
-        localStorage.removeItem('userToken');
+        clearData();
+        /*localStorage.removeItem('userToken');
         localStorage.removeItem('userName');
         localStorage.removeItem('userMail');
         localStorage.removeItem('temporaryProjectClient');
         localStorage.removeItem('temporaryProjectEvent');
         localStorage.removeItem('projectDraft');
-        localStorage.removeItem('projectDraftUpdate');
+        localStorage.removeItem('projectDraftUpdate');*/
         window.location.href = '/auth/login';
       }
     }
