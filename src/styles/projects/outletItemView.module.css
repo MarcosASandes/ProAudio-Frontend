@@ -20,6 +20,7 @@
   background-color: #1d1d2b;
   border-radius: 10px;
   color: var(--white-color);
+  overflow: auto;
 }
 
 .title {
@@ -52,7 +53,8 @@
 .tooltip {
   position: absolute;
   top: 50%;
-  left: calc(100% + 8px);
+  /*left: calc(100% + 8px);*/
+  left: -80px;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
@@ -82,7 +84,7 @@
   display: flex;
   flex: 1;
   gap: 1rem;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 /* LEFT PANEL - SCANNER */

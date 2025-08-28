@@ -11,7 +11,7 @@ import { selectProductsInProject } from "../../features/products/ProductSelector
 import BackButton from "../global/BackButton";
 import useGetProjectById from "../../hooks/projects/useGetProjectById";
 import { selectSelectedProject } from "../../features/projects/ProjectSelector";
-import { Info } from "lucide-react"; // <-- agregado
+import { Info } from "lucide-react";
 
 const OutletItemView = () => {
   const { id } = useParams();
