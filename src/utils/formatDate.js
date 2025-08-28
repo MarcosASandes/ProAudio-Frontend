@@ -32,3 +32,32 @@ export function formatearFecha(fechaISO) {
 
   return `${dia}/${mes}/${anio} (${horas}:${minutos})`;
 }
+
+export const formatDateToDatetimeLocal = (input) => {
+  if (!input) return "";
+
+  // ya en formato correcto
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(input)) return input;
+
+  // Si viene un ISO con segundos o zona (ej: 2025-09-05T00:00:00 o 2025-09-05T00:00:00Z)
+  const isoMatch = input.match(
+    /^(\d{4}-\d{2}-\d{2})[T ]?(\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?(Z|[+-]\d{2}:\d{2})?$/
+  );
+  if (isoMatch) {
+    return `${isoMatch[1]}T${isoMatch[2]}:${isoMatch[3]}`;
+  }
+
+  // Fallback: intentar con Date (podría ajustar zona horaria)
+  const d = new Date(input);
+  if (!isNaN(d.getTime())) {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    const hours = String(d.getHours()).padStart(2, "0");
+    const minutes = String(d.getMinutes()).padStart(2, "0");
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  }
+
+  // Si no se pudo parsear, devolver vacío para evitar valores inválidos
+  return "";
+};
