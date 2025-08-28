@@ -15,7 +15,9 @@ const EventRow = ({ event, onDeleteEvent }) => {
       <td title={event.event_id}>{event.event_id}</td>
       <td title={event.name}>{event.name}</td>
       <td title={event.address}>{event.address}</td>
-      <td title={event.description}>{event.description ? event.description : "-"}</td>
+      <td title={event.description}>
+        {event.description ? event.description : "-"}
+      </td>
       <td title={event.distance}>{event.distance} KM</td>
       <td title={getEnabledDisabledLabel(event.status)}>
         <span
@@ -41,9 +43,13 @@ const EventRow = ({ event, onDeleteEvent }) => {
           className={styles.editBtn}
           aria-label={`Eliminar ${event.name}`}
           title={`Eliminar ${event.name}`}
-          onClick={() => onDeleteEvent(event)} 
+          onClick={() => onDeleteEvent(event)}
+          disabled={event.status === "DISABLED"}
         >
-          <Trash size={20} />
+          <Trash
+            size={20}
+            color={event.status === "DISABLED" ? "#aaa" : "currentColor"}
+          />
         </button>
       </td>
     </tr>
