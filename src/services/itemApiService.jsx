@@ -25,6 +25,12 @@ export const getStatuses = async () => {
   return response.data;
 };
 
+export const getItemStatusesById = async (id) => {
+  const response = await axiosInstance.get(`/item/possible/status/${id}`);
+  console.log("getItemStatusesById: ", response.data);
+  return response.data;
+};
+
 export const getItemDetails = async (id) => {
   const response = await axiosInstance.get(`/item/${id}/detail`);
   return response.data;

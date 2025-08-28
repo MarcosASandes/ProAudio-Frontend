@@ -5,6 +5,7 @@ export const selectSelectedItem = (state) => state.items.selectedItem;
 export const selectSelectedItemDetails = (state) => state.items.selectItemDetails;
 export const selectItemRegenerateQr = (state) => state.items.itemRegenerateQr;
 export const selectStatuses = (state) => state.items.statuses;
+export const selectStatusesById = (state) => state.items.statusesById;
 export const selectItems = (state) => state.items.items;
 export const selectItemsPageable = (state) => state.items.pageable;
 export const selectItemsLoadingAllItems = (state) => state.items.loadingAllItems;

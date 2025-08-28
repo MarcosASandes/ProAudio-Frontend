@@ -85,6 +85,11 @@ h4 {
   background-color: #7a2b3c;
 }
 
+.btnRed:disabled {
+  background-color: #7a2b3c6c;
+  cursor: not-allowed;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;

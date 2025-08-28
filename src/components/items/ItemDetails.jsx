@@ -45,7 +45,7 @@ const ItemDetails = () => {
       itemRegenerateQr.item_id,
       item.product?.model
     );
-    downloadCanvasAsImage(canvas, `item-${itemRegenerateQr.item_id}-qr.png`);
+    downloadCanvasAsImage(canvas, `item-${itemRegenerateQr.item_id}-serie${item.serial_number}-qr.png`);
   };
 
   return (
@@ -69,14 +69,19 @@ const ItemDetails = () => {
               onClick={() => navigate("/items/" + id + "/edit")}
             >
               <Pencil size={16} className="me-1" />
-              Modificar Artículo
+              Modificar
             </button>
             <button
               className={`btn ${styles.btnRed} ${styles.button} btn-sm`}
               onClick={() => setShowDeleteModal(true)}
+              disabled={item.status === "DELETED"}
             >
-              <Trash2 size={16} className="me-1" />
-              Eliminar Artículo
+              <Trash2
+                size={16}
+                color={item.status === "DELETED" ? "#aaa" : "currentColor"}
+                className="me-1"
+              />
+              Eliminar
             </button>
           </div>
         </div>

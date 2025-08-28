@@ -1,9 +1,15 @@
-export const generateEsterilizedQR = async (qrBase64, logoUrl, itemId, modelo, size = 200) => {
-  const margin = 20;           // margen general
-  const logoMargin = 10;       // margen alrededor del logo
+export const generateEsterilizedQR = async (
+  qrBase64,
+  logoUrl,
+  itemId,
+  modelo,
+  size = 200
+) => {
+  const margin = 20; // margen general
+  const logoMargin = 10; // margen alrededor del logo
   const logoSize = size * 0.2; // logo más pequeño
-  const textSpacing = 10;      // espacio entre QR y texto
-  const lineHeight = 18;       // separación entre líneas
+  const textSpacing = 10; // espacio entre QR y texto
+  const lineHeight = 18; // separación entre líneas
 
   // Altura de la zona de texto y logo (más compacta que antes)
   const extraHeight = logoSize + logoMargin * 2;
@@ -51,6 +57,10 @@ export const generateEsterilizedQR = async (qrBase64, logoUrl, itemId, modelo, s
   if (modelo.length > 35) fontSize = 10;
   if (modelo.length > 45) fontSize = 8;
 
+  if (modelo.length > 15 && modelo === modelo.toUpperCase()) {
+    fontSize -= 4;
+  }
+
   ctx.fillStyle = "#000";
   ctx.textAlign = "left";
   ctx.font = `bold ${fontSize}px Arial`;
@@ -61,10 +71,6 @@ export const generateEsterilizedQR = async (qrBase64, logoUrl, itemId, modelo, s
 
   return canvas;
 };
-
-
-
-
 
 // Descarga el canvas como imagen PNG
 export const downloadCanvasAsImage = (canvas, filename) => {

@@ -7,6 +7,7 @@ const initialState = {
   errorAllItems: null,
   createdItems: [],
   statuses: [],
+  statusesById: [],
   selectedItem: null,
   loading: false,
   error: null,
@@ -87,6 +88,13 @@ const itemSlice = createSlice({
         };
       }
     },
+    setStatusesById: (state, action) => {
+      state.statusesById = action.payload.status_list;
+      console.log("setStatusesById: ", state.statusesById);
+    },
+    clearStatusesById: (state) => {
+      state.statusesById = [];
+    },
   },
 });
 
@@ -105,6 +113,8 @@ export const {
   removeItem,
   setItemRegenerateQr,
   updateItemLocationAndStatus,
+  setStatusesById,
+  clearStatusesById,
 } = itemSlice.actions;
 
 export default itemSlice.reducer;
