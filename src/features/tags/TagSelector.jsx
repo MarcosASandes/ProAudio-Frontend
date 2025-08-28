@@ -3,6 +3,7 @@ export const selectTagsLoading = (state) => state.tags.loading;
 export const selectTagsError = (state) => state.tags.error;
 export const selectSelectedTag = (state) => state.tags.selectedTag;
 export const selectTagsTypes = (state) => state.tags.tagsTypes;
+export const selectIsTagsLoaded = (state) => state.tags.loaded;
 
 export const flattenTags = (tagList) => {
   const result = [];

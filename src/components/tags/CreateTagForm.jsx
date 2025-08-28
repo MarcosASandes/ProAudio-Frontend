@@ -12,7 +12,7 @@ import { selectTags } from "../../features/tags/TagSelector";
 import styles from "../../styles/tags/createTagForm.module.css";
 
 export default function CreateTagForm() {
-  useGetAllTags(); // Para que las etiquetas sigan apareciendo tras F5
+  useGetAllTags(true); // Para que las etiquetas sigan apareciendo tras F5
   const tags = useSelector(selectTags);
 
   const [fatherTag, setFatherTag] = useState(null);

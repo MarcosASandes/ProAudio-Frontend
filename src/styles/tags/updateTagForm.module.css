@@ -87,6 +87,11 @@
   background-color: var(--tekhelet);
 }
 
+.submitBtn:disabled{
+  background-color: #755fd648;
+  cursor: not-allowed;
+}
+
 .clearBtn {
   background-color: #962c2c;
   color: var(--white-color);
@@ -97,6 +102,21 @@
 .clearBtn:hover {
   background-color: var(--red-dark);
   color: var(--white-color);
+}
+
+.convertToBase{
+  background-color: #2048b656;
+  color: #ffffff;
+  border: 1px transparent solid;
+}
+
+.convertToBase:hover{
+  background-color: #2b41a78e;
+}
+
+.convertToBase:disabled{
+  background-color: #16285a48;
+  cursor: not-allowed;
 }
 
 .buttonGroup {

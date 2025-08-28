@@ -16,12 +16,9 @@ const ClientSelectorModal = ({ onClose, onSelect }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("id");
   const [direction, setDirection] = useState("desc");
-  const [filterStatus, setFilterStatus] = useState("ENABLED");
   const [selectedClient, setSelectedClient] = useState(null);
-
+  const filterStatus = "ENABLED";
   const size = 10;
-
-  // Hook para obtener clientes
   useGetAllClients(page, size, sortBy, direction, filterStatus, searchTerm);
 
   const clients = useSelector(selectClients);
@@ -31,7 +28,7 @@ const ClientSelectorModal = ({ onClose, onSelect }) => {
 
   useEffect(() => {
     setPage(1);
-  }, [searchTerm, filterStatus, sortBy, direction]);
+  }, [searchTerm, sortBy, direction]);
 
   const handleConfirmSelection = () => {
     if (selectedClient) {
@@ -84,22 +81,6 @@ const ClientSelectorModal = ({ onClose, onSelect }) => {
               </option>
               <option className={styles.selectOption} value="asc">
                 Ascendente
-              </option>
-            </select>
-
-            <select
-              value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value)}
-              className={styles.select}
-            >
-              <option className={styles.selectOption} value="">
-                Todos
-              </option>
-              <option className={styles.selectOption} value="ENABLED">
-                Habilitado
-              </option>
-              <option className={styles.selectOption} value="DISABLED">
-                Deshabilitado
               </option>
             </select>
           </div>

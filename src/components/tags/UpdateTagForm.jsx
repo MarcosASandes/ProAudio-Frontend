@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 
 export default function UpdateTagForm() {
   const { tagId } = useParams();
-  useGetAllTags();
+  useGetAllTags(false);
   const tags = useSelector(selectTags);
   const tag = tags.find((t) => t.tag_id === Number(tagId));
   const updateTag = useUpdateTag();
@@ -26,7 +26,7 @@ export default function UpdateTagForm() {
     register,
     handleSubmit,
     setValue,
-    formState: { errors },
+    formState: { errors, isDirty },
     reset,
   } = useForm({
     resolver: yupResolver(tagSchema),
@@ -55,6 +55,17 @@ export default function UpdateTagForm() {
   useEffect(() => {
     setValue("father_id", fatherTag ? fatherTag.tag_id : null);
   }, [fatherTag, setValue]);
+
+  const handleConvertToBase = () => {
+    if (fatherTag) {
+      setFatherTag(null);
+      setValue("father_id", null, {
+        shouldDirty: true,
+        shouldTouch: true,
+        shouldValidate: true,
+      });
+    }
+  };
 
   const onSubmit = (data) => {
     const updatedData = {
@@ -117,7 +128,7 @@ export default function UpdateTagForm() {
               className={`${styles.clientFormButtons} ${styles.submitBtn}`}
               onClick={() => setIsModalOpen(true)}
             >
-              Seleccionar etiqueta base
+              Seleccionar
             </button>
             {fatherTag && (
               <span className={styles.badgeOrange}>{fatherTag.name}</span>
@@ -129,6 +140,14 @@ export default function UpdateTagForm() {
         </div>
 
         <div className={styles.buttonGroup}>
+          <button
+            type="button"
+            className={`${styles.convertToBase} ${styles.clientFormButtons}`}
+            onClick={handleConvertToBase}
+            disabled={!tag.father_id}
+          >
+            Convertir a etiqueta base
+          </button>
           <button
             type="button"
             className={`${styles.clearBtn} ${styles.clientFormButtons}`}
@@ -148,6 +167,7 @@ export default function UpdateTagForm() {
           <button
             type="submit"
             className={`${styles.submitBtn} ${styles.clientFormButtons}`}
+            disabled={!isDirty}
           >
             Guardar cambios
           </button>
@@ -159,6 +179,11 @@ export default function UpdateTagForm() {
           tags={tags}
           onSelect={(tag) => {
             setFatherTag(tag);
+            setValue("father_id", tag.tag_id, {
+              shouldDirty: true,
+              shouldTouch: true,
+              shouldValidate: true,
+            });
             setIsModalOpen(false);
           }}
           onClose={() => setIsModalOpen(false)}
