@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/clients/clientView.module.css";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import useGetMostRentedProducts from "../../hooks/analytics/useGetMostRentedProducts";
-import { selectMostRentedDataAnalytic } from "../../features/analytics/AnalyticSelector";
+import styles from "../../styles/analytics/analyticsView.module.css";
+import MostRentedProductsAnalytic from "./MostRentedProductsAnalytic";
 
 const AnalyticsView = () => {
-  const [mostRentedProductsStartDate, setMostRentedProductsStartDate] = useState("");
-
-
   return (
-    <div className={styles.container}></div>
+    <div className={styles.grid}>
+      <MostRentedProductsAnalytic />
+      {/* aca van las otras */}
+    </div>
   );
 };
 
