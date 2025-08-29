@@ -9,6 +9,7 @@ import projectReducer from "../features/projects/ProjectSlice";
 import authReducer from "../features/auth/AuthSlice";
 import clientReducer from "../features/clients/ClientSlice";
 import notificationReducer from "../features/notifications/NotificationSlice";
+import analyticsReducer from "../features/analytics/AnalyticSlice";
 
 const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
     auth: authReducer,
     clients: clientReducer,
     notifications: notificationReducer,
+    analytics: analyticsReducer,
   }
 });
 
