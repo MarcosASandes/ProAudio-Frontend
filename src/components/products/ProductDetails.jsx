@@ -19,6 +19,7 @@ import {
   Tags,
   PackageSearch,
   Image,
+  Info,
 } from "lucide-react";
 
 const ProductDetails = () => {
@@ -85,6 +86,10 @@ const ProductDetails = () => {
     navigate("/product/" + id + "/photos/create");
   };
 
+  const handleGoToAddTagsIcon = () => {
+    navigate("/product/" + id + "/tag/add");
+  };
+
   return (
     <div className={styles.generalContainer}>
       <BackButton target="/products" />
@@ -92,7 +97,29 @@ const ProductDetails = () => {
       {/* Header */}
       <div className={styles.header}>
         <h1 className={styles.title}>{product.model}</h1>
-        <p className={styles.subtitle}>Marca: {product?.brand || "N/A"}</p>
+        {/*<p className={styles.subtitle}>Marca: {product?.brand || "N/A"}</p>*/}
+        <p className={styles.subtitle}>
+          Marca:{" "}
+          {product?.brand ? (
+            product.brand
+          ) : (
+            <span className={styles.labelWithIcon}>
+              Sin marca
+              <div
+                className={`${styles.infoIconWrap} ${styles.dangerIconWrap}`}
+                onClick={handleGoToAddTagsIcon}
+                aria-hidden="true"
+              >
+                <Info size={15} />
+                <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                  Este producto no tiene una marca registrada. Tienes que
+                  agregar una etiqueta de marca correspondiente. Al hacer click
+                  en el ícono te redireccionará al lugar correcto.
+                </div>
+              </div>
+            </span>
+          )}
+        </p>
       </div>
 
       <div className={styles.mobileActionsButton}>
