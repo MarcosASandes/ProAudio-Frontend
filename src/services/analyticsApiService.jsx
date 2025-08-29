@@ -20,3 +20,21 @@ export const getMostRentedProducts = async (
 
   return response.data;
 };
+
+export const getProjectsTimelineData = async (
+  start = "",
+  end = "",
+) => {
+  const params = {
+    start,
+    end,
+  };
+  const response = await axiosInstance.get('/analytics/timeline', {
+    params,
+    paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
+  });
+
+  console.log("Esta es la data que me llega: ", response.data);
+
+  return response.data;
+};
