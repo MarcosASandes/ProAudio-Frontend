@@ -484,6 +484,10 @@
   .tagBadge {
     font-size: 0.8rem;
   }
+
+  .tooltipRight {
+    left: -140px;
+  }
 }
 
 /* Modal Acciones */
