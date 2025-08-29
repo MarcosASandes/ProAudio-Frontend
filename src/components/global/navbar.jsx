@@ -170,7 +170,7 @@ export default function Navbar() {
 
               {(totalNotifications ?? 0) > 0 && (
                 <span className={styles.notificationBadge}>
-                  {totalNotifications}
+                  {totalNotifications > 99 ? "+99" : totalNotifications}
                 </span>
               )}
             </button>

@@ -1,12 +1,12 @@
 import * as yup from "yup";
 
 export const createItemsSchema = yup.object().shape({
-  description: yup.string().required("La descripción es obligatoria"),
+  description: yup.string().required("La descripción del lote de artículos es obligatoria"),
   purchase_price: yup
     .number()
-    .typeError("Debe ser un número")
-    .min(0, "El precio de compra no puede ser negativo")
-    .required("El precio de compra es obligatorio"),
+    .typeError("El precio de compra de los artículos debe ser un número")
+    .min(0, "El precio de compra de los artículos no puede ser negativo")
+    .required("El precio de compra de los artículos es obligatorio"),
   purchase_date: yup
     .date()
     .transform((value, originalValue) => (originalValue === "" ? null : value))
@@ -14,16 +14,16 @@ export const createItemsSchema = yup.object().shape({
     .required("La fecha de compra es obligatoria"),
   quantity: yup
     .number()
-    .typeError("Debe ser un número")
-    .integer("Debe ser entero")
-    .positive("Debe ser positivo")
-    .required("La cantidad es obligatoria"),
+    .typeError("La cantidad comprada debe ser un número")
+    .integer("La cantidad comprada debe ser entero")
+    .positive("La cantidad comprada debe ser positiva")
+    .required("La cantidad comprada es obligatoria"),
   itemRange: yup.string().required("El rango de transmisión es obligatorio"),
   serialNumbers: yup.array().of(
     yup.object().shape({
       serial_numbers: yup.array().of(
         yup.object().shape({
-          serial_number: yup.string().required("Obligatorio"),
+          serial_number: yup.string().required("Los números de serie son obligatorios"),
         })
       ),
     })

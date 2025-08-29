@@ -18,6 +18,7 @@ import {
 } from "../../utils/getLabels";
 import BackButton from "../global/BackButton";
 import { Pencil, Trash2, Download } from "lucide-react";
+import { cleanSerial } from "../../utils/formatSerialNumber";
 
 const ItemDetails = () => {
   const { id } = useParams();
@@ -45,7 +46,16 @@ const ItemDetails = () => {
       itemRegenerateQr.item_id,
       item.product?.model
     );
-    downloadCanvasAsImage(canvas, `item-${itemRegenerateQr.item_id}-serie${item.serial_number}-qr.png`);
+    const maxLen = 100;
+    const serialCleaned = cleanSerial(item.serial_number);
+    let fileNameConst = `item-${id}-serial-${serialCleaned}-qr.png`;
+    if (fileNameConst.length > maxLen) {
+      fileNameConst = fileNameConst.slice(0, maxLen - 4) + ".png";
+    }
+    downloadCanvasAsImage(
+      canvas,
+      fileNameConst
+    );
   };
 
   return (

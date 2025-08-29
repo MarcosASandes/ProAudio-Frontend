@@ -117,6 +117,12 @@
   background-color: var(--french-violet);
 }
 
+.loginButton:disabled {
+  background-color: #4f0d6e8a;
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+
 /* Animación de salto */
 @keyframes iconJump {
   0% {

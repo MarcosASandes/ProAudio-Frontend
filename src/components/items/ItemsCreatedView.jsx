@@ -18,6 +18,7 @@ import ItemsCreatedTable from "./ItemsCreatedTable";
 import styles from "../../styles/items/itemsCreatedView.module.css";
 import logo from "../../assets/proaudio-logo-1.png";
 import BackButton from "../global/BackButton";
+import { cleanSerial } from "../../utils/formatSerialNumber";
 
 const ItemsCreatedView = () => {
   const reduxItems = useSelector(selectCreatedItems);
@@ -57,7 +58,14 @@ const ItemsCreatedView = () => {
       item.item_id,
       product?.model
     );
-    downloadCanvasAsImage(canvas, `item-${item.item_id}-qr.png`);
+    //downloadCanvasAsImage(canvas, `item-${item.item_id}-qr.png`);
+    const maxLen = 100;
+    const serialCleaned = cleanSerial(item.serial_number);
+    let fileNameConst = `item-${item.item_id}-serial-${serialCleaned}-qr.png`;
+    if (fileNameConst.length > maxLen) {
+      fileNameConst = fileNameConst.slice(0, maxLen - 4) + ".png";
+    }
+    downloadCanvasAsImage(canvas, fileNameConst);
   };
 
   const handleDownloadAll = async () => {
@@ -72,7 +80,13 @@ const ItemsCreatedView = () => {
       );
       const dataUrl = canvas.toDataURL("image/png");
       const base64 = dataUrl.split(",")[1];
-      zip.file(`item-${item.item_id}-qr.png`, base64, { base64: true });
+      const maxLen = 100;
+      const serialCleaned = cleanSerial(item.serial_number);
+      let fileNameConst = `item-${item.item_id}-serial-${serialCleaned}-qr.png`;
+      if (fileNameConst.length > maxLen) {
+        fileNameConst = fileNameConst.slice(0, maxLen - 4) + ".png";
+      }
+      zip.file(fileNameConst, base64, { base64: true });
     }
 
     const blob = await zip.generateAsync({ type: "blob" });

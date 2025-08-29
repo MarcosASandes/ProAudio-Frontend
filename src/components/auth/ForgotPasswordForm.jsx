@@ -125,7 +125,7 @@ export default function ForgotPasswordForm() {
       )}
 
       {/* Botón */}
-      <button type="submit" className={styles.loginButton} disabled={isSent}>
+      <button type="submit" className={styles.loginButton} disabled={isSent || errors.email}>
         Enviar
       </button>
     </form>

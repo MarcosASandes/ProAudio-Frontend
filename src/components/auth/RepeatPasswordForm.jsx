@@ -72,6 +72,10 @@ export default function RepeatPasswordForm() {
         );
         setMessageColor("#7b2cbfff");
         setIsReset(true);
+
+        setTimeout(() => {
+          navigate(`/auth/login`);
+        }, 3000);
       } else {
         setSuccessMessage("Hubo un problema, intenta nuevamente.");
         setMessageColor("#8b0f0f");

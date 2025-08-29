@@ -11,7 +11,8 @@ import useDeleteProject from "../../hooks/projects/useDeleteProject";
 import {
   getProjectStatusLabel,
   getProjectPaymentStatusLabel,
-  getExpensesTypesLabel
+  getExpensesTypesLabel,
+  getItemsLocationLabel
 } from "../../utils/getLabels";
 import BackButton from "../global/BackButton";
 import {
@@ -361,7 +362,7 @@ const ProjectDetails = () => {
                         >
                           {item.product_model}
                         </span>{" "}
-                        - {item.item_location} - {item.item_serial_number}
+                        - {getItemsLocationLabel(item.item_location)} - {item.item_serial_number}
                       </span>
                     </div>
                   ))
@@ -389,7 +390,7 @@ const ProjectDetails = () => {
               project.expenses.map((exp, idx) => (
                 <div key={idx} className={styles.listItem}>
                   <span>
-                    ${exp.value} - {getExpensesTypesLabel(exp.type) || exp.type} -{" "}
+                    {exp.value} USD - {getExpensesTypesLabel(exp.type) || exp.type} -{" "}
                     {exp.description}
                   </span>
                 </div>

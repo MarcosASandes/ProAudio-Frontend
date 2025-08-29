@@ -51,7 +51,7 @@ const CreateItemsForm = () => {
 
   const currentLote = watch("items")[0];
 
-  const addToCart = async () => {
+  /*const addToCart = async () => {
     console.log("=== Intentando agregar al carrito ===");
     const currentLote = watch("items")[0];
     console.log("Current lote raw:", currentLote);
@@ -77,6 +77,36 @@ const CreateItemsForm = () => {
         err.inner.forEach((e) => {
           console.log(`Path: ${e.path}, Message: ${e.message}`);
         });
+      }
+    }
+
+    console.log("Cart actual:", cart);
+  };*/
+
+  const addToCart = async () => {
+    console.log("=== Intentando agregar al carrito ===");
+    const currentLote = watch("items")[0];
+    console.log("Current lote raw:", currentLote);
+
+    try {
+      await createItemsSchema.validate(currentLote, { abortEarly: false });
+      console.log("Validación Yup pasó ✅");
+
+      const loteNumbered = {
+        ...currentLote,
+        purchase_price: Number(currentLote.purchase_price),
+        quantity: Number(currentLote.quantity),
+      };
+
+      console.log("Lote convertido listo para agregar:", loteNumbered);
+
+      setCart([...cart, loteNumbered]);
+      resetForm();
+    } catch (err) {
+      if (err.inner && err.inner.length > 0) {
+        err.inner.forEach((e) => showToastError(e.message));
+      } else {
+        showToastError(err.message);
       }
     }
 

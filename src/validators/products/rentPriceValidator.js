@@ -9,5 +9,6 @@ export const rentPriceValidator = yup.object().shape({
   description: yup
     .string()
     .trim()
-    .required("La descripción es obligatoria"),
+    .max(150, "La descripción del precio debe tener como máximo 150 caracteres")
+    .notRequired(),
 });

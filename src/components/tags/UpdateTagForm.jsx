@@ -12,6 +12,7 @@ import useGetAllTags from "../../hooks/tags/useGetAllTags";
 import styles from "../../styles/tags/updateTagForm.module.css";
 import BackButton from "../global/BackButton";
 import { useParams } from "react-router-dom";
+import { Info } from "lucide-react";
 
 export default function UpdateTagForm() {
   const { tagId } = useParams();
@@ -121,7 +122,16 @@ export default function UpdateTagForm() {
         </div>
 
         <div className={styles.formGroup}>
-          <label>Etiqueta padre</label>
+          <div className={styles.labelWithIcon}>
+                <label>Etiqueta padre</label>
+                <div className={styles.infoIconWrap} aria-hidden="true">
+                  <Info size={15} />
+                  <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+                    Cambiar la jerarquía de etiquetas puede generar problemas en productos y proyectos. Usar con cuidado.
+                  </div>
+                </div>
+              </div>
+          
           <div className="d-flex align-items-center gap-2">
             <button
               type="button"
