@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   mostRentedProductsData: {},
+  productBalanceData: {},
 };
 
 const analyticsSlice = createSlice({
@@ -14,12 +15,20 @@ const analyticsSlice = createSlice({
     clearMostRentedProductsAnalytic: (state) => {
       state.mostRentedProductsData = null;
     },
+    setProductBalanceAnalytic: (state, action) => {
+      state.productBalanceData = action.payload;
+    },
+    clearProductBalanceAnalytic: (state) => {
+      state.productBalanceData = null;
+    },
   },
 });
 
 export const {
   setMostRentedProductsAnalytic,
   clearMostRentedProductsAnalytic,
+  setProductBalanceAnalytic,
+  clearProductBalanceAnalytic,
 } = analyticsSlice.actions;
 
 export default analyticsSlice.reducer;

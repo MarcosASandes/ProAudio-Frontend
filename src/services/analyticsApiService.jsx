@@ -20,3 +20,8 @@ export const getMostRentedProducts = async (
 
   return response.data;
 };
+
+export const getProductBalanceById = async (id) => {
+  const response = await axiosInstance.get(`/analytics/balance/${id}`);
+  return response.data;
+};

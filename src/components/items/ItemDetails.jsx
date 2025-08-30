@@ -65,7 +65,7 @@ const ItemDetails = () => {
           target={"/product/" + item.product?.product_id + "/items"}
         />
         <div className={styles.header}>
-          <h4>Detalles del Artículo</h4>
+          <h4>Detalles del Artículo de {item.product?.model}</h4>
           <div className="d-flex gap-2">
             <button
               className={`btn ${styles.btnPurple} ${styles.button} btn-sm`}
