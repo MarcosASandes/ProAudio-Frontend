@@ -7,7 +7,7 @@
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(125, 93, 223, 0.3);
   color: #eee;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 /* Header */
@@ -58,56 +58,89 @@
   color: #eee;
 }
 
-/* Wrapper del timeline */
+/* ====== Timeline wrapper ====== */
 .timelineWrapper {
-  height: 300px; /* ajustar según necesidad */
+  height: 350px; /* un poco más grande para respirar */
   border: 1px solid #5335ae;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 10px;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: transparent;
+  box-shadow: 0 0 15px rgba(83, 53, 174, 0.25);
 }
 
-/* Sobreescribir clases vis-timeline */
+/* ====== General ====== */
 .vis-timeline {
-  background-color: #1c1c2a !important;
+  background-color: #121212 !important;
   color: #eee !important;
+  border: none !important;
+  font-family: "Arial", sans-serif;
 }
 
+/* ====== Items (proyectos) ====== */
 .vis-item {
-  background-color: #7355ce !important;
+  background: linear-gradient(135deg, #7355ce, #8365ee) !important;
   color: #fff !important;
-  border-radius: 6px !important;
-  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  padding: 4px 10px !important;
   font-weight: 500 !important;
+  font-size: 0.9rem !important;
   text-align: center !important;
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(115, 85, 206, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .vis-item:hover {
-  background-color: #8365ee !important;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #8365ee, #a185ff) !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(131, 101, 238, 0.8);
 }
 
+/* ====== Grupos (labels izquierda) ====== */
+/* Fijar altura de los grupos */
 .vis-group {
+  min-height: 60px !important; /* altura fija para cada fila */
+  height: 60px !important;
   border-bottom: 1px solid #5335ae !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Alinear los labels con esa altura */
+.vis-labelset .vis-label {
+  height: 60px !important;
+  display: flex;
+  align-items: center;
   background-color: #1c1c2a !important;
-  color: #dcd6ff !important;
-  font-weight: bold;
+  color: #d0cfff !important;
+  border-right: 2px solid #5335ae !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  padding-left: 10px !important;
 }
 
-.vis-time-axis, .vis-time-axis .vis-text {
+/* ====== Ejes de tiempo ====== */
+.vis-time-axis,
+.vis-time-axis .vis-text {
+  background-color: #1c1c2a;
   color: #ccc !important;
-  font-size: 0.85rem;
+  font-size: 0.85rem !important;
+  font-weight: 500;
+  border: none !important;
 }
 
+/* Línea del tiempo actual */
 .vis-current-time {
   border-color: #a17fff !important;
+  border-width: 2px !important;
 }
 
-/* Scrollbar */
+/* ====== Scrollbar personalizado ====== */
 .timelineWrapper::-webkit-scrollbar {
   height: 8px;
 }
@@ -117,13 +150,6 @@
   border-radius: 4px;
 }
 
-
-.timelineWrapper {
-  height: 300px; /* o el que necesites */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow-x: auto;
-}
-.vis-item {
-  font-size: 0.9rem;
+.timelineWrapper::-webkit-scrollbar-track {
+  background-color: #1c1c2a;
 }

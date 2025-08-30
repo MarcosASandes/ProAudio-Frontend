@@ -9,6 +9,8 @@ const AnalyticsView = () => {
       {/*<MostRentedProductsAnalytic />
       <MostRentedProductsAnalytic />*/}
       <ProjectsTimelineAnalytic />
+      <MostRentedProductsAnalytic />
+      <MostRentedProductsAnalytic />
       {/* aca van las otras */}
     </div>
   );
