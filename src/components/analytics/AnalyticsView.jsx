@@ -24,6 +24,7 @@ import styles from "../../styles/analytics/analyticsView.module.css";
 import MostRentedProductsAnalytic from "./MostRentedProductsAnalytic";
 import ProductBalanceAnalytic from "./ProductBalanceAnalytic";
 import ProductSelectorModal from "../products/ProductSelectorModal";
+import MonthlyProjectsBalanceAnalytic from "./MonthlyProjectsBalanceAnalytic";
 
 const AnalyticsView = () => {
   const [showProductModal, setShowProductModal] = useState(false);
@@ -41,6 +42,7 @@ const AnalyticsView = () => {
         selectedProduct={selectedProduct}
         onOpenModal={() => setShowProductModal(true)}
       />
+      <MonthlyProjectsBalanceAnalytic />
 
       {showProductModal && (
         <ProductSelectorModal

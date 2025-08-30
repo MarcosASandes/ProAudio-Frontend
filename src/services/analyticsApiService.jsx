@@ -1,6 +1,23 @@
 import axiosInstance from './axiosInstance';
 import qs from 'qs';
 
+
+const mockData = {
+  enero: 1,
+  febrero: 1,
+  marzo: 3,
+  abril: 4,
+  mayo: 7,
+  junio: 7,
+  julio: 9,
+  agosto: 5,
+  setiembre: 3,
+  octubre: 2,
+  noviembre: 1,
+  diciembre: 1,
+};
+
+
 export const getMostRentedProducts = async (
   start = "",
   end = "",
@@ -25,3 +42,10 @@ export const getProductBalanceById = async (id) => {
   const response = await axiosInstance.get(`/analytics/balance/${id}`);
   return response.data;
 };
+
+export const getMonthProjectsBalance = async (filter) => {
+  /*const response = await axiosInstance.get(`/analytics/monthly/projects/${filter}`);
+  return response.data;*/
+  return mockData;
+};
+

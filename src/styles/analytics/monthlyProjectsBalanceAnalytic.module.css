@@ -1,0 +1,131 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.eyeBtn {
+  background: none;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.eyeBtn:hover {
+  color: var(--purple-secondary);
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filters label {
+  font-size: 0.85rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filters select {
+  background: #1d1d1d;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: var(--purple-main);
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chartWrapper canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+
+/*-----------------------------*/
+
+
+/* src/styles/analytics/monthlyProjectsBalanceAnalytic.module.css */
+
+/*.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.eyeBtn {
+  background: none;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.eyeBtn:hover {
+  color: var(--purple-secondary);
+}
+
+.select {
+  background: #1d1d1d;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--purple-main);
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chartWrapper canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}*/
