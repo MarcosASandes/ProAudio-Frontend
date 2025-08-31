@@ -5,7 +5,7 @@ import { formatearFecha } from "../../utils/formatDate";
 import useGetNotificationDetails from "../../hooks/notifications/useGetNotificationDetails";
 import { selectSelectedNotification } from "../../features/notifications/NotificationSelector";
 import { useSelector } from "react-redux";
-import { getActionKeyLabel } from "../../utils/getLabels";
+import { getActionKeyLabel, getNotificationRelatedInfoLabel } from "../../utils/getLabels";
 import { Info, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import useMarkNotificationAsRead from "../../hooks/notifications/useMarkNotificationAsRead";
 import BackButton from "../global/BackButton";
@@ -128,7 +128,7 @@ const NotificationDetails = () => {
                         <strong className={styles.relatedTitles}>
                           {formattedTitle}
                         </strong>{" "}
-                        {item.value}
+                        {item.title === "Fecha de inicio" || item.title === "Fecha de fin" ? formatearFecha(item.value) : getNotificationRelatedInfoLabel(item.value)}
                       </span>
                     </li>
                   );

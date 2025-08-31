@@ -192,6 +192,11 @@
   font-weight: 600;
 }
 
+.tooltipPurpleRowKey{
+  color: rgba(112, 47, 216, 0.384);
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .tableWrapper {
     overflow-x: auto;

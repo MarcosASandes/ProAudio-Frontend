@@ -205,6 +205,12 @@ const ProjectView = () => {
                 </span>{" "}
                 proyecto descartado.
               </div>
+              <div>
+                <span className={styles.tooltipPurpleRowKey}>
+                  Púrpura:
+                </span>{" "}
+                proyecto futuro.
+              </div>
             </div>
           </div>
         </div>
