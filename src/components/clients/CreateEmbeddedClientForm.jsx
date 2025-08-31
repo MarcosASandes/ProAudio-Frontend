@@ -176,6 +176,13 @@ const CreateEmbeddedClientForm = () => {
       );
     }
 
+    if (from === "create-project") {
+      localStorage.setItem(
+        "temporaryProjectClient",
+        JSON.stringify(newClientObject)
+      );
+    }
+
     reset();
     setTimeout(() => {
       if (from === "create-project") {

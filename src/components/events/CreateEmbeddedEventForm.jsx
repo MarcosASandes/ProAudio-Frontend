@@ -180,6 +180,13 @@ const CreateEmbeddedEventForm = () => {
       );
     }
 
+    if (from === "create-project") {
+      localStorage.setItem(
+        "temporaryProjectEvent",
+        JSON.stringify(newEventObject)
+      );
+    }
+
     reset();
     setTimeout(() => {
       if (from === "create-project") {
