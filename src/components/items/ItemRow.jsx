@@ -8,6 +8,7 @@ import {
   getItemsStatusBadgeClass,
   getItemsLocationBadgeClass,
 } from "../../utils/getLabels";
+import { formatDateToDDMMYY } from "../../utils/formatDate";
 
 const ItemRow = ({ item }) => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const ItemRow = ({ item }) => {
         )}
       </td>
       <td title={item.next_project || "Sin fecha"}>
-        {item.next_project || "Sin fecha"}
+        {formatDateToDDMMYY(item.next_project) || "Sin fecha"}
       </td>
       <td className={styles.actions}>
         <button

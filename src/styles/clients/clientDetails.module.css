@@ -175,6 +175,11 @@
   background-color: #7a2b3c;
 }
 
+.deleteButton:disabled {
+  background-color: #5a1e2e54;
+  cursor: not-allowed;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .generalContainer {

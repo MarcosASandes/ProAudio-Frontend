@@ -69,6 +69,7 @@ const ClientDetails = () => {
           <button
             onClick={() => setShowDeleteModal(true)}
             className={`${styles.actionButton} ${styles.deleteButton}`}
+            disabled={client.status === "DISABLED"}
           >
             <Trash size={16} />
             Eliminar

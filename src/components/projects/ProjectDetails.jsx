@@ -12,7 +12,7 @@ import {
   getProjectStatusLabel,
   getProjectPaymentStatusLabel,
   getExpensesTypesLabel,
-  getItemsLocationLabel
+  getItemsLocationLabel,
 } from "../../utils/getLabels";
 import BackButton from "../global/BackButton";
 import {
@@ -28,6 +28,7 @@ import {
   UserSearch,
   Eye,
 } from "lucide-react";
+import { cleanPdfName } from "../../utils/formatSerialNumber";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -82,7 +83,13 @@ const ProjectDetails = () => {
       const pdfUrl = await getPdf(id);
       const link = document.createElement("a");
       link.href = pdfUrl;
-      link.download = "presupuesto.pdf";
+      const maxLen = 100;
+      const pdfNameCleaned = cleanPdfName(project.name);
+      let fileNameConst = `${pdfNameCleaned}-Presupuesto ProAudio Channels.pdf`;
+      if (fileNameConst.length > maxLen) {
+        fileNameConst = fileNameConst.slice(0, maxLen - 4) + ".pdf";
+      }
+      link.download = fileNameConst;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -146,7 +153,7 @@ const ProjectDetails = () => {
             className={`${styles.actionButton} ${styles.downloadButton}`}
             onClick={() => setShowDropdown((prev) => !prev)}
           >
-            ▼
+            <ChevronDown size={20} />
           </button>
 
           {showDropdown && (
@@ -161,12 +168,12 @@ const ProjectDetails = () => {
           )}
         </div>
 
-        <button
+        {/*<button
           className={`${styles.actionButton} ${styles.deleteButton}`}
           onClick={() => setShowDeleteModal(true)}
         >
           <Trash size={16} /> Eliminar
-        </button>
+        </button>*/}
       </div>
 
       {/* Pestañas */}
@@ -233,14 +240,10 @@ const ProjectDetails = () => {
             </p>
 
             <p className={styles.label}>Inicio</p>
-            <p className={styles.value}>
-              {formatearFecha(project.start_date)}
-            </p>
+            <p className={styles.value}>{formatearFecha(project.start_date)}</p>
 
             <p className={styles.label}>Fin</p>
-            <p className={styles.value}>
-              {formatearFecha(project.end_date)}
-            </p>
+            <p className={styles.value}>{formatearFecha(project.end_date)}</p>
 
             <p className={styles.label}>Porcentaje de cobro total</p>
             <p className={styles.value}>{project.cost_addition}%</p>
@@ -362,7 +365,8 @@ const ProjectDetails = () => {
                         >
                           {item.product_model}
                         </span>{" "}
-                        - {getItemsLocationLabel(item.item_location)} - {item.item_serial_number}
+                        - {getItemsLocationLabel(item.item_location)} -{" "}
+                        {item.item_serial_number}
                       </span>
                     </div>
                   ))
@@ -390,7 +394,8 @@ const ProjectDetails = () => {
               project.expenses.map((exp, idx) => (
                 <div key={idx} className={styles.listItem}>
                   <span>
-                    {exp.value} USD - {getExpensesTypesLabel(exp.type) || exp.type} -{" "}
+                    {exp.value} USD -{" "}
+                    {getExpensesTypesLabel(exp.type) || exp.type} -{" "}
                     {exp.description}
                   </span>
                 </div>
