@@ -14,11 +14,12 @@ const FILTER_OPTIONS = [
   { label: "1 año atrás", value: 1 },
   { label: "2 años atrás", value: 2 },
   { label: "3 años atrás", value: 3 },
-  { label: "General", value: 4 },
+  { label: "4 años atrás", value: 4 },
+  { label: "5 años atrás", value: 5 },
 ];
 
 const MonthlyProjectsBalanceAnalytic = () => {
-  const [filter, setFilter] = useState(4);
+  const [filter, setFilter] = useState(1);
   const [visible, setVisible] = useState(true);
   const { fetchAnalyticMonthlyBalance } = useGetMonthlyProjectsBalance();
 
@@ -29,18 +30,22 @@ const MonthlyProjectsBalanceAnalytic = () => {
   }, [filter]);
 
   const chartData = useMemo(() => {
-    if (!dataAnalytic) return { labels: [], datasets: [] };
+    if (!dataAnalytic || !dataAnalytic.monthly_avg) {
+      return { labels: [], datasets: [] };
+    }
 
-    const labels = Object.entries(dataAnalytic).map(
-      ([mes, cantidad]) => `${mes}: ${cantidad}`
+    const labels = dataAnalytic.monthly_avg.map(
+      (item) => `${item.month}: ${item.monthly_average}`
     );
+
+    const values = dataAnalytic.monthly_avg.map((item) => item.monthly_average);
 
     return {
       labels,
       datasets: [
         {
           label: "Proyectos",
-          data: Object.values(dataAnalytic),
+          data: values,
           backgroundColor: [
             "rgba(206, 85, 85, 0.44)",
             "rgba(238, 151, 101, 0.45)",
@@ -65,7 +70,7 @@ const MonthlyProjectsBalanceAnalytic = () => {
   return (
     <div className={cardStyles.card}>
       <div className={styles.header}>
-        <h3>Balance de proyectos por mes</h3>
+        <h3>Promedio de proyectos por mes</h3>
         <button
           className={styles.eyeBtn}
           onClick={() => setVisible(!visible)}
@@ -77,7 +82,7 @@ const MonthlyProjectsBalanceAnalytic = () => {
 
       <div className={styles.filters}>
         <label>
-          Filtrar por:
+          Buscar hasta:
           <select
             value={filter}
             onChange={(e) => setFilter(Number(e.target.value))}
