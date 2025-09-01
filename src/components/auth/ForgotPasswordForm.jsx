@@ -47,7 +47,6 @@ export default function ForgotPasswordForm() {
   const onSubmit = async (data) => {
     try {
       const response = await userForgotPassword(data.email);
-      console.log("Correo enviado a: ", data.email);
 
       if (response.status === 200) {
         setSuccessMessage("Se envió un correo, revisa tu email.");

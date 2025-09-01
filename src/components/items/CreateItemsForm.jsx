@@ -52,21 +52,16 @@ const CreateItemsForm = () => {
   const currentLote = watch("items")[0];
 
   const addToCart = async () => {
-    console.log("=== Intentando agregar al carrito ===");
     const currentLote = watch("items")[0];
-    console.log("Current lote raw:", currentLote);
 
     try {
       await createItemsSchema.validate(currentLote, { abortEarly: false });
-      console.log("Validación Yup pasó ✅");
 
       const loteNumbered = {
         ...currentLote,
         purchase_price: Number(currentLote.purchase_price),
         quantity: Number(currentLote.quantity),
       };
-
-      console.log("Lote convertido listo para agregar:", loteNumbered);
 
       setCart([...cart, loteNumbered]);
       resetForm();
@@ -77,8 +72,6 @@ const CreateItemsForm = () => {
         showToastError(err.message);
       }
     }
-
-    console.log("Cart actual:", cart);
   };
 
   const resetForm = () => {
@@ -132,8 +125,6 @@ const CreateItemsForm = () => {
         item_range: item.itemRange,
       })),
     };
-
-    console.log("Este es el payload:", payload);
 
     const response = await itemsCreation(payload);
     if (response) {

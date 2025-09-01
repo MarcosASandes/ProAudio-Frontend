@@ -23,7 +23,6 @@ const useGetAllNotifications = (
           is_completed,
           name,
         );
-        console.log("Notificaciones: ", data);
         dispatch(fetchSuccessAll(data));
       } catch (error) {
         dispatch(

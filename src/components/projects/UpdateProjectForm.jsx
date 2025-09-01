@@ -120,10 +120,6 @@ const UpdateProjectForm = () => {
       localStorage.getItem(tempClientKey(id)) || "null"
     );
 
-    console.log("UseEffect donde se carga inicial: savedDraft", savedDraft);
-    console.log("UseEffect donde se carga inicial: tempEvent", tempEvent);
-    console.log("UseEffect donde se carga inicial: tempClient", tempClient);
-
     const baseData = savedDraft || project;
 
     const initialData = {
@@ -135,7 +131,6 @@ const UpdateProjectForm = () => {
     if (tempEvent) initialData.event = tempEvent;
     if (tempClient) initialData.client = tempClient;
 
-    console.log("UseEffect -> initialData final", initialData);
     reset(initialData);
     hydratedRef.current = true;
   }, [project, reset, id]);
@@ -238,8 +233,6 @@ const UpdateProjectForm = () => {
           phone: undefined,
         }
       : null;
-
-    console.log(clientForBackend);
 
     const payload = {
       ...data,
@@ -532,7 +525,6 @@ const UpdateProjectForm = () => {
         {errorMessages.length > 0 && (
           <div className={styles.errorSummary}>
             <strong>Se han detectado errores en el formulario:</strong>
-            {console.log("los errores son: ", errorMessages)}
             <ul>
               {errorMessages?.map((msg, idx) => (
                 <li key={idx}>{msg}</li>

@@ -39,7 +39,6 @@ const UpdateItemForm = () => {
 
   useEffect(() => {
     fetchStatusesByItemId(id);
-    console.log("En el useEffect del UpdateItemForm: ", statuses);
   }, [id]);
 
   useEffect(() => {

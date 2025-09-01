@@ -24,15 +24,11 @@ export const getAllEvents = async (
     params.name = name;
   }
 
-  console.log("/event", { params });
-
   const response = await axiosInstance.get("/event", {
     params,
     paramsSerializer: (params) =>
       qs.stringify(params, { arrayFormat: "repeat" }),
   });
-
-  console.log("Eventos que llegan: ", response);
 
   return response.data;
 };

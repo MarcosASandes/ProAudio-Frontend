@@ -22,8 +22,6 @@ const TagsTree = ({ onSelectTag = null }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [showConfirmDeleteModal, setShowConfirmDeleteModal] = useState(false);
 
-  console.log(tags);
-
   const deleteTag = useDeleteTag();
 
   const getSubNodes = (padreId) =>

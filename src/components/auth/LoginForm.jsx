@@ -51,7 +51,6 @@ export default function LoginForm() {
   const onSubmit = async (data) => {
     const response = await loginUser(data.email, data.password);
     if (response) {
-      console.log("Este es el response: ", response);
       localStorage.setItem("userName", response.name);
       localStorage.setItem("userMail", response.email);
       localStorage.setItem("userToken", response.token);

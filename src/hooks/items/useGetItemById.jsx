@@ -12,9 +12,7 @@ const useGetItemById = (itemId) => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        console.log("Llego al hook de useGetItemById");
         const itemData = await getItemById(itemId);
-        console.log("Item desde API:", itemData);
         dispatch(setSelectedItem(itemData));
       } catch (error) {
         console.error("Error fetching item:", error);

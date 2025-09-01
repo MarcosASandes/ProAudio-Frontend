@@ -45,7 +45,6 @@ const NotificationDetails = () => {
     } else {
       console.warn("No se encontró ruta para:", notification);
     }
-    console.log("Solucionar notificación:", notification.notification_id);
   };
 
   return (

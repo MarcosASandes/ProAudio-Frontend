@@ -11,7 +11,6 @@ const useDeleteItem = () => {
 
   const handleDelete = async (itemId) => {
     try {
-        console.log(itemId + "ID DEL ITEM EN EL HOOK");
       await deleteItemById(itemId);
       dispatch(removeItem(itemId));
       showToast("Artículo eliminado correctamente.");

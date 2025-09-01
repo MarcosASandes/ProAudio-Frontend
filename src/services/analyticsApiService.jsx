@@ -33,8 +33,6 @@ export const getMostRentedProducts = async (
     paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
   });
 
-  console.log("Esta es la data que me llega: ", response.data);
-
   return response.data;
 };
 

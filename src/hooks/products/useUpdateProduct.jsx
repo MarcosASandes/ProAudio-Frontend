@@ -16,9 +16,6 @@ export function useUpdateProduct() {
       status: formData.status
     };
 
-    console.log("Producto editado: ");
-    console.log(updatedProduct);
-
     try {
       const updated = await updateProduct(productId, updatedProduct);
       if (onSuccess) onSuccess();

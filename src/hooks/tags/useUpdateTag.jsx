@@ -17,8 +17,6 @@ export function useUpdateTag() {
 
     try {
       const updated = await updateTag(tagId, updatedTag);
-      console.log("UPDATED: ");
-      console.log(updated);
       if (onSuccess) onSuccess();
       dispatch(updateTagInStore(updated));
       showToast("La etiqueta se ha modificado con éxito.");

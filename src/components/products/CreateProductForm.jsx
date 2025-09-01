@@ -53,8 +53,6 @@ export default function CreateProductForm() {
     return tag ? tag.name : null;
   };
 
-  console.log("Estos son los tags: ", tags);
-
   useGetTagsTypes();
   const allTagsTypes = useSelector(selectTagsTypes);
 

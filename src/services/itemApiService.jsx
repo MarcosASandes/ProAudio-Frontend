@@ -27,7 +27,6 @@ export const getStatuses = async () => {
 
 export const getItemStatusesById = async (id) => {
   const response = await axiosInstance.get(`/item/possible/status/${id}`);
-  console.log("getItemStatusesById: ", response.data);
   return response.data;
 };
 
@@ -69,8 +68,6 @@ export const getAllItemsByProduct = async (
     params.sortBy = sortBy;
     params.direction = direction;
   }
-
-  console.log(`/item/product/${productId}`, params);
 
   const response = await axiosInstance.get(`/item/product/${productId}`, { params });
   return response.data;

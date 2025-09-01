@@ -35,7 +35,6 @@ const EventView = () => {
 
   const handleConfirmDelete = async () => {
     deleteEvent(deleteTarget.event_id);
-    console.log("Eliminar evento:", deleteTarget.event_id);
     setDeleteTarget(null);
   };
 

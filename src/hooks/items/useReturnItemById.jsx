@@ -11,7 +11,6 @@ const useReturnItemById = () => {
     async (id) => {
       try {
         const data = await returnItemById(id);
-        console.log("ESTA ES LA DATA", data);
         dispatch(updateItemLocationAndStatus(data));
         showToast("Se ha retornado el artículo correctamente.");
       } catch (error) {

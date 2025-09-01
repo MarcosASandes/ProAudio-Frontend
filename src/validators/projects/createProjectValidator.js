@@ -87,7 +87,6 @@ const createProjectValidator = yup.object().shape({
       "client-required",
       "Debes seleccionar o crear un cliente",
       function (value) {
-        console.log("Valor en test de Yup:", value);
         if (!value) return false;
         if (value.client_id) return true;
         return createClientValidator.isValidSync(value);

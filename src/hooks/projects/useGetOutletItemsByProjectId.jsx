@@ -13,7 +13,6 @@ const useGetOutletItemsByProjectId = () => {
     async (id) => {
       try {
         const data = await getOutletItemsByProjectId(id);
-        console.log("DATA:", data);
 
         const items = data.items || [];
 
@@ -23,9 +22,6 @@ const useGetOutletItemsByProjectId = () => {
         const itemsNotReturned = items.filter(
           (obj) => obj.item_location !== "IN_DEPOSIT"
         );
-
-        console.log("Items retornados: ", itemsReturned);
-        console.log("Items no retornados: ", itemsNotReturned);
 
         dispatch(setReturnItemsInStore(itemsReturned));
         dispatch(setOutletItemsInStore(itemsNotReturned));

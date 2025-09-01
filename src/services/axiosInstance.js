@@ -21,7 +21,6 @@ axiosInstance.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.log("Cayó al promise.reject: ", error);
     return Promise.reject(error);
   }
 );
@@ -33,13 +32,6 @@ axiosInstance.interceptors.response.use(
       if (error.response.status === 401 || error.response.status === 403) {
         console.warn("Token expirado o inválido, cerrando sesión...");
         clearData();
-        /*localStorage.removeItem('userToken');
-        localStorage.removeItem('userName');
-        localStorage.removeItem('userMail');
-        localStorage.removeItem('temporaryProjectClient');
-        localStorage.removeItem('temporaryProjectEvent');
-        localStorage.removeItem('projectDraft');
-        localStorage.removeItem('projectDraftUpdate');*/
         window.location.href = '/auth/login';
       }
     }

@@ -31,7 +31,6 @@ const useScanOutletItem = (id) => {
           try {
             const idProject = id;
             const idItem = decodedText;
-            console.log(`En el método useScanOutletItem llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
             const data = await exitItemToProject(idProject, idItem);
             if(data.status == "ENABLED"){
                 dispatch(addItemToOutletInStore(data));

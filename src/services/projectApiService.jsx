@@ -2,9 +2,7 @@ import axiosInstance from './axiosInstance';
 import qs from 'qs';
 
 export const createProject = async (data) => {
-  console.log("Proyecto que se creará: ", data);
   const response = await axiosInstance.post('/project', data);
-  console.log("Proyecto que se creóoooooooooooo: ", response);
   return response.data;
 };
 
@@ -57,7 +55,6 @@ export const getBudgetPdfByProjectId = async (id) => {
       headers: { Accept: 'application/pdf' },
     }
   );
-  console.log(response);
 
   const pdfUrl = URL.createObjectURL(response.data);
   return pdfUrl;
@@ -116,8 +113,6 @@ export const getAllProjects = async (
   if (name) {
     params.name = name;
   }
-
-  console.log('/project/all', { params });
 
   const response = await axiosInstance.get('/project/all', {
     params,

@@ -22,8 +22,6 @@ const MonthlyProjectsBalanceAnalytic = () => {
   const [visible, setVisible] = useState(true);
   const { fetchAnalyticMonthlyBalance } = useGetMonthlyProjectsBalance();
 
-  // 👉 Aquí luego usarías tu hook, por ahora mock
-  //const dataAnalytic = mockData;
   const dataAnalytic = useSelector(selectMonthlyBalanceDataAnalytic);
 
   useEffect(() => {

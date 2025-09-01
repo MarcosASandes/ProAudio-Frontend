@@ -29,7 +29,6 @@ const useScanReturnItem = (id) => {
           try {
             const idProject = id;
             const idItem = decodedText;
-            console.log(`En el método useScanReturnItem llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
             const data = await returnItemToDeposit(idProject, idItem);
             dispatch(returnItemToDepositInStore(data));
             showToast("Artículo retornado correctamente.");

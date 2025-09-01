@@ -103,9 +103,6 @@ const projectSlice = createSlice({
       state.returnItems = action.payload;
     },
     addItemToOutletInStore: (state, action) => {
-      console.log(
-        `En el reducer addItemToOutletInStore llega: ${action.payload}`
-      );
       return {
         ...state,
         outletItems: [...state.outletItems, action.payload],

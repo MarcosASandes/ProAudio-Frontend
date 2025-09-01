@@ -21,8 +21,6 @@ const NotificationFilter = ({
     { label: "No completada", value: "false" },
   ];
 
-  console.log("Los types que estan en el typeOptions: ", typeOptions);
-
   return (
     <>
       {/* Botón toggle visible solo en móvil */}

@@ -92,7 +92,6 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
   };
 
   if (tags?.length > 0) {
-    console.log("Esto es tags: ", tags);
     params.tags = tags?.map(t => t.tag_id).join(",");
   }
 
@@ -104,8 +103,6 @@ export const getAllProducts = async (page = 1, size = 10, tags = [], sortBy = "i
   if (title) {
     params.title = title;
   }
-
-  console.log('/product/all', { params });
 
   const response = await axiosInstance.get('/product/all', { params });
   return response.data;

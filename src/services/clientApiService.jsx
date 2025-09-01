@@ -58,8 +58,6 @@ export const getAllClients = async (
     params.name = name;
   }
 
-  console.log("/client/list", { params });
-
   const response = await axiosInstance.get("/client/list", {
     params,
     paramsSerializer: (params) =>

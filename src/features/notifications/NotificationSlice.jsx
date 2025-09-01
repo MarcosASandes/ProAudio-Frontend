@@ -98,7 +98,6 @@ const notificationSlice = createSlice({
 
     setNotificationTypes: (state, action) => {
       state.notificationTypes = action.payload.types;
-      console.log("Types en la store: ", action.payload);
     },
   },
 });

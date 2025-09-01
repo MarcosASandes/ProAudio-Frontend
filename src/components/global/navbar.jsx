@@ -102,7 +102,6 @@ export default function Navbar() {
   
   const handleEyeClick = (id, e) => {
     e.stopPropagation(); //evita que se dispare onClick de la fila
-    console.log("Notificación clickeada:", id);
 
     setEyeBlinkingIds((prev) => ({ ...prev, [id]: true }));
 
@@ -117,7 +116,6 @@ export default function Navbar() {
   };
 
   const handleGoToDetails = (id) => {
-    console.log("Ir a detalles de la notificación:", id);
     setShowNotificationsMenu(false);
     navigate(`/notification/${id}`);
   };
@@ -132,7 +130,6 @@ export default function Navbar() {
       .filter((n) => !n.is_seen)
       .map((n) => n.notification_id);
     markMultipleAsRead(notificationIds);
-    console.log("Estas notif se pondrán en vistas: ", notificationIds);
   };
 
   return (

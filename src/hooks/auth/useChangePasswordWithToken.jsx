@@ -15,7 +15,6 @@ const useChangePasswordWithToken = () => {
           new_password_repeat: passRepeat
         }
         const response = await changePasswordWithToken(data);
-        console.log("Este es el status: ", response.status);
         showToast(response?.data?.message);
         return response;
       } catch (error) {
