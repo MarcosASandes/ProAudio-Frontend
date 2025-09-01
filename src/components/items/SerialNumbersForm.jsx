@@ -48,7 +48,6 @@ const SerialNumbersForm = ({ nestIndex, control, register, setValue }) => {
     <div  className={styles.serialNumberSectionContainer}>
       <h6>Números de serie</h6>
 
-      {/* Contenedor con scroll horizontal solo para los badges className="border rounded p-3 mt-3"*/}
       <div className={styles.serialNumbersScrollContainer}>
         {fields.map((field, index) => (
           <div key={field.id} className={styles.serialBadge}>
@@ -64,7 +63,6 @@ const SerialNumbersForm = ({ nestIndex, control, register, setValue }) => {
         ))}
       </div>
 
-      {/* Input único para agregar */}
       <div className="d-flex gap-2 mt-2">
         <input
           type="text"

@@ -20,7 +20,7 @@ const EventView = () => {
   const navigate = useNavigate();
   const deleteEvent = useDeleteEvent();
 
-  const [deleteTarget, setDeleteTarget] = useState(null); // 👉 Evento a eliminar
+  const [deleteTarget, setDeleteTarget] = useState(null);
 
   useGetAllEvents(page, size, sortBy, direction, filterStatus, searchTerm);
 
@@ -36,7 +36,6 @@ const EventView = () => {
   const handleConfirmDelete = async () => {
     deleteEvent(deleteTarget.event_id);
     console.log("Eliminar evento:", deleteTarget.event_id);
-    // 👉 Aquí dejas tu lógica de eliminación
     setDeleteTarget(null);
   };
 

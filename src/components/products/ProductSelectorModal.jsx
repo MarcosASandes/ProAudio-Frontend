@@ -82,18 +82,6 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className={styles.inputSearch}
                 />
-                <input
-                  type="date"
-                  value={dateFrom}
-                  onChange={(e) => setDateFrom(e.target.value)}
-                  className={styles.inputDate}
-                />
-                <input
-                  type="date"
-                  value={dateTo}
-                  onChange={(e) => setDateTo(e.target.value)}
-                  className={styles.inputDate}
-                />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
@@ -239,18 +227,6 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className={styles.inputSearch}
-              />
-              <input
-                type="date"
-                value={dateFrom}
-                onChange={(e) => setDateFrom(e.target.value)}
-                className={styles.inputDate}
-              />
-              <input
-                type="date"
-                value={dateTo}
-                onChange={(e) => setDateTo(e.target.value)}
-                className={styles.inputDate}
               />
               <select
                 value={sortBy}

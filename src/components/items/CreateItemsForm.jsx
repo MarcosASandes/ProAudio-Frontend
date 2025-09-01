@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
   createItemsSchemaArray,
@@ -50,38 +50,6 @@ const CreateItemsForm = () => {
   });
 
   const currentLote = watch("items")[0];
-
-  /*const addToCart = async () => {
-    console.log("=== Intentando agregar al carrito ===");
-    const currentLote = watch("items")[0];
-    console.log("Current lote raw:", currentLote);
-
-    try {
-      await createItemsSchema.validate(currentLote, { abortEarly: false });
-      console.log("Validación Yup pasó ✅");
-
-      const loteNumbered = {
-        ...currentLote,
-        purchase_price: Number(currentLote.purchase_price),
-        quantity: Number(currentLote.quantity),
-      };
-
-      console.log("Lote convertido listo para agregar:", loteNumbered);
-
-      setCart([...cart, loteNumbered]);
-      resetForm();
-    } catch (err) {
-      console.log("Error de validación Yup:", err);
-      showToastError(err.message);
-      if (err.inner) {
-        err.inner.forEach((e) => {
-          console.log(`Path: ${e.path}, Message: ${e.message}`);
-        });
-      }
-    }
-
-    console.log("Cart actual:", cart);
-  };*/
 
   const addToCart = async () => {
     console.log("=== Intentando agregar al carrito ===");
@@ -147,7 +115,6 @@ const CreateItemsForm = () => {
 
   const onSubmit = async () => {
     if (cart.length === 0) {
-      // Si no hay lotes en el carrito, mostramos error
       showToastError("Debes agregar al menos un lote de artículos");
       return;
     }

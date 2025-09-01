@@ -1,13 +1,11 @@
 :root {
-  --main-bg: #000000; /* Color del layout main (Navbar y Sidebar) */
-  --secondary-bg: #1a1a1a; /* Color segundario */
-  --text-color: #ffffff; /* Color de texto */
-  --body-bg: #121212; /* Color de fondo del main / outlet */
-  --purple-main: #7355ce; /* Púrpura principal*/
-  --purple-secondary: #8365ee; /* Púrpura segundario */
-  --purple-extra: #5335ae; /* Púrpura extra */
-
-    /*EXTRAS*/
+  --main-bg: #000000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #ffffff;
+  --body-bg: #121212;
+  --purple-main: #7355ce;
+  --purple-secondary: #8365ee;
+  --purple-extra: #5335ae;
   --russian-violet: #10002bff;
   --russian-violet-2: #240046ff;
   --russian-violet-3: rgb(7, 1, 19);
@@ -17,7 +15,6 @@
   --amethyst: #9d4eddff;
   --heliotrope: #c77dffff;
   --mauve: #e0aaffff;
-
   --red-color: #b31414;
   --red-dark: #8b0f0f;
 }
@@ -89,14 +86,7 @@ h1:hover{
   margin-left: 300px;
 }
 
-
-
 /**/
-
-
-
-
-
 
 .animated-underline {
   display: inline-block;
@@ -109,7 +99,7 @@ h1:hover{
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px; /* distancia entre el texto y la línea */
+  bottom: -4px;
   width: 100%;
   height: 2px;
   background-color: var(--hover-color);
@@ -130,21 +120,21 @@ h1:hover{
   border: 2px solid transparent !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
   padding: 0 !important;
-  max-width: none !important;  /* Para que no limite ancho */
-  width: auto !important;       /* Para ajustarse al contenido */
+  max-width: none !important; 
+  width: auto !important;
 }
 
 .custom-toast.error-toast {
-  border-color: #ef4444 !important; /* Rojo */
+  border-color: #ef4444 !important; 
 }
 
 .custom-toast-body {
-  padding: 0 !important;           /* Quitar padding para cubrir todo */
+  padding: 0 !important;
   color: white !important;
   display: flex !important;
   align-items: center !important;
-  width: 100%;                     /* Que ocupe todo el ancho */
-  box-sizing: border-box;          /* Para que no se pase el ancho */
+  width: 100%; 
+  box-sizing: border-box;
 }
 
 .custom-toast-progress {
@@ -154,32 +144,32 @@ h1:hover{
 
 /* Barra de progreso base, visible y con transición */
 .Toastify__progress-bar {
-  background: transparent !important; /* Reset si hay algún fondo */
+  background: transparent !important;
   transition: transform 0.2s linear;
 }
 
 /* Barra progreso púrpura para toast normal */
 .custom-toast .Toastify__progress-bar {
-  background-color: #a855f7 !important; /* púrpura */
+  background-color: #a855f7 !important;
 }
 
 /* Barra progreso roja para toast error */
 .custom-toast.error-toast .Toastify__progress-bar {
-  background-color: #ef4444 !important; /* rojo */
+  background-color: #ef4444 !important;
 }
 
 .custom-toast .Toastify__toast-icon {
-  margin-left: 8px; /* o lo que prefieras */
-  margin-right: 8px; /* también si querés separarlo del contenido */
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .Toastify__close-button {
   color: white !important;
-  opacity: 1 !important; /* evitar que se vea semitransparente */
+  opacity: 1 !important;
 }
 
 .Toastify__close-button:hover {
-  color: #a855f7 !important; /* púrpura al hover */
+  color: #a855f7 !important;
 }
 
 .custom-toast.error-toast .Toastify__close-button:hover {

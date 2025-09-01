@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../styles/notifications/notificationFilter.module.css";
-import { getDirectionLabel, getNotificationsTypeLabel } from "../../utils/getLabels";
+import { getNotificationsTypeLabel } from "../../utils/getLabels";
 import useGetNotificationTypes from "../../hooks/notifications/useGetNotificationTypes";
 import { useSelector } from "react-redux";
 import { selectNotificationTypes } from "../../features/notifications/NotificationSelector";
@@ -15,8 +15,6 @@ const NotificationFilter = ({
 }) => {
   const [showFilters, setShowFilters] = useState(false);
   useGetNotificationTypes();
-
-  const directionOptions = ["desc", "asc"];
   const typeOptions = useSelector(selectNotificationTypes);
   const completedOptions = [
     { label: "Completada", value: "true" },

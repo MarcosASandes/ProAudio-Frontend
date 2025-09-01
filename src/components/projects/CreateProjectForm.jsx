@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import createProjectValidator from "../../validators/projects/createProjectValidator";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/projects/createProjectForm.module.css";
-import { toast } from "react-toastify";
 import ProductSelectorModal from "../products/ProductSelectorModal";
 import * as bootstrap from "bootstrap";
 import {
@@ -750,19 +749,6 @@ const CreateProjectForm = () => {
       {showClientModal && (
         <ClientSelectorModal
           onClose={() => setShowClientModal(false)}
-          /*onSelect={(client) => {
-            setSelectedClient(client);
-            setValue("client", {
-              // cliente nuevo, sin client_id
-              name: client.name,
-              email: client.email,
-              phone: client.phone_number, // <-- cambiar a "phone"
-              address: client.address,
-              details: client.details || "",
-            });
-            setShowClientModal(false);
-          }}*/
-
           onSelect={(client) => {
             console.log("Cliente recibido del modal:", client); // <--- Aquí
             setSelectedClient(client);

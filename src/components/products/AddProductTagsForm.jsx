@@ -6,7 +6,7 @@ import { selectTags, selectTagsTypes } from "../../features/tags/TagSelector";
 import { useAddProductTag } from "../../hooks/products/useAddProductTag";
 import { useDeleteProductTag } from "../../hooks/products/useDeleteProductTag";
 import TagSelectorModal from "./../tags/TagSelectorModal";
-import { ArrowLeft, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import useGetTagsTypes from "../../hooks/tags/useGetTagsTypes";
 import { showToastError } from "../../utils/toastUtils";

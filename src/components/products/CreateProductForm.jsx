@@ -61,7 +61,7 @@ export default function CreateProductForm() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [selectedType, setSelectedType] = useState("DESCRIPTIVE");
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false); // control modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (selectedTag) {
@@ -143,13 +143,6 @@ export default function CreateProductForm() {
               </div>
             </div>
           </div>
-          {/*<input
-            id="filePhotos"
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={(e) => setSelectedFiles(Array.from(e.target.files))}
-          />*/}
           <input
             id="filePhotos"
             type="file"

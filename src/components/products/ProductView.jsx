@@ -29,7 +29,6 @@ const ProductView = () => {
 
   const navigate = useNavigate();
 
-  // Hooks para obtener datos
   useGetAllTags();
   const tags = useSelector(selectTags);
 
@@ -75,10 +74,6 @@ const ProductView = () => {
       <ProductFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        dateFrom={dateFrom}
-        onDateFromChange={setDateFrom}
-        dateTo={dateTo}
-        onDateToChange={setDateTo}
         sortBy={sortBy}
         onSortByChange={setSortBy}
         direction={direction}

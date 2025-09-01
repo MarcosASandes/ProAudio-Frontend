@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "../../styles/clients/clientFilter.module.css";
-//import useGetAllClientStatuses from "../../hooks/clients/useGetAllClientStatuses";
 import { useSelector } from "react-redux";
-//import { selectAllStatusesClient } from "../../features/clients/clientSelectors";
 import {
   getEnabledDisabledLabel,
   getDirectionLabel,
@@ -20,10 +18,6 @@ const ClientFilter = ({
   filterStatus,
   onFilterStatusChange,
 }) => {
-  //useGetAllClientStatuses();
-
-  //const statusOptions = useSelector(selectAllStatusesClient);
-
   const [showFilters, setShowFilters] = useState(false);
   const statusOptions = ["ENABLED", "DISABLED"];
   const sortByOptions = ["id", "name", "phone"];

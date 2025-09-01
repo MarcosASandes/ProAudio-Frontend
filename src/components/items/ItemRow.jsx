@@ -40,9 +40,6 @@ const ItemRow = ({ item }) => {
         </span>
       </td>
       <td title={item.bought_at}>{item.bought_at}</td>
-      {/*<td title={item.next_project_name || "Sin asignar"}>
-        {item.next_project_name || "Sin asignar"}
-      </td>*/}
       <td title={item.next_project_name || "Sin asignar"}>
         {item.next_project_id ? (
           <a href={`/project/${item.next_project_id}`}>

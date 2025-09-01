@@ -1,24 +1,3 @@
-/*import React, { useState, useEffect } from "react";
-import styles from "../../styles/analytics/analyticsView.module.css";
-import MostRentedProductsAnalytic from "./MostRentedProductsAnalytic";
-import ProductBalanceAnalytic from "./ProductBalanceAnalytic";
-
-const AnalyticsView = () => {
-  return (
-    <div className={styles.grid}>
-      <MostRentedProductsAnalytic />
-      <ProductBalanceAnalytic />
-      
-    </div>
-  );
-};
-
-export default AnalyticsView;*/
-
-
-/*------------------------------- */
-
-
 import React, { useState } from "react";
 import styles from "../../styles/analytics/analyticsView.module.css";
 import MostRentedProductsAnalytic from "./MostRentedProductsAnalytic";

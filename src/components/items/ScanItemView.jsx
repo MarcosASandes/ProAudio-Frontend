@@ -20,19 +20,6 @@ const ScanItemView = () => {
     scannerRef,
   } = useItemScanner();
   const item = useSelector(selectSelectedItem);
-  /*const item = {
-    item_id: 438,
-    product_id: 92,
-    location: "IN_DEPOSIT",
-    status: "CREATED",
-    description: "maaaaarcossssssssssss",
-    price_bought: 298.0,
-    bought_at: "2025-08-09",
-    updated_at: "2025-08-18T00:00:00",
-    item_range: "ASF5",
-    serial_number: "ASF54",
-    qr_image: null,
-  };*/
 
   const { fetchReturnItemById } = useReturnItemById();
 

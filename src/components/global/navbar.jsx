@@ -35,7 +35,7 @@ export default function Navbar() {
   const notifMenuRef = useRef();
   const notifIconRef = useRef();
 
-  // Estado para manejar ojo "parpadeando" por id
+  //estado para manejar ojo "parpadeando" por id
   const [eyeBlinkingIds, setEyeBlinkingIds] = useState({});
 
   const toggleUserMenu = () => {
@@ -99,10 +99,10 @@ export default function Navbar() {
     return date.toLocaleDateString();
   };
 
-  // Maneja click en icono ojo para parpadear
+  
   const handleEyeClick = (id, e) => {
-    e.stopPropagation(); // evita que se dispare onClick de la fila
-    console.log("Notificación clickeada:", id); // solo para pruebas
+    e.stopPropagation(); //evita que se dispare onClick de la fila
+    console.log("Notificación clickeada:", id);
 
     setEyeBlinkingIds((prev) => ({ ...prev, [id]: true }));
 
@@ -112,7 +112,7 @@ export default function Navbar() {
         delete newState[id];
         return newState;
       });
-    }, 700); // dura 700ms ojo cerrado
+    }, 700);
     markAsRead(id);
   };
 

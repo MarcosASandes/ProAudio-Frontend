@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import useGetProductById from "../../hooks/products/useGetProductById";
@@ -58,7 +58,6 @@ const ItemsCreatedView = () => {
       item.item_id,
       product?.model
     );
-    //downloadCanvasAsImage(canvas, `item-${item.item_id}-qr.png`);
     const maxLen = 100;
     const serialCleaned = cleanSerial(item.serial_number);
     let fileNameConst = `item-${item.item_id}-serial-${serialCleaned}-qr.png`;

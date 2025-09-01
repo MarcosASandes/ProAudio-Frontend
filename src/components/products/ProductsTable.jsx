@@ -23,8 +23,6 @@ const ProductsTable = ({ products, searchTerm }) => {
             <tr>
               <th>Marca</th>
               <th>Modelo</th>
-              {/*<th>Artículos Totales</th>
-              <th>Artículos Disponibles</th>*/}
               <th>Comentarios</th>
               <th colSpan="2">Acciones</th>
             </tr>

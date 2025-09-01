@@ -37,12 +37,10 @@ const UpdateClientForm = () => {
     },
   });
 
-  // Obtener cliente al montar
   useEffect(() => {
     fetchClientById(id);
   }, [id]);
 
-  // Cuando cambie el cliente en store, setear valores iniciales
   useEffect(() => {
     if (client) {
       const data = {

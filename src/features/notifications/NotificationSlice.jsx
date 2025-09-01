@@ -56,7 +56,7 @@ const notificationSlice = createSlice({
     },
 
     markNotificationsAsSeen: (state, action) => {
-      const ids = action.payload; // array de ids
+      const ids = action.payload;
       if (!Array.isArray(ids)) return;
       state.recentNotifications = state.recentNotifications.map((n) =>
         ids.includes(n.notification_id) ? { ...n, is_seen: true } : n

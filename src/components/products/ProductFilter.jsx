@@ -8,10 +8,6 @@ import {
 const ProductFilter = ({
   searchTerm,
   onSearchChange,
-  dateFrom,
-  onDateFromChange,
-  dateTo,
-  onDateToChange,
   sortBy,
   onSortByChange,
   direction,
@@ -50,30 +46,6 @@ const ProductFilter = ({
               onChange={(e) => onSearchChange(e.target.value)}
             />
           </div>
-
-          {/* Fecha desde */}
-          {/*<div className="col-md-2 mb-2">
-            <label htmlFor="dateProductFrom" className={styles.label}>Fecha desde:</label>
-            <input
-            id="dateProductFrom"
-              type="date"
-              className={`form-control ${styles.inputDate}`}
-              value={dateFrom}
-              onChange={(e) => onDateFromChange(e.target.value)}
-            />
-          </div>*/}
-
-          {/* Fecha hasta */}
-          {/*<div className="col-md-2 mb-2">
-            <label htmlFor="dateProductTo" className={styles.label}>Fecha hasta:</label>
-            <input
-            id="dateProductTo"
-              type="date"
-              className={`form-control ${styles.inputDate}`}
-              value={dateTo}
-              onChange={(e) => onDateToChange(e.target.value)}
-            />
-          </div>*/}
 
           {/* Ordenar por */}
           <div className="col-md-2 mb-2">
