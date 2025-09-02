@@ -284,7 +284,7 @@ export const getActionKeyLabel = (key) => {
 };
 
 /* Estilos de badge: 
-Se envía el status y se devuelve el nombre de la clase personalizada de CSS */
+con el status se obtiene la clase de css */
 
 export const getEnabledDisabledBadgeClass = (status) => {
   switch (status) {

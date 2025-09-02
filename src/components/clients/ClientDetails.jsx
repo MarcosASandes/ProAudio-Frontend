@@ -54,7 +54,6 @@ const ClientDetails = () => {
       <div className={styles.titleWrap}>
         <h1 className={styles.title}>{client.name}</h1>
       </div>
-      {/*<h1 className={styles.title}>{client.name}</h1>*/}
       <p className={styles.subtitle}>ID Cliente: {client.client_id}</p>
 
       <div className={styles.sectionContainer}>
@@ -136,7 +135,6 @@ const ClientDetails = () => {
         )}
       </div>
 
-      {/* Modal de confirmación */}
       {showDeleteModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>

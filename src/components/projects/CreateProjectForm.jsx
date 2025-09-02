@@ -395,7 +395,6 @@ const CreateProjectForm = () => {
                   </div>
                 </div>
 
-                {/*<label htmlFor="numCostAddition">Porcentaje de cobro (%)</label>*/}
                 <input
                   id="numCostAddition"
                   type="number"

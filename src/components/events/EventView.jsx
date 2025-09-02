@@ -42,7 +42,6 @@ const EventView = () => {
     <div className={styles.container}>
       <BackButton target={"/"} />
 
-      {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>Eventos</h2>
         <button className={styles.createButton} onClick={() => navigate("/event/create")}>
@@ -50,7 +49,6 @@ const EventView = () => {
         </button>
       </div>
 
-      {/* Filtros */}
       <EventFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
@@ -62,15 +60,12 @@ const EventView = () => {
         onFilterStatusChange={setFilterStatus}
       />
 
-      {/* Tabla */}
       <div className={styles.tableWrapper}>
         <EventTable events={events} onDeleteEvent={setDeleteTarget} />
       </div>
 
-      {/* Paginación */}
       <Pagination pageable={pageable} onPageChange={handlePageChange} />
 
-      {/* Modal de confirmación */}
       {deleteTarget && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>

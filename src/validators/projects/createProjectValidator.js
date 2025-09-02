@@ -93,7 +93,6 @@ const createProjectValidator = yup.object().shape({
       }
     ),
 
-  // --- PRODUCTOS ---
   products: yup.array().of(
     yup.object().shape({
       product_id: yup

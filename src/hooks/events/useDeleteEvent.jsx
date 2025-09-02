@@ -1,6 +1,4 @@
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import { deleteEvent } from "../../services/eventApiService";
 import { removeEvent } from "../../features/events/EventSlice";
 import { showToast, showToastError } from "../../utils/toastUtils";

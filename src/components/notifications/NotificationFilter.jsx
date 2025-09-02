@@ -23,7 +23,6 @@ const NotificationFilter = ({
 
   return (
     <>
-      {/* Botón toggle visible solo en móvil */}
       <button
         className={styles.filterToggleBtn}
         onClick={() => setShowFilters(!showFilters)}

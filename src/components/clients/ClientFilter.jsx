@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/clients/clientFilter.module.css";
-import { useSelector } from "react-redux";
 import {
   getEnabledDisabledLabel,
   getDirectionLabel,
@@ -25,7 +24,6 @@ const ClientFilter = ({
 
   return (
     <>
-      {/* Botón toggle visible solo en móvil */}
       <button
         className={styles.filterToggleBtn}
         onClick={() => setShowFilters(!showFilters)}

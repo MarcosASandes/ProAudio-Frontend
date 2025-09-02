@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { updateTag } from "../../services/tagApiService";
 import { updateTagInStore } from "../../features/tags/tagSlice";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { showToast, showToastError } from "../../utils/toastUtils";
 

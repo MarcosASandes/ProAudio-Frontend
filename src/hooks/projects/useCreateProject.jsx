@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { createProject } from "../../services/projectApiService";
 import { addProject, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";

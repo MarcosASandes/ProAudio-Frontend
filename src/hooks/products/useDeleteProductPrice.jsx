@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteProductPrice } from "../../services/productApiService";
 import { removeProductPriceInStore } from "../../features/products/ProductSlice";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteProductPrice = () => {

@@ -23,7 +23,6 @@ const UpdateItemForm = () => {
   const { fetchStatusesByItemId } = useGetItemStatusesById();
 
   useGetItemById(id);
-  //useGetStatuses();
 
   const item = useSelector(selectSelectedItem);
   const statuses = useSelector(selectStatusesById);

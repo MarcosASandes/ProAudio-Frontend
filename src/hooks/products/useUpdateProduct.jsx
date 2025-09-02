@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { updateProduct } from "../../services/productApiService";
 import { updateProductInStore } from "../../features/products/ProductSlice";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { showToast, showToastError } from "../../utils/toastUtils";
 

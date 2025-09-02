@@ -159,7 +159,6 @@ h4 {
   background-color: #e63939;
 }
 
-/* Botón de regresar */
 .btnBackArrow {
   display: flex;
   align-items: center;
@@ -176,7 +175,6 @@ h4 {
   background-color: #3a2b5c;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -198,7 +196,6 @@ h4 {
   }
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;

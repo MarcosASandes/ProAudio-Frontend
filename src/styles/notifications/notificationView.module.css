@@ -73,11 +73,9 @@
 @media (max-width: 768px) {
   .tableWrapper {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+    -webkit-overflow-scrolling: touch; 
     padding-top: 0;
   }
-
-  /* Evitar que el contenido se vea aplastado */
   .tableWrapper::-webkit-scrollbar {
     height: 6px;
   }

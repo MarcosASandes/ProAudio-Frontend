@@ -3,13 +3,11 @@ import TagNode from "./TagNode";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap";
 import useDeleteTag from "../../hooks/tags/useDeleteTag";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectTags } from "../../features/tags/TagSelector";
 import useGetAllTags from "../../hooks/tags/useGetAllTags";
 import styles from "../../styles/tags/tagsTree.module.css";
-import stylesButtons from "../../styles/generic/buttonsStyles.module.css";
 import { getEnabledDisabledLabel } from "../../utils/getLabels";
 
 const TagsTree = ({ onSelectTag = null }) => {
@@ -57,21 +55,6 @@ const TagsTree = ({ onSelectTag = null }) => {
   }
 
   const selectedTag = selectedPath[selectedPath.length - 1];
-
-  const showModal = () => {
-    if (!modalRef.current) return;
-    const modal = new bootstrap.Modal(modalRef.current, {
-      backdrop: "static",
-      keyboard: false,
-    });
-    modal.show();
-  };
-
-  const showConfirmDelete = () => {
-    if (!confirmDeleteRef.current) return;
-    const confirmModal = new bootstrap.Modal(confirmDeleteRef.current);
-    confirmModal.show();
-  };
 
   const handleDelete = async () => {
     if (!selectedTag) return;
@@ -171,7 +154,7 @@ const TagsTree = ({ onSelectTag = null }) => {
             </div>
           )}
 
-          {/* Modal de confirmación de eliminación */}
+          {/* Modal  de eliminación */}
           {showConfirmDeleteModal && (
             <div className={styles.deleteModalOverlay}>
               <div className={styles.deleteModal}>

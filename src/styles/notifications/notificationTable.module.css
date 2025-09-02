@@ -133,15 +133,14 @@
 
 .completed {
   user-select: none;
-  background-color: #28a74663; /* verde */
+  background-color: #28a74663; 
 }
 
 .pending {
-  background-color: #fd7d1463; /* naranja */
+  background-color: #fd7d1463;
   user-select: none;
 }
 
-/* Ojo: visible sólo al hover de la fila */
 .eyeIcon {
   width: 20px;
   height: 20px;
@@ -155,7 +154,6 @@
   color: #a855f7;
 }
 
-/* Blink al click */
 .eyeBlink {
   color: var(--purple-secondary) !important;
   animation: eyeBlinkAnim 0.7s ease forwards;
@@ -177,7 +175,7 @@
 
 @media (max-width: 768px) {
   .table {
-    min-width: 600px; /* para que no colapse tanto */
+    min-width: 600px;
     font-size: 0.85rem;
   }
 

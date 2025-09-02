@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useGetProjectDetails from "../../hooks/projects/useGetProjectDetails";
 import { selectSelectedProjectDetails } from "../../features/projects/ProjectSelector";
 import styles from "../../styles/projects/projectDetails.module.css";
-import { formatDateToDDMMYY, formatearFecha } from "../../utils/formatDate";
+import { formatearFecha } from "../../utils/formatDate";
 import useGetBudgetPdfByProjectId from "../../hooks/projects/useGetBudgetPdfByProjectId";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import useDeleteProject from "../../hooks/projects/useDeleteProject";
@@ -167,13 +167,6 @@ const ProjectDetails = () => {
             </div>
           )}
         </div>
-
-        {/*<button
-          className={`${styles.actionButton} ${styles.deleteButton}`}
-          onClick={() => setShowDeleteModal(true)}
-        >
-          <Trash size={16} /> Eliminar
-        </button>*/}
       </div>
 
       {/* Pestañas */}

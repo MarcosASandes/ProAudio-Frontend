@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { createEvent } from "../../services/eventApiService";
-import { fetchEventsStart, fetchEventsFailure, fetchEventsSuccess, addEvent } from "../../features/events/EventSlice";
+import { fetchEventsStart, fetchEventsFailure, addEvent } from "../../features/events/EventSlice";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useCreateEvent = () => {

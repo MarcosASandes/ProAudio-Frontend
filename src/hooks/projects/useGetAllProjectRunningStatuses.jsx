@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-import { showToast, showToastError } from "../../utils/toastUtils";
+import { showToastError } from "../../utils/toastUtils";
 import { getAllRunningStatuses } from "../../services/projectApiService";
 import { setAllRunningStatusesInStore } from "../../features/projects/ProjectSlice";
 

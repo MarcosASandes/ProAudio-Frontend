@@ -5,7 +5,6 @@ import {
   createItemsSuccess,
   createItemsFailure,
 } from "../../features/items/ItemSlice";
-import { toast } from "react-toastify";
 import { createItems } from "../../services/itemApiService";
 import { showToast, showToastError } from "../../utils/toastUtils";
 

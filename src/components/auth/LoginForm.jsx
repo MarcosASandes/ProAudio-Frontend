@@ -22,7 +22,6 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Configuración del formulario
   const {
     register,
     handleSubmit,
@@ -32,7 +31,6 @@ export default function LoginForm() {
     resolver: yupResolver(loginSchema),
   });
 
-  //Probar en producción de que funcione solo UNA VEZ, en desarrollo se dispara dos veces por StrictMode.
   useEffect(() => {
     if (location.state?.message) {
       showToastError(location.state.message);
@@ -76,7 +74,6 @@ export default function LoginForm() {
 
   return (
     <form className={styles.loginContainer} onSubmit={handleSubmit(onSubmit)}>
-      {/* Encabezado */}
       <div className={styles.loginHeader}>
         <img src={proaudioLogo} alt="logo" className={styles.logo} />
         <img
@@ -86,7 +83,6 @@ export default function LoginForm() {
         />
       </div>
 
-      {/* Email */}
       <div className={styles.inputGroup}>
         <Mail
           className={`${styles.inputIcon} 
@@ -110,7 +106,6 @@ export default function LoginForm() {
         </span>
       )}
 
-      {/* Password */}
       <div className={styles.inputGroup}>
         <Lock
           className={`${styles.inputIcon} 
@@ -147,14 +142,12 @@ export default function LoginForm() {
         </span>
       )}
 
-      {/* Link */}
       <div className={styles.forgotPassword}>
         <a className={styles.forgotPasswordLink} onClick={handleGoToForgot}>
           ¿Olvidaste la contraseña?
         </a>
       </div>
 
-      {/* Botón */}
       <button type="submit" className={styles.loginButton}>
         Entrar
       </button>

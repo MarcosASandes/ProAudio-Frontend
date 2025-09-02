@@ -67,7 +67,6 @@ export default function ImageCarousel({ images = [], onDeletePhoto }) {
 
   return (
     <div className={styles.carousel}>
-      {/* Previews laterales pixeladas */}
       <div
         className={`${styles.sidePreview} ${styles.left}`}
         aria-hidden="true"
@@ -97,7 +96,6 @@ export default function ImageCarousel({ images = [], onDeletePhoto }) {
       >
         {items.map(({ id, url }, idx) => (
           <div key={id ?? idx} className={styles.slide}>
-            {/* Contenedor relativo de la imagen */}
             <div className={styles.imgWrapper}>
               <img
                 src={url}

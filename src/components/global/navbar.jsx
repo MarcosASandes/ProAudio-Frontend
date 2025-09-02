@@ -28,14 +28,12 @@ export default function Navbar() {
   useGetRecentNotifications(1, 5, null, false, "", 15);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
-  const [isDraftLoaded, setIsDraftLoaded] = useState(false);
 
   const userMenuRef = useRef();
   const userIconRef = useRef();
   const notifMenuRef = useRef();
   const notifIconRef = useRef();
 
-  //estado para manejar ojo "parpadeando" por id
   const [eyeBlinkingIds, setEyeBlinkingIds] = useState({});
 
   const toggleUserMenu = () => {
@@ -84,9 +82,6 @@ export default function Navbar() {
 
   const logoutAndRedirect = async () => {
     await logoutUser(userToken);
-    /*localStorage.removeItem("userName");
-    localStorage.removeItem("userMail");
-    localStorage.removeItem("userToken");*/
     clearData();
 
     setTimeout(() => {
@@ -101,7 +96,7 @@ export default function Navbar() {
 
   
   const handleEyeClick = (id, e) => {
-    e.stopPropagation(); //evita que se dispare onClick de la fila
+    e.stopPropagation();
 
     setEyeBlinkingIds((prev) => ({ ...prev, [id]: true }));
 

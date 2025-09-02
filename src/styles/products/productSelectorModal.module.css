@@ -79,7 +79,6 @@
   min-width: 150px;
 }
 
-/* ---------- Estilos adaptados de eventTable ---------- */
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
@@ -127,7 +126,6 @@
   background-color: rgba(149, 44, 191, 0.2);
 }
 
-/* Botón de selección alineado con la estética */
 .selectRowButton {
   background-color: #7b2cbf;
   color: #fff;
@@ -267,7 +265,6 @@
   display: block;
 }
 
-/* Responsive ajustes */
 @media (max-width: 768px) {
   .modalContent {
     width: 100%;

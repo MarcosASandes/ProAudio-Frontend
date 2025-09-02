@@ -112,7 +112,6 @@ const MostRentedProductsAnalytic = () => {
                   grid: { color: "rgba(115, 85, 206, 0.2)" },
                 },
               },
-              // 👇 Evento click en barras o labels
               onClick: (evt, elements) => {
                 if (!elements.length) return;
                 const index = elements[0].index;

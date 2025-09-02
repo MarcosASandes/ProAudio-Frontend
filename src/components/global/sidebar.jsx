@@ -1,4 +1,4 @@
-import { BarChart3, FileText, Folder, ShoppingCart, Users, Tags } from "lucide-react";
+import { BarChart3, Folder, ShoppingCart, Users, Tags } from "lucide-react";
 import { NavLink } from 'react-router-dom';
 import styles from "../../styles/layout/sidebar.module.css";
 

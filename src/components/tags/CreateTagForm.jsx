@@ -97,7 +97,7 @@ export default function CreateTagForm() {
         )}
       </div>
 
-      {/* Botones (idénticos al cliente) */}
+      {/* Botones*/}
       <div className={styles.buttonGroup}>
         <button
           type="button"

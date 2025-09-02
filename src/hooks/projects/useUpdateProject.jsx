@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { updateProject as updateProjectAPI } from "../../services/projectApiService";
 import { updateProjectInStore, fetchProjectsStart, fetchProjectsFailure } from "../../features/projects/ProjectSlice";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useUpdateProject = () => {

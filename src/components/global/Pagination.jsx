@@ -19,7 +19,6 @@ const Pagination = ({ pageable, onPageChange }) => {
   return (
     <nav aria-label="Page navigation" className={styles.nav}>
       <ul className={styles.pagination}>
-        {/* --- Versión normal (desktop) --- */}
         <li
           className={`${styles.pageItem} ${!has_previous ? styles.disabled : ""} ${styles.desktopOnly}`}
         >
@@ -63,7 +62,6 @@ const Pagination = ({ pageable, onPageChange }) => {
           </button>
         </li>
 
-        {/* --- Versión compacta (mobile) --- */}
         <li className={`${styles.pageItem} ${!has_previous ? styles.disabled : ""} ${styles.mobileOnly}`}>
           <button
             className={styles.pageLink}

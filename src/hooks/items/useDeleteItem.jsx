@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteItemById } from "../../services/itemApiService";
 import { removeItem } from "../../features/items/ItemSlice";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { showToast, showToastError } from "../../utils/toastUtils";
 

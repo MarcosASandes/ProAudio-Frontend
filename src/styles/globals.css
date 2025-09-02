@@ -113,7 +113,7 @@ h1:hover{
 }
 
 /*-------------------------*/
-/*Sobreescritura de los estilos de los toast*/
+/*sobreescritura de los estilos de los toast*/
 .custom-toast {
   background-color: black !important;
   border-radius: 8px !important;

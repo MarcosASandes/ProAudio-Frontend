@@ -150,7 +150,6 @@ const ItemDetails = () => {
         </div>
       </div>
 
-      {/* Modal de confirmación estilo ClientDetails */}
       {showDeleteModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>

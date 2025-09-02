@@ -3,7 +3,6 @@ import { Html5Qrcode } from "html5-qrcode";
 import { useDispatch } from "react-redux";
 import { getItemById } from "../../services/itemApiService";
 import { setSelectedItem, clearSelectedItem } from "../../features/items/ItemSlice";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useItemScanner = () => {

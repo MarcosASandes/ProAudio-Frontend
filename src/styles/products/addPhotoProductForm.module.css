@@ -105,7 +105,6 @@
   margin-top: 1.5rem;
 }
 
-/* ====== PANEL DERECHO (listado siempre visible) ====== */
 .sidePanel {
   background-color: #1c1c2a;
   border-radius: 12px;
@@ -114,7 +113,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 0; /* importante para que el scroll interno funcione */
+  min-height: 0; 
 }
 
 .fileListTitle {
@@ -124,7 +123,6 @@
   font-weight: 700;
 }
 
-/* Área con scroll vertical y altura máxima */
 .fileListScroll {
   flex: 1 1 auto;
   min-height: 0;
@@ -153,7 +151,6 @@
   margin: 0.5rem 0 0;
 }
 
-/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;

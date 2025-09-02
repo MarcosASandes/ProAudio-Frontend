@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import { addProductPhotos } from "../../services/productApiService";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useAddProductPhotos() {

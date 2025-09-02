@@ -7,8 +7,6 @@ import {
 } from "../../utils/getLabels";
 
 export default function ItemFilter({
-  searchTerm,
-  onSearchChange,
   selectedStatus,
   onStatusChange,
   sortBy,

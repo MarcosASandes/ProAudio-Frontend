@@ -171,7 +171,7 @@
 }
 
 .deleteButton:hover svg {
-  color: #ff7f7f; /* cambio de color al hacer hover */
+  color: #ff7f7f;
 }
 
 @media (max-width: 768px) {

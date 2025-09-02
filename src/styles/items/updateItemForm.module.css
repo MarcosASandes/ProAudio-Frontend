@@ -97,7 +97,6 @@
   color: #ffffff;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .formContainer {
     padding: 1rem;

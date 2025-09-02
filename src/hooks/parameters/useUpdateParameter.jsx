@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateParameter } from "../../services/parametersApiService";
 import { updateParameterInStore } from "../../features/parameters/ParameterSlice";

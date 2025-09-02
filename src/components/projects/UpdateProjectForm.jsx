@@ -57,7 +57,6 @@ const UpdateProjectForm = () => {
 
   const [showEventModal, setShowEventModal] = useState(false);
   const [showClientModal, setShowClientModal] = useState(false);
-  const [isDraftLoaded, setIsDraftLoaded] = useState(false);
 
   const {
     register,

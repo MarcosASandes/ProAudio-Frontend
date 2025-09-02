@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { regenerateQrCode } from "../../services/itemApiService";
 import { setItemRegenerateQr } from "../../features/items/ItemSlice";
 import { showToastError, showToast } from "../../utils/toastUtils";

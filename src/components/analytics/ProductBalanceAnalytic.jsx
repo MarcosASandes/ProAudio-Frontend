@@ -31,9 +31,6 @@ const ProductBalanceAnalytic = ({ selectedProduct, onOpenModal }) => {
   const { fetchAnalyticProductBalance } = useGetProductBalanceById();
   const navigate = useNavigate();
 
-  // Llamamos al hook solo si hay producto seleccionado
-  //useGetProductBalanceById(selectedProduct?.id || null);
-
   useEffect(() => {
     if (selectedProduct) {
       fetchAnalyticProductBalance(selectedProduct?.id);

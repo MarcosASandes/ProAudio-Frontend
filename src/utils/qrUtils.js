@@ -72,7 +72,7 @@ export const generateEsterilizedQR = async (
   return canvas;
 };
 
-//descarga el canvas como imagen PNG
+//descargar el canvas como imagen PNG
 export const downloadCanvasAsImage = (canvas, filename) => {
   const link = document.createElement("a");
   link.download = filename;

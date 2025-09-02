@@ -50,7 +50,7 @@ const NotificationDetails = () => {
   return (
     <div className={styles.container}>
       <BackButton target={"/notifications"} />
-      {/* Header: título + badge */}
+      {/* Header*/}
       <header className={styles.headerRow}>
         <h1 className={styles.title}>{notification.title}</h1>
         <span
@@ -138,7 +138,7 @@ const NotificationDetails = () => {
         </section>
       )}
 
-      {/* Footer con fechas (siempre visible) */}
+      {/* Footer con fecha */}
       <footer className={styles.footer}>
         <span>
           <strong>Creada:</strong> {formatearFecha(notification.created_at)}

@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { toast } from "react-toastify";
 import { updateEvent } from "../../services/eventApiService";
 import { updateEventInStore } from "../../features/events/EventSlice";
 import { useDispatch } from "react-redux";

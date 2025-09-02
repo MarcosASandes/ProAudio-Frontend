@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { showToast, showToastError } from "../../utils/toastUtils";
+import { showToastError } from "../../utils/toastUtils";
 import { getNotificationTypes } from "../../services/notificationApiService";
 import { setNotificationTypes } from "../../features/notifications/NotificationSlice";
 

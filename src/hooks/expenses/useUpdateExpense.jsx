@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateExpense } from "../../services/expenseApiService";
 import { updateExpenseInStore } from "../../features/expenses/ExpenseSlice";

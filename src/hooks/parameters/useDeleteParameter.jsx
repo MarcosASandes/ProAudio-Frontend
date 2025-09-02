@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { deleteParameter } from "../../services/parametersApiService";
 import { removeParameter } from "../../features/parameters/ParameterSlice";
 import { showToast, showToastError } from "../../utils/toastUtils";

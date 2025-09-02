@@ -9,11 +9,6 @@ import {
   selectClients,
   selectClientsPageable,
 } from "../../features/clients/ClientSelector";
-import {
-  getClientSortByOptionsLabel,
-  getDirectionLabel,
-  getEnabledDisabledLabel,
-} from "../../utils/getLabels";
 import { useNavigate } from "react-router-dom";
 
 const ClientView = () => {
@@ -40,13 +35,11 @@ const ClientView = () => {
 
   return (
     <div className={styles.container}>
-      {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>Clientes</h2>
         <button className={styles.createButton} onClick={() => navigate("/client/create")}>Crear cliente</button>
       </div>
 
-      {/* Filtros */}
       <ClientFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
@@ -58,12 +51,10 @@ const ClientView = () => {
         onFilterStatusChange={setFilterStatus}
       />
 
-      {/* Tabla */}
       <div className={styles.tableWrapper}>
         <ClientTable clients={clients} />
       </div>
 
-      {/* Paginación */}
       <Pagination pageable={pageable} onPageChange={handlePageChange} />
     </div>
   );

@@ -1,5 +1,3 @@
-/*ESTE SE PODRÍA BORRAR*/
-
 import { useDispatch } from "react-redux";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import { deleteOutletItemInProject } from "../../services/projectApiService";

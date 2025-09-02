@@ -16,7 +16,8 @@ const useGetItemDetails = (id) => {
         dispatch(setSelectedItemDetails(data));
       } catch (error) {
         console.error("Error al obtener el artículo:", error);
-        toast("Error al obtener el artículo: " + error.message);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        toast("Error al obtener el artículo: " + msj);
       }
     };
 
