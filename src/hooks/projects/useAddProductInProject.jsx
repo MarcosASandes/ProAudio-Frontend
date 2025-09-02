@@ -20,6 +20,9 @@ export function useAddProductInProject() {
         const createdProductProject = await addProductToProject(payload);
         dispatch(addProductInProject(createdProductProject));
         showToast("Producto agregado correctamente.");
+        if(createdProductProject?.message != null){
+          showToast(createdProductProject?.message);
+        }
       } catch (error) {
         console.error("Error al agregar precio:", error);
         const msj = error.response?.data?.message || "Ocurrió un error inesperado";
