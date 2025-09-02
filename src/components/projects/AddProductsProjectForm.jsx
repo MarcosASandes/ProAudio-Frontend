@@ -51,7 +51,6 @@ const AddProductsProjectForm = () => {
   const productId = watch("product_id");
   const productLabel = watch("product_label");
 
-  // Cargar precios cuando haya un producto seleccionado
   useGetPricesByProductId(productId);
   const prices = reduxSelector((state) =>
     selectProductPrices(state, productId)

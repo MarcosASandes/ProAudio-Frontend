@@ -5,16 +5,16 @@ export const generateEsterilizedQR = async (
   modelo,
   size = 200
 ) => {
-  const margin = 20; // margen general
-  const logoMargin = 10; // margen alrededor del logo
-  const logoSize = size * 0.2; // logo más pequeño
-  const textSpacing = 10; // espacio entre QR y texto
-  const lineHeight = 18; // separación entre líneas
+  const margin = 20; //margen general
+  const logoMargin = 10; //margen alrededor del logo
+  const logoSize = size * 0.2; //logo más pequeño
+  const textSpacing = 10; //espacio entre QR y texto
+  const lineHeight = 18; //separación entre líneas
 
-  // Altura de la zona de texto y logo (más compacta que antes)
+  //altura de la zona de texto y logo
   const extraHeight = logoSize + logoMargin * 2;
 
-  // Ancho y alto del canvas
+  //ancho y alto del canvas
   const canvasWidth = size + margin * 2;
   const canvasHeight = margin + size + extraHeight;
 
@@ -23,11 +23,11 @@ export const generateEsterilizedQR = async (
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
 
-  // Fondo blanco
+  //fondo blanco
   ctx.fillStyle = "#fff";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // --- Dibuja QR ---
+  //dibuja QR
   const qrX = margin;
   const qrY = margin;
   ctx.strokeStyle = "#000";
@@ -39,7 +39,7 @@ export const generateEsterilizedQR = async (
   await qrImg.decode();
   ctx.drawImage(qrImg, qrX, qrY, size, size);
 
-  // --- Dibuja logo en la esquina inferior izquierda ---
+  //dibuja logo en la esquina inferior izquierda
   const logoX = margin;
   const logoY = qrY + size + textSpacing;
   const logoImg = new Image();
@@ -47,11 +47,11 @@ export const generateEsterilizedQR = async (
   await logoImg.decode();
   ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
 
-  // --- Dibuja modelo + ID al lado del logo ---
+  //dibuja modelo + ID al lado del logo
   const textStartX = logoX + logoSize + logoMargin;
   const textStartY = logoY + logoSize / 2 - 5;
 
-  // Ajuste dinámico de tamaño de fuente
+  //ajuste dinámico de tamaño de fuente
   let fontSize = 16;
   if (modelo.length > 20) fontSize = 12;
   if (modelo.length > 35) fontSize = 10;
@@ -72,11 +72,10 @@ export const generateEsterilizedQR = async (
   return canvas;
 };
 
-// Descarga el canvas como imagen PNG
+//descargar el canvas como imagen PNG
 export const downloadCanvasAsImage = (canvas, filename) => {
   const link = document.createElement("a");
   link.download = filename;
   link.href = canvas.toDataURL("image/png");
-  console.log("Se esta descargando");
   link.click();
 };

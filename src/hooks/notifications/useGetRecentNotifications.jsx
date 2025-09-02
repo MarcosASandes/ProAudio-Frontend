@@ -18,7 +18,7 @@ const useGetRecentNotifications = (
   const dispatch = useDispatch();
   const fetchRef = useRef();
 
-  //se guarda la ultima versión de la función para que el intervalo no dependa de todos los argumentos
+  //se guarda la ultima version de la función para que el intervalo no dependa de todos los argumentos
   useEffect(() => {
     fetchRef.current = async () => {
       dispatch(fetchStart());

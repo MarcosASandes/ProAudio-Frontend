@@ -53,15 +53,13 @@ export default function CreateProductForm() {
     return tag ? tag.name : null;
   };
 
-  console.log("Estos son los tags: ", tags);
-
   useGetTagsTypes();
   const allTagsTypes = useSelector(selectTagsTypes);
 
   const [selectedTag, setSelectedTag] = useState(null);
   const [selectedType, setSelectedType] = useState("DESCRIPTIVE");
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false); // control modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (selectedTag) {
@@ -143,13 +141,6 @@ export default function CreateProductForm() {
               </div>
             </div>
           </div>
-          {/*<input
-            id="filePhotos"
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={(e) => setSelectedFiles(Array.from(e.target.files))}
-          />*/}
           <input
             id="filePhotos"
             type="file"

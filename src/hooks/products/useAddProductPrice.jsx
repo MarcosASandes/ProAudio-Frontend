@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { createProductPrice } from "../../services/productApiService";
-import { toast } from "react-toastify";
 import { addProductPriceInStore } from "../../features/products/ProductSlice";
 import { showToast, showToastError } from "../../utils/toastUtils";
 

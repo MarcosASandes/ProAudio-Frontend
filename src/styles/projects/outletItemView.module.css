@@ -30,7 +30,6 @@
   margin: 0.5rem 0 1rem 0;
 }
 
-/* --- Tooltip junto al título --- */
 .infoIconWrap {
   position: relative;
   display: inline-flex;
@@ -45,7 +44,7 @@
   background: rgba(131, 101, 238, 0.18);
   flex-shrink: 0;
   z-index: 5;
-  margin-left: 8px; /* separación con el texto del título */
+  margin-left: 8px;
   vertical-align: middle;
   
 }
@@ -53,7 +52,6 @@
 .tooltip {
   position: absolute;
   top: 50%;
-  /*left: calc(100% + 8px);*/
   left: -80px;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.85);
@@ -66,7 +64,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 999; /* evita quedar debajo de otros elementos */
+  z-index: 999;
   user-select: none;
 }
 
@@ -77,17 +75,12 @@
 }
 
 
-
-
-/* CONTENIDO */
 .content {
   display: flex;
   flex: 1;
   gap: 1rem;
-  /*overflow: hidden;*/
 }
 
-/* LEFT PANEL - SCANNER */
 .left {
   flex: 1;
   background: #1414148a;
@@ -111,7 +104,6 @@
   overflow: hidden;
 }
 
-/* RIGHT PANEL */
 .right {
   flex: 1.5;
   display: flex;
@@ -166,7 +158,6 @@
   text-align: center;
 }
 
-/* BUTTONS */
 .scanButton,
 .retryButton {
   padding: 0.6rem 1.2rem;
@@ -194,14 +185,12 @@
   background: #c62828;
 }
 
-/* ERROR MESSAGE */
 .error {
   color: var(--error);
   text-align: center;
   font-weight: 500;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .content {
     flex-direction: column;

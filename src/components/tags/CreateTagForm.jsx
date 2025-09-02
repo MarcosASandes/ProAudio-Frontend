@@ -12,7 +12,7 @@ import { selectTags } from "../../features/tags/TagSelector";
 import styles from "../../styles/tags/createTagForm.module.css";
 
 export default function CreateTagForm() {
-  useGetAllTags(true); // Para que las etiquetas sigan apareciendo tras F5
+  useGetAllTags(true);
   const tags = useSelector(selectTags);
 
   const [fatherTag, setFatherTag] = useState(null);
@@ -97,7 +97,7 @@ export default function CreateTagForm() {
         )}
       </div>
 
-      {/* Botones (idénticos al cliente) */}
+      {/* Botones*/}
       <div className={styles.buttonGroup}>
         <button
           type="button"

@@ -31,7 +31,7 @@ import {
 } from "../../features/projects/ProjectSelector";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/projects/projectView.module.css";
-import { Calendar } from "lucide-react";
+import { Calendar, Info } from "lucide-react";
 import Pagination from "../global/Pagination";
 
 const ProjectView = () => {
@@ -77,7 +77,39 @@ const ProjectView = () => {
     <div className={styles.container}>
       {/* Header */}
       <div className={styles.header}>
-        <h2 className={styles.title}>Proyectos</h2>
+        <div className={styles.labelWithIcon}>
+          <h2 className={styles.title}>Proyectos</h2>
+          <div className={styles.infoIconWrap} aria-hidden="true">
+            <Info size={15} />
+            <div className={`${styles.tooltip} ${styles.tooltipRight}`}>
+              Los colores de la fila representan proyectos en distintos estados.
+              <div>
+                <span className={styles.tooltipRedRowKey}>Rojo:</span> proyecto
+                en curso.
+              </div>
+              <div>
+                <span className={styles.tooltipYellowRowKey}>Amarillo:</span>{" "}
+                proyecto en preparación.
+              </div>
+              <div>
+                <span className={styles.tooltipGreenRowKey}>Verde:</span>{" "}
+                proyecto finalizado.
+              </div>
+              <div>
+                <span className={styles.tooltipDarkBlueRowKey}>
+                  Azul oscuro:
+                </span>{" "}
+                proyecto descartado.
+              </div>
+              <div>
+                <span className={styles.tooltipPurpleRowKey}>
+                  Púrpura:
+                </span>{" "}
+                proyecto futuro.
+              </div>
+            </div>
+          </div>
+        </div>
         <div className={styles.actions}>
           <button className={styles.calendarButton} onClick={handleGoToEvents}>
             <Calendar size={18} />

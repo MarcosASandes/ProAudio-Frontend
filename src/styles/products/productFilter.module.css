@@ -106,7 +106,7 @@
   font-weight: bold;
   padding: 0 0.6rem;
   cursor: pointer;
-  flex-shrink: 0; /* también importante */
+  flex-shrink: 0;
 }
 
 .addTagBtn:hover {
@@ -140,10 +140,6 @@
   .container {
     display: none;
   }
-
-  /*.container.show {
-    display: flex;
-  }*/
 
   .container.show {
     display: flex;

@@ -20,7 +20,7 @@ export default function RepeatPasswordForm() {
   const [focusedField, setFocusedField] = useState("");
   const [isReset, setIsReset] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [messageColor, setMessageColor] = useState("#eee"); // color por defecto
+  const [messageColor, setMessageColor] = useState("#eee");
   const loggedUser = useSelector(selectLoggedUser);
   const navigate = useNavigate();
 
@@ -95,8 +95,6 @@ export default function RepeatPasswordForm() {
   return (
     <form className={styles.loginContainer} onSubmit={handleSubmit(onSubmit)}>
       <BackButton target={"/auth/login"} />
-
-      {/* Encabezado */}
       <div className={styles.loginHeader}>
         <img src={proaudioLogo} alt="logo" className={styles.logo} />
         <img
@@ -108,7 +106,6 @@ export default function RepeatPasswordForm() {
 
       <h2 className={styles.containerOptionalTitle}>Reestablecer contraseña</h2>
 
-      {/* Mensaje */}
       <div
         className={isReset ? styles.changeBackgroundColor : ""}
         style={{

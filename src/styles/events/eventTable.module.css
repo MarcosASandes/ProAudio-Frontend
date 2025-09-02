@@ -120,7 +120,7 @@
 
 @media (max-width: 768px) {
   .table {
-    min-width: 600px; /* para que no colapse tanto */
+    min-width: 600px;
     font-size: 0.85rem;
   }
 

@@ -20,7 +20,6 @@ const AddProductPricesForm = () => {
   const { deleteProductPrice } = useDeleteProductPrice();
   const navigate = useNavigate();
 
-  // React Hook Form
   const {
     register,
     handleSubmit,
@@ -33,25 +32,21 @@ const AddProductPricesForm = () => {
 
   const [localPrices, setLocalPrices] = useState([]);
 
-  // Agregar precio local (en memoria)
   const handleAddLocalPrice = async () => {
     const { value, description } = getValues();
     const parsedValue = Number(value);
 
     try {
-      // Validación con Yup
       await rentPriceValidator.validate({
         value: parsedValue,
         description: description.trim(),
       });
 
-      // Agregar precio a lista local
       setLocalPrices([
         ...localPrices,
         { value: parsedValue, description: description.trim() },
       ]);
 
-      // Resetear formulario
       reset({ value: "", description: "" });
     } catch (error) {
       showToastError(error.message);

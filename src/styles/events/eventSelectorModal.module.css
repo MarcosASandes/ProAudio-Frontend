@@ -74,7 +74,6 @@
   background-color: #1c1c2a;
 }
 
-/* ---------- Estilos adaptados de eventTable ---------- */
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
@@ -122,7 +121,6 @@
   background-color: rgba(149, 44, 191, 0.2);
 }
 
-/* Botón de selección alineado con la estética */
 .selectRowButton {
   background-color: #7b2cbf;
   color: #fff;
@@ -142,7 +140,6 @@
     background-color: #aa232398;
 }
 
-/* Footer */
 .modalFooter {
   padding: 1rem;
   border-top: 1px solid #444;
@@ -192,7 +189,6 @@
   color: #ff6b6b;
 }
 
-/* Responsive ajustes */
 @media (max-width: 768px) {
   .modalContent {
     width: 100%;

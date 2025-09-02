@@ -47,7 +47,6 @@ export default function ForgotPasswordForm() {
   const onSubmit = async (data) => {
     try {
       const response = await userForgotPassword(data.email);
-      console.log("Correo enviado a: ", data.email);
 
       if (response.status === 200) {
         setSuccessMessage("Se envió un correo, revisa tu email.");
@@ -70,7 +69,6 @@ export default function ForgotPasswordForm() {
     <form className={styles.loginContainer} onSubmit={handleSubmit(onSubmit)}>
       <BackButton target={"/auth/login"} />
 
-      {/* Encabezado */}
       <div className={styles.loginHeader}>
         <img src={proaudioLogo} alt="logo" className={styles.logo} />
         <img
@@ -82,7 +80,6 @@ export default function ForgotPasswordForm() {
 
       <h2 className={styles.containerOptionalTitle}>Recuperar contraseña</h2>
 
-      {/* Mensaje informativo */}
       <div
         className={isSent ? styles.changeBackgroundColor : ""}
         style={{
@@ -100,7 +97,6 @@ export default function ForgotPasswordForm() {
           : "Se te enviará un correo para recuperar la contraseña."}
       </div>
 
-      {/* Email */}
       <div className={styles.inputGroup}>
         <Mail
           className={`${styles.inputIcon} 
@@ -124,7 +120,6 @@ export default function ForgotPasswordForm() {
         </span>
       )}
 
-      {/* Botón */}
       <button type="submit" className={styles.loginButton} disabled={isSent || errors.email}>
         Enviar
       </button>

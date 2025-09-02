@@ -39,14 +39,11 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        {/* Header */}
         <div className={styles.modalHeader}>
           <h5 className={styles.modalTitle}>Seleccionar evento</h5>
         </div>
 
-        {/* Body */}
         <div className={styles.modalBody}>
-          {/* Filtros */}
           <div className={styles.filters}>
             <input
               type="text"
@@ -86,7 +83,6 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
             </select>
           </div>
 
-          {/* Contenido */}
           {loading && <p className={styles.loadingText}>Cargando eventos...</p>}
           {error && <p className={styles.errorText}>{error}</p>}
 
@@ -138,7 +134,6 @@ const EventSelectorModal = ({ onSelect, onClose }) => {
           )}
         </div>
 
-        {/* Footer */}
         <div className={styles.modalFooter}>
           <button className={styles.cancelButton} onClick={onClose}>
             Cancelar

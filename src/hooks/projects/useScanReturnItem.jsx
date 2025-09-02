@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import { returnItemToDeposit } from "../../services/projectApiService";
 import { returnItemToDepositInStore } from "../../features/projects/ProjectSlice";
@@ -29,7 +28,6 @@ const useScanReturnItem = (id) => {
           try {
             const idProject = id;
             const idItem = decodedText;
-            console.log(`En el método useScanReturnItem llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
             const data = await returnItemToDeposit(idProject, idItem);
             dispatch(returnItemToDepositInStore(data));
             showToast("Artículo retornado correctamente.");

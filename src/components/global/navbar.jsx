@@ -28,14 +28,12 @@ export default function Navbar() {
   useGetRecentNotifications(1, 5, null, false, "", 15);
   const notifications = useSelector(selectRecentNotifications);
   const totalNotifications = useSelector(selectTotalNotifications);
-  const [isDraftLoaded, setIsDraftLoaded] = useState(false);
 
   const userMenuRef = useRef();
   const userIconRef = useRef();
   const notifMenuRef = useRef();
   const notifIconRef = useRef();
 
-  // Estado para manejar ojo "parpadeando" por id
   const [eyeBlinkingIds, setEyeBlinkingIds] = useState({});
 
   const toggleUserMenu = () => {
@@ -84,9 +82,6 @@ export default function Navbar() {
 
   const logoutAndRedirect = async () => {
     await logoutUser(userToken);
-    /*localStorage.removeItem("userName");
-    localStorage.removeItem("userMail");
-    localStorage.removeItem("userToken");*/
     clearData();
 
     setTimeout(() => {
@@ -99,10 +94,9 @@ export default function Navbar() {
     return date.toLocaleDateString();
   };
 
-  // Maneja click en icono ojo para parpadear
+  
   const handleEyeClick = (id, e) => {
-    e.stopPropagation(); // evita que se dispare onClick de la fila
-    console.log("Notificación clickeada:", id); // solo para pruebas
+    e.stopPropagation();
 
     setEyeBlinkingIds((prev) => ({ ...prev, [id]: true }));
 
@@ -112,12 +106,11 @@ export default function Navbar() {
         delete newState[id];
         return newState;
       });
-    }, 700); // dura 700ms ojo cerrado
+    }, 700);
     markAsRead(id);
   };
 
   const handleGoToDetails = (id) => {
-    console.log("Ir a detalles de la notificación:", id);
     setShowNotificationsMenu(false);
     navigate(`/notification/${id}`);
   };
@@ -132,7 +125,6 @@ export default function Navbar() {
       .filter((n) => !n.is_seen)
       .map((n) => n.notification_id);
     markMultipleAsRead(notificationIds);
-    console.log("Estas notif se pondrán en vistas: ", notificationIds);
   };
 
   return (

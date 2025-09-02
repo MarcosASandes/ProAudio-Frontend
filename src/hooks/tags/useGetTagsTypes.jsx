@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getTagsTypes } from "../../services/tagApiService";
 import { setTagsTypeInStore } from "../../features/tags/tagSlice";
-import { toast } from "react-toastify";
-import { showToast, showToastError } from "../../utils/toastUtils";
+import { showToastError } from "../../utils/toastUtils";
 
 const useGetTagsTypes = () => {
   const dispatch = useDispatch();

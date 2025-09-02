@@ -36,10 +36,8 @@ export function formatearFecha(fechaISO) {
 export const formatDateToDatetimeLocal = (input) => {
   if (!input) return "";
 
-  // ya en formato correcto
   if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(input)) return input;
 
-  // Si viene un ISO con segundos o zona (ej: 2025-09-05T00:00:00 o 2025-09-05T00:00:00Z)
   const isoMatch = input.match(
     /^(\d{4}-\d{2}-\d{2})[T ]?(\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?(Z|[+-]\d{2}:\d{2})?$/
   );
@@ -47,7 +45,6 @@ export const formatDateToDatetimeLocal = (input) => {
     return `${isoMatch[1]}T${isoMatch[2]}:${isoMatch[3]}`;
   }
 
-  // Fallback: intentar con Date (podría ajustar zona horaria)
   const d = new Date(input);
   if (!isNaN(d.getTime())) {
     const year = d.getFullYear();
@@ -58,6 +55,5 @@ export const formatDateToDatetimeLocal = (input) => {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   }
 
-  // Si no se pudo parsear, devolver vacío para evitar valores inválidos
   return "";
 };

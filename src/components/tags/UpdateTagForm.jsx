@@ -7,7 +7,6 @@ import { selectTags } from "../../features/tags/TagSelector";
 import { useUpdateTag } from "../../hooks/tags/useUpdateTag";
 import { useNavigate } from "react-router-dom";
 import TagSelectorModal from "./TagSelectorModal";
-import * as bootstrap from "bootstrap";
 import useGetAllTags from "../../hooks/tags/useGetAllTags";
 import styles from "../../styles/tags/updateTagForm.module.css";
 import BackButton from "../global/BackButton";

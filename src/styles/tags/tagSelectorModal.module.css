@@ -13,7 +13,7 @@
 }
 
 .modalContent {
-  background-color: #1c1c2a; /* oscuro */
+  background-color: #1c1c2a; 
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(66, 0, 128, 0.452);
   width: 500px;
@@ -29,7 +29,7 @@
 }
 
 .modalTitle {
-  color: #cfa6ff; /* púrpura claro */
+  color: #cfa6ff; 
   margin: 0;
 }
 

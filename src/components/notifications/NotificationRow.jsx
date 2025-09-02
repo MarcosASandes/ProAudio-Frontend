@@ -44,7 +44,6 @@ const NotificationRow = ({ notification }) => {
 
       {/* Botones de acción */}
       <td className={styles.actions}>
-        {/* Botón ojo con animación */}
         <button
           type="button"
           className={styles.eyeBtn}

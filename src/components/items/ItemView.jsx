@@ -69,8 +69,6 @@ const ItemView = () => {
 
       {/* Filtros */}
       <ItemFilter
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
         sortBy={sortBy}
         onSortByChange={setSortBy}
         direction={direction}

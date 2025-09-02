@@ -70,7 +70,7 @@ const OutletItemView = () => {
       </h2>
 
       <div className={styles.content}>
-        {/* LEFT - SCANNER */}
+        {/* izq */}
         <div className={styles.left}>
           <div id="qr-reader" ref={scannerRef} className={styles.scanner}></div>
 
@@ -90,7 +90,7 @@ const OutletItemView = () => {
           )}
         </div>
 
-        {/* RIGHT - LISTS */}
+        {/* der */}
         <div className={styles.right}>
           <div className={styles.listWrapper}>
             <div className={styles.section}>

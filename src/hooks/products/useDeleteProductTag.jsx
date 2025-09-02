@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { removeDescriptionTagInStore, removeRelationTagInStore, removeDependencyTagInStore } from "../../features/products/ProductSlice";
 import { deleteProductTag } from "../../services/productApiService";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useDeleteProductTag() {

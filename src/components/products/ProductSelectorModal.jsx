@@ -9,7 +9,6 @@ import {
   selectProductsLoading,
   selectProductsError,
 } from "../../features/products/ProductSelector";
-import { useMemo } from "react";
 import { Target } from "lucide-react";
 import TagSelectorModal from "../tags/TagSelectorModal";
 
@@ -65,7 +64,7 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
 
           {/* Body */}
           <div className={styles.modalBody}>
-            {/* Mobile: botón para abrir filtros */}
+            {/* Mobile - botón para filtros */}
             <div className={styles.mobileFiltersButton}>
               <button className={styles.mobileFiltersButtonStyles} onClick={() => setShowFiltersModal(true)}>
                 Filtros
@@ -81,18 +80,6 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className={styles.inputSearch}
-                />
-                <input
-                  type="date"
-                  value={dateFrom}
-                  onChange={(e) => setDateFrom(e.target.value)}
-                  className={styles.inputDate}
-                />
-                <input
-                  type="date"
-                  value={dateTo}
-                  onChange={(e) => setDateTo(e.target.value)}
-                  className={styles.inputDate}
                 />
                 <select
                   value={sortBy}
@@ -124,7 +111,6 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
               </div>
             </div>
 
-            {/* NUEVO: filtro de etiquetas */}
             <div className={`${styles.tagsWrapper} mt-1`}>
               <div className={styles.tagsContainer}>
                 {selectedTags.map((tag) => (
@@ -219,7 +205,7 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
         </div>
       </div>
 
-      {/* Modal de etiquetas */}
+      {/* Modal de tags */}
       {showTagsModal && (
         <TagSelectorModal
           onSelect={handleAddTag}
@@ -239,18 +225,6 @@ const ProductSelectorModal = ({ onClose, onSelect }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className={styles.inputSearch}
-              />
-              <input
-                type="date"
-                value={dateFrom}
-                onChange={(e) => setDateFrom(e.target.value)}
-                className={styles.inputDate}
-              />
-              <input
-                type="date"
-                value={dateTo}
-                onChange={(e) => setDateTo(e.target.value)}
-                className={styles.inputDate}
               />
               <select
                 value={sortBy}

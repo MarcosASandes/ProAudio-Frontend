@@ -13,7 +13,8 @@ const useGetProductStatus = () => {
         const data = await getProductStatus();
         dispatch(setProductStatusInStore(data));
       } catch (error) {
-        toast(`Hubo un error cargando los estados de producto: ${error.message}`);
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        toast(`Hubo un error cargando los estados de producto: ${msj}`);
       }
     };
 

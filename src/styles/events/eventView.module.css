@@ -141,7 +141,6 @@
   background-color: #e63939;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -171,7 +170,6 @@
     padding-top: 0;
   }
 
-  /* Evitar que el contenido se vea aplastado */
   .tableWrapper::-webkit-scrollbar {
     height: 6px;
   }

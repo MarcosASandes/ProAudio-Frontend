@@ -4,7 +4,6 @@ import { selectSelectedItemDetails } from "../../features/items/ItemSelector";
 import useDeleteItem from "../../hooks/items/useDeleteItem";
 import useGetItemDetails from "../../hooks/items/useGetItemDetails";
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import styles from "../../styles/items/itemDetails.module.css";
 import useRegenerateQr from "../../hooks/items/useRegenerateQr";
 import {
@@ -151,7 +150,6 @@ const ItemDetails = () => {
         </div>
       </div>
 
-      {/* Modal de confirmación estilo ClientDetails */}
       {showDeleteModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>

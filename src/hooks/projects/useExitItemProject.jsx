@@ -1,6 +1,3 @@
-
-/*ESTE SE PODRÍA BORRAR*/
-
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { exitItemToProject } from "../../services/projectApiService";

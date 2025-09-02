@@ -195,15 +195,14 @@
   gap: 0.8rem;
 }
 
-/* Contenedor de cada tipo de badges */
 .badge-container {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
-  white-space: nowrap; /* evita que salten de línea */
+  white-space: nowrap;
   padding-bottom: 0.3rem;
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #666 transparent; /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #666 transparent;
 }
 
 .badge-container::-webkit-scrollbar {
@@ -219,7 +218,6 @@
   background: transparent;
 }
 
-/* Estilo de los badges */
 .badge {
   display: inline-block;
   padding: 0.3rem 0.7rem;

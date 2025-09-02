@@ -1,9 +1,3 @@
-/* ==========================================================================
-   ProjectTable Styles
-   Descripción: Estilos para la tabla de proyectos, incluyendo su contenedor,
-   cabeceras, filas, botones de acción y badges para estados.
-   ========================================================================== */
-
 .tableWrapper {
   width: 100%;
   overflow-x: auto;

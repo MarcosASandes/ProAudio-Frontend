@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { getExpenseTypes } from "../../services/expenseApiService";
 import { setExpenseTypesInStore, fetchExpensesStart, fetchExpensesFailure } from "../../features/expenses/ExpenseSlice";
-import { showToast, showToastError } from "../../utils/toastUtils";
+import { showToastError } from "../../utils/toastUtils";
 
 const useGetExpenseTypes = () => {
   const dispatch = useDispatch();

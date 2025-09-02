@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { deleteProject } from "../../services/projectApiService";
 import { removeProject } from "../../features/projects/ProjectSlice";
 import { showToast, showToastError } from "../../utils/toastUtils";

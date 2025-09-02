@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { updateProduct } from "../../services/productApiService";
 import { updateProductInStore } from "../../features/products/ProductSlice";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
@@ -15,9 +14,6 @@ export function useUpdateProduct() {
       replacement_value: formData.replacement_value,
       status: formData.status
     };
-
-    console.log("Producto editado: ");
-    console.log(updatedProduct);
 
     try {
       const updated = await updateProduct(productId, updatedProduct);

@@ -7,16 +7,6 @@ import {
   fetchProjectsFailure,
 } from "../../features/projects/ProjectSlice";
 
-/**
- * Hook para obtener proyectos con filtros y paginación.
- * @param {number} page - Página actual (comienza en 1).
- * @param {number} size - Cantidad de elementos por página.
- * @param {string} sortBy - Campo por el cual ordenar.
- * @param {string} direction - Dirección del ordenamiento (asc o desc).
- * @param {Array<string>} filterStatus - Filtro por estados.
- * @param {string} filterPaymentStatus - Filtro por estado de pago.
- * @param {string} name - Filtro por nombre de proyecto.
- */
 const useGetAllProjects = (
   page,
   size,

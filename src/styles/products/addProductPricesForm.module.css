@@ -88,7 +88,6 @@
   background: rgba(233, 14, 14, 0.781);
 }
 
-/* FORMULARIO DERECHA */
 .priceCard {
   border: 1px solid #444;
   border-radius: 10px;
@@ -164,7 +163,6 @@
   font-size: 0.95rem;
 }
 
-/* BADGES LOCALES */
 .badgeScrollContainer {
   display: flex;
   gap: 0.5rem;
@@ -191,10 +189,10 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.3rem 0.8rem;
-  border-radius: 999px; /* tipo pill */
+  border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
-  background-color: #4caf50aa; /* verde suave para locales */
+  background-color: #4caf50aa;
   color: #fff;
   white-space: nowrap;
 }

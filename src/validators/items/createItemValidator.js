@@ -33,7 +33,6 @@ export const createItemsSchema = yup.object().shape({
     "La cantidad de números de serie no coincide con la cantidad comprada",
     function (serialNumbers) {
       const quantity = this.parent.quantity;
-      // Si no hay números de serie todavía, no hay error
       if (!serialNumbers || serialNumbers.length === 0) return true;
 
       let totalSerials = 0;

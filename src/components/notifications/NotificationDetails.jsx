@@ -5,7 +5,7 @@ import { formatearFecha } from "../../utils/formatDate";
 import useGetNotificationDetails from "../../hooks/notifications/useGetNotificationDetails";
 import { selectSelectedNotification } from "../../features/notifications/NotificationSelector";
 import { useSelector } from "react-redux";
-import { getActionKeyLabel } from "../../utils/getLabels";
+import { getActionKeyLabel, getNotificationRelatedInfoLabel } from "../../utils/getLabels";
 import { Info, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import useMarkNotificationAsRead from "../../hooks/notifications/useMarkNotificationAsRead";
 import BackButton from "../global/BackButton";
@@ -45,13 +45,12 @@ const NotificationDetails = () => {
     } else {
       console.warn("No se encontró ruta para:", notification);
     }
-    console.log("Solucionar notificación:", notification.notification_id);
   };
 
   return (
     <div className={styles.container}>
       <BackButton target={"/notifications"} />
-      {/* Header: título + badge */}
+      {/* Header*/}
       <header className={styles.headerRow}>
         <h1 className={styles.title}>{notification.title}</h1>
         <span
@@ -128,7 +127,7 @@ const NotificationDetails = () => {
                         <strong className={styles.relatedTitles}>
                           {formattedTitle}
                         </strong>{" "}
-                        {item.value}
+                        {item.title === "Fecha de inicio" || item.title === "Fecha de fin" ? formatearFecha(item.value) : getNotificationRelatedInfoLabel(item.value)}
                       </span>
                     </li>
                   );
@@ -139,7 +138,7 @@ const NotificationDetails = () => {
         </section>
       )}
 
-      {/* Footer con fechas (siempre visible) */}
+      {/* Footer con fecha */}
       <footer className={styles.footer}>
         <span>
           <strong>Creada:</strong> {formatearFecha(notification.created_at)}

@@ -32,7 +32,6 @@ const itemSlice = createSlice({
       state.error = action.payload;
     },
     setSelectedItem: (state, action) => {
-      console.log("Guardando en store:", action.payload);
       state.selectedItem = action.payload;
     },
     clearSelectedItem: (state) => {
@@ -79,8 +78,6 @@ const itemSlice = createSlice({
       );
 
       if (state.selectedItem && state.selectedItem.item_id === item.item_id) {
-        console.log("LLEGO AL UPDATE ITEM LOCATION STATUS", item);
-        console.log("ESTO SE GUARDO EN LA STORE", state.selectedItem);
         state.selectedItem = {
           ...state.selectedItem,
           location: item.item_location,
@@ -90,7 +87,6 @@ const itemSlice = createSlice({
     },
     setStatusesById: (state, action) => {
       state.statusesById = action.payload.status_list;
-      console.log("setStatusesById: ", state.statusesById);
     },
     clearStatusesById: (state) => {
       state.statusesById = [];

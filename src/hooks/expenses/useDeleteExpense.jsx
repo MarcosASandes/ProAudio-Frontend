@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { deleteExpense } from "../../services/expenseApiService";
 import { removeExpense } from "../../features/expenses/ExpenseSlice";
 import { showToast, showToastError } from "../../utils/toastUtils";

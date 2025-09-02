@@ -13,8 +13,6 @@ import {
   Pencil,
   Trash,
   DollarSign,
-  ChevronDown,
-  ChevronUp,
   ShoppingBasket,
   Tags,
   PackageSearch,

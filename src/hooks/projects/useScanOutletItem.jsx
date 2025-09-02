@@ -1,12 +1,10 @@
 import { useRef, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { showToast, showToastError } from "../../utils/toastUtils";
 import { exitItemToProject } from "../../services/projectApiService";
 import { addItemToOutletInStore } from "../../features/projects/ProjectSlice";
 import { removeItemToOutletInStore } from "../../features/projects/ProjectSlice";
-import { addProductToOutletInStore } from "../../features/projects/ProjectSlice";
 
 const useScanOutletItem = (id) => {
   const scannerRef = useRef(null);
@@ -31,7 +29,6 @@ const useScanOutletItem = (id) => {
           try {
             const idProject = id;
             const idItem = decodedText;
-            console.log(`En el método useScanOutletItem llegan los IDs: - Proyecto: ${idProject} - Item: ${idItem}`);
             const data = await exitItemToProject(idProject, idItem);
             if(data.status == "ENABLED"){
                 dispatch(addItemToOutletInStore(data));

@@ -30,7 +30,6 @@ const NotificationView = () => {
       .filter((n) => !n.is_seen)
       .map((n) => n.notification_id);
     markMultipleAsRead(notificationIds);
-    console.log("Estas notif se pondrán en vistas: ", notificationIds); 
   }
 
   useEffect(() => {

@@ -167,7 +167,6 @@ const productSlice = createSlice({
       };
     },
 
-    //Sirve para eliminar un producto de la store (array products, details y selected)
     removeProductInStore: (state, action) => {
       const productIdToDelete = action.payload.product_id;
 

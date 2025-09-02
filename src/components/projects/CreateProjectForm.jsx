@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import createProjectValidator from "../../validators/projects/createProjectValidator";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/projects/createProjectForm.module.css";
-import { toast } from "react-toastify";
 import ProductSelectorModal from "../products/ProductSelectorModal";
 import * as bootstrap from "bootstrap";
 import {
@@ -145,7 +144,6 @@ const CreateProjectForm = () => {
 
   useEffect(() => {
     const tempClient = localStorage.getItem("temporaryProjectClient");
-    console.log("Este es el cliente del localStorage: ", tempClient);
     if (tempClient) {
       const parsedClient = JSON.parse(tempClient);
       setSelectedClient(parsedClient);
@@ -198,7 +196,6 @@ const CreateProjectForm = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log("Datos que se van a enviar:", data);
     const cleanedProducts = data?.products?.map(
       ({ product_id, price_id, amount }) => ({
         product_id,
@@ -398,7 +395,6 @@ const CreateProjectForm = () => {
                   </div>
                 </div>
 
-                {/*<label htmlFor="numCostAddition">Porcentaje de cobro (%)</label>*/}
                 <input
                   id="numCostAddition"
                   type="number"
@@ -750,21 +746,7 @@ const CreateProjectForm = () => {
       {showClientModal && (
         <ClientSelectorModal
           onClose={() => setShowClientModal(false)}
-          /*onSelect={(client) => {
-            setSelectedClient(client);
-            setValue("client", {
-              // cliente nuevo, sin client_id
-              name: client.name,
-              email: client.email,
-              phone: client.phone_number, // <-- cambiar a "phone"
-              address: client.address,
-              details: client.details || "",
-            });
-            setShowClientModal(false);
-          }}*/
-
           onSelect={(client) => {
-            console.log("Cliente recibido del modal:", client); // <--- Aquí
             setSelectedClient(client);
 
             setValue("client", {
@@ -774,8 +756,6 @@ const CreateProjectForm = () => {
               address: client.address,
               details: client.details || "",
             });
-
-            console.log("Cliente seteado en el form:", getValues("client")); // <--- Aquí
             setShowClientModal(false);
           }}
         />

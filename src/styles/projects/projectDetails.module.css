@@ -173,9 +173,7 @@
 }
 
 .addButton {
-  /*background-color: #4c2b81d5;*/
   background-color: #75591da2;
-  /*color: #d6b3ff;*/
   color: var(--white-color);
   display: flex;
   align-items: center;
@@ -192,7 +190,6 @@
   background-color: #3a2b5c;
 }
 
-/* Listas */
 .listItem {
   background-color: rgba(115, 85, 206, 0.08);
   padding: 0.75rem;
@@ -211,7 +208,6 @@
   color: #a4caff;
 }
 
-/* Colapsables */
 .collapseButton {
   background-color: #2d1f45;
   color: #d6b3ff;
@@ -332,7 +328,6 @@
   }
 }
 
-/* Estado de carga */
 .loading {
   text-align: center;
   color: #ccc;
@@ -346,7 +341,7 @@
 }
 
 .dropdownArrow {
-  border-left: none; /* que quede pegadito al botón principal */
+  border-left: none;
   border-radius: 0 5px 5px 0;
   padding: 0 6px;
 }
@@ -442,7 +437,6 @@
   }
 }
 
-/* Modal Acciones */
 .actionsModalOverlay {
   position: fixed;
   top: 0;

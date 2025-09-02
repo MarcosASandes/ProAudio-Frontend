@@ -1,14 +1,12 @@
 import { useDispatch } from "react-redux";
 import { deleteProductPhoto } from "../../services/productApiService";
 import { deleteProductPhotoInStore } from "../../features/products/ProductSlice";
-import { toast } from "react-toastify";
-import useGetProductDetails from "./useGetProductDetails";
 import { showToast, showToastError } from "../../utils/toastUtils";
 
 const useDeleteProductPhoto = () => {
   const dispatch = useDispatch();
 
-  const handleDeleteProductPhoto = async (photoId, productId) => {
+  const handleDeleteProductPhoto = async (photoId) => {
     try {
       const data = await deleteProductPhoto(photoId);
       dispatch(deleteProductPhotoInStore(data));

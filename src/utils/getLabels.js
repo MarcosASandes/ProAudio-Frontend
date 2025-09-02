@@ -37,6 +37,33 @@ export const getDirectionLabel = (status) => {
   }
 };
 
+export const getNotificationRelatedInfoLabel = (value) => {
+  switch (value) {
+    case "PLANNED":
+      return "Planificado";
+    case "CONFIRMED":
+      return "Confirmado";
+    case "ON_COURSE":
+      return "En curso";
+    case "COMPLETED":
+      return "Completado";
+    case "EXPIRED":
+      return "Expirado";
+    case "DISCARDED":
+      return "Descartado";
+    case "BUDGETED":
+      return "Presupuestado";
+    case "BILL_CREATED":
+      return "Factura creada";
+    case "PARTIALLY_PAID":
+      return "Parcialmente pagado";
+    case "PAID":
+      return "Pagado";
+    default:
+      return value;
+  }
+};
+
 export const getItemsLocationLabel = (status) => {
   switch (status) {
     case "IN_DEPOSIT":
@@ -199,7 +226,7 @@ export const getClientSortByOptionsLabel = (status) => {
     default:
       return status;
   }
-}
+};
 
 export const getEventSortByOptionsLabel = (status) => {
   switch (status) {
@@ -212,7 +239,7 @@ export const getEventSortByOptionsLabel = (status) => {
     default:
       return status;
   }
-}
+};
 
 export const getNotificationCompletedLabel = (status) => {
   return status ? "Resuelta" : "No resuelta";
@@ -239,7 +266,7 @@ export const getNotificationsTypeLabel = (type) => {
     default:
       return type;
   }
-}
+};
 
 export const getActionKeyLabel = (key) => {
   switch (key) {
@@ -254,11 +281,10 @@ export const getActionKeyLabel = (key) => {
     default:
       return key;
   }
-}
-
+};
 
 /* Estilos de badge: 
-Se envía el status y se devuelve el nombre de la clase personalizada de CSS */
+con el status se obtiene la clase de css */
 
 export const getEnabledDisabledBadgeClass = (status) => {
   switch (status) {
@@ -291,13 +317,13 @@ export const getProjectGeneralStatusClass = (status) => {
     case "CONFIRMED":
       return "confirmedGeneral";
     case "ON_COURSE":
-      return "onCourseGeneral"; 
+      return "onCourseGeneral";
     case "COMPLETED":
-      return "completedGeneral"; 
+      return "completedGeneral";
     case "EXPIRED":
-      return "expiredGeneral";  
+      return "expiredGeneral";
     case "DISCARDED":
-      return "discardedGeneral"; 
+      return "discardedGeneral";
     default:
       return "default";
   }
