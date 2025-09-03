@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { updateTag } from "../../services/tagApiService";
 import { updateTagInStore } from "../../features/tags/tagSlice";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useUpdateTag() {
   const dispatch = useDispatch();
@@ -16,13 +16,13 @@ export function useUpdateTag() {
 
     try {
       const updated = await updateTag(tagId, updatedTag);
-      console.log("UPDATED: ");
-      console.log(updated);
       if (onSuccess) onSuccess();
       dispatch(updateTagInStore(updated));
+      showToast("La etiqueta se ha modificado con éxito.");
     } catch (error) {
       console.error("Error al actualizar etiqueta:", error);
-      toast.error("Error: " + error.response.data.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   }, []);
 

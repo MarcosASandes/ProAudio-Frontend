@@ -1,0 +1,17 @@
+export const selectProjects = (state) => state.projects.projects;
+export const selectPaymentStatus = (state) => state.projects.paymentStatus;
+export const selectProjectStatus = (state) => state.projects.projectStatus;
+export const selectStartingProjectStatus = (state) => state.projects.startingProjectStatus;
+export const selectProjectTypes = (state) => state.projects.projectTypes;
+export const selectProjectPageable = (state) => state.projects.pageable;
+export const selectProjectsLoading = (state) => state.projects.loading;
+export const selectProjectsError = (state) => state.projects.error;
+export const selectSelectedProjectDetails = (state) => state.projects.selectProjectDetails;
+export const selectSelectedProject = (state) => state.projects.selectedProject;
+export const selectAllStatusesProject = (state) => state.projects.allStatuses;
+export const selectOutletItems = (state) => state.projects.outletItems;
+export const selectOutletProducts = (state) => state.projects.outletProducts;
+export const selectReturnItems = (state) => state.projects.returnItems;
+export const selectAllPaymentStatusesProject = (state) => state.projects.allPaymentStatuses;
+export const selectAllRunningStatusesProject = (state) => state.projects.allRunningStatuses;
+

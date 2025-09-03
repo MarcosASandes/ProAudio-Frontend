@@ -15,7 +15,6 @@ const useGetProductById = (id) => {
         dispatch(setSelectedProduct(data));
       } catch (error) {
         console.error("Error al obtener el producto:", error);
-        // En este caso no se despacha ningún error al store.
       }
     };
 

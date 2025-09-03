@@ -1,0 +1,164 @@
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: #1c1c2a;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.1);
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1c1c2a;
+  color: white;
+  min-width: 800px;
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #2c2c3a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.table th {
+  background-color: #26263a;
+  font-weight: 600;
+  color: #c4b5fd;
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.table th:hover {
+  background-color: #332e4d;
+  color: #d8b4fe;
+  cursor: pointer;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+  background-color: #2a2a3f;
+}
+
+.noData {
+  text-align: center;
+  padding: 2rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editBtn,
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #c9c9ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+.editBtn:hover {
+  color: #a855f7;
+}
+
+.deleteBtn:hover {
+  color: #ff6b6b;
+}
+
+.row td {
+  vertical-align: middle;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  transition: box-shadow 0.5s ease;
+}
+
+.badge:hover {
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.12);
+}
+
+.badgeCreated {
+  background-color: #8a5cf686;
+}
+
+.badgeDeleted {
+  background-color: #ef44447e;
+}
+
+.badgeGood {
+  background-color: #22c55e73;
+}
+
+.badgeDetails {
+  background-color: #3b83f66b;
+}
+
+.badgeOutOfUsage {
+  background-color: #d8ca4879;
+}
+
+.badgeDefault {
+  background-color: #9ca3af7a;
+}
+
+.badgeDepositLocation {
+  background-color: #8a5cf665;
+}
+
+.badgeUsingLocation {
+  background-color: #22c55e57;
+}
+
+.badgeNotReturnedLocation {
+  background-color: #ef444469;
+}
+
+.badgeLocationDefaultLocation {
+  background-color: #9ca3af6c;
+}
+
+@media (max-width: 768px) {
+  .table {
+    min-width: 700px;
+    font-size: 0.85rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
+  }
+}

@@ -1,4 +1,3 @@
-// hooks/tags/useGetTagById.js
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getTagById } from "../../services/tagApiService";
@@ -16,7 +15,6 @@ const useGetTagById = (id) => {
         dispatch(setSelectedTag(data));
       } catch (error) {
         console.error("Error al obtener la etiqueta:", error);
-        // En este caso no se despacha ningún error al store.
       }
     };
 

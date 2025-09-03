@@ -1,15 +1,19 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTags } from "../../services/tagApiService";
-import { fetchTagsStart, fetchTagsSuccess, fetchTagsFailure } from "../../features/tags/tagSlice";
-import { selectTags } from "../../features/tags/TagSelector";
+import {
+  fetchTagsStart,
+  fetchTagsSuccess,
+  fetchTagsFailure,
+} from "../../features/tags/tagSlice";
+import { selectIsTagsLoaded } from "../../features/tags/TagSelector";
 
-const useGetAllTags = () => {
+const useGetAllTags = (force = false) => {
   const dispatch = useDispatch();
-  const tags = useSelector(selectTags);
+  const loaded = useSelector(selectIsTagsLoaded);
 
   useEffect(() => {
-    if (tags.length > 0) return; // Ya los tengo, no vuelvo a pedir
+    if (!force && loaded) return;
 
     const fetchTags = async () => {
       dispatch(fetchTagsStart());
@@ -17,13 +21,14 @@ const useGetAllTags = () => {
         const data = await getAllTags();
         dispatch(fetchTagsSuccess(data.tags));
       } catch (error) {
-        dispatch(fetchTagsFailure(error.message || "Error al cargar las etiquetas"));
+        dispatch(
+          fetchTagsFailure(error.message || "Error al cargar las etiquetas")
+        );
       }
     };
 
     fetchTags();
-  }, [dispatch, tags]);
+  }, [dispatch, force, loaded]);
 };
 
 export default useGetAllTags;
-

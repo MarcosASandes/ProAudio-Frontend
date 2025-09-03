@@ -1,0 +1,10 @@
+.container {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; 
+}

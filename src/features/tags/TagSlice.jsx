@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   error: null,
   selectedTag: null,
+  loaded: false,
 };
 
 const TagSlice = createSlice({
@@ -25,10 +26,10 @@ const TagSlice = createSlice({
       state.error = action.payload;
     },
     setSelectedTag: (state, action) => {
-      state.selectedTag = action.payload; // <-- NUEVO
+      state.selectedTag = action.payload;
     },
     clearSelectedTag: (state) => {
-      state.selectedTag = null; // <-- NUEVO
+      state.selectedTag = null;
     },
     updateTagInStore: (state, action) => {
       const updatedTag = action.payload;
@@ -40,13 +41,13 @@ const TagSlice = createSlice({
     addTag: (state, action) => {
       return {
         ...state,
-        tags: [...state.tags, action.payload], // ✅ sin mutar el array original
+        tags: [...state.tags, action.payload], 
       };
     },
     deleteTagStore: (state, action) => {
       return {
         ...state,
-        tags: state.tags.filter((tag) => tag.tag_id !== action.payload), // ✅ sin mutar
+        tags: state.tags.filter((tag) => tag.tag_id !== action.payload), 
       };
     },
     setTagsTypeInStore: (state, action) => {

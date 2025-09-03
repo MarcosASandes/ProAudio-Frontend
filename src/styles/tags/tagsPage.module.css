@@ -1,0 +1,71 @@
+.tagsPage {
+  height: 85vh;
+  width: 83vw;
+  overflow-y: auto;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  border-radius: 10px;
+  color: var(--text-color, #e0e0e0);
+}
+
+.animatedUnderline {
+  color: var(--purple-main);
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.animatedUnderline::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--purple-extra);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.animatedUnderline:hover::after {
+  transform: scaleX(1);
+}
+
+.btnGreenStyle {
+  border-color: var(--green-dark-success) !important;
+  background-color: var(--green-dark-success) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.7s ease, color 0.7s ease !important;
+}
+
+.btnGreenStyle:hover {
+  border-color: var(--green-success) !important;
+  background-color: var(--green-success) !important;
+  color: var(--main-bg) !important;
+}
+
+.tagsTreeWrapper {
+  background-color: #121212;
+  border: 1px solid #2c2c2c;
+  box-shadow: 0 0 6px rgba(115, 85, 206, 0.25);
+  border-radius: 12px;
+  padding: 1rem;
+  max-height: 70vh;
+  overflow: auto;
+  align-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin-top: 2rem;
+}
+
+.tagsTreeSpace {
+  width: 70%;
+  min-height: auto;
+}

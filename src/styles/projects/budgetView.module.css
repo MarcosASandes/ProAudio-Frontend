@@ -1,0 +1,10 @@
+.pdfViewerContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #1d1d2b;
+  border-radius: 10px;
+}

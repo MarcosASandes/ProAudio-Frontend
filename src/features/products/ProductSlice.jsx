@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   productStatus: [],
+  productsInProject: [],
+  selectedPrices: {},
   pageable: null,
   selectedProduct: null,
   selectProductDetails: null,
@@ -52,7 +54,6 @@ const productSlice = createSlice({
       state.error = action.payload;
     },
 
-    // ✅ NUEVO REDUCER
     setSelectedProduct: (state, action) => {
       state.selectedProduct = action.payload;
     },
@@ -62,17 +63,12 @@ const productSlice = createSlice({
     deleteProductPhotoInStore: (state, action) => {
       const { photo_id } = action.payload;
 
-      console.log("Before:", state.selectProductDetails?.photos);
-
-      // Si no existe la lista de fotos, evita el error
       if (state.selectProductDetails?.photos) {
         state.selectProductDetails.photos =
           state.selectProductDetails.photos.filter(
             (photo) => photo.photo_id !== photo_id
           );
       }
-
-      console.log("After:", state.selectProductDetails?.photos);
     },
     addProductPriceInStore: (state, action) => {
       return {
@@ -95,7 +91,6 @@ const productSlice = createSlice({
       };
     },
 
-    //Para los tags descriptivos
     addDescriptionTagInStore: (state, action) => {
       return {
         ...state,
@@ -121,7 +116,6 @@ const productSlice = createSlice({
       };
     },
 
-    // Para los tags de relación
     addRelationTagInStore: (state, action) => {
       return {
         ...state,
@@ -173,7 +167,6 @@ const productSlice = createSlice({
       };
     },
 
-    //Sirve para eliminar un producto de la store (array products, details y selected)
     removeProductInStore: (state, action) => {
       const productIdToDelete = action.payload.product_id;
 
@@ -196,10 +189,36 @@ const productSlice = createSlice({
     setProductStatusInStore: (state, action) => {
       state.productStatus = action.payload;
     },
+
+
+    setProductSelectedPricesInStore: (state, action) => {
+      const { productId, prices } = action.payload;
+      state.selectedPrices[productId] = prices;
+    },
+    setProductsInProjectInStore: (state, action) => {
+      state.productsInProject = action.payload.products;
+    },
+    addProductInProject: (state, action) => {
+      const payload = {
+        ...action.payload,
+        rent_price: action.payload.rent_price_value,
+      };
+      return {
+        ...state,
+        productsInProject: [...state.productsInProject, payload],
+      };
+    },
+    removeProductInProject: (state, action) => {
+      return {
+        ...state,
+        productsInProject: state.productsInProject.filter(
+          (prod) => prod.product_project_id !== action.payload
+        ),
+      };
+    },
   },
 });
 
-// ✅ Exporta acciones
 export const {
   addProduct,
   updateProductInStore,
@@ -222,6 +241,10 @@ export const {
   removeDependencyTagInStore,
   removeProductInStore,
   setProductStatusInStore,
+  setProductSelectedPricesInStore,
+  setProductsInProjectInStore,
+  addProductInProject,
+  removeProductInProject,
 } = productSlice.actions;
 
 export default productSlice.reducer;

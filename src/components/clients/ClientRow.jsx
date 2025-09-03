@@ -1,0 +1,31 @@
+import React from "react";
+import styles from "../../styles/clients/clientTable.module.css";
+import { SquareArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const ClientRow = ({ client }) => {
+  const navigate = useNavigate();
+
+  return (
+    <tr className={styles.row}>
+      <td title={client.client_id}>{client.client_id}</td>
+      <td title={client.name}>{client.name}</td>
+      <td title={client.address}>{client.address}</td>
+      <td title={client.email}>{client.email}</td>
+      <td title={client.phone_number}>{client.phone_number}</td>
+      <td className={styles.actions}>
+        <button
+          type="button"
+          className={styles.editBtn}
+          aria-label={`Ver detalle de ${client.name}`}
+          title={`Ver detalle de ${client.name}`}
+          onClick={() => navigate(`/client/${client.client_id}`)}
+        >
+          <SquareArrowRight size={22} />
+        </button>
+      </td>
+    </tr>
+  );
+};
+
+export default ClientRow;

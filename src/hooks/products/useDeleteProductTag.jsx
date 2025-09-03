@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { removeDescriptionTagInStore, removeRelationTagInStore, removeDependencyTagInStore } from "../../features/products/ProductSlice";
 import { deleteProductTag } from "../../services/productApiService";
-import { toast } from "react-toastify";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useDeleteProductTag() {
   const dispatch = useDispatch();
@@ -10,10 +10,8 @@ export function useDeleteProductTag() {
   const handleDeleteProductTag = useCallback(
     async (productId, tagId, type) => {
       try {
-        // 👉 1) Llamar servicio API pasando productId y tagId
-        const deletedTag = await deleteProductTag(productId, tagId);
+        const deletedTag = await deleteProductTag(productId, tagId, type);
 
-        // 👉 2) Remover de la store según type
         if (type === "DESCRIPTIVE") {
           dispatch(removeDescriptionTagInStore(deletedTag));
         } else if (type === "RELATION") {
@@ -22,10 +20,11 @@ export function useDeleteProductTag() {
           dispatch(removeDependencyTagInStore(deletedTag));
         }
 
-        toast.success("Etiqueta eliminada correctamente ✅");
+        showToast("Etiqueta eliminada correctamente");
       } catch (error) {
         console.error("Error al eliminar etiqueta:", error);
-        toast.error("Error al eliminar etiqueta ❌");
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

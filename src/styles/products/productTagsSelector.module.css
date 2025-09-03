@@ -1,0 +1,13 @@
+.btnPurpleStyle {
+  background-color: #6610f2;
+  color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btnPurpleStyle:hover {
+  background-color: #520dc2;
+}

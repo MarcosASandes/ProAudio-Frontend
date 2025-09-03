@@ -1,0 +1,166 @@
+:root {
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --gray-color: #cccccc;
+}
+
+.loginPage {
+  background-color: var(--russian-violet);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer {
+  background-color: var(--white-color);
+  padding: 2.5rem;
+  border-radius: 14px;
+  width: 420px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid var(--russian-violet-2);
+  box-shadow: 0 0 20px var(--persian-indigo);
+  animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 5px var(--persian-indigo), 0 0 10px var(--persian-indigo), 0 0 20px var(--persian-indigo);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--tekhelet), 0 0 30px var(--tekhelet), 0 0 40px var(--tekhelet);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--french-violet), 0 0 10px var(--french-violet), 0 0 20px var(--french-violet);
+  }
+}
+
+.loginHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  height: 40px;
+  user-select: none;
+}
+
+.lettering {
+  height: 25px;
+  user-select: none;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+  color: var(--black-color);
+}
+
+.inputIconRight {
+  left: auto;
+  right: 10px;
+  cursor: pointer;
+}
+
+.loginInput {
+  width: 100%;
+  padding: 0.8rem 2.8rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 8px;
+  font-size: 1.1rem; 
+}
+
+.loginInput:focus {
+  outline: none;
+  border-color: var(--french-violet);
+}
+
+.forgotPassword {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.forgotPassword .forgotPasswordLink {
+  color: var(--persian-indigo);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forgotPassword a:hover {
+  text-decoration: underline;
+}
+
+.loginButton {
+  background-color: var(--tekhelet);
+  color: var(--white-color);
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: var(--french-violet);
+}
+
+.loginButton:disabled {
+  background-color: #4f0d6e8a;
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+
+/* Animación de salto */
+@keyframes iconJump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.iconJumping {
+  animation: iconJump 0.3s ease;
+}
+
+.iconFocused {
+  filter: drop-shadow(0 0 5px var(--amethyst))
+    drop-shadow(0 0 10px var(--amethyst))
+    drop-shadow(0 0 15px var(--amethyst));
+}
+
+.containerOptionalTitle{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--tekhelet);
+}
+
+.disabledButton {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.changeBackgroundColor {
+  background-color: var(--tekhelet);
+}

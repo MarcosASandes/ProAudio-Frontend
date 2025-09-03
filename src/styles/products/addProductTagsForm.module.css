@@ -1,0 +1,341 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #1c1c2a;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.title {
+  color: #d6b3ff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.section {
+  margin-top: 1.5rem;
+}
+
+.sectionTitle {
+  color: #d6b3ff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.tagGroup {
+  margin-bottom: 1rem;
+}
+
+.tagGroupTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.descriptive {
+  color: #db424277;
+}
+.relation {
+  color: #4caf50;
+}
+.dependency {
+  color: #ffc107;
+}
+
+.noTags {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.badgeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tagBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.badgeDescriptive {
+  background-color: #db424262;
+}
+.badgeRelation {
+  background-color: #4caf4f8a;
+}
+.badgeDependency {
+  background-color: #ffc10775;
+  color: var(--white-color);
+}
+
+.removeBadgeBtn {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.removeBadgeBtn:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.formGroupRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.selectTagButton{
+  background-color: #811e8a85;
+  transition: background 0.3s;
+}
+
+.selectTagButton:hover{
+  background-color: #54155a85;
+}
+
+.addBtn{
+  background-color: #24509293;
+  transition: background 0.3s;
+}
+
+.addBtn:hover{
+  background-color: #1a3a6993;
+}
+
+.selectTagButton,
+.addBtn {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #2a2a40;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.submitBtn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: var(--purple-extra);
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: var(--purple-secondary);
+}
+
+.submitBtn:disabled {
+  background-color: #ad262636;
+  cursor: not-allowed;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease;
+}
+
+.row:hover {
+  background-color: #2a2a40;
+}
+
+.cell {
+  flex: 1;
+  padding: 0.5rem;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.badge-container {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 0.3rem;
+  scrollbar-width: thin;
+  scrollbar-color: #666 transparent;
+}
+
+.badge-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.badge-container::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+.badge-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #444;
+  white-space: nowrap; 
+  user-select: none;
+}
+
+
+.badgeScrollContainer {
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.badgeContainer {
+  display: inline-flex;
+  gap: 0.6rem;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.badgeScrollContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.badgeScrollContainer::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+.badgeScrollContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.twoColumnLayout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1;
+  background-color: #2a2a3a6c;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.infoIconWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  color: var(--black-color);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(146, 49, 211, 0.397);
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 8px);
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.infoIconWrap:hover .tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.02);
+}
+
+.actionBlock:hover .infoIconWrap {
+  filter: drop-shadow(0 0 4px rgba(142, 101, 238, 0.8));
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .form {
+    padding: 1rem;
+  }
+
+  .formGroupRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select,
+  .selectTagButton,
+  .addBtn,
+  .submitBtn {
+    width: 100%;
+  }
+
+    .twoColumnLayout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

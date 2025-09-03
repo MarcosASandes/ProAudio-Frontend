@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #1d1d2b;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 48px;
+}
+
+.title {
+  margin: 0;
+  color: #d6b3ff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.createButton {
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--purple-extra);
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(83, 53, 174, 0.12);
+  transition: background-color 0.18s ease, transform 0.08s ease;
+}
+
+.createButton:hover {
+  background-color: var(--purple-secondary);
+}
+
+.createButton:active {
+  transform: translateY(1px);
+}
+
+.createButton:disabled {
+  background-color: #4e3c82;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.filterWrapper {
+  width: 100%;
+}
+
+.tableWrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 0.25rem;
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 0;
+  }
+  .tableWrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+  .tableWrapper::-webkit-scrollbar-thumb {
+    background: rgba(150, 100, 250, 0.3);
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,22 @@
+.mainContent {
+  margin-left: 250px;
+  margin-top: 80px;
+  min-height: 85vh;
+  margin-right: 30px;
+  border-radius: 10px;
+  transition: margin-left 0.3s ease, background-color 0.3s ease;
+}
+
+.mainContentExpanded {
+  margin-left: 70px;
+}
+
+.outletLayout {
+  margin-left: 100px !important;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 70px;
+  }
+}

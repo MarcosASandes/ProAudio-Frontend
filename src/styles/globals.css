@@ -1,12 +1,43 @@
 :root {
-  --main-bg: #000000; /* Color del layout main (Navbar y Sidebar) */
-  --secondary-bg: #1a1a1a; /* Color segundario */
-  --text-color: #ffffff; /* Color de texto */
-  --body-bg: #121212; /* Color de fondo del main / outlet */
-  --purple-main: #7355ce; /* Púrpura principal*/
-  --purple-secondary: #8365ee; /* Púrpura segundario */
-  --purple-extra: #5335ae; /* Púrpura extra */
+  --main-bg: #000000;
+  --secondary-bg: #1a1a1a;
+  --text-color: #ffffff;
+  --body-bg: #121212;
+  --purple-main: #7355ce;
+  --purple-secondary: #8365ee;
+  --purple-extra: #5335ae;
+  --russian-violet: #10002bff;
+  --russian-violet-2: #240046ff;
+  --russian-violet-3: rgb(7, 1, 19);
+  --persian-indigo: #3c096cff;
+  --tekhelet: #5a189aff;
+  --french-violet: #7b2cbfff;
+  --amethyst: #9d4eddff;
+  --heliotrope: #c77dffff;
+  --mauve: #e0aaffff;
+  --red-color: #b31414;
+  --red-dark: #8b0f0f;
 }
+
+/*Agregarle estilos a la barra de scroll*/
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--purple-extra);
+  border-radius: 8px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple-extra) transparent;
+}
+/*Agregarle estilos a la barra de scroll*/
 
 body {
   background-color: var(--body-bg) !important;
@@ -25,116 +56,6 @@ h1:hover{
   color: var(--purple-main) !important;
 }
 
-/* Estilos del navbar */
-.navbar {
-  background-color: var(--main-bg);
-  height: 60px;
-  z-index: 1030;
-}
-
-.logo-placeholder {
-  color: var(--text-color);
-  font-weight: bold;
-  max-width: 45px;
-  margin-top: 5px;
-  transition: filter 0.5s ease;
-}
-
-/*Con esto se logra el efecto de neón*/
-.logo-placeholder:hover {
-  filter: drop-shadow(0 0 5px var(--purple-extra)) 
-          drop-shadow(0 0 10px var(--purple-extra))
-          drop-shadow(0 0 15px var(--purple-extra));
-}
-
-.button-placeholder {
-  color: var(--text-color);
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
-  color: var(--text-color);
-  transition: color 0.7s ease;
-}
-
-.icon:hover {
-  color: var(--purple-secondary);
-}
-
-
-/* Estilos del sidebar */
-.sidebar {
-  background-color: var(--main-bg); /*ANTES ERA SECONDRY-BG*/
-  width: 240px;
-  height: 100vh;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  z-index: 1020;
-  transition: width 0.3s ease;
-}
-
-.sidebar-collapsed {
-  width: 70px;
-}
-
-.sidebar-content {
-  padding-top: 20px;
-}
-
-.sidebar .nav-link {
-  color: var(--text-color);
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.sidebar .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--purple-secondary);
-}
-
-.sidebar-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 15px;
-}
-
-.sidebar-collapsed .sidebar-text {
-  display: none;
-}
-
-.sidebar-collapsed .sidebar-icon {
-  margin-right: 0;
-}
-
-.sidebar .nav-link.active {
-  background-color: var(--body-bg);
-  color: var(--purple-main);
-}
-
-/* Estilos del main */
-.main-content {
-  margin-left: 250px;
-  margin-top: 80px;
-  min-height: 85vh;
-  /*min-height: 100vh; - ASI ESTABA ANTES*/
-  transition: margin-left 0.3s ease;
-  transition: background-color 0.3s ease;
-  /*background-color: brown;*/
-  margin-right: 30px;
-  border-radius: 10px;
-}
-
-/*.main-content:hover {
-  background-color: #1d1d1d;
-}*/
-
-.main-content-expanded {
-  margin-left: 70px;
-}
 
 /* Card Styles */
 .card {
@@ -144,32 +65,6 @@ h1:hover{
   margin-bottom: 20px;
 }
 
-/* Ajustes de responsive */
-@media (max-width: 768px) {
-  .logo-placeholder {
-    max-width: 30px;
-  }
-
-  .sidebar {
-    width: 70px;
-  }
-
-  .sidebar .sidebar-text {
-    display: none;
-  }
-
-  .sidebar .sidebar-icon {
-    margin-right: 0;
-  }
-
-  .main-content {
-    margin-left: 70px;
-  }
-
-  .outlet-layout {
-    margin-left: 100px !important;
-  }
-}
 
 /* Bootstrap overrides */
 .bg-secondary {
@@ -191,14 +86,7 @@ h1:hover{
   margin-left: 300px;
 }
 
-
-
 /**/
-
-
-
-
-
 
 .animated-underline {
   display: inline-block;
@@ -211,7 +99,7 @@ h1:hover{
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px; /* distancia entre el texto y la línea */
+  bottom: -4px;
   width: 100%;
   height: 2px;
   background-color: var(--hover-color);
@@ -223,3 +111,69 @@ h1:hover{
 .animated-underline:hover::after {
   transform: scaleX(1);
 }
+
+/*-------------------------*/
+/*sobreescritura de los estilos de los toast*/
+.custom-toast {
+  background-color: black !important;
+  border-radius: 8px !important;
+  border: 2px solid transparent !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  padding: 0 !important;
+  max-width: none !important; 
+  width: auto !important;
+}
+
+.custom-toast.error-toast {
+  border-color: #ef4444 !important; 
+}
+
+.custom-toast-body {
+  padding: 0 !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.custom-toast-progress {
+  background: transparent !important;
+}
+
+
+/* Barra de progreso base, visible y con transición */
+.Toastify__progress-bar {
+  background: transparent !important;
+  transition: transform 0.2s linear;
+}
+
+/* Barra progreso púrpura para toast normal */
+.custom-toast .Toastify__progress-bar {
+  background-color: #a855f7 !important;
+}
+
+/* Barra progreso roja para toast error */
+.custom-toast.error-toast .Toastify__progress-bar {
+  background-color: #ef4444 !important;
+}
+
+.custom-toast .Toastify__toast-icon {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.Toastify__close-button {
+  color: white !important;
+  opacity: 1 !important;
+}
+
+.Toastify__close-button:hover {
+  color: #a855f7 !important;
+}
+
+.custom-toast.error-toast .Toastify__close-button:hover {
+  color: #ef4444 !important;
+}
+/*Sobreescritura de los estilos de los toast*/
+/*-------------------------*/

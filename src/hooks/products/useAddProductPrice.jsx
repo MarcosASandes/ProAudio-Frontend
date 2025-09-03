@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { createProductPrice } from "../../services/productApiService";
-import { toast } from "react-toastify";
 import { addProductPriceInStore } from "../../features/products/ProductSlice";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useAddProductPrice() {
   const dispatch = useDispatch();
@@ -10,7 +10,6 @@ export function useAddProductPrice() {
   const handleAddProductPrice = useCallback(
     async (productId, price) => {
       try {
-        // 👉 Mapeo: camelCase a snake_case
         const payload = {
           value: price.value,
           description: price.description,
@@ -19,7 +18,6 @@ export function useAddProductPrice() {
 
         const createdPrice = await createProductPrice(payload);
 
-        // Mapeo de respuesta a store
         const priceToStore = {
           rent_price_id: createdPrice.rent_price_id,
           value: createdPrice.value,
@@ -28,9 +26,11 @@ export function useAddProductPrice() {
         };
 
         dispatch(addProductPriceInStore(priceToStore));
+        showToast("Precio creado correctamente.");
       } catch (error) {
         console.error("Error al agregar precio:", error);
-        toast.error("Error al agregar precio.");
+        const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+        showToastError(msj);
       }
     },
     [dispatch]

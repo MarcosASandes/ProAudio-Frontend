@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { updateProduct } from "../../services/productApiService";
 import { updateProductInStore } from "../../features/products/ProductSlice";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import { showToast, showToastError } from "../../utils/toastUtils";
 
 export function useUpdateProduct() {
   const dispatch = useDispatch();
@@ -15,16 +15,15 @@ export function useUpdateProduct() {
       status: formData.status
     };
 
-    console.log("Producto editado: ");
-    console.log(updatedProduct);
-
     try {
       const updated = await updateProduct(productId, updatedProduct);
       if (onSuccess) onSuccess();
       dispatch(updateProductInStore(updated));
+      showToast("Producto modificado correctamente.");
     } catch (error) {
       console.error("Error al actualizar producto:", error);
-      toast.error("Error: " + error.response?.data?.message || error.message);
+      const msj = error.response?.data?.message || "Ocurrió un error inesperado";
+      showToastError(msj);
     }
   }, [dispatch]);
 

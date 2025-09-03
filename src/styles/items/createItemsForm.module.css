@@ -1,0 +1,285 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #1c1c2a;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+  overflow-y: auto;
+  height: 100%;
+  color: var(--white-color);
+}
+
+.mainTitle {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #dcd4f7;
+  margin-bottom: 0.5rem;
+}
+
+.formCartWrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.formSection {
+  flex: 3;
+  background-color: #15151f88;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  color: #cfc6e8;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.formGroup:focus-within label {
+  color: #8365ee;
+}
+
+.formRow {
+  display: flex;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #7355ce;
+  background-color: #1f1a2f;
+  color: #e6e1ff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  border-color: #8365ee;
+  box-shadow: 0 0 6px rgba(131, 101, 238, 0.3);
+  outline: none;
+}
+
+.error {
+  color: #ff7f7f;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.formButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.addButton {
+  background-color: #7355ce80;
+  color: #f5f5f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.addButton:hover {
+  background-color: #8365ee99;
+}
+
+.resetButton {
+  background-color: #ee656593;
+  color: #f5f5f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #9a6fd1;
+}
+
+.cartSection {
+  flex: 1;
+  border-left: 1px solid #7355ce;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 10px;
+  background-color: #1a182e;
+}
+
+.cartTitle {
+  color: #dcd4f7;
+  margin-bottom: 1rem;
+}
+
+.emptyCart {
+  color: #aaa2c0;
+  font-style: italic;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #2a1f46;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.cartItem:hover {
+  box-shadow: 0 0 10px rgba(131, 101, 238, 0.3);
+  background-color: #3b2b5f;
+}
+
+.cartActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: #e6e1ff;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.iconButton:hover {
+  color: #9e58e0;
+}
+
+.submitButton {
+  background-color: #8365ee;
+  color: #f5f5f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #7355ce;
+}
+
+.serialNumbersScrollContainer {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  max-width: 40vw;
+  white-space: nowrap;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+}
+
+.serialBadge {
+  background-color: #c25a1480;
+  color: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.serialBadge:hover {
+  background-color: #7355ceaa;
+}
+
+.removeBadgeButton {
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.serialNumberSectionContainer {
+  padding: 15px;
+  border: 2px solid #7355ce50;
+  border-radius: 10px;
+  background-color: #161429;
+  transition: box-shadow 0.5s ease;
+}
+
+.serialNumberSectionContainer:hover {
+  box-shadow: 0 0 10px rgba(131, 101, 238, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .formCartWrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .formSection,
+  .cartSection {
+    width: 100%;
+    flex: none;
+  }
+
+  .serialNumbersScrollContainer {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .formRow {
+    flex-direction: column;
+  }
+
+  .formGroup {
+    width: 100%;
+  }
+
+  .serialNumbersScrollContainer {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .addButton,
+  .resetButton,
+  .submitButton {
+    width: 100%;
+  }
+
+  .cartActions {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+}

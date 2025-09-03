@@ -1,0 +1,140 @@
+.scanItemContainer {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: #1d1d2b;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.scanLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #1c1c35af;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.scannerArea {
+  width: 100%;
+  min-height: 420px;
+  background: #0e0e16;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.btnScan {
+  margin-top: 1rem;
+  background: var(--purple-main);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btnScan:hover {
+  background: var(--purple-secondary);
+  transform: scale(1.05);
+}
+
+.cameraError {
+  margin-top: 1rem;
+  text-align: center;
+  color: #ff6666;
+}
+
+.btnRetry {
+  margin-top: 0.5rem;
+  background: transparent;
+  border: 1px solid #ff6666;
+  color: #ff6666;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnRetry:hover {
+  background: #ff6666;
+  color: #fff;
+}
+
+.scanRight {
+  flex: 1;
+   background: #1c1c35af;
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.itemDetails h3 {
+  font-size: 1.25rem;
+  color: var(--purple-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.itemDetails p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.actionButtons {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btnAction {
+  background: var(--purple-main);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btnAction:hover {
+  background: var(--purple-secondary);
+  transform: scale(1.05);
+}
+
+.noItem {
+  font-style: italic;
+  color: #aaa;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+  .scanItemContainer {
+    flex-direction: column;
+  }
+
+  .scannerArea{
+    min-height: 300px;
+  }
+
+  .scanLeft,
+  .scanRight {
+    width: 100%;
+  }
+}
