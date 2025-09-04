@@ -148,6 +148,7 @@ const CreateItemsForm = () => {
               <input
                 id="txtDescription"
                 type="text"
+                placeholder="Breve descripción de los artículos comprados..."
                 {...register("items[0].description")}
                 className={styles.input}
               />
@@ -165,6 +166,7 @@ const CreateItemsForm = () => {
                 <input
                   id="numPrice"
                   type="number"
+                  placeholder="EJ: 200.00"
                   {...register("items[0].purchase_price")}
                   className={styles.input}
                 />
@@ -197,6 +199,7 @@ const CreateItemsForm = () => {
                 <input
                   id="numAmountBought"
                   type="number"
+                  placeholder="Ej: 9"
                   {...register("items[0].quantity")}
                   className={styles.input}
                 />
@@ -211,6 +214,7 @@ const CreateItemsForm = () => {
                 <input
                   id="numRange"
                   type="text"
+                  placeholder="250-500 Hz"
                   {...register("items[0].itemRange")}
                   className={styles.input}
                 />

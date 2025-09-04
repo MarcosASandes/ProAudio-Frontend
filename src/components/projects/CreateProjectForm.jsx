@@ -750,6 +750,7 @@ const CreateProjectForm = () => {
             setSelectedClient(client);
 
             setValue("client", {
+              client_id: client.client_id,
               name: client.name,
               email: client.email,
               phone: client.phone_number,

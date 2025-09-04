@@ -78,13 +78,13 @@ const CreateEmbeddedEventForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtName">Nombre del evento</label>
-        <input id="txtName" type="text" {...register("name")} />
+        <input id="txtName" type="text" placeholder="EJ: Festival de electrónica..." {...register("name")} />
         {errors.name && <p className={styles.error}>{errors.name.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtAddress">Dirección</label>
-        <input id="txtAddress" type="text" {...register("address")} />
+        <input id="txtAddress" type="text" placeholder="Calle falsa 1234" {...register("address")} />
         {errors.address && (
           <p className={styles.error}>{errors.address.message}</p>
         )}
@@ -95,6 +95,7 @@ const CreateEmbeddedEventForm = () => {
         <input
           id="numDistance"
           type="number"
+          placeholder="Indique la distancia de viaje"
           onWheel={(e) => e.target.blur()}
           {...register("distance")}
         />
@@ -105,7 +106,7 @@ const CreateEmbeddedEventForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtDescription">Descripción</label>
-        <textarea id="txtDescription" rows="4" {...register("description")} />
+        <textarea id="txtDescription" rows="4" placeholder="Información adicional del evento..." {...register("description")} />
         {errors.description && (
           <p className={styles.error}>{errors.description.message}</p>
         )}

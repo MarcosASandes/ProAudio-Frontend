@@ -79,25 +79,25 @@ const CreateEmbeddedClientForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtName">Nombre</label>
-        <input type="text" id="txtName" {...register("name")} />
+        <input type="text" id="txtName" placeholder="EJ: John Doe" {...register("name")} />
         {errors.name && <p className={styles.error}>{errors.name.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtEmail">Email</label>
-        <input type="email" id="txtEmail" {...register("email")} />
+        <input type="email" id="txtEmail" placeholder="ejemplo@gmail.com" {...register("email")} />
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtTel">Teléfono</label>
-        <input type="text" id="txtTel" {...register("phone")} />
+        <input type="text" id="txtTel" placeholder="091222333" {...register("phone")} />
         {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtAddress">Dirección</label>
-        <input type="text" id="txtAddress" {...register("address")} />
+        <input type="text" id="txtAddress" placeholder="Calle falsa 1234" {...register("address")} />
         {errors.address && (
           <p className={styles.error}>{errors.address.message}</p>
         )}
@@ -105,7 +105,7 @@ const CreateEmbeddedClientForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtDetails">Detalles</label>
-        <textarea rows="3" id="txtDetails" {...register("details")}></textarea>
+        <textarea rows="3" id="txtDetails" placeholder="Información adicional del cliente..." {...register("details")}></textarea>
         {errors.details && (
           <p className={styles.error}>{errors.details.message}</p>
         )}

@@ -102,7 +102,7 @@ export default function CreateProductForm() {
         <input
           id="txtModel"
           type="text"
-          placeholder="Ej: SENNHEISER EW DX EM 2"
+          placeholder="Ej: EW DX EM 2"
           {...register("model")}
         />
       </div>

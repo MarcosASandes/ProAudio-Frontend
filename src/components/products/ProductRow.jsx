@@ -18,7 +18,7 @@ const ProductRow = ({ product }) => {
     <tr className={styles.row}>
       <td title={product.brand || "N/A"}>{product.brand || "N/A"}</td>
       <td title={product.model}>{product.model}</td>
-      <td title={product.comments}>{product.comments}</td>
+      <td title={product.comments}>{product.comments ? product.comments : "-"}</td>
       <td className={styles.actions}>
         <button
           type="button"

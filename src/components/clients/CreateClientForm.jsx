@@ -35,25 +35,25 @@ const CreateClientForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtName">Nombre (Persona / Empresa)</label>
-        <input id="txtName" type="text" {...register("name")} />
+        <input id="txtName" type="text" placeholder="EJ: John Doe" {...register("name")} />
         {errors.name && <p className={styles.error}>{errors.name.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="numPhone">Teléfono</label>
-        <input id="numPhone" type="text" {...register("phone")} />
+        <input id="numPhone" type="text" placeholder="091222333" {...register("phone")} />
         {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtEmail">Email</label>
-        <input id="txtEmail" type="email" {...register("email")} />
+        <input id="txtEmail" type="email" placeholder="ejemplo@gmail.com" {...register("email")} />
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="txtAddress">Dirección</label>
-        <input id="txtAddress" type="text" {...register("address")} />
+        <input id="txtAddress" type="text" placeholder="Calle falsa 1234" {...register("address")} />
         {errors.address && (
           <p className={styles.error}>{errors.address.message}</p>
         )}
@@ -61,7 +61,7 @@ const CreateClientForm = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="txtDetails">Detalles</label>
-        <textarea id="txtDetails" rows="4" {...register("details")} />
+        <textarea id="txtDetails" rows="4" placeholder="Información adicional del cliente..." {...register("details")} />
         {errors.details && (
           <p className={styles.error}>{errors.details.message}</p>
         )}

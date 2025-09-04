@@ -36,7 +36,7 @@ const localURL = "http://localhost:8080";
  * @type {import('axios').AxiosInstance}
  */
 const axiosInstance = axios.create({
-  baseURL: apiURL, 
+  baseURL: localURL, 
   headers: {
     'Content-Type': 'application/json',
   },
